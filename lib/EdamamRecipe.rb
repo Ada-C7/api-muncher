@@ -32,5 +32,6 @@ class EdamamRecipe
     else
       raise EdamamException.new(response["error"])
     end
+
   end
 end

@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
 
   # will take data from search and call the lib API method
   def create
+    p "we made it to the create method"
   end
 
   # will show results from search
