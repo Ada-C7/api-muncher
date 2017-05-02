@@ -61,7 +61,10 @@ end
 
 gem 'awesome_print'
 gem 'foundation-rails'
+
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
 end
+
+gem 'httparty'
