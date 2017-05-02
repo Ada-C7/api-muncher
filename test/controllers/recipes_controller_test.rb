@@ -1,13 +1,13 @@
 require "test_helper"
 
-describe HomepagesController do
+describe RecipesController do
   it "should get index" do
-    get homepages_index_url
+    get recipes_index_url
     value(response).must_be :success?
   end
 
   it "should get show" do
-    get homepages_show_url
+    get recipes_show_url
     value(response).must_be :success?
   end
 
