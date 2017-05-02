@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
   def results
 
     @results = EdamamApiWrapper.searchRecipes(params[:q])
-    @count = @results["count"]
+    @count = @results["hits"].count
     @recipes = []
 
     @results["hits"].each do |recipe|
