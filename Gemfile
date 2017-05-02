@@ -35,9 +35,15 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'httparty'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'dotenv-rails'
+  gem 'better_errors'
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :development do
@@ -55,9 +61,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :development do
   gem 'better_errors'
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 gem 'awesome_print'
+
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
