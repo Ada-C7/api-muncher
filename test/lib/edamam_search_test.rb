@@ -3,7 +3,18 @@ require 'test_helper'
 describe EdamamSearch do
 
   describe 'initialize' do
+    it 'requires search text' do
+      text = "mushrooms"
+      search = EdamamSearch.new(text)
+      search.must_be_instance_of EdamamSearch
+      search.search_text.must_equal text
+    end
 
+    it 'will raise error if not given search text' do
+      proc {
+        EdamamSearch.new
+      }.must_raise ArgumentError
+    end
   end
 
   describe 'search_results' do
@@ -24,7 +35,6 @@ describe EdamamSearch do
     end
 
     it 'returns ? when there are no results' do
-
     end
   end
 end

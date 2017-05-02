@@ -6,6 +6,7 @@ class EdamamSearch
   BASE_URL = "https://api.edamam.com/search?"
 
   attr_reader :search_text
+
   def initialize(search_info)
     @search_text = search_info
     # health = search_hash[:health_options]
@@ -24,7 +25,6 @@ class EdamamSearch
     # response = HTTParty.get("https://api.edamam.com/search?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&q=#{@search_text}")
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
-    # response["ok"] is a slack thing...
     if response
       return response
     else
