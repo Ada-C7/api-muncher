@@ -1,3 +1,4 @@
+require 'edamam_search'
 class RecipesController < ApplicationController
 
   # can be homepage
@@ -9,7 +10,10 @@ class RecipesController < ApplicationController
 
   # will take data from search and call the lib API method
   def create
-    p "we made it to the create method"
+    new_search = EdamamSearch.new(params[:search_text])
+    # raise
+    results = new_search.search_results
+    raise
   end
 
   # will show results from search

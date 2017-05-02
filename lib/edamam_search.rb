@@ -1,37 +1,34 @@
-class EdamamRecipe
+require 'httparty'
+class EdamamSearch
   class EdamamException < RuntimeError
   end
 
-  BASE_URL = "https://api.edamam.com/search
-
-  ?app_id=8eae3d45&app_key=e81c11f2fbf36d24cbcfe0bd7c650bab"
+  BASE_URL = "https://api.edamam.com/search?"
 
   attr_reader :search_text
-
-  def initialize(seach_info)
-    @search_text = search_info[:search_term]
+  def initialize(search_info)
+    @search_text = search_info
     # health = search_hash[:health_options]
     # diet = search_hash[:diet_options]
   end
 
-  # can send search info through initialize and use this method
-  # with instance variables - or send search results staright to this method
-  def get_search_results
+  def search_results
     query_params = {
                     "app_id" => ENV["EDAMAM_ID"],
-                    "app_key" => ENV["EDAMA_KEY"],
-                    "q" => @search_text,
+                    "app_key" => ENV["EDAMAM_KEY"],
+                    "q" => @search_text
                     # "Diet" => "",
                     # "Health" => ""
                    }
+
+    # response = HTTParty.get("https://api.edamam.com/search?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&q=#{@search_text}")
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
-
-    if response["ok"]
+    # response["ok"] is a slack thing...
+    if response
       return response
     else
       raise EdamamException.new(response["error"])
     end
-
   end
 end
