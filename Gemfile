@@ -46,6 +46,7 @@ group :development, :test do
   #Mocking for API wrapper tests
   gem 'minitest-vcr'
   gem 'webmock'
+  gem 'binding_of_caller'
 end
 
 group :development do
@@ -74,4 +75,5 @@ gem 'foundation-rails'
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
+  # gem 'simplecov', :require => false
 end
