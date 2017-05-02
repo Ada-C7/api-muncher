@@ -1,0 +1,6 @@
+<ul>
+<% @recipes.each do |recipe| %>
+  <li>Recipe<%= link_to recipe["recipe"]["label"], show_recipe_path(recipe["recipe"]["label"]) %></li>
+  <img src= <%= recipe["recipe"]["image"] %> alt= <%= recipe["recipe"]["label"] %>>
+<% end %>
+</ul>
