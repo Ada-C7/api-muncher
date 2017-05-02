@@ -9,9 +9,12 @@ class EdamamWrapper
     url = BASE_URL + "q=#{search_term}&app_id =#{ID}&app_key=#{KEY}"
 
     response = HTTParty.get(url)
-    # now I have a bunch of JSON
-    # I want to get
-    # response["hits"]["recipe"]["uri"]
+
+    recipes = []
+    if response["hits"]
+
+
+    # response["hits"][0]["recipe"]["uri"]
     # response["hits"]["recipe"]["label"]
     # response["hits"]["recipe"]["image"]
     # and display this on the index page
