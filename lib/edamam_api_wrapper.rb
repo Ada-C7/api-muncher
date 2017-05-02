@@ -6,8 +6,8 @@ class EdamamApiWrapper
   APP_KEY = ENV["APP_KEY"]
 
   def self.search(search_terms)
-    search = search_terms.gsub(' ','%20')
-    url = BASE_URL + "app_id=#{APP_ID}" + "app_key=#{APP_KEY}" + "q=#{search}"
+    search = search_terms.gsub(' ','+')
+    url = BASE_URL + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}&" + "q=#{search}"
 
     return HTTParty.get(url)
   end

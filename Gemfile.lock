@@ -66,6 +66,10 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     docile (1.1.5)
+    dotenv (2.2.0)
+    dotenv-rails (2.2.0)
+      dotenv (= 2.2.0)
+      railties (>= 3.2, < 5.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -221,6 +225,7 @@ DEPENDENCIES
   better_errors
   byebug
   coffee-rails (~> 4.2)
+  dotenv-rails
   foundation-rails
   httparty
   jbuilder (~> 2.5)
