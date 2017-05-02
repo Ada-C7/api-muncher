@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'httparty'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -54,7 +55,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development do
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :test do

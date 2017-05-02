@@ -1,4 +1,7 @@
 class RecipesController < ApplicationController
-  def index
-  end
+
+    def index
+      @recipes = EdamamApiWrapper.getRecipes("hummus")
+
+    end
 end
