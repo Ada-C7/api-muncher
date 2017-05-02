@@ -1,7 +1,7 @@
 class Recipe
   attr_reader :name, :link, :options
 
-  def initialize(name, uri, options = {})
+  def initialize(uri, name, options = {})
     @name = name
     @uri = uri
     @image = options[:image]

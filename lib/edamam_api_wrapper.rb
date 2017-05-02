@@ -9,16 +9,23 @@ class EdamamApiWrapper
     search = search_terms.gsub(' ','+')
     url = BASE_URL + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}&" + "q=#{search}"
 
+    recipes = []
     result = HTTParty.get(url)
-    recipes = result["hits"]
+    if result["hits"]
+      result["hits"].each do |result|
+        name = result["label"]
+        uri = result["uri"]
+        recipes << Recipe.new(uri, name)
+      end
+    end
     return recipes
   end
 
-  def self.getRecipe(uri)
-    url = BASE_URL + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}&" + "r=#{uri}"
+  # def self.getRecipe(uri)
+  #   url = BASE_URL + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}&" + "r=#{uri}"
+  #
+  #   result = HTTParty.get(url)
 
-    result = HTTParty.get(url)
-    
     #creates
     # parse out info based on recipe
     # Name
