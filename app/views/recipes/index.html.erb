@@ -1,0 +1,15 @@
+<h1> Search Results </h1>
+
+<%= form_tag(recipes_path, :method => "get") do %>
+    <%= text_field_tag :search_term, params[:search_term], placeholder: "Search More Recipes" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<ul>
+<% @searched_recipes.each do |recipe| %>
+  <li>
+    <%= recipe["recipe"]["label"]%>
+    <%= image_tag recipe["recipe"]["image"] %>
+  </li>
+  <%end%>
+</ul>
