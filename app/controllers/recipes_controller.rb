@@ -4,5 +4,4 @@ class RecipesController < ApplicationController
     @recipes = Recipe.search(params[:search])
   end
 
-
 end
