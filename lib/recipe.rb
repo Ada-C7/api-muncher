@@ -17,18 +17,24 @@ class Recipe
     @diet_labels = diet_labels
     @health_labels = health_labels
     @ingredients = ingredients
-
   end
 
-  def self.search(name)
-    url = "#{BASE_URL}q=#{name}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}"
+  def self.count_all(keywords)
+    url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=0&to=2000"
+    result = HTTParty.get(url).parsed_response["hits"].length
+    return result
+  end
+
+  def self.search(keywords, from)
+    url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=#{from}&to=#{from.to_i+10}"
+
     response = HTTParty.get(url)
     list_of_recepies_object = []
 
     if response["hits"]
       puts "Everything went well"
       recepies = response.parsed_response["hits"]
-
+      puts "OOOOOOOOOOO: #{recepies.length}"
       recepies.each do |hit|
         recipe = hit["recipe"]
         recipe_object = Recipe.new(recipe["label"], recipe["image"],recipe["uri"], recipe["calories"], recipe["dietLabels"], recipe["healthLabels"] , recipe["ingredients"])

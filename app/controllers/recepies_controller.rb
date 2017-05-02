@@ -1,13 +1,16 @@
 class RecepiesController < ApplicationController
 
-  # def search
-  #
-  # end
+  def view_recepies
+    @search_query = params[:search]
+    @recepies_number = Recipe.count_all(@search_query)
+    @recepies = Recipe.search(params[:search], params[:from])
 
-  def index
-    if params[:search]
-      @recepies = Recipe.search(params[:search])
+    if @recepies.length == 0
+      flash[:result_text] = "Could not find recepies. Try again"
+      redirect_to root_path
     end
+
+
   end
 
 
