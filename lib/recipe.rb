@@ -1,0 +1,44 @@
+require 'httparty'
+require 'awesome_print'
+
+class Recipe
+
+  class RecipeException < StandardError
+  end
+
+  BASE_URL = "https://api.edamam.com/search?"
+  attr_accessor :label, :image, :uri, :calories, :diet_labels, :health_labels, :ingredients
+
+  def initialize(label, image, uri, calories,diet_labels, health_labels, ingredients)
+    @label = label
+    @image = image
+    @uri = uri
+    @calories = calories
+    @diet_labels = diet_labels
+    @health_labels = health_labels
+    @ingredients = ingredients
+
+  end
+
+  def self.search(name)
+    url = "#{BASE_URL}q=#{name}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}"
+    response = HTTParty.get(url)
+    list_of_recepies_object = []
+
+    if response["hits"]
+      puts "Everything went well"
+      recepies = response.parsed_response["hits"]
+
+      recepies.each do |hit|
+        recipe = hit["recipe"]
+        recipe_object = Recipe.new(recipe["label"], recipe["image"],recipe["uri"], recipe["calories"], recipe["dietLabels"], recipe["healthLabels"] , recipe["ingredients"])
+        list_of_recepies_object << recipe_object
+      end
+
+      return list_of_recepies_object
+    else
+      puts "ERROR"
+    end
+  end
+
+end # end of class

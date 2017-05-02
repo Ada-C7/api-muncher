@@ -1,0 +1,7 @@
+<h2>Welcome to recepies search!</h2>
+<div>
+  <%= form_tag(recepies_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search by name or description", id: "search-field"%>
+  <%= submit_tag "Search", :name => nil , class: "button hollow topbar-responsive-button ", id: "search-button"%>
+  <% end %>
+</div>
