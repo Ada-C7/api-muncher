@@ -12,4 +12,5 @@ class EdamamApiWrapper
     return HTTParty.get(url)
   end
 
+  def self.getRecipe()
 end
