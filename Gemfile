@@ -56,10 +56,15 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'dotenv-rails'
+  gem 'minitest-vcr'
+gem 'webmock'
 end
 
+gem 'httparty'
 gem 'foundation-rails'
 gem 'awesome_print'
+
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
