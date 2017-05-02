@@ -38,6 +38,12 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  #Mocking for API wrapper tests
+gem 'minitest-vcr'
+
+gem 'webmock'
+
 end
 
 group :development do
@@ -61,3 +67,9 @@ group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
 end
+
+gem 'httparty'
+
+gem 'foundation-rails'
+
+gem 'json'
