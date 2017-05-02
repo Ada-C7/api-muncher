@@ -6,7 +6,7 @@ describe EdamamApiWrapper do
     it "can get a list of recipes with search terms" do
       VCR.use_cassette("edamam") do
         results = EdamamApiWrapper.search("chicken pasta")
-        results.parsed_response.must_be_instance_of Hash
+        results.must_be_instance_of Array
       end
     end
   end
