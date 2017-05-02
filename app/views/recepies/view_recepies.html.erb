@@ -1,8 +1,14 @@
 <h2>List of recepies</h2>
 <h3>NUMBER OF RECEPIES: <%=@recepies_number%></h3>
-<%=link_to "Next page", view_recepies_path(from: 4, search: @search_query)%>
-<%=link_to "Next page", view_recepies_path(from: 8, search: @search_query)%>
-<%=link_to "Next page", view_recepies_path(from: 12, search: @search_query)%>
+<%n = @recepies_number/10%>
+<%(0..n).each do |i|%>
+  <%if i == 0%>
+    <%=link_to "#{i}", view_recepies_path(from: 0, search: @search_query)%>
+  <%else%>
+    <%=link_to "#{i}", view_recepies_path(from: i*10, search: @search_query)%>
+  <%end%>
+<%end%>
+
 <%@recepies.each do |recipe|%>
   <div>
     <p> Title: <%=recipe.label%></p>
