@@ -4,7 +4,6 @@ class RecipesController < ApplicationController
   def index
   end
 
-  # can be search page
   def search
   end
 
