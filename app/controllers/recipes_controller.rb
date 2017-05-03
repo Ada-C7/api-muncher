@@ -1,4 +1,5 @@
 require 'edamam_wrapper'
+require 'recipe'
 
 class RecipesController < ApplicationController
 
