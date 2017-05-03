@@ -4,6 +4,7 @@ class HomepagesController < ApplicationController
   def root; end
 
   def index
+    raise
     if params[:search_terms]
       @recipes = EdamamApiWrapper.search(params[:search_terms])
     else

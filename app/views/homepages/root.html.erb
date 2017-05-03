@@ -5,7 +5,7 @@
     <h2>Welcome to Trickey-Eats!</h2>
     <h3>Where it shouldn't be Trickey to find something to eat.</h3>
     <p>
-      (This is a pun on Lynn Trickey’s last name.  She knows it’s spelled differently than the word tricky.  She learned that in the First Grade during a very traumatic spelling lesson.  What?  No, you're tearing up.)
+      (This is a pun on Lynn Trickey’s last name.  She knows it’s spelled differently than the word tricky.  She learned that in the First Grade during a very traumatic spelling lesson.  Thanks for reminding her.)
     </p>
 
   </section>
@@ -17,6 +17,8 @@
 
       <%= label_tag(:search_terms, "What are you Hungry for?") %>
       <%= text_field_tag(:search_terms) %>
+
+      <%= hidden_field_tag :page, 1 %>
 
       <%= submit_tag("Find Recipe") %>
 
