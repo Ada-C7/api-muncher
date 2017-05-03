@@ -2,5 +2,14 @@
 body {
  text-align: center;
  background-image: asset_url("carrots.jpg");
- background-size: cover
+ background-size: cover;
+}
+
+html * {
+  font-family: 'Sue Ellen Francisco', cursive;
+}
+
+#title {
+  padding-top: 60px;
+  font-size: 90px;
 }

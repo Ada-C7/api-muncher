@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 
-  def index
-    
+  def self.search(search)
+    return search
   end
 
 end
