@@ -1,15 +1,15 @@
 <main class="row">
 
-<h1>Recipes with <%= @ingredient %></h1>
+<h1 class="recipes-header"><%= @ingredient.capitalize %> Recipes</h1>
 
 <% @recipes.each do |recipe| %>
 <section class="top columns large-4 small-12 product" >
-<ul>
+<ul class="recipe">
   <li>
     <%= image_tag(recipe.image) %>
   </li>
   <li>
-    <%= recipe.label %>
+    <%= link_to recipe.label, get_recipe_path(:uri => recipe.uri) %>
   </li>
 </ul>
 </section>

@@ -1,7 +1,8 @@
 class Recipe
-  attr_reader :label, :image, :source, :ingredients, :nutrition
+  attr_reader :label, :image, :source, :ingredients, :nutrition, :uri
 
   def initialize(recipe_hash)
+    @uri = recipe_hash["uri"]
     @label = recipe_hash["label"]
     @image = recipe_hash["image"]
     @source = recipe_hash["source"]

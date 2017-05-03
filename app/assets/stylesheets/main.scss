@@ -16,3 +16,17 @@ left: 50%;
 margin-right: -50%;
 transform: translate(-50%, -50%);
 }
+
+.recipes-header {
+  font-family: 'Pacifico', cursive;
+  color: pink;
+  text-align:center;
+  padding: 3%;
+}
+
+.recipe{
+  li {
+    font-family: 'Nunito Sans', sans-serif;
+    list-style: none;
+  }
+}
