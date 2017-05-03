@@ -14,16 +14,13 @@ class Recipe
   end
 
   def self.search(item)
-
     query_params = {
       "app_id" => ENV["EDAMAM_API_APP_ID"],
       "app_key" => ENV["EDAMAM_API_APP_KEY"],
       "q" => item
-
     }
 
     recipes = HTTParty.get(BASE_URL, query: query_params).parsed_response["hits"]
-
 
     recipe_array =[]
     recipes.each do |recipe|
@@ -34,7 +31,34 @@ class Recipe
     return recipe_array
   end
 
+
+  def self.getRecipe(uri)
+
+
+    query_params = {
+      "app_id" => ENV["EDAMAM_API_APP_ID"],
+      "app_key" => ENV["EDAMAM_API_APP_KEY"],
+      "r" => uri
+    }
+
+    recipe = HTTParty.get(BASE_URL, query: query_params).parsed_response
+    return recipe["label"]
+
+    # if response["channel"]
+    #   return Channel.new(response["channel"]["name"], response["channel"]["id"])
+    # else
+    #   return nil
+    # end
+  end
+
+
 end
+
+
+
+
+
+
 
 
 
