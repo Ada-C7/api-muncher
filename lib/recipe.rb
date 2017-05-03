@@ -1,7 +1,7 @@
 class Recipe
-  attr_reader :uri, :label, :image
+  attr_reader :uri, :label, :image, :url, :source, :ingredients, :ingredientlines, :dietlabels, :healthlabels, :calories, :totalNutrients, :id
 
-  def initialize(uuri, label, image, url, source, ingredients, ingredientlines, dietlabels, healthlabels, calories, totalNutrients)
+  def initialize(uri, label, image, url, source, ingredients, ingredientlines, dietlabels, healthlabels, calories, totalNutrients, id)
     @uri = uri
     @label = label
     @image = image
@@ -13,5 +13,6 @@ class Recipe
     @healthlabels = healthlabels
     @calories = calories
     @totalNutrients = totalNutrients
+    @id = id
   end
 end

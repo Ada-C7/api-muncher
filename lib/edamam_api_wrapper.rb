@@ -15,4 +15,13 @@ class EdamamApiWrapper
     return response
   end
 
+  def self.getRecipe(id)
+    url = BASE_URL + "&app_key=" + API_KEY + "app_id=" + API_ID + "&" + "r=http://www.edamam.com/ontologies/edamam.owl%23recipe_" + id.to_s
+
+    response = HTTParty.get(url)
+    
+
+    return response
+  end
+
 end
