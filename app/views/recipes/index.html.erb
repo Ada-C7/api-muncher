@@ -15,7 +15,7 @@
   <% if @recipes %>
     <% @recipes.each do |recipe| %>
     <li><img src="<%= recipe.image %>">
-    <%= recipe.name %></li>
+    <%= link_to recipe.name, show_recipe_path(recipe.name) %></li>
 
     <% end %>
 
