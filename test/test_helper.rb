@@ -25,10 +25,10 @@ VCR.configure do |config|
   }
   # Don't leave our Slack token lying around in a cassette file.
   config.filter_sensitive_data("<EDAMAM_ID>") do
-    ENV['EDAMAM_APP_ID']
+    ENV["EDAMAM_APP_ID"]
   end
   config.filter_sensitive_data("<EDAMAM_KEY>") do
-    ENV['EDAMAM_APP_KEY']
+    ENV["EDAMAM_APP_KEY"]
   end
 end
 
