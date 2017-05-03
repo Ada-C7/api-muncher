@@ -1,4 +1,4 @@
-<h1><%= link_to @recipe.name, @recipe.source_url, target: "blank" %></h1>
+<h1><%= link_to @recipe.name, @recipe.source_url, target: "_blank" %></h1>
 <%= image_tag(@recipe.image, alt: "Recipe Image") %>
 
 <h4>Ingredients</h4>
@@ -7,3 +7,5 @@
     <li><%= ingredient %></li>
   <% end %>
 </ul>
+
+<%= link_to "<< All Results", recipes_path("q" => @search_term), class: "button" %>
