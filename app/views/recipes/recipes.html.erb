@@ -1,6 +1,8 @@
 <main class="row">
 
 <h1 class="recipes-header"><%= @ingredient.capitalize %> Recipes</h1>
+<%= link_to "More Results", get_recipes_path(:search => @ingredient, :page => @page) %>
+
 
 <% @recipes.each do |recipe| %>
 <section class="top columns large-4 small-12 product" >
@@ -15,5 +17,6 @@
 </section>
 
 <% end %>
+
 
 </main>

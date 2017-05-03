@@ -5,8 +5,17 @@ class RecipesController < ApplicationController
 
   def recipes
     @ingredient = params[:search]
-    @recipes = EdamamApiWrapper.findRecipes(params[:search])
+    if !(params[:page])
+      @recipes = EdamamApiWrapper.findRecipes(params[:search])[0]
+      @page = 1
+    else
+      @page = params[:page].to_i + 1
+      from = @page * 10
+      @recipes = EdamamApiWrapper.findRecipes(params[:search], from)[0]
+    end
   end
+
+
 
   def recipe
     @recipe = EdamamApiWrapper.findRecipe(params[:uri])

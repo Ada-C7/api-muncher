@@ -19,13 +19,14 @@ class EdamamApiWrapper
       recipes << Recipe.new(recipe_info)
     end
 
-    return recipes
+    page = r["to"]
+
+    return [recipes, page]
   end
 
   def self.findRecipe(uri)
 
     url = BASE_URL + "app_key=#{KEY}&" + "app_id=#{ID}&" + "r=#{uri}"
-    raise
 
     r = HTTParty.get(url)
 
