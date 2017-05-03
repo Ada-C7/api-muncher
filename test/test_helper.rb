@@ -3,6 +3,8 @@ require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
 require "minitest/rails"
 require "minitest/reporters"  # for Colorized output
+require 'vcr'
+require 'webmock/minitest'
 
 #  For colorful output!
 Minitest::Reporters.use!(
@@ -10,6 +12,24 @@ Minitest::Reporters.use!(
   ENV,
   Minitest.backtrace_filter
 )
+
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'test/cassettes'
+  config.hook_into :webmock
+  config.default_cassette_options = {
+    :record => :new_episodes,
+    :match_requests_on => [:method, :uri, :body]
+  }
+
+  config.filter_sensitive_data("<APP_KEY>") do
+    ENV['APP_KEY']
+  end
+
+  config.filter_sensitive_data("<APP_ID>") do
+    ENV['APP_ID']
+  end
+end
 
 
 # To add Capybara feature tests add `gem "minitest-rails-capybara"`

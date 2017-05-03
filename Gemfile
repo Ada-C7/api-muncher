@@ -62,4 +62,6 @@ group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
   gem 'simplecov'
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
