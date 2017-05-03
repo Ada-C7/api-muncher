@@ -22,8 +22,10 @@ class SearchesController < ApplicationController
 
 
       @recipes << Recipe.new(uri, label, image, url, source, ingredients, ingredientlines, dietlabels, healthlabels, calories, totalNutrients, id)
-
     end
+
+    @recipes = @recipes.paginate(params[:page], 5)
+
     return @recipes
   end
 
