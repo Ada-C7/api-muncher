@@ -5,8 +5,16 @@
 <%#= @recipes["hits"][1]["recipe"]["label"]%>
 <%#= @recipes["hits"][2]["recipe"]["label"]%>
 <%#= @recipes["hits"][3]["recipe"]["label"]%>
-
+<body>
 <% @recipes["hits"].each do |r| %>
-<h1><%= link_to r["recipe"]["label"], recipe_path(params[:search_term])%></h1>
+<h1><%= link_to r["recipe"]["label"], recipe_path(params[:search_term], @recipes["hits"].index(r))%></h1>
 <%= image_tag(r["recipe"]["image"], size: "200")%>
 <% end %>
+
+<%#= link_to "More recipes", list_path %>
+</body>
+
+
+<footer>
+  <p>Powered by: <%= image_tag("https://corehealth.global/images/default-source/meetwilo-screenshots/edamam-logo.png?sfvrsn=10")%></p>
+</footer>
