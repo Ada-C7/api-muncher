@@ -6,7 +6,7 @@ class EdamamWrapper
   ID = ENV['APP_ID']
 
   def self.getRecipes(search_term)
-    url = BASE_URL + "q=#{search_term}&app_id =#{ID}&app_key=#{KEY}"
+    url = BASE_URL + "q=#{search_term}&app_id =#{ID}&app_key=#{KEY}&from=0&to=50"
 
     response = HTTParty.get(url)
 
