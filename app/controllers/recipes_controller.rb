@@ -1,6 +1,10 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = EdamamApiWrapper.list_recipes(params[:search])
+    if params[:search]
+      @recipes = EdamamApiWrapper.list_recipes(params[:search])
+    else
+      @recipes = []
+    end
   end
 
   def show
