@@ -12,14 +12,16 @@ class EdamamWrapper
 
     recipes = []
     if response["hits"]
-
-
-    # response["hits"][0]["recipe"]["uri"]
-    # response["hits"]["recipe"]["label"]
-    # response["hits"]["recipe"]["image"]
-    # and display this on the index page
-    # mebbe I should make a recipe class
-
-
+      response["hits"].each do |hash|
+        #hits is an array of hashes
+        #each hash has "recipe" as key
+        name = hash["recipe"]["label"]
+        id = hash["recipe"]["uri"]
+        image = hash["recipe"]["image"]
+        recipes << Recipe.new(name, id, image)
+      end
+    end
+    return recipes
   end
+
 end

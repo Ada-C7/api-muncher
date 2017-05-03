@@ -10,3 +10,13 @@
   <%= submit_tag("Search") %>
 
 <% end %>
+
+<ul>
+  <% if @recipes %>
+    <% @recipes.each do |recipe| %>
+    <li><img src="<%= recipe.image %>">
+    <%= recipe.name %></li>
+
+    <% end %>
+  <% end %>
+</ul>
