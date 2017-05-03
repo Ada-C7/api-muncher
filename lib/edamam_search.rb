@@ -5,7 +5,7 @@ class EdamamSearch
 
   BASE_URL = "https://api.edamam.com/search?"
 
-  attr_reader :search_text
+  attr_reader :search_text, :results
 
   def initialize(search_info)
     @search_text = search_info
@@ -26,7 +26,6 @@ class EdamamSearch
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
     if response["count"] > 0
-      # return response
       return labels_and_images(response)
     elsif response["count"] == 0
       return "Sorry there are no results for that search"
@@ -47,4 +46,5 @@ private
     end
     return results
   end
+
 end
