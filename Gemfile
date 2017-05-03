@@ -35,9 +35,21 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'awesome_print'
+gem 'foundation-rails'
+gem 'httparty'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'simplecov'
+  gem 'dotenv-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # Mocking for API wrapper tests
+  gem 'minitest-vcr'
+  gem 'webmock'
+
 end
 
 group :development do
@@ -53,12 +65,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development do
-  gem 'better_errors'
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
+  # gem 'byebug'
   gem 'pry-rails'
 end
 
-gem 'awesome_print'
-gem 'foundation-rails'
+
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
