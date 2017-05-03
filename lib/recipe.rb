@@ -3,5 +3,8 @@ class Recipe
 
   def initialize()
     @name = name
+    @link = link
+    @ingredients = ingredients
+    @diet = diet
   end
 end
