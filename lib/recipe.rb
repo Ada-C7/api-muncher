@@ -14,11 +14,13 @@ class Recipe
     # @search_term = search_term
   end
 
-  def send_search(key_word)
+  def send_search(key_word, from, to)
     query_params = {
       "app_id" => ENV["App_ID"],
       "app_key" => ENV["App_Key"],
-      "q" => key_word
+      "q" => key_word,
+      "from" => from,
+      "to" => to
     }
     response = HTTParty.get(BASE_URL, query: query_params)
   end

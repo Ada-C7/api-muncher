@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   def search
     recipe = Recipe.new
+
   end
 
   # def search
@@ -11,7 +12,9 @@ class RecipesController < ApplicationController
 
   def list
     recipe = Recipe.new
-    @recipes = recipe.send_search(params[:search_term])
+    @from = 0
+    @to = 10
+    @recipes = recipe.send_search(params[:search_term], @from, @to)
 
     #  b["hits"][0]["recipe"]["uri"]
     #  b["hits"][0]["recipe"]["ingredientLines"]

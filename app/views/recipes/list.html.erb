@@ -1,3 +1,12 @@
-<%= @recipes["hits"][0]["recipe"]["uri"] %>
-<%= @recipes["hits"][0]["recipe"]["ingredientLines"] %>
-<%= @recipes["hits"][0]["recipe"]["label"]%>
+<%#= @recipes["hits"][0]["recipe"]["uri"] %>
+<%#= @recipes["hits"][0]["recipe"]["ingredientLines"] %>
+
+<%#= @recipes["hits"][0]["recipe"]["label"]%>
+<%#= @recipes["hits"][1]["recipe"]["label"]%>
+<%#= @recipes["hits"][2]["recipe"]["label"]%>
+<%#= @recipes["hits"][3]["recipe"]["label"]%>
+
+<% @recipes["hits"].each do |r| %>
+<h1><%= link_to r["recipe"]["label"], recipe_path(params[:search_term])%></h1>
+<%= image_tag(r["recipe"]["image"], size: "200")%>
+<% end %>
