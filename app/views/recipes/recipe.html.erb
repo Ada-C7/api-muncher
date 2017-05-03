@@ -5,29 +5,48 @@
 
 
 <p>
-  Originally found at <%= link_to @recipe.source[0], @recipe.source[1], target: :_blank %>
+  Recipe originally found at <%= link_to @recipe.source[0], @recipe.source[1], target: :_blank %>
 </p>
 
-<ul>
+<section class="columns large-6 small-12">
+  <h3>Ingredients</h3>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
 <% @recipe.ingredients.each do |ingredient| %>
-<li>
+<tr>
+<td>
   <%= ingredient %>
-</li>
+</td>
+</tr>
 <% end %>
-</ul>
+</table>
+</section>
 
+<section class="columns large-6 small-12">
+  <h3>Nutritional Information</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Label</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
 <% @recipe.nutrition.each do |k, v| %>
-<ul>
-  <li>
+  <tr>
+  <td>
   <%= v["label"] %>
-  </li>
-  <li>
-    <%= v["quantity"] %>
-  </li>
-</ul>
-
-
+  </td>
+  <td>
+    <%= v["quantity"].round(2) %>
+  </td>
+</tr>
 <% end %>
+</table>
+</section>
 
 
 
