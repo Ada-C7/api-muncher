@@ -1,0 +1,12 @@
+<section class="search-results">
+
+  
+  <ul>
+    <% @results.each do |result| %>
+    <li>
+      <%= image_tag result.image %>
+      <%= link_to result.name, root_path, method: :get %>
+    </li>
+    <% end %>
+  </ul>
+</section>

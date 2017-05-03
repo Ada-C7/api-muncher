@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title>Recipe Recs</title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -12,8 +12,24 @@
   </head>
 
   <body>
+    <header>
+      <h1>Aurora's Recipe Recs</h1>
+      <ul>
+        <li>
+          Login
+        </li>
+        <li>
+          My Favs
+        </li>
+      </ul>
+    </header>
 
     <%= yield %>
+    <footer>
+      <p>
+        many thanks to the <%= link_to "Edamam API", 'https://www.edamam.com' %> for recipes
+      </p>
+    </footer>
 
   </body>
 </html>
