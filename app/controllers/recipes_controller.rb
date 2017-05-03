@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = SearchApiWrapper.getRecipes(params[:q])
+    # @recipes = SearchApiWrapper.getRecipes("chicken")
 
   end
 
