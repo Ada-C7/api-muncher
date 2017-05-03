@@ -3,7 +3,7 @@ require 'test_helper'
 describe Recipe do
 
   before do
-    @recipe_hash = {
+    recipe_hash = {
       "id" => "recipe.com/recipe/ejfajfdn",
       "label" => "most delicious recipe",
       "image" => "recipe.com/recipe.jpg",
@@ -15,6 +15,8 @@ describe Recipe do
       "protein" => 7000,
       "sodium" => 50
     }
+    
+      @recipe = Recipe.new(recipe_hash)
   end
 
   it "requires a hash argument to initialize" do
@@ -28,20 +30,19 @@ describe Recipe do
   end
 
   it "can create a Recipe instance" do
-    recipe = Recipe.new(@recipe_hash)
-
-    recipe.class.must_equal Recipe
+    @recipe.class.must_equal Recipe
   end
 
   it "has all accessor methods" do
-    # recipe = Recipe.new "recipe 1", 1, {   purpose: "to be number 1", is_archived: false, is_general: true, members: "Brenna, Kelly, Olivia" }
-    #
-    # recipe.name.must_equal "recipe 1"
-    # recipe.id.must_equal 1
-    # recipe.purpose.must_equal "to be number 1"
-    # recipe.is_archived.must_equal false
-    # recipe.is_general.must_equal true
-    # recipe.members.must_equal "Brenna, Kelly, Olivia"
-    # end
+    @recipe.id.must_equal "recipe.com/recipe/ejfajfdn"
+    @recipe.label.must_equal "most delicious recipe"
+    @recipe.image.must_equal "recipe.com/recipe.jpg"
+    @recipe.url.must_equal "recipe.com/recipe"
+    @recipe.ingredientLines.must_equal ["yummyness", "chocolate bits", "savoury sweet flavor"]
+    @recipe.calories.must_equal 1000000
+    @recipe.fat.must_equal 0.0001
+    @recipe.sugar.must_equal 0.0000001
+    @recipe.protein.must_equal 7000
+    @recipe.sodium.must_equal 50
+    end
   end
-end
