@@ -50,12 +50,8 @@ class Recipe
   end
 
   def self.find_recipe(uri)
-    print "URI:"
-    print uri
     url = "#{BASE_URL}r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{uri}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}"
     response = HTTParty.get(url).parsed_response
-    print  "AAAAAAA"
-    print response
     recipe = Recipe.new(response[0])
     return recipe
   end
