@@ -1,2 +1,11 @@
 <h1>Search Results</h1>
-<p><%= @results %></p>
+  <article>
+  <% if @results %>
+    <% @results.each do |recipe| %>
+      <img src="<%= recipe[:image_url] %>"  alt="recipe">
+      <%= link_to recipe[:label], "#" %>
+    <% end %>
+  <% end %>
+  </article>
+
+  <nav><%= link_to "Next", "#", class: "button" %> </nav>

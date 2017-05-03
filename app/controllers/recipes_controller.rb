@@ -20,5 +20,4 @@ class RecipesController < ApplicationController
   end
 private
 
-
 end
