@@ -41,6 +41,7 @@ group :development, :test do
   gem 'minitest-vcr'
   gem 'webmock'
   gem 'dotenv-rails'
+  gem 'simplecov'
 end
 
 group :development do
