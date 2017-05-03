@@ -1,25 +1,55 @@
-require 'httparty'
-
+# require 'httparty'
 class Recipe
+  attr_accessor :name, :uri, :image, :original_recipe, :health_labels, :ingredients
   BASE_URL = "https://api.edamam.com/search?"
-  def initialize(name)
-    @name = name
+  def initialize(params)
+    @name = params[:name]
+    @image = params[:image]
+    @original_recipe = params[:original_recipe]
+    @ingredients = params[:ingredients]
+    @health_labels = params[:health_labels]
+    @uri = params[:uri]
   end
-  # def recipe_search
-  #   query_params = {
-  #     "q" => @name,
-  #     "app_id" => ENV["EDAMAM_ID"],
-  #     "app_key" => ENV["EDAMAM_KEY"]
-  #   }
-  #   response_url = HTTParty.get(BASE_URL, query: query_params).parsed_response
-  #   return this_thing = response_url.request.last_uri.to_s
-  # end
 
-  def recipe_search
-    url = "#{BASE_URL}app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&q=#{@name}"
-    return response = HTTParty.get(url).parsed_response
+  def self.all_by_search_term(search)
+    query_params = {
+      "q" => search,
+      "app_id" => ENV["EDAMAM_ID"],
+      "app_key" => ENV["EDAMAM_KEY"],
+      "Health" => "gluten-free"
+    }
+    response_url = HTTParty.get(BASE_URL, query: query_params).parsed_response
+    recipe_list = response_url["hits"].map do |recipe|
+        recipe_data = {
+          name: recipe["recipe"]["label"],
+          image: recipe["recipe"]["image"],
+          original_recipe: recipe["recipe"]["url"],
+          ingredients: recipe["recipe"]["ingredientLines"],
+          health_labels: recipe["recipe"]["healthLabels"],
+          uri: recipe["recipe"]["uri"]
+        }
+        self.new(recipe_data)
+    end
+    return recipe_list
   end
+
+  def self.find_by_name(uri)
+    query_params = {
+      "r" => uri,
+      "app_id" => ENV["EDAMAM_ID"],
+      "app_key" => ENV["EDAMAM_KEY"],
+      "Health" => "gluten-free"
+    }
+    recipe = HTTParty.get(BASE_URL, query: query_params).parsed_response[0]
+    recipe_data = {
+      name: recipe["label"],
+      image: recipe["image"],
+      original_recipe: recipe["url"],
+      ingredients: recipe["ingredientLines"],
+      health_labels: recipe["healthLabels"],
+      uri: recipe["uri"]
+    }
+    return self.new(recipe_data)
+  end
+
 end
-
-r = Recipe.new("chicken")
-puts r.recipe_search

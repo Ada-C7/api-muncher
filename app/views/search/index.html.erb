@@ -1,0 +1,6 @@
+<h1>Hello Yes Welcome to Anna's App</h1>
+
+<%= form_tag("/recipes", method: "get") do%>
+<%= text_field_tag :search_term, params[:search_term] %>
+<%= submit_tag "Search" %>
+<% end %>

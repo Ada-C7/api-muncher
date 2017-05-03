@@ -1,0 +1,10 @@
+<h2>Things You Can Make With <%= (params[:search_term]).capitalize %> </h2>
+<section>
+<ul>
+<% @recipes.each do |recipe| %>
+<li>
+<%= link_to recipe.name, recipe_path_url(uri: recipe.uri) %>
+</li>
+<% end %>
+</ul>
+</section>

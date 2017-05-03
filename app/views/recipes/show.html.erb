@@ -1,0 +1,10 @@
+<%= @recipe.name %>
+<ul>
+<% @recipe.ingredients.each do |ingredient| %>
+<li><%= ingredient %></li>
+<% end %>
+</ul>
+<ul>
+<% @recipe.health_labels.each do |label| %>
+<li><%= label %></li>
+<% end %>
