@@ -1,0 +1,5 @@
+<%= form_tag list_path, method: :post do %>
+  <%= label_tag :search_term %>
+  <%= text_field_tag :search_term %>
+  <%= submit_tag "Send it!" %>
+<% end %>
