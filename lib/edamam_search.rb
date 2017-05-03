@@ -26,6 +26,7 @@ class EdamamSearch
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
     if response["count"] > 0
+      # return response
       return labels_and_images(response)
     elsif response["count"] == 0
       return "Sorry there are no results for that search"
@@ -39,6 +40,7 @@ private
   def labels_and_images(response)
     results = response["hits"].map do |info|
       recipe = Hash.new
+      recipe[:uri] = info["recipe"]["uri"]
       recipe[:label] = info["recipe"]["label"]
       recipe[:image_url] = info["recipe"]["image"]
       recipe

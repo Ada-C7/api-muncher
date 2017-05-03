@@ -23,7 +23,7 @@ describe EdamamSearch do
         search_input = EdamamSearch.new("duck")
         response = search_input.search_results
         # p response["count"]
-        # p response["hits"].count
+        p response
 
         # array of recipe results names with image url
         # x = response["hits"].map do |info|
