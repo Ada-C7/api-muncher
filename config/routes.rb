@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   get '/recipes/show', to: 'recipes#show', as: "recipe_path"
 
-  get '/recipes', to: 'recipes#index', as: "recipes_path"
+  post '/recipes', to: 'recipes#index', as: "recipes_path"
 
 end

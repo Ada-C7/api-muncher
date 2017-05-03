@@ -1,6 +1,6 @@
-<h1>Hello Yes Welcome to Anna's App</h1>
-
-<%= form_tag("/recipes", method: "get") do%>
-<%= text_field_tag :search_term, params[:search_term] %>
+<h3>Stuck on what to make Anna for dinner?</h3>
+<p>these recipes are all gluten freeeeee, and for bonus points, there's vegan and vegetarian options.</p>
+<%= form_tag(recipes_path_url(from: "0", to: "10"), method: "post") do%>
+<%= text_field_tag :search_term, params[:search_term], placeholder: "Search by Food" %>
 <%= submit_tag "Search" %>
 <% end %>
