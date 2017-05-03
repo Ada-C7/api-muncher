@@ -15,3 +15,58 @@
  *= require foundation_and_overrides
 
  */
+
+@import url('https://fonts.googleapis.com/css?family=Acme|Pacifico|Sigmar+One');
+
+main {
+  margin: 80px auto auto auto;
+  width: 90%;
+  text-align: center;
+}
+
+footer{
+  bottom: 0px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+}
+
+img.footercredit{
+    max-width: 15%;
+}
+
+h1{
+  font-family: 'Sigmar One';
+  color: #009688;
+  text-shadow: 1px 1px 0 #ffe082,
+    -1px 1px 0 #ffe082,
+    1px -1px 0 #ffe082,
+    -1px -1px 0 #ffe082,
+    0px 1px 0 #ffe082,
+    0px -1px 0 #ffe082,
+    -1px 0px 0 #ffe082,
+    1px 0px 0 #ffe082,
+    2px 2px 0 #ffe082,
+    -2px 2px 0 #ffe082,
+    2px -2px 0 #ffe082,
+    -2px -2px 0 #ffe082,
+    0px 2px 0 #ffe082,
+    0px -2px 0 #ffe082,
+    -2px 0px 0 #ffe082,
+    2px 0px 0 #ffe082,
+    1px 2px 0 #ffe082,
+    -1px 2px 0 #ffe082,
+    1px -2px 0 #ffe082,
+    -1px -2px 0 #ffe082,
+    2px 1px 0 #ffe082,
+    -2px 1px 0 #ffe082,
+    2px -1px 0 #ffe082,
+    -2px -1px 0 #ffe082;
+  font-size: 6rem;
+}
+
+input#search_term{
+  width: 40%;
+  margin: auto;
+}

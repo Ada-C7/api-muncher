@@ -5,3 +5,13 @@
     <%= text_field_tag :search_term, params[:search_term], placeholder: "Search Recipes" %>
     <%= submit_tag "Search", :name => nil %>
 <% end %>
+
+<style type="text/css">
+  body {
+    background: url(<%= randomized_background_image %>) no-repeat center center fixed;
+    -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+  }
+</style>

@@ -6,9 +6,9 @@
 <% end %>
 
 <ul>
-<% @searched_recipes.each do |recipe| %>
+<% @recipes.each do |recipe| %>
   <li>
-    <%= recipe["recipe"]["label"]%>
+    <%= link_to recipe["recipe"]["label"], recipe_path(:uri => recipe["recipe"]["uri"].tr('http://www.edamam.com/ontologies/edamam.owl#recipe_', ''), :search_term => params[:search_term])%>
     <%= image_tag recipe["recipe"]["image"] %>
   </li>
   <%end%>

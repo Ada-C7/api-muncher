@@ -16,7 +16,18 @@
       <%= link_to 'Home', root_path %>
     </nav>
 
-    <%= yield %>
+    <section class='flash'>
+      <% flash.each do |name, message| %>
+          <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
 
+  <main>
+    <%= yield %>
+  </main>
+
+<footer>
+  Powered by <%= image_tag ("https://corehealth.global/images/default-source/meetwilo-screenshots/edamam-logo.png?sfvrsn=10"), :class => "footercredit" %>
+</footer>
   </body>
 </html>
