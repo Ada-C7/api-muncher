@@ -6,10 +6,12 @@ class EdamamApiWrapper
   API_KEY = ENV["API_KEY"]
   API_ID = ENV["API_ID"]
 
+
   def self.searchRecipes(q, token = nil)
-    url = BASE_URL + "&app_key=" + API_KEY + "app_id=" + API_ID + "&" + "q="+ q.to_s
+    recipe_num = 100
+    url = BASE_URL + "&app_key=" + API_KEY + "app_id=" + API_ID + "&" + "q="+ q.to_s + "&from=0&to=" + recipe_num.to_s
     response = HTTParty.get(url)
-    
+
     return response
   end
 
