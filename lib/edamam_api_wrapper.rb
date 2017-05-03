@@ -5,7 +5,6 @@ class EdamamApiWrapper
   BASE_URL = "#{base}app_id=#{app_id}&app_key=#{app_key}&health=vegan&"
 
   def self.list_recipes(search)
-    search = search.gsub(" ", "%20")
     url = BASE_URL + "q=#{search}"
     response =  HTTParty.get(url)
 
