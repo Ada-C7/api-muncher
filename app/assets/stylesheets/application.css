@@ -15,3 +15,18 @@
  *= require foundation_and_overrides
 
  */
+
+
+#search_form{
+  position: absolute;
+  z-index: 1000;
+  top: 20%;
+  left: 35%;
+  width: 300px;
+}
+input#search-button{
+  width: 150px;
+  margin-left: 20%;
+  border-color: white;
+  color: white;
+}
