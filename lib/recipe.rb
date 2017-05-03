@@ -21,6 +21,10 @@ class Recipe
     @ingredients = recipe_hash["ingredients"]
   end
 
+  def ingridients
+
+  end
+
   def self.count_all(keywords)
     url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=0&to=2000"
     result = HTTParty.get(url).parsed_response["hits"].length
@@ -28,7 +32,7 @@ class Recipe
   end
 
   def self.search(keywords, from)
-    url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=#{from}&to=#{from.to_i+10}"
+    url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=#{from}&to=#{from.to_i+12}"
 
     response = HTTParty.get(url)
     list_of_recipes_object = []

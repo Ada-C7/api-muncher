@@ -1,9 +1,12 @@
 <div>
-  <p> Title: <%=@recipe.label%></p>
-  <p>Calories: <%=@recipe.calories%></p>
-  <p> Image: <%=image_tag @recipe.image, alt:"picture of #{@recipe.label}"%>
-
-  <p>Ingridients: <%=@recipe.ingredients%></p>
+  <p>  <%=@recipe.label%></p>
+  <p> <%=image_tag @recipe.image, alt:"picture of #{@recipe.label}"%>
+  <p>Calories: <%=@recipe.calories.round(0)%></p>
+  <div>Ingridients:
+     <%@recipe.ingredients.each do |ingridient|%>
+        <p><%=ingridient["text"]%></p>
+     <%end%>
+   </div>
   <p>Diet labels:
     <%@recipe.diet_labels.each do |l|%>
       <%=l%>
