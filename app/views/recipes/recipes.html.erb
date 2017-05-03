@@ -1,7 +1,10 @@
 <main class="row">
 
 <h1 class="recipes-header"><%= @ingredient.capitalize %> Recipes</h1>
-<%= link_to "More Results", get_recipes_path(:search => @ingredient, :page => @page) %>
+<% if @page != 1 %>
+<%= link_to "previous", get_recipes_path(:search => @ingredient, :page => @page - 1) %>
+<% end %>
+<%= link_to "next", get_recipes_path(:search => @ingredient, :page => @page + 1) %>
 
 
 <% @recipes.each do |recipe| %>
