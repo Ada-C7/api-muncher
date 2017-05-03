@@ -6,7 +6,7 @@ class RecipeApiWrapper
   KEY = ENV["APP_KEY"]
 
   def self.findRecipes(search)
-    url = BASE_URL + "app_key=#{ID}&" + "app_id=#{KEY}&" + "q=#{search}"
+    url = BASE_URL + "app_key=#{KEY}&" + "app_id=#{ID}&" + "q=#{search}"
 
     r = HTTParty.get(url)
 
