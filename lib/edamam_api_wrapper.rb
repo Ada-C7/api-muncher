@@ -30,11 +30,11 @@ class EdamamApiWrapper
 
     recipe_info = Hash.new
 
-    recipe_info["label"] = r["label"]
-    recipe_info["image"] = r["image"]
-    recipe_info["source"] = [r["source"], r["url"]]
-    recipe_info["ingredients"] = r["ingredientLines"]
-    recipe_info["nutrition"] = ["totalNutrients"]
+    recipe_info["label"] = r[0]["label"]
+    recipe_info["image"] = r[0]["image"]
+    recipe_info["source"] = [r[0]["source"], r[0]["url"]]
+    recipe_info["ingredients"] = r[0]["ingredientLines"]
+    recipe_info["nutrition"] = r[0]["totalNutrients"]
 
     return Recipe.new(recipe_info)
   end

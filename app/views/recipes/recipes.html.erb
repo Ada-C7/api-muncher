@@ -9,7 +9,7 @@
     <%= image_tag(recipe.image) %>
   </li>
   <li>
-    <%= link_to recipe.label, get_recipe_path(:uri => recipe.uri) %>
+    <%= link_to recipe.label, get_recipe_path(:label => recipe.label, :uri => recipe.uri) %>
   </li>
 </ul>
 </section>

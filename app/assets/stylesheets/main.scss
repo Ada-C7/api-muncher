@@ -1,9 +1,12 @@
+h1 {
+  font-family: 'Pacifico', cursive;
+}
+
 .index {
   background-image: url("http://i.huffpost.com/gen/1977217/images/o-COOKING-facebook.jpg");
   background-position: fixed;
   background-repeat: no-repeat;
   h1 {
-    font-family: 'Pacifico', cursive;
     color: white;
   }
 }
@@ -18,7 +21,6 @@ transform: translate(-50%, -50%);
 }
 
 .recipes-header {
-  font-family: 'Pacifico', cursive;
   color: pink;
   text-align:center;
   padding: 3%;
@@ -29,4 +31,10 @@ transform: translate(-50%, -50%);
     font-family: 'Nunito Sans', sans-serif;
     list-style: none;
   }
+}
+
+.recipe-header {
+  text-align:center;
+  color: pink;
+  padding: 3%;
 }
