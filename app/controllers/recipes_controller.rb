@@ -6,4 +6,6 @@ class RecipesController < ApplicationController
       @recipes =  EdamamWrapper.getRecipes(params[:search_term])
     end
   end
+
+
 end
