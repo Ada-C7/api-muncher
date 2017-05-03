@@ -1,24 +1,24 @@
 require 'HTTParty'
-require '.env'
+require 'dotenv-rails'
 
 
 BASE_URL = "https://api.edamam.com/search"
 
-class Recipes
+class RecipesApiWrapper
   attr_accessor :name
 
-  def initialize(name)
-    @name = name
+  def initialize
   end
-# Should this be self.all ? send(message) is a post in the class example (posting to slack)
+
   def self.search(query)
     query_params = {
-      q = @name
-      app_id = EDAMAM_ID
-      app_key = EDAMAM_TOKEN
+      "q" => query
+      "app_id" => EDAMAM_ID
+      "app_key" => EDAMAM_TOKEN
     }
 
-    url = "#{BASE_URL}?app_key=#{app_key}&app_id=#{app_id}&q=#{@name}"
+    return HTTParty.get("#{BASE_URL}?app_key=#{app_key}&app_id=#{app_id}&q=#{query}")
+
   end
 end
 
