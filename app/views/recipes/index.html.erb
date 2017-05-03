@@ -1,10 +1,10 @@
-<h3>Recipe Finder</h3>
+
 
 <%= form_tag recipes_results_path, method: "post" do %>
   <%= label_tag(:query, "Search For:") %>
   <%= text_field_tag(:query) %>
 
 
-  <%= submit_tag("Send") %>
+  <%= submit_tag("Send", class: "button")  %>
 
 <% end %>

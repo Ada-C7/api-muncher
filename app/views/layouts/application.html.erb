@@ -13,17 +13,17 @@
   <header>
     <h3>Recipe Finder</h3>
     <nav>
-      <li><%= link_to "Home", root_path %></li>
+      <p><%= link_to "Home", root_path, class: "button"%></p>
     </nav>
   </header>
 
 
-  <body>
+  <body class="columns">
 
     <%= yield %>
 
   </body>
   <footer>
-    <p>This site is powered by <%= image_tag("edamam.png") %> /></p>
+    <p>This site is powered by <%= image_tag("edamam.png") %></p>
   </footer>
 </html>
