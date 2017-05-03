@@ -25,10 +25,24 @@ class EdamamSearch
     # response = HTTParty.get("https://api.edamam.com/search?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&q=#{@search_text}")
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
-    if response
-      return response
+    if response["count"] > 0
+      return labels_and_images(response)
+    elsif response["count"] == 0
+      return "Sorry there are no results for that search"
     else
       raise EdamamException.new(response["error"])
     end
+  end
+
+private
+
+  def labels_and_images(response)
+    results = response["hits"].map do |info|
+      recipe = Hash.new
+      recipe[:label] = info["recipe"]["label"]
+      recipe[:image_url] = info["recipe"]["image"]
+      recipe
+    end
+    return results
   end
 end

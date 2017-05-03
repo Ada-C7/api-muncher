@@ -22,19 +22,32 @@ describe EdamamSearch do
       VCR.use_cassette("search_results") do
         search_input = EdamamSearch.new("duck")
         response = search_input.search_results
+        # p response["count"]
+        # p response["hits"].count
+
+        # array of recipe results names with image url
+        # x = response["hits"].map do |info|
+        #   recipe = Hash.new
+        #   recipe[:label] = info["recipe"]["label"]
+        #   recipe[:image_url] = info["recipe"]["image"]
+        #   recipe
+        # end
+        # p x
         response.count.must_be :>, 0
       end
     end
 
-    it 'raises returns count 0 there are no results' do
+    it 'response has count 0 when there are no results' do
       VCR.use_cassette("search_results") do
         search_input = EdamamSearch.new("dafjkaljdaklj")
         response = search_input.search_results
-        response["count"].must_equal 0
+        p response
+        response.must_equal "Sorry there are no results for that search"
+
       end
     end
 
-    it 'returns ? when there are no results' do
-    end
+    # it 'raises an error if something goes wrong ' do
+    # end
   end
 end
