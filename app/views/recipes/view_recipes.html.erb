@@ -1,13 +1,12 @@
 <h2>List of Recipes</h2>
 
 <ul class="pagination  text-center" role="navigation" aria-label="Pagination">
-  <%if params[:from].to_i != 0%>
-    <li class="pagination-previous"><a href="/recipes/view_recipes?from=<%=params[:from].to_i-10%>&amp;search=<%=@search_query%>" aria-label="Previous page">Previous <span class="show-for-sr">page</span></a></li>
-  <%end%>
-
   <%per_page=12%>
   <%n = @recipes_number/per_page%>
   <%n += 1 if @recipes_number%per_page>0%>
+  <%if params[:from].to_i != 0%>
+    <li class="pagination-previous"><a href="/recipes/view_recipes?from=<%=params[:from].to_i-per_page%>&amp;search=<%=@search_query%>" aria-label="Previous page">Previous <span class="show-for-sr">page</span></a></li>
+  <%end%>
 
   <%(0...n).each do |i|%>
     <%@from = i*per_page%>
@@ -18,8 +17,8 @@
     <%end%>
   <%end%>
 
-  <%if params[:from].to_i != n*10%>
-    <li class="pagination-next"><a href="/recipes/view_recipes?from=<%=params[:from].to_i+10%>&amp;search=<%=@search_query%>" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
+  <%if params[:from].to_i != @recipes_number-per_page%>
+    <li class="pagination-next"><a href="/recipes/view_recipes?from=<%=params[:from].to_i+per_page%>&amp;search=<%=@search_query%>" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
   <%end%>
 </ul>
 

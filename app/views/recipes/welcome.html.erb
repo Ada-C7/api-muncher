@@ -1,4 +1,32 @@
-<h2>Welcome to Recipes search!</h2>
+
+<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+  <ul class="orbit-container">
+    <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+    <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+    <li class="is-active orbit-slide">
+      <img class="orbit-image" src="http://i.huffpost.com/gen/2745340/images/o-ORGANIC-facebook.jpg" alt="Space" />
+
+      <figcaption class="orbit-caption">Search for recipes</figcaption>
+    </li>
+    <li class="orbit-slide">
+      <img class="orbit-image" src="https://foodiesfeed.com/wp-content/uploads/2015/06/foodiesfeed.com_amazing-colorful-italian-cuisine-ingredients_low.jpg" alt="Space">
+
+      <figcaption class="orbit-caption">We have a lot of recipes for everybody</figcaption>
+    </li>
+    <li class="orbit-slide">
+      <img class="orbit-image" src="https://cdn.pixabay.com/photo/2017/04/23/09/44/smoothies-2253423_1280.jpg" alt="Space">
+
+      <figcaption class="orbit-caption"> Find your favorite recipes </figcaption>
+    </li>
+  </ul>
+  <nav class="orbit-bullets">
+    <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+    <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+    <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+  </nav>
+</div>
+
+
 <div>
   <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Recipes", id: "search-field"%>
