@@ -4,12 +4,4 @@ class SearchController < ApplicationController
     
   end
 
-  def create
-
-  end
-
-  def new
-
-  end
-
 end
