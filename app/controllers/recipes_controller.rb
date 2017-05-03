@@ -8,7 +8,8 @@ class RecipesController < ApplicationController
 
   # List the recipes from a given search
   def index
-    @recipes = Recipe.seach(item)
+    @recipes = Recipe.search(params[:search])
+
   end
 
 
