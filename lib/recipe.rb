@@ -17,14 +17,18 @@ class Recipe
 
   # returns a collection of recipe objects that match the search conditions
   # if no range (to:, from:) is provided, defaults to first ten
-  def self.search(search_term)
-    query_params = {
-      "q" => search_term,
-      "app_id" => ID,
-      "app_key" => KEY,
-      "from" => 0,
-      "to" => 2
-    }
+  def self.search(query_params)
+    # binding.pry
+    query_params["app_id"] = ID
+    query_params["app_key"] = KEY
+
+    # {
+    #   "q" => search_term,
+    #   "app_id" => ID,
+    #   "app_key" => KEY,
+    #   "from" => 0,
+    #   "to" => 2
+    # }
 
     url = "#{BASE_URL}search"
     response = HTTParty.get(url, query: query_params)

@@ -1,0 +1,6 @@
+<h1>Search for recipes here...</h1>
+
+<%= form_tag recipes_path, method: :get do %>
+  <%= text_field_tag :q %>
+  <%= submit_tag "Enter", class: "button" %>
+<% end %>
