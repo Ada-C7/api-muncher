@@ -10,6 +10,14 @@ describe RecipeApiWrapper do
     end
   end
 
+  it "returns an array of Recipe objects" do
+    VCR.use_cassette("recipes") do
+      search = "chicken"
+      response = RecipeApiWrapper.findRecipes(search)
+      response[0].class.must_equal Recipe
+    end
+  end
+
   it "Does not get a list without a search parameter" do
     proc {
     VCR.use_cassette("recipes") do
