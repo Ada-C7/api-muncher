@@ -1,0 +1,22 @@
+
+<%@recipes.each do |recipe|%>
+  <div>
+    <p> Title: <%=link_to recipe.label, show_recipe_path(recipe.uri)%></p>
+    <p>Calories: <%=recipe.calories%></p>
+    <p> Image: <%=image_tag recipe.image, alt:"picture of #{recipe.label}"%>
+    <p>Uri: <%=recipe.uri%></p>
+    <p>Ingridients: <%=recipe.ingredients%></p>
+    <p>Diet labels:
+      <%recipe.diet_labels.each do |l|%>
+        <%=l%>
+      <%end%>
+    </p>
+    <p>Health labels:
+      <%recipe.health_labels.each do |l|%>
+        <%=l%>
+      <%end%>
+    </p>
+    <br>
+      <br>
+  </div>
+<%end%>
