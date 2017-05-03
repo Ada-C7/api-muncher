@@ -1,5 +1,5 @@
 class Recipe
-  :attr_reader
+  attr_reader :label, :image, :source, :ingredients, :nutrition
 
   def initialize(recipe_hash)
     @label = recipe_hash[:label]

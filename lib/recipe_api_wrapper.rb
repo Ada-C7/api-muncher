@@ -11,17 +11,18 @@ class RecipeApiWrapper
     r = HTTParty.get(url)
 
     recipes = []
-    r.each do |recipe|
+    r["hits"].each do |recipe|
       recipe_info = Hash.new
-      recipe_info["label"] = r["recipe"]["label"]
-      recipe_info["image"] = r["recipe"]["image"]
-      recipe_info["source"] = [r["recipe"]["source"], r["recipe"]["url"]]
-      recipe_info["ingredients"] = r["recipe"]["ingredientLines"]
-      recipe_info["nutrition"] = r["recipe"]["totalNutrients"]
+      recipe_info["label"] = recipe["recipe"]["label"]
+      recipe_info["image"] = recipe["recipe"]["image"]
+      recipe_info["source"] = [recipe["recipe"]["source"], recipe["recipe"]["url"]]
+      recipe_info["ingredients"] = recipe["recipe"]["ingredientLines"]
+      recipe_info["nutrition"] = recipe["recipe"]["totalNutrients"]
 
       recipes << Recipe.new(recipe_info)
     end
 
     return recipes
   end
+
 end
