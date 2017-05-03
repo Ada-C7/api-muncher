@@ -12,7 +12,22 @@ describe EdamamApiWrapper do
         end
       end
     end
+
+    it "if there are no search results, should return empty array" do
+      VCR.use_cassette("edamam") do
+        results = EdamamApiWrapper.search("")
+        results.must_equal []
+      end
+    end
+
+    it "if the request has no mroe results to display, should return empty array" do
+      VCR.use_cassette("edamam") do
+        results = EdamamApiWrapper.search("chicken", 1000, 1010)
+        results.must_equal []
+      end
+    end
   end
+
 
   describe "Testing self.getRecipe" do
     it "can get a one recipe with uri" do
