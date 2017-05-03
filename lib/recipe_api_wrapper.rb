@@ -18,6 +18,10 @@ class RecipeApiWrapper
       recipe_info["source"] = [r["recipe"]["source"], r["recipe"]["url"]]
       recipe_info["ingredients"] = r["recipe"]["ingredientLines"]
       recipe_info["nutrition"] = r["recipe"]["totalNutrients"]
+
+      recipes << Recipe.new(recipe_info)
     end
+
+    return recipes
   end
 end
