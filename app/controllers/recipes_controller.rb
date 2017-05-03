@@ -1,3 +1,5 @@
+require 'edamam_wrapper'
+
 class RecipesController < ApplicationController
 
   def index
