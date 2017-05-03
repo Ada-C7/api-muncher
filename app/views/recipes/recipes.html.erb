@@ -1,0 +1,9 @@
+<h1>Recipes with <%= @ingredient %></h1>
+
+<% @recipes.each do |recipe| %>
+<ul>
+  <%= image_tag(recipe.image) %>
+  <%= recipe.label %>
+</ul>
+
+<% end %>
