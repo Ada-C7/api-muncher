@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :development do
@@ -57,8 +59,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'dotenv-rails'
-  gem 'minitest-vcr'
-gem 'webmock'
 end
 
 gem 'httparty'

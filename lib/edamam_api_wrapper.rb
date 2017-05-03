@@ -9,9 +9,11 @@ class EdamamApiWrapper
     app_id ||= APP_ID
     app_key ||= APP_KEY
 
-    # url = BASE_URL + "chat.postMessage?" + "token=#{ token }"
-    #
-    # response = HTTParty.post(url,
+    search_term = search_term.gsub(/\s/, '+')
+
+    url = BASE_URL + "search?q=#{ search_term }&" + "app_id=#{ app_id }&" + "app_key=#{ app_key }"
+
+    response = HTTParty.post(url) #,
     # body: {
     #   "text" => "#{ text }",
     #   "channel" => "#{ channel_id }",
@@ -22,7 +24,7 @@ class EdamamApiWrapper
     # }
     # )
 
-    # return response["ok"]
+    return response["ok"]
   end
 
   def self.listRecipes(search_term, app_id = nil, app_key = nil)
