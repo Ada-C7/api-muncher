@@ -1,0 +1,18 @@
+.index {
+  background-image: url("http://i.huffpost.com/gen/1977217/images/o-COOKING-facebook.jpg");
+  background-position: fixed;
+  background-repeat: no-repeat;
+  h1 {
+    font-family: 'Pacifico', cursive;
+    color: white;
+  }
+}
+
+.search-bar {
+margin: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+margin-right: -50%;
+transform: translate(-50%, -50%);
+}

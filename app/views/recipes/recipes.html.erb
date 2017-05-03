@@ -1,9 +1,19 @@
+<main class="row">
+
 <h1>Recipes with <%= @ingredient %></h1>
 
 <% @recipes.each do |recipe| %>
+<section class="top columns large-4 small-12 product" >
 <ul>
-  <%= image_tag(recipe.image) %>
-  <%= recipe.label %>
+  <li>
+    <%= image_tag(recipe.image) %>
+  </li>
+  <li>
+    <%= recipe.label %>
+  </li>
 </ul>
+</section>
 
 <% end %>
+
+</main>
