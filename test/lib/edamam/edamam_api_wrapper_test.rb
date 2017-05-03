@@ -13,4 +13,24 @@ describe EdamamApiWrapper do
       end
     end
   end
+
+  describe "Testing self.getRecipe" do
+    it "can get a one recipe with uri" do
+      VCR.use_cassette("edamam") do
+        recipe = EdamamApiWrapper.getRecipe("http://www.edamam.com/ontologies/edamam.owl%23recipe_637913ec61d9da69eb451818c3293df2")
+        recipe.must_be_instance_of Recipe
+        recipe.name.must_equal "Dijon and Tarragon Grilled Chicken"
+      end
+    end
+
+    it "should return nil for an invalid recipe uri" do
+      VCR.use_cassette("edamam") do
+        recipe = EdamamApiWrapper.getRecipe("bad-URI")
+        recipe.must_be_nil
+
+        recipe = EdamamApiWrapper.getRecipe("https://bad-URI")
+        recipe.must_be_nil
+      end
+    end
+  end
 end

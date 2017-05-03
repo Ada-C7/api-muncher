@@ -19,20 +19,31 @@ class EdamamApiWrapper
         recipes << Recipe.new(uri, name)
       end
     end
-    puts recipes.length
     return recipes
   end
 
-  # def self.getRecipe(uri)
-  #   url = BASE_URL + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}&" + "r=#{uri}"
-  #
-  #   result = HTTParty.get(url)
+  def self.getRecipe(uri)
+    url = BASE_URL + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}&" + "r=#{uri}"
 
-    #creates
-    # parse out info based on recipe
-    # Name
-    # Link to the original recipe (opens in a new tab)
-    # Ingredients
-    # Dietary information
-  # end
+    begin
+      result = HTTParty.get(url).parsed_response
+    rescue JSON::ParserError
+      return nil
+    end
+
+    if result.length == 0
+      return nil
+    else
+      info = result[0]
+
+      recipe = Recipe.new(info["label"], info["uri"],
+      options: {
+        image: info["image"],
+        url: info["url"],
+        ingredients: info["ingredientLines"],
+        nutritional_info: info["totalNutrients"]
+        })
+      return recipe
+    end
+  end
 end
