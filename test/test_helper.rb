@@ -27,7 +27,7 @@ class ActiveSupport::TestCase
   VCR.configure do |config|
     config.cassette_library_dir = "test/cassettes"
     config.hook_into :webmock
-    config.default_cassette_options {
+    config.default_cassette_options = {
       record: :new_episodes,
       match_requests_on: [:method, :uri, :body]
     }
@@ -39,6 +39,7 @@ class ActiveSupport::TestCase
     config.filter_sensitive_data("<APP_KEY>") do
       ENV["APP_KEY"]
     end
+  end
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
   # Add more helper methods to be used by all tests here...
