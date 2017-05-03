@@ -1,11 +1,14 @@
 class Recipe
-  attr_reader :name, :id
+  attr_reader :name, :id, :label, :image, :source, :url
 
-  def initialize(name, id)
-    raise ArgumentError if name == nil || name == "" || id == nil || id == ""
+  def initialize(data)
 
-    @name = name
-    @id = id
+    @name = data.fetch("name")
+    @id = data.fetch("uri").split("_").last
+    @label = data.fetch("label")
+    @image = data.fetch("image")
+    @source = data.fetch("source")
+    @url = data.fetch("url")
   end
 
 end

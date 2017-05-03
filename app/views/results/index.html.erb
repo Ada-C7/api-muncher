@@ -1,1 +1,13 @@
+<section class="recipe-list">
+
 <h1>Results for your search!</h1>
+
+<ul>
+  <% @recipes.each do | recipe | %>
+    <li>
+    <%=recipe.name %>
+    <%=recipe.id %>
+    </li>
+    <% end %>
+</ul>
+</section>
