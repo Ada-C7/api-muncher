@@ -23,6 +23,10 @@ describe EdamamApiWrapper do
       end
     end
 
+    it "requires a uri to access recipe" do
+      proc {EdamamApiWrapper.getRecipe()}.must_raise ArgumentError
+    end
+
     it "should return nil for an invalid recipe uri" do
       VCR.use_cassette("edamam") do
         recipe = EdamamApiWrapper.getRecipe("bad-URI")

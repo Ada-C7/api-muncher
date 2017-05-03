@@ -14,9 +14,9 @@ class EdamamApiWrapper
     recipes = []
     if result["hits"]
       result["hits"].each do |result|
-        name = result["label"]
-        uri = result["uri"]
-        recipes << Recipe.new(uri, name)
+        name = result["recipe"]["label"]
+        uri = result["recipe"]["uri"]
+        recipes << Recipe.new(name, uri)
       end
     end
     return recipes
