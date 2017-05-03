@@ -59,6 +59,7 @@ group :development do
   gem 'pry-rails'
 end
 
+ gem 'httparty'
  gem 'foundation-rails'
 
 group :test do

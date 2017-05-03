@@ -4,10 +4,11 @@
 class HomepagesController < ApplicationController
 
   def index
-    @search_recipes = EdamamApiWrapper.search
+    @search_recipes = EdamamApiWrapper.search(params[:search_term])
   end
 
   def show
+    @top_ten_recipes 
   end
 
 end

@@ -3,9 +3,19 @@
 <h3>Dish, bish...</h3>
 
 
- <%= form_tag create_search_path, method: "post" do %>
-   <%= label_tag(:search_term, "What sounds good?") %>
-   <%= text_field_tag(:search_term) %>
-   <%= submit_tag("Search") %>
+<%= form_tag homepages_index_path, method: "get" do %>
+<%= label_tag(:search_term, "What sounds good?") %>
+<%= text_field_tag(:search_term) %>
+<%= submit_tag("Search") %>
 
- +<% end %>
+<% end %>
+
+<section class="recipes-list">
+  <ul>
+    <% @search_recipes.each do |recipe| %>
+    <li>
+      <%= link_to recipe.label, recipes_show_path %>
+    </li>
+    <% end %>
+  </ul>
+</section>

@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get 'homepages/index', to: 'homepages#index'
   get 'homepages/show', to: 'homepages#show'
 
-
+  get 'recipes/show', to: 'recipes#show' 
   #resources :recipes
 end
