@@ -35,9 +35,17 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'httparty'
+gem 'foundation-rails'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'dotenv-rails'
+  #mocking for api wrapper test
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :development do
@@ -58,7 +66,6 @@ group :development do
   gem 'pry-rails'
 end
 
-gem 'foundation-rails'
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
