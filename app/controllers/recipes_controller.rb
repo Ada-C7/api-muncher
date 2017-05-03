@@ -3,7 +3,7 @@ require '.env'
 
 class RecipesController < ApplicationController
   def index
-    RecipesApiWrapper.search(query)
+    @data = RecipesApiWrapper.search(query)
   end
 
   def show
