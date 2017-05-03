@@ -8,7 +8,17 @@ class RecipesController < ApplicationController
 
   def search
     @recipes = Recipe.search(params[:recipe][:term])
-    redirect_to root_path
+    if @recipes.nil?
+      head :not_found
+    end
+  end
+
+  def show
+    @recipe = Recipe.search(params[:recipe][:term][:id])
+    if @recipe.nil?
+      head :not_found
+    end
+
   end
 
 end

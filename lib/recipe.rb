@@ -11,6 +11,7 @@ class Recipe
     @name = recipe_params[:name]
     @img_url = recipe_params[:img_url]
     @url = recipe_params[:url]
+    @id = recipe_params[:id]
   end
 
   def self.search(term)
@@ -23,8 +24,15 @@ class Recipe
     response = HTTParty.get(BASE_URL, query: query_params)
     recipe_list = response.parsed_response["hits"]
     recipe_array = []
+
     recipe_list.each do |recipe|
-      recipe_params = {name: recipe["recipe"]["label"], img_url: recipe["recipe"]["image"], url: recipe["recipe"]["uri"]}
+      recipe_params =
+      {
+        name: recipe["recipe"]["label"],
+        img_url: recipe["recipe"]["image"],
+        url: recipe["recipe"]["uri"],
+        id: recipe["recipe"]["uri"].split("_").last
+      }
       recipe_array << Recipe.new(recipe_params)
     end
     return recipe_array
