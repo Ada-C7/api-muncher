@@ -1,27 +1,14 @@
-require 'recipe_search'
+require 'recipe'
 
 class RecipesController < ApplicationController
 
   def index
+    @recipes
   end
 
-end
-
-require 'slack_channel'
-
-class ChatsController < ApplicationController
-
-  def index
-    @channels = SlackChannel.all
+  def search
+    @recipes = Recipe.search(params[:recipe][:term])
+    redirect_to root_path
   end
 
-  def new_message
-    @channel = SlackChannel.new(params[:channel])
-  end
-
-  def send_message
-    channel = SlackChannel.new(params[:channel])
-    channel.send(params[:message])
-    redirect_to chats_path
-  end
 end

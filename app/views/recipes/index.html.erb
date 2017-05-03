@@ -1,0 +1,15 @@
+<h3> Recipe List </h3>
+
+<%= form_for :recipe do |f| %>
+<%= f.text_field :term, placeholder: "Enter ingredient here" %>
+<%= f.submit "Search Recipes" %>
+<% end %>
+
+<ul>
+  <% if @recipes != nil %>
+    <% @recipes.each do |recipe| %>
+    <li><%= recipe.name %></li>
+    
+    <% end %>
+  </ul>
+  <% end %>
