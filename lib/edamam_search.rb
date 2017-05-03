@@ -9,6 +9,8 @@ class EdamamSearch
 
   def initialize(search_info)
     @search_text = search_info
+    # @to = 0
+    # @from =
     # health = search_hash[:health_options]
     # diet = search_hash[:diet_options]
   end
@@ -25,11 +27,10 @@ class EdamamSearch
     # response = HTTParty.get("https://api.edamam.com/search?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&q=#{@search_text}")
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
+
     if response["count"] > 0
       return labels_and_images(response)
-    elsif response["count"] == 0
-      return "Sorry there are no results for that search"
-    else
+    elsif response["error"]
       raise EdamamException.new(response["error"])
     end
   end
@@ -46,5 +47,4 @@ private
     end
     return results
   end
-
 end

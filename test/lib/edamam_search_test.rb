@@ -23,7 +23,7 @@ describe EdamamSearch do
         search_input = EdamamSearch.new("duck")
         response = search_input.search_results
         # p response["count"]
-        p response
+        # p response
 
         # array of recipe results names with image url
         # x = response["hits"].map do |info|
@@ -41,9 +41,7 @@ describe EdamamSearch do
       VCR.use_cassette("search_results") do
         search_input = EdamamSearch.new("dafjkaljdaklj")
         response = search_input.search_results
-        p response
-        response.must_equal "Sorry there are no results for that search"
-
+        response.must_be_nil
       end
     end
 

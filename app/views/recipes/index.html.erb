@@ -1,15 +1,23 @@
 <section class="row">
 <h1>Search Results</h1>
   <article class="large-12 columns">
-  <% if @results %>
+  <% if @results.nil? %>
+
+    <p> Sorry there are no results </p>
+    <%= link_to "Back To Search", recipe_search_path, class: "button" %>
+
+  <% else %>
+
     <% @results.each_with_index do |recipe, index| %>
       <div class="large-4 columns">
         <img src="<%= recipe[:image_url] %>"  alt="recipe: <%= index + 1 %>">
-        <div><%= link_to recipe[:label], "#" %></div>
+        <div><h5><%= link_to recipe[:label], "#" %></h5></div>
       </div>
     <% end %>
-  <% end %>
+
   </article>
 
   <nav><%= link_to "Next", "#", class: "button" %> </nav>
+
+  <% end %>
 </section>
