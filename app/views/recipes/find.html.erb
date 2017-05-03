@@ -1,0 +1,6 @@
+<%= form_tag recipe_find_path(@recipe), method: :post do %>
+  <%= label_tag :search %>
+  <%= text_field_tag :search %>
+
+  <%= submit_tag "Send it!" %>
+<% end %>
