@@ -43,7 +43,7 @@ gem 'httparty'
 gem 'foundation-rails'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger consol
   gem 'byebug', platform: :mri
 end
 
@@ -62,6 +62,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :development do
   gem 'better_errors'
   gem 'pry-rails'
+  gem 'binding_of_caller'
+  gem 'dotenv-rails'
 end
 
 gem 'awesome_print'

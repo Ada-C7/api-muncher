@@ -1,0 +1,11 @@
+<h1> Noice! It's the index "")</h1>
+
+
+<% @recipes.each do |recipe| %>
+<%# raise %>
+
+<p>
+  <%= recipe.image %> Recipe: <%= link_to recipe.name, recipe_path(recipe.uri) %>
+</p>
+
+<% end %>

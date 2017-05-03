@@ -29,4 +29,26 @@ describe EdamamApiWrapper do
 
 
   end
+
+  describe " Get a recipe " do
+
+    it " Can get a recipe given a valid recipe uri" do
+      VCR.use_cassette("edamam") do
+        skip
+        recipe = EdamamApiWrapper.getRecipe("")
+        #could call the list recipe method and call the first recipe in that list to make this test lest dependent
+        recipe.class.must_equal Recipe
+        recipe.name.must_be_instance_of String
+        recipe.name.must_equal ""
+      end
+    end
+
+    it "should return false given an invalid recipe id" do
+      VCR.use_cassette("edamam") do
+        skip
+        recipe = EdamamApiWrapper.getRecipe("0000000")
+        recipe.must_be_nil
+      end
+    end
+  end
 end
