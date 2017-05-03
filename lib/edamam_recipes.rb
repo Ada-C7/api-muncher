@@ -13,7 +13,7 @@ class EdamamRecipes
     @label
   end
 
-  def get_recipes(search_request)
+  def self.get_recipes(search_request)
 
     # query_params = {
     #   # "q" => search_reques,
@@ -23,16 +23,21 @@ class EdamamRecipes
     # }
     # url = "#{BASE_URL}"
     # response = HTTParty.get(url, query: query_params).parsed_response
+
+
     response = HTTParty.get("https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}").parsed_response
 
-
-    return response
+    # if response["ok"]
+    #   puts "Everything went swell"
+      return response
+    # else
+    #   raise EdamamException.new("no hits found")
+    # end
   end
 
 end
 
-recipes = EdamamRecipes.new
-puts recipes.get_recipes("chicken")
+# puts EdamamRecipes.get_recipes("chicken")
 
 # seven_wonders = ["Great Pyramind of Giza", "Hanging Gardens of Babylon", "Colossus of Rhodes", "Lighthouse of Alexandria", "Statue of Zeus at Olympia", "Temple of Artemis", "Mausoleum at Halicarnassus"]
 #

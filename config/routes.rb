@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+  root 'recipes#search', as:'root'
+
   get '/recipes', to: 'recipes#index', as: 'recipes'
 
-  get '/recipes/get_recipes', to: 'recipes#get_recipes', as: 'get_recipes'
+#show - only one
+  #get '/recipes/:id'#what the unique identifier is on API#, to: 'recipes#get_recipes', as: 'get_recipes'
 end

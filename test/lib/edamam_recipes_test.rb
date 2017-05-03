@@ -5,20 +5,19 @@ describe EdamamRecipes do
   #
   # end
 
-  describe "get_recipes" do
+  describe "self.get_recipes" do
     it "can get recipes for a valid search" do
       VCR.use_cassette("responses") do
-        response = EdamamRecipes.new
-        response.get_recipes("chicken")
+        response = EdamamRecipes.get_recipes("chicken")
+        # response.class.must_be_kind_of Hash
       end
     end
 
     it "fails to get recipes for a bogus search" do
       VCR.use_cassette("responses") do
-        response = EdamamRecipes.new
-        response.get_recipes("fkhtgn")
+        response = EdamamRecipes.get_recipes("fkhtgn")
         proc {
-          response.get_recipes("fkhtgn")
+          response = EdamamRecipes.get_recipes("fkhtgn")
         }.must_raise EdamamRecipes::EdamamException
       end
     end
