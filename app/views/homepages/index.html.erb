@@ -1,3 +1,11 @@
 <h1>Hungry Weirdo</h1>
 
 <h3>Dish, bish...</h3>
+
+
+ <%= form_tag create_search_path, method: "post" do %>
+   <%= label_tag(:search_term, "What sounds good?") %>
+   <%= text_field_tag(:search_term) %>
+   <%= submit_tag("Search") %>
+
+ +<% end %>

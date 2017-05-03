@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root "recipes#index"
+  root "homepages#index"
 
-  get 'recipes/index', to: 'recipes#index'
-  get 'recipes/show', to: 'recipes#show'
+  get 'homepages/index', to: 'homepages#index'
+  get 'homepages/show', to: 'homepages#show'
 
 
   #resources :recipes

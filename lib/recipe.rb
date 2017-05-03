@@ -1,10 +1,10 @@
 class Recipe
 
-  attr_reader :name, :id
+  attr_reader :label, :uri
 
-  def initialize(name, id)
-    @name = name
-    @id = id
+  def initialize(label, uri)
+    @label = label
+    @uri = uri
   end
 
 end
