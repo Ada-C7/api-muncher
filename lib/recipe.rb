@@ -12,7 +12,8 @@ class Recipe
   def initialize(label, image, uri, calories,diet_labels, health_labels, ingredients)
     @label = label
     @image = image
-    @uri = uri
+    index = uri.split("").find_index("_")
+    @uri = uri[index+1..-1]
     @calories = calories
     @diet_labels = diet_labels
     @health_labels = health_labels
@@ -44,13 +45,13 @@ class Recipe
     else
       puts "ERROR"
     end
+  end
 
-    def self.find_recipe(uri)
-      url = "#{BASE_URL}r=#{uri}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}"
-      response = HTTParty.get(url)
-      recipe = Recipe.new(response[0])
-      return recipe
-    end
+  def self.find_recipe(uri)
+    url = "#{BASE_URL}r=http://www.edamam.com/ontologies/edamam.owl#recipe_#{uri}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}"
+    response = HTTParty.get(url)
+    recipe = Recepy.new(response[0])
+    return recipe
   end
 
 end # end of class
