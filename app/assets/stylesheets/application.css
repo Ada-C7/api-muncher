@@ -15,3 +15,15 @@
  *= require foundation_and_overrides
 
  */
+
+.large-4 {
+  text-align: center;
+}
+
+.columns:last-child:not(:first-child) {
+  float: left
+}
+
+nav {
+  text-align: center;
+}

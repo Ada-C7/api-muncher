@@ -1,11 +1,15 @@
+<section class="row">
 <h1>Search Results</h1>
-  <article>
+  <article class="large-12 columns">
   <% if @results %>
-    <% @results.each do |recipe| %>
-      <img src="<%= recipe[:image_url] %>"  alt="recipe">
-      <%= link_to recipe[:label], "#" %>
+    <% @results.each_with_index do |recipe, index| %>
+      <div class="large-4 columns">
+        <img src="<%= recipe[:image_url] %>"  alt="recipe: <%= index + 1 %>">
+        <div><%= link_to recipe[:label], "#" %></div>
+      </div>
     <% end %>
   <% end %>
   </article>
 
   <nav><%= link_to "Next", "#", class: "button" %> </nav>
+</section>
