@@ -1,5 +1,5 @@
 class Recipe
-  attr_reader :name, :id, :image
+  attr_reader :name, :id, :image, :source, :url, :yield, :ingredients, :dietLabels, :healthLabels, :calories
 
   def initialize(name, id, image, options={})
     @name = name
