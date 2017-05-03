@@ -39,6 +39,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 
+  gem 'dotenv-rails'
+
   #Mocking for API wrapper tests
 gem 'minitest-vcr'
 
@@ -73,3 +75,7 @@ gem 'httparty'
 gem 'foundation-rails'
 
 gem 'json'
+
+gem 'binding_of_caller'
+
+# gem 'rails-api'
