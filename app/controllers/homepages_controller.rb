@@ -1,6 +1,4 @@
 class HomepagesController < ApplicationController
-  def index
-
-  end
+  def index; end
 
 end

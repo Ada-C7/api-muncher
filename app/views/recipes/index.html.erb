@@ -1,0 +1,12 @@
+<section class='channels-list'>
+  <h1>Recipes</h1>
+  <h2>Search Results</h2>
+    <ul>
+      <% @results.each do |recipe| %>
+        <li>
+          <%= link_to recipe.name, recipe_path(:name => recipe.name, :uri => recipe.uri) %>
+          <%= image_tag recipe.image %>
+        </li>
+      <% end %>
+    </ul>
+</section>

@@ -44,6 +44,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'minitest-vcr'
   gem 'webmock'
+  gem 'binding_of_caller'
 end
 
 group :development do
@@ -59,9 +60,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development do
-  gem 'better_errors'
   gem 'pry-rails'
-  gem 'dotenv-rails'
 end
 
 gem 'awesome_print'

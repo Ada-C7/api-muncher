@@ -1,0 +1,7 @@
+<h1>Search for recipes</h1>
+
+<%= form_tag recipes_path, method: "get" do %>
+  <%= label_tag(:query, "Searchy-search") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Send") %>
+<% end %>
