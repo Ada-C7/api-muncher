@@ -3,11 +3,11 @@ require 'httparty'
 class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search"
   APP_KEY = ENV["EDAMAM_TOKEN"]
-  APP_ID = dc26f0f1
+  APP_ID = "dc26f0f1"
 
   def self.listRecipes(search_term)
-    token ||= TOKEN
-    url = BASE_URL + "?g=#{search_term.gsub(" ", "%20")}&" + APP_ID + "&" + APP_KEY
+    token ||= APP_KEY
+    url = BASE_URL + "?g=#{search_term.gsub(" ", "%20")}&" + "app_id=#{APP_ID}&" + "app_key=#{token}"
 
     response = HTTParty.get(url)
 
