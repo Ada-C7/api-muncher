@@ -11,10 +11,28 @@ class EdamamApiWrapper
 
     if response["hits"]
       return response["hits"].map do |recipe|
-        Recipe.new(recipe["recipe"]["label"], recipe["recipe"]["uri"].gsub("#", "%23"))
+        Recipe.new(recipe["recipe"]["label"], recipe["recipe"]["uri"].partition("recipe_").last, recipe["recipe"]["image"])
       end
     else
       return []
+    end
+  end
+
+  def self.show_recipe(uri)
+    url = BASE_URL + "r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{uri}"
+    response = HTTParty.get(url)[0]
+
+    if response
+      options = {
+        recipe_link: response["url"],
+        ingredients: response["ingredientLines"],
+        diet_labels: response["dietLabels"],
+        health_labels: response["healthLabels"],
+        calories: response["calories"]
+      }
+      return Recipe.new(response["label"], response["uri"].partition("recipe_").last, response["image"], options )
+    else
+      return nil
     end
   end
 end
