@@ -34,7 +34,6 @@ class Recipe
     if response["hits"]
       puts "Everything went well"
       recepies = response.parsed_response["hits"]
-      puts "OOOOOOOOOOO: #{recepies.length}"
       recepies.each do |hit|
         recipe = hit["recipe"]
         recipe_object = Recipe.new(recipe["label"], recipe["image"],recipe["uri"], recipe["calories"], recipe["dietLabels"], recipe["healthLabels"] , recipe["ingredients"])
@@ -44,6 +43,13 @@ class Recipe
       return list_of_recepies_object
     else
       puts "ERROR"
+    end
+
+    def self.find_recipe(uri)
+      url = "#{BASE_URL}r=#{uri}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}"
+      response = HTTParty.get(url)
+      recipe = Recipe.new(response[0])
+      return recipe
     end
   end
 

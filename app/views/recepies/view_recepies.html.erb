@@ -2,13 +2,17 @@
 
 <ul class="pagination" role="navigation" aria-label="Pagination">
 
+  <%if params[:from].to_i != 0%>
+   <li class="pagination-previous"><a href="/recepies/view_recepies?from=<%=params[:from].to_i-10%>&amp;search=<%=@search_query%>" aria-label="Previous page">Previous <span class="show-for-sr">page</span></a></li>
+  <%end%>
+
   <%n = @recepies_number/10%>
   <%(0..n).each do |i|%>
     <%@from = i*10%>
     <%if params[:from] == (i*10).to_s%>
-      <li class="current"><a href="/recepies/view_recepies?from=<%=@from%>&amp;search=<%=@search_query%>" aria-label="Page <%=i%>"><%=i%></a></li>
+      <li class="current"><a href="/recepies/view_recepies?from=<%=@from%>&amp;search=<%=@search_query%>" aria-label="Page <%=i+1%>"><%=i+1%></a></li>
     <%else%>
-      <li><a href="/recepies/view_recepies?from=<%=@from%>&amp;search=<%=@search_query%>" aria-label="Page <%=i%>"><%=i%></a></li>
+      <li><a href="/recepies/view_recepies?from=<%=@from%>&amp;search=<%=@search_query%>" aria-label="Page <%=i+1%>"><%=i+1%></a></li>
     <%end%>
   <%end%>
 
@@ -23,7 +27,7 @@
 
 <%@recepies.each do |recipe|%>
   <div>
-    <p> Title: <%=recipe.label%></p>
+    <p> Title: <%=link_to recipe.label, show_recipe_path(recipe.uri)%></p>
     <p>Calories: <%=recipe.calories%></p>
     <p> Image: <%=image_tag recipe.image, alt:"picture of #{recipe.label}"%>
     <p>Uri: <%=recipe.uri%></p>

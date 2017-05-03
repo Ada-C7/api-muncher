@@ -9,7 +9,16 @@ class RecepiesController < ApplicationController
       flash[:result_text] = "Could not find recepies. Try again"
       redirect_to root_path
     end
+  end
 
+  def new
+  end
+
+  def create
+  end
+
+  def show_recipe
+    @recipe = Recipe.find_recipe(params[:uri])
 
   end
 
