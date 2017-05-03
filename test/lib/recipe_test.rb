@@ -39,7 +39,7 @@ describe Recipe do
     recipe.dietLabels[0].must_equal "totally bad for you"
     recipe.healthLabels[1].must_equal "fat-filled"
     recipe.calories.must_equal 1200
-    recipe.ingredients.must_equal "So many ingredients"
+    recipe.ingredientLines.must_equal "So many ingredients"
   end
 
 
