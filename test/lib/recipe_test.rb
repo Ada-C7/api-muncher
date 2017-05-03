@@ -1,7 +1,8 @@
 require 'test_helper'
 
 describe Recipe do
-  it "initializes with a hash" do
+
+  before do
     recipe_info = {
       label: "test",
       image: "http://www.test.image",
@@ -10,7 +11,15 @@ describe Recipe do
       nurition: { test: "testnutrient" }
     }
 
-    recipe = Recipe.new(recipe_info)
-    recipe.class.must_equal Recipe
+    @recipe = Recipe.new(recipe_info)
+  end
+
+  it "initializes with a hash" do
+    @recipe.class.must_equal Recipe
+  end
+
+  it "can access recipe information" do
+    @recipe.label.must_equal "test"
+    @recipe.ingredients.must_equal ["chicken", "more chicken"]
   end
 end
