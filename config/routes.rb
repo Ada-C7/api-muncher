@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
 root 'recipes#welcome'
 
-get 'recipes/', to: 'recipes#index', as: 'recipes'
 get 'recipes/:recipe', to: 'recipes#show', as: 'recipe'
+
+get 'recipes/', to: 'recipes#index', as: 'recipes'
+
+
 
 end

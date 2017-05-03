@@ -12,6 +12,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.getRecipe(params[:uri])
+
+    @recipe = Recipe.getRecipe(params[:recipe])
   end
 end

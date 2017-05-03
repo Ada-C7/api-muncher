@@ -5,12 +5,13 @@ class Recipe
 
   BASE_URL = "https://api.edamam.com/search"
 
-  attr_reader :name, :image, :original_uri
+  attr_reader :name, :image, :original_url, :uri_identifier
 
   def initialize(recipe_params)
     @name = recipe_params[:name]
     @image = recipe_params[:image]
-    @original_uri = recipe_params[:original_uri]
+    @id = recipe_params[:id]
+    @original_url = recipe_params[:original_url]
   end
 
   def self.search(item)
@@ -24,7 +25,8 @@ class Recipe
 
     recipe_array =[]
     recipes.each do |recipe|
-      recipe_params = {name: recipe["recipe"]["label"], image: recipe["recipe"]["image"], original_uri: recipe["recipe"]["uri"] }
+      recipe_params = {name: recipe["recipe"]["label"], image: recipe["recipe"]["image"], id: recipe["recipe"]["uri"],
+     original_url: recipe["recipe"]["url"]}
 
       recipe_array << Recipe.new(recipe_params)
     end
@@ -32,17 +34,24 @@ class Recipe
   end
 
 
-  def self.getRecipe(uri)
-
+  def self.getRecipe(name)
 
     query_params = {
       "app_id" => ENV["EDAMAM_API_APP_ID"],
       "app_key" => ENV["EDAMAM_API_APP_KEY"],
-      "r" => uri
+      "q" => name
     }
 
-    recipe = HTTParty.get(BASE_URL, query: query_params).parsed_response
-    return recipe["label"]
+    recipe = HTTParty.get(BASE_URL, query: query_params).parsed_response["hits"][0]
+
+
+    id = id: recipe["recipe"]["uri"]
+
+    recipe_params = {name: recipe["recipe"]["label"], image: recipe["recipe"]["image"], id: recipe["recipe"]["uri"],
+   original_url: recipe["recipe"]["url"]}
+
+    return Recipe.new(recipe_params)
+
 
     # if response["channel"]
     #   return Channel.new(response["channel"]["name"], response["channel"]["id"])
