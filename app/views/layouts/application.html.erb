@@ -13,7 +13,13 @@
 
   <body>
 
-    <%= yield %>
+    <header>
+      <%= render partial: "search" %>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
 
   </body>
 </html>
