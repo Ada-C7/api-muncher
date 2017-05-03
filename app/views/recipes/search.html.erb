@@ -1,5 +1,5 @@
 <h1>You want Recipes?</h1>
-<%= form_tag("/recipes", method: "get") do %>
+<%= form_tag("/recipes/index", method: "get") do %>
 <%= label_tag(:q, "Search for:") %>
 <%= text_field_tag(:q) %>
 <%= submit_tag("Search") %>

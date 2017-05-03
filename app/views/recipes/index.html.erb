@@ -1,0 +1,5 @@
+<h2>I found your <%=@search_term%> recipes</h2>
+<% @list.each do |recipe| %>
+<%= link_to(image_tag(recipe[:image], alt: "Photo of #{recipe[:label]}"), show_path(:uri => recipe[:uri])) %>
+<%= recipe[:label] %>
+<% end %>
