@@ -2,7 +2,6 @@
   <p>  <%=@recipe.label%></p>
   <p> <%=image_tag @recipe.image, alt:"picture of #{@recipe.label}"%>
   <p>Calories: <%=@recipe.calories.round(0)%></p>
-  <p>Bokmarked?: <%=@recipe.bookmarked%></p>
 
 <%alreary_in_favorite = false%>
 <%if @login_user != nil%>

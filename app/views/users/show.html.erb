@@ -6,3 +6,7 @@
   </p>
 <%end%>
 <h3>Recent searches:</h3>
+<%@user.searches.each do |search|%>
+    <p>Keyword: <%=search.keyword%></p>
+    <p>Search options: <%=search.vegan%> <%=search.kosher%>  <%=search.vegetarian%>  <%=search.paleo%></p>
+<%end%>

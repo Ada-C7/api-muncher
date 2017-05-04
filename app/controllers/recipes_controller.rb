@@ -17,6 +17,12 @@ class RecipesController < ApplicationController
     else
       @recipes_number = all.length
     end
+    if @login_user
+      @search = Search.new(user_id: @login_user.id, keyword: params[:search], vegan: params[:vegan], kosher: params[:kosher],vegetarian: params[:vegetarian], paleo: params[:paleo])
+      if @search.save
+          flash[:result_text] = "You succesessfully saved your search"
+      end
+    end
   end
 
 
@@ -24,9 +30,12 @@ class RecipesController < ApplicationController
     @health_labels_list = ["vegan", "vegetarian", "paleo", "dairy-free",
       "gluten-free", "wheat-free", "fat-free", "low-sugar", "egg-free",
       "peanut-free", "tree-nut-free", "soy-free", "fish-free", "shellfish-free"]
-
     end
 
+    def show_recipe
+      @recipe = RecipeApiWrapper.find_recipe(params[:uri])
+      @favorite_recipe = Recipe.new
+    end
 
     def new
       @favorite_recipe = Recipe.new
@@ -40,10 +49,6 @@ class RecipesController < ApplicationController
       end
     end
 
-    def show_recipe
-      @recipe = RecipeApiWrapper.find_recipe(params[:uri])
-      @favorite_recipe = Recipe.new
-    end
 
     def destroy
       favorite_recipe = Recipe.find(params[:id])
@@ -58,5 +63,10 @@ class RecipesController < ApplicationController
     def recipe_params
       params.require(:recipe).permit(:name, :recipe_uri, :user_id)
     end
+
+    def search_params
+      params.require(:search).permit(:keywords, :vegan, :kosher, :vegetarian, :paleo)
+    end
+
 
   end
