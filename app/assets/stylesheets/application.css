@@ -15,15 +15,36 @@
  *= require foundation_and_overrides
 
  */
+ body{
+   font-family: 'Open Sans', sans-serif;
+   height: 100%;
+ }
+ main{
+   margin-left: 1%;
+   margin-top: 3%;
+ }
 #flash{
   width: 30%;
+}
+footer {
+  border-top: 1px solid black;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  padding-top: 7px;
+}
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 #search_form{
   position: absolute;
   z-index: 1000;
   top: 30%;
-  left: 43%;
+  left: 36%;
   width: 400px;
 }
 #search_form label{
@@ -33,7 +54,7 @@
 }
 input#search-button{
   width: 150px;
-  margin-left: 25%;
+  margin-left: 23%;
   border-color: white;
   color: #1B512D;
   font-weight:bold;
@@ -46,6 +67,9 @@ header{
 }
 a{
   color: #1B512D;
+}
+h4{
+  color: #196825;
 }
 
 form.button_to{

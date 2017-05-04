@@ -1,47 +1,38 @@
 class RecipesController < ApplicationController
 
-  def view_recipes
-    all =  RecipeApiWrapper.all(params[:search], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
-    @search_query = params[:search]
-    @optional_params = ""
-    @optional_params += "&vegan=vegan" if params[:vegan] != nil
-    @optional_params += "&kosher=kosher" if params[:kosher] != nil
-    @optional_params += "&vegetarian=vegetarian" if params[:vegetarian] != nil
-    @optional_params += "&paleo=paleo" if params[:paleo] != nil
+    def view_recipes
+      all =  RecipeApiWrapper.all(params[:search], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
+      @search_query = params[:search]
+      @optional_params = "" # need it in view
+      @optional_params += "&vegan=vegan" if params[:vegan] != nil
+      @optional_params += "&kosher=kosher" if params[:kosher] != nil
+      @optional_params += "&vegetarian=vegetarian" if params[:vegetarian] != nil
+      @optional_params += "&paleo=paleo" if params[:paleo] != nil
 
-    @recipes = RecipeApiWrapper.search(params[:search], params[:from], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
+      @recipes = RecipeApiWrapper.search(params[:search], params[:from], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
 
-    if all  == nil || all== 0 || @recipes == nil || @recipes.length == 0
-      flash[:result_text] = "Could not find recipes. Try again"
-      redirect_to root_path
-    else
-      @recipes_number = all.length
-    end
+      if all  == nil || all== 0 || @recipes == nil || @recipes.length == 0
+        flash[:result_text] = "Could not find recipes. Try again"
+        redirect_to root_path
+      else
+        @recipes_number = all.length
+      end
 
-    if @login_user
-      @search = Search.new(user_id: @login_user.id, keyword: params[:search])
+      if @login_user
+        @search = Search.new(user_id: @login_user.id, keyword: params[:search])
 
-      params[:vegan] == nil ? @search.vegan= false : @search.vegan= true
-      params[:kosher] == nil ? @search.kosher= false : @search.kosher= true
-      params[:vegetarian] == nil ? @search.vegetarian= false : @search.vegetarian= true
-      params[:paleo] == nil ? @search.paleo= false : @search.paleo= true
+        params[:vegan] == nil ? @search.vegan = false : @search.vegan = true
+        params[:kosher] == nil ? @search.kosher = false : @search.kosher = true
+        params[:vegetarian] == nil ? @search.vegetarian = false : @search.vegetarian = true
+        params[:paleo] == nil ? @search.paleo = false : @search.paleo = true
 
-      @user_search = Search.find_by(user_id: @login_user.id, keyword: params[:search],
-                                vegan: @search.vegan, kosher: @search.kosher,
-                                vegetarian: @search.vegetarian, paleo: @search.paleo )
-      if @user_search == nil
-        if @search.save
-            flash[:result_text] = "You succesessfully saved your search"
+        @user_search = Search.find_by(user_id: @login_user.id, keyword: params[:search],
+                                  vegan: @search.vegan, kosher: @search.kosher,
+                                  vegetarian: @search.vegetarian, paleo: @search.paleo )
+        if @user_search == nil
+          @search.save
         end
       end
-    end
-  end
-
-
-  def welcome
-    @health_labels_list = ["vegan", "vegetarian", "paleo", "dairy-free",
-      "gluten-free", "wheat-free", "fat-free", "low-sugar", "egg-free",
-      "peanut-free", "tree-nut-free", "soy-free", "fish-free", "shellfish-free"]
     end
 
     def show_recipe
@@ -61,7 +52,6 @@ class RecipesController < ApplicationController
       end
     end
 
-
     def destroy
       favorite_recipe = Recipe.find(params[:id])
       if favorite_recipe.destroy
@@ -70,15 +60,13 @@ class RecipesController < ApplicationController
       end
     end
 
-
-
     private
     def recipe_params
-      params.require(:recipe).permit(:name, :recipe_uri, :user_id)
+      params.require(:favorite_recipe).permit(:name, :recipe_uri, :user_id)
     end
 
     def search_params
-      params.require(:search).permit(:keywords, :vegan, :kosher, :vegetarian, :paleo)
+      params.require(:search).permit(:search, :from, :vegan, :kosher, :vegetarian, :paleo)
     end
 
 

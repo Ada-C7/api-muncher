@@ -9,10 +9,10 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
   <body>
     <header>
-
           <section >
             <%= link_to "Home", root_path,  class:"button hollow topbar-responsive-button medium home-button"%>
             <%if @login_user%>
@@ -29,10 +29,14 @@
               <button class="close-button small" aria-label="Dismiss alert" type="button" data-close>
                 <span aria-hidden="true">&times;</span>
               </button>
-            </div>
+          </div>
             <% end %>
           </div>
     </header>
-    <%= yield %>
+      <%= yield %>
   </body>
+  <footer>
+    <h3 class="text-center"> @2017 Natalia Kuleniuk Powered by <a href="https://edamam.com">edamam.com</a></h3>
+  </footer>
+
 </html>
