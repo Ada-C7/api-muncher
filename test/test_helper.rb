@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 ENV["RAILS_ENV"] = "test"
 #require 'minitest/byebug' if ENV['DEBUG']
 require File.expand_path("../../config/environment", __FILE__)

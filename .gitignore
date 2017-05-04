@@ -16,3 +16,6 @@
 # Ignore Byebug command history file.
 .byebug_history
 .env
+coverage/
+scratch_paper.json
+.DS_Store
