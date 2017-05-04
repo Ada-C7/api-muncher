@@ -19,11 +19,9 @@ class EdamamApiWrapper
         name = result["recipe"]["label"]
         uri = result["recipe"]["uri"]
         image = result["recipe"]["image"]
-        ingredients = result["recipe"]["ingredientLines"]
-        url = result["recipe"]["url"]
-          #need to add nutritional_info
+          #Don't need everything just for search!
 
-        recipes << Recipe.new(name, uri, image, url, ingredients)
+        recipes << Recipe.new(name, uri, image)
       end
     end
     return recipes
@@ -45,7 +43,7 @@ class EdamamApiWrapper
     else
       info = result[0]
 
-      recipe = Recipe.new(info["label"], info["uri"], info["image"], info["url"], info["ingredientLines"], info["totalNutrients"])
+      recipe = Recipe.new(info["label"], info["uri"], info["image"], info["url"], info["ingredientLines"], info["totalNutrients"], info["yield"])
       return recipe
     end
   end

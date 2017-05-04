@@ -1,15 +1,69 @@
 <article class="show">
 
   <h2>
-    <%= @recipe.name %>
+    <%= link_to @recipe.name, @recipe.url, target: :_blank %>
   </h2>
-  <h3>Ingredients:</h3>
-  <ul>
-    <% @recipe.ingredients.each do |ingredient| %>
-      <li>
-        <%= ingredient %>
-      </li>
-    <% end %>
-  </ul>
+  <h3>
+    <!-- Info need to show
+    recipe yeilds BLANK servings
+    Nutritional Info per serving
+
+    CALORIES nutritional_info["ENERC_KCAL"]["quantity"] calories
+    TOTAL FAT nutritional_info["FAT"]["quantity"] grams
+      SATURATED FAT nutritional_info["FASAT"]["quantity"] grams
+      TRANS FAT nutritional_info["FATRN"]["quantity"] grams
+    SODIUM "NA" "quantity" mg
+    TOTAL CARBOHYDRATES nutritional_info["CHOCDF"]["quantity"] grams
+      DIETARY FIBER "FIBTG" "quantity" g
+      SUGARS "SUGAR" "quantity" g
+    PROTEIN  "PROCNT" "quantity" g
+   -->
+   <p>
+     Recipe yields <%= @recipe.servings %> servings
+   </p>
+
+  <section class="ingredients">
+    <h3>Ingredients:</h3>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <li>
+          <%= ingredient %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section class="nutritional-info">
+    <h4>Nutritional Info</h4>
+      <ul>
+        <li>
+          Calories: <%= @recipe.nutritional_info["ENERC_KCAL"]["quantity"].round(2) %> grams
+        </li>
+        <li>
+          Total Fat: <%= @recipe.nutritional_info["FAT"]["quantity"].round(2) %> grams
+        </li>
+        <li>
+          Saturated Fat: <%= @recipe.nutritional_info["FASAT"]["quantity"].round(2) %> grams
+        </li>
+        <li>
+          Trans Fat: <%= @recipe.nutritional_info["FATRN"]["quantity"].round(2) %> grams
+        </li>
+        <li>
+          Sodium: <%= @recipe.nutritional_info["NA"]["quantity"].round(2) %> grams
+        </li>
+        <li>
+          Carbohydrates: <%= @recipe.nutritional_info["CHOCDF"]["quantity"].round(2) %> grams
+        </li>
+        <li>
+          Fiber: <%= @recipe.nutritional_info["FIBTG"]["quantity"].round(2) %> grams
+        </li>
+        <li>
+          Sugar: <%= @recipe.nutritional_info["FIBTG"]["quantity"].round(2) %> grams
+        </li>
+        <li>
+          Protein: <%= @recipe.nutritional_info["PROCNT"]["quantity"].round(2) %> grams
+        </li>
+      </ul>
+    </section>
 
 </article>
