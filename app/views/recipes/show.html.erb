@@ -1,14 +1,25 @@
 <section class="row">
+
 <h1><%= @recipe[:label] %><h1>
 
   <img class= "large-5 columns" src="<%= @recipe[:image_url] %>"  alt="recipe picture">
 
   <article class="large-5 columns">
-    <h2>Ingredients</h2>
-    <ul>
-      <% @recipe[:ingredients].each do |ingredient| %>
-        <li><%= ingredient %></li>
-      <% end %>
-    </ul>
+  <h2><%= link_to "Original Recipe", @recipe[:original_recipe], target: :_blank %></h2>
+    <h3>Ingredients</h3>
+      <ul>
+        <% @recipe[:ingredients].each do |ingredient| %>
+          <li><%= ingredient %></li>
+        <% end %>
+      </ul>
+  </article>
+
+  <article class="large-12 columns">
+  <h3>Nutrition Facts</h3>
+  <ul>
+    <% @recipe[:dietary_information].each do |info| %>
+      <li><%= info %></li>
+    <% end %>
+  </ul>
   </article>
 </section>
