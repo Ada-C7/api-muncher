@@ -45,6 +45,8 @@ gem 'foundation-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger consol
   gem 'byebug', platform: :mri
+  #gem 'minitest-byebug'
+
 end
 
 group :development do

@@ -9,7 +9,7 @@ class EdamamApiWrapper
 
   def self.findRecipes(query)
 
-    url = BASE_URL + "q=#{query.gsub(" ", "+")}" + "&from=0&to=3" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}"
+    url = BASE_URL + "q=#{query.gsub(" ", "+")}" #+ "&from=0&to=3" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}"
 
     response = HTTParty.get(url)
 
@@ -42,7 +42,7 @@ class EdamamApiWrapper
 
   def self.showRecipe(uri)
 
-    url = BASE_URL + "r=#{uri}" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}"
+    url = BASE_URL + "r=#{uri}" #+ "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}"
 
     response = HTTParty.get(url).first
     recipe = nil
@@ -63,7 +63,7 @@ class EdamamApiWrapper
         url: url,
         servings: servings,
         diet: dietLabels,
-        healthLabels: healthLabels,
+        health: healthLabels,
         ingredients: ingredients,
         calories: calories
       }
