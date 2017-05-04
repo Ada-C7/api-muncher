@@ -1,10 +1,13 @@
 class RecipesController < ApplicationController
 
   def view_recipes
-
-    @search_query = params[:search]
     all =  Recipe.all(params[:search], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
-
+    @search_query = params[:search]
+    @optional_params = ""
+    @optional_params += "&vegan=vegan" if params[:vegan] != nil
+    @optional_params += "&kosher=kosher" if params[:kosher] != nil
+    @optional_params += "&vegetarian=vegetarian" if params[:vegetarian] != nil
+    @optional_params += "&paleo=paleo" if params[:paleo] != nil
     # @recipes = Recipe.search(params[:search], params[:from], params["health"])
     @recipes = Recipe.search(params[:search], params[:from], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
 

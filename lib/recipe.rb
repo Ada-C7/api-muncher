@@ -23,16 +23,17 @@ class Recipe
 
   def self.all(keywords,  vegan=nil, kosher=nil, vegetarian=nil, paleo=nil)
     health_options = Recipe.health_options(vegan, kosher, vegetarian, paleo)
-    url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}#{health_options}"
+    url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=0&to=300#{health_options}"
     result = HTTParty.get(url).parsed_response["hits"]
     return result
   end
 
 
-  def self.search(keywords, from, vegan=nil, kosher=nil, vegetarian=nil, paleo=nil)
+  def self.search(keywords, from,  vegan=nil, kosher=nil, vegetarian=nil, paleo=nil)
     health_options = Recipe.health_options(vegan, kosher, vegetarian, paleo)
     url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=#{from}&to=#{from.to_i+12}#{health_options}"
-
+    print "THIS IS URL:"
+    print url
     response = HTTParty.get(url)
     list_of_recipes_object = []
     if response["hits"]
