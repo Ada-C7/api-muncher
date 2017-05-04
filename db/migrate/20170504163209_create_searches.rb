@@ -3,10 +3,10 @@ class CreateSearches < ActiveRecord::Migration[5.0]
     create_table :searches do |t|
       t.belongs_to :user
       t.string :keyword
-      t.string :vegan
-      t.string :kosher
-      t.string :vegetarian
-      t.string :paleo
+      t.boolean :vegan, :default => false
+      t.boolean :kosher, :default => false
+      t.boolean :vegetarian, :default => false
+      t.boolean :paleo, :default => false
       t.timestamps
     end
   end

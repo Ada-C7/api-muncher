@@ -20,12 +20,21 @@ class RecipesController < ApplicationController
     if @login_user
       # @search = Search.new(user_id: @login_user.id, keyword: params[:search], vegan: params[:vegan], kosher: params[:kosher],vegetarian: params[:vegetarian], paleo: params[:paleo])
       @search = Search.new(user_id: @login_user.id, keyword: params[:search])
-      @search.vegan = true if  params[:vegan] != nil
-      @search.kosher = true if  params[:kosher] != nil
-      @search.vegetarian = true if  params[:vegetarian] != nil
-      @search.paleo = true if  params[:paleo] != nil
-      if @search.save
-          flash[:result_text] = "You succesessfully saved your search"
+
+      params[:vegan] == nil ? @search.vegan= false : @search.vegan= true
+      params[:kosher] == nil ? @search.kosher= false : @search.kosher= true
+      params[:vegetarian] == nil ? @search.vegetarian= false : @search.vegetarian= true
+      params[:paleo] == nil ? @search.paleo= false : @search.paleo= true
+
+      @user_search = Search.find_by(user_id: @login_user.id, keyword: params[:search],
+                                vegan: @search.vegan, kosher: @search.kosher,
+                                vegetarian: @search.vegetarian, paleo: @search.paleo )
+      if @user_search == nil
+        if @search.save
+            flash[:result_text] = "You succesessfully saved your search"
+        end
+      else
+           flash[:result_text] = "New search wasn't created. You already have same search"
       end
     end
   end
@@ -47,7 +56,7 @@ class RecipesController < ApplicationController
     end
 
     def create
-      @favorite_recipe = Recipe.new(name: params[:name],recipe_uri: params[:recipe_uri], user_id: params[:user_id] )
+      @favorite_recipe = Recipe.new(name: params[:name],recipe_uri: params[:recipe_uri], user_id: params[:user_id])
       if @favorite_recipe.save
         flash[:result_text] = "You added recipe to your favorite"
         redirect_to show_recipe_path(@favorite_recipe.recipe_uri)
