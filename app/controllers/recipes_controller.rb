@@ -8,7 +8,10 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find_by_name(params[:uri])
+    begin
+      @recipe = Recipe.find_by_name(params[:uri])
+    rescue ArgumentError => @message
+    end
   end
 
 end

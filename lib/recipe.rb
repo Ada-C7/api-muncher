@@ -46,7 +46,7 @@ class Recipe
       "app_key" => ENV["EDAMAM_KEY"],
     }
     recipe = HTTParty.get(BASE_URL, query: query_params).parsed_response[0]
-    if recipe["label"] != nil
+    if recipe != nil
     recipe_data = {
       name: recipe["label"],
       image: recipe["image"],
