@@ -10,7 +10,7 @@
 
     <p><%=@ingredient.label %></p>
     <p><%=@ingredient.image %></p>
-    <p><%=link_to @ingredient.source, "#{@ingredient.url}" %></p>
+    <p>Courtesy of: <%=link_to @ingredient.source, "#{@ingredient.url}" %></p>
     <p><%=@ingredient.ingredientLines %></p>
     <p><%=@ingredient.totalNutrients %></p>
       </div>

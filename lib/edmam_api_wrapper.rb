@@ -44,7 +44,7 @@ class EdmamApiWrapper
       "image" => "picture here",
       "source" => "source of recipe",
       "url" => "url here",
-      "ingredientLines" => "lots of banannas",
+      "ingredientLines" => "lots of bananas",
       "totalNutrients" => "super healthy stuff"
     }
 

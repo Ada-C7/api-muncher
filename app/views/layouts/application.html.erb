@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Vegan Recipe Search" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -15,6 +15,9 @@
   <body>
 
     <%= yield %>
-
+<footer>
+  <p>Much thanks to Edmam API for allowing us to use this search. All hail Edmam!</p>
+  <p>&copy; CCR cruelty-free recipes Inc.</p>
+</footer>
   </body>
 </html>
