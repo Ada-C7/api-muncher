@@ -19,7 +19,7 @@ class EdamamApiWrapper
         uri = response[index]["recipe"]["uri"]
         ingredients = response[index]["recipe"]["ingredientLines"]
         link = response[index]["recipe"]["url"]
-        diet = response[index]["recipe"]["digest"]
+        diet = response[index]["recipe"]["totalNutrients"]
 
         recipes << Recipe.new(name, image, uri, ingredients: ingredients, link: link, diet: diet)
       end
@@ -38,7 +38,7 @@ class EdamamApiWrapper
     uri = response["uri"]
     ingredients = response["ingredientLines"]
     link = response["url"]
-    diet = response["digest"]
+    diet = response["totalNutrients"]
 
     recipe = Recipe.new(name, image, uri, ingredients: ingredients, link: link, diet: diet)
   end
