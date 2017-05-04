@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
-
-    <%= yield %>
-
-  </body>
+<body>
+  <header>
+    <div>
+      <h1>Measure Twice</h1>
+    </div>
+    <div>
+      <h3>The Best Way To Find Great Recipes</h3>
+    </div>
+  </header>
+  <%= yield %>
+  <!-- <footer class="footer row">
+    <div class="small-12">
+      <p>add footer contents</p>
+    </div>
+  </footer> -->
+</body>
 </html>
