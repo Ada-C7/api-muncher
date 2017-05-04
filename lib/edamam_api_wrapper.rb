@@ -16,8 +16,13 @@ class EdamamApiWrapper
         name = ["recipe"]["label"]
         uri = ["recipe"]["uri"]
         image = ["recipe"]["image"]
-
-        raise
-
-      end 
+        raise 
+      return recipes << Recipe.new(name, uri, image)
+      end
+    else
+      return nil
     end
+    return recipes
+
+  end
+end
