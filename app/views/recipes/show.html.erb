@@ -1,1 +1,27 @@
 <h1>Recipe Details</h1>
+
+<%= image_tag @recipe.image, class: "fullsize" %>
+
+<ul>
+  <li>
+    <%= @recipe.label %>
+  </li>
+  <% @recipe.dietLabels.each do |label| %>
+  <li>
+    label
+  </li>
+  <% end %>
+  <% @recipe.healthLabels.each do |label| %>
+  <li>
+    label
+  </li>
+  <% end %>
+  <% @recipe.ingredientLines.each do |ingredient| %>
+  <li>
+    ingredient
+  </li>
+  <% end %>
+  <li>
+    <%= link_to "Link to Full Recipe", @recipe.url, target: "_blank" %>
+  </li>
+</ul>

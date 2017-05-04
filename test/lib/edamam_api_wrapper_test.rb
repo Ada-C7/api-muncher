@@ -40,7 +40,7 @@ describe EdamamApiWrapper do
         recipe = EdamamApiWrapper.getRecipe(id)
 
         recipe.must_be_instance_of Recipe
-        recipe.id.must_equal "http://www.edamam.com/ontologies/edamam.owl#recipe_014db7797cad02460ab565a740d56f2d"
+        recipe.id.must_equal id
         recipe.label.must_equal "Chocolate-Peanut Butter Terrine with Sugared Peanuts"
         recipe.image.must_equal "https://www.edamam.com/web-img/41a/41a0a57253138f0bd3fec5e091a3459d.jpg"
     end

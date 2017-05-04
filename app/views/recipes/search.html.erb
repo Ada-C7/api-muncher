@@ -1,1 +1,7 @@
 <h1>Search Recipes</h1>
+
+<%= form_tag recipes_path(:search), method: 'get' do %>
+  <%= label_tag(:search_term, "Search Recipes: ") %>
+  <%= text_field_tag(:search_term) %>
+  <%= submit_tag('Search') %>
+<% end %>

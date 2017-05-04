@@ -9,7 +9,7 @@ class EdamamApiWrapper
     app_id ||= APP_ID
     app_key ||= APP_KEY
 
-    puts APP_ID
+    search_term = search_term.gsub(/\s/, '+')
 
     url = BASE_URL + "search?q=#{ search_term }&" + "app_id=#{ app_id }&" + "app_key=#{ app_key }"
 
@@ -40,7 +40,7 @@ class EdamamApiWrapper
 
     if response
       recipe_hash = {
-        "id" => response["uri"],
+        "id" => response["uri"].gsub('#', '%23'),
         "label" => response["label"],
         "image" => response["image"],
         "url" => response["url"],

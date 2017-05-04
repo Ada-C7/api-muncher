@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   get '/recipes/:search_term', to: 'recipes#index', as: 'recipes'
 
-  get '/recipes/:search_term/:recipe', to: 'recipes#show', as: 'recipe'
+  get '/recipes/:recipe_id', to: 'recipes#show', as: 'recipe'
 
 end
