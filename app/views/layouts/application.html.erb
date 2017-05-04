@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>ApiMuncher</title>
-  <%= csrf_meta_tags %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+    <title><%= content_for?(:title) ? yield(:title) : "FridgeMuncher" %></title>
 
-<body>
-  <nav>
-    <%= link_to "HOME", root_path %>
-  </nav>
-  <%= yield %>
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <nav class="top-bar">
+      <ul class="title-area">
+        <li class="name">
+          <%= link_to "FridgeMuncher", root_path %>
+        </li>
+      </ul>
+    </nav>
+    <%= yield %>
+
+  </body>
 </html>
