@@ -12,9 +12,17 @@
   <% end %>
 
 <%= form_tag search_recipes_path, method: :get do %>
-  <%= hidden_field_tag :page, params[:page] %>
+  <%= hidden_field_tag :page, (params[:page].to_i + 1) %>
   <%= hidden_field_tag :search_terms, params[:search_terms] %>
   <%= submit_tag("Next 10 Results") %>
+<% end %>
+
+<% if @page >= 1 %>
+  <%= form_tag search_recipes_path, method: :get do %>
+    <%= hidden_field_tag :page, (params[:page].to_i - 1) %>
+    <%= hidden_field_tag :search_terms, params[:search_terms] %>
+    <%= submit_tag("Previous 10 Results") %>
+  <% end %>
 <% end %>
 
 </article>
