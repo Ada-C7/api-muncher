@@ -1,33 +1,38 @@
-class RecipeBook
-  attr_reader :unformated_recipe_data
+class Recipe
+  attr_reader :id, :label, :image_url, :ingredients, :dietary_information, :original_recipe
 
-  def initialize(response)
-    @unformated_recipe_data = response
+  def initialize(info)
+    @id = info[:recipe_id]
+    @label = info[:label]
+    @image_url = info[:image_url]
+    @ingredients = info[:ingredients]
+    @dietary_information = info[:dietary_information]
+    @original_recipe = info[:original_recipe]
   end
 
-  def list_of_recipes
-    # pass in recipe_data["hits"]
-    results = unformated_recipe_data.map do |info|
-    results = unformated_recipe_data["hits"].map do |info|
-      recipe = Hash.new
-      recipe[:id] = info["recipe"]["uri"].gsub("#", "%23")[53..-1]
-      recipe[:label] = info["recipe"]["label"]
-      recipe[:image_url] = info["recipe"]["image"]
-      recipe
+  def self.list_of_recipes(response)
+    list = []# pass in recipe_data["hits"]
+    response.each do |recipe_hash|
+      
+
+      info = {
+              recipe_id: api_data[:uri][52..-1],
+              label: api_data[:label],
+              image_url: api_data[:image]
+             }
+      list << Recipe.new(info)
     end
-    return results
+    return list
   end
 
-  def wanted_recipe_info
-    recipe = Hash.new
-    recipe[:label] = unformated_recipe_data["label"]
-    recipe[:image_url] = unformated_recipe_data["image"]
-    recipe[:original_recipe] = unformated_recipe_data["url"]
+  def self.individual_recipe(response)
+    info = Hash.new
+    info[:label] = response["label"]
+    info[:image_url] = response["image"]
+    info[:original_recipe] = response["url"]
     # you want ingredientLines
-    recipe[:ingredients] = unformated_recipe_data["ingredientLines"]
-    recipe[:ingredients2] = unformated_recipe_data["ingredients"]
-    recipe[:dietary_information] = unformated_recipe_data["totalNutrients"]
-    recipe
+    info[:ingredients] = response["ingredientLines"]
+    info[:dietary_information] = response["totalNutrients"]
+    return Recipe.new(info)
   end
-
 end

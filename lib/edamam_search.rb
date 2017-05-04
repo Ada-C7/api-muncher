@@ -1,4 +1,6 @@
 require 'httparty'
+require_relative 'recipe'
+
 class EdamamSearch
   class EdamamException < RuntimeError
   end
@@ -28,43 +30,40 @@ class EdamamSearch
 
     query_params = query_params.delete_if { |key, value| value.empty? || ( key == "r" && @recipe_id.nil?) }
 
-
-    # p query_params
-    # raise
     # response = HTTParty.get("https://api.edamam.com/search?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&q=#{@search_text}")
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
 
     if response.count == 1
-      return wanted_recipe_info(response)
+      return Recipe.individual_recipe(response[0])
     elsif response["count"] > 0
-      return labels_and_images(response)
+      return Recipe.list_of_recipes(response["hits"])
     elsif response["error"]
       raise EdamamException.new(response["error"])
     end
   end
 
-private
-  def labels_and_images(response)
-    results = response["hits"].map do |info|
-      recipe = Hash.new
-      recipe[:id] = info["recipe"]["uri"].gsub("#", "%23")[53..-1]
-      recipe[:label] = info["recipe"]["label"]
-      recipe[:image_url] = info["recipe"]["image"]
-      recipe
-    end
-    return results
-  end
-
-  def wanted_recipe_info(response)
-    recipe = Hash.new
-    recipe[:label] = response[0]["label"]
-    recipe[:image_url] = response[0]["image"]
-    recipe[:original_recipe] = response[0]["url"]
-    # you want ingredientLines
-    recipe[:ingredients] = response[0]["ingredientLines"]
-    recipe[:ingredients2] = response[0]["ingredients"]
-    recipe[:dietary_information] = response[0]["totalNutrients"]
-    recipe
-  end
+# private
+#   def labels_and_images(response)
+#     results = response["hits"].map do |info|
+#       recipe = Hash.new
+#       recipe[:id] = info["recipe"]["uri"].gsub("#", "%23")[53..-1]
+#       recipe[:label] = info["recipe"]["label"]
+#       recipe[:image_url] = info["recipe"]["image"]
+#       recipe
+#     end
+#     return results
+#   end
+#
+#   def wanted_recipe_info(response)
+#     recipe = Hash.new
+#     recipe[:label] = response[0]["label"]
+#     recipe[:image_url] = response[0]["image"]
+#     recipe[:original_recipe] = response[0]["url"]
+#     # you want ingredientLines
+#     recipe[:ingredients] = response[0]["ingredientLines"]
+#     recipe[:ingredients2] = response[0]["ingredients"]
+#     recipe[:dietary_information] = response[0]["totalNutrients"]
+#     recipe
+#   end
 end
