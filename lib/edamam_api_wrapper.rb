@@ -37,7 +37,7 @@ class EdamamApiWrapper
     return @recipes
   end
 
-  def self.getRecipe(id, token = nil)
+  def self.getRecipe(id = nil, token = nil)
     token ||= API_KEY
 
     url = BASE_URL + "&app_key=" + API_KEY + "app_id=" + API_ID + "&" + "r=http://www.edamam.com/ontologies/edamam.owl%23recipe_" + id.to_s
@@ -54,7 +54,7 @@ class EdamamApiWrapper
       healthlabels = response[0]["healthLabels"]
       calories = response[0]["calories"]
       totalNutrients = response[0]["totalNutrients"]
-      id = response[0]["uri"].split('_')[1]
+      id ||= response[0]["uri"].split('_')[1]
 
       @recipe = Recipe.new(uri, label, image, url, source, ingredients, ingredientlines, dietlabels, healthlabels, calories, totalNutrients, id)
 
