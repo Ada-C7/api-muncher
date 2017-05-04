@@ -39,9 +39,6 @@ class SearchApiWrapper
     uri = BASE_URL + "?r=#{URI.encode(uri)}"
 
     response = HTTParty.get(uri)
-
-
-
     # label = response[0]["label"]
     # url = response[0]["url"]
     # uri = response[0]["uri"]
