@@ -18,7 +18,6 @@ class RecipesController < ApplicationController
       @recipes_number = all.length
     end
     if @login_user
-      # @search = Search.new(user_id: @login_user.id, keyword: params[:search], vegan: params[:vegan], kosher: params[:kosher],vegetarian: params[:vegetarian], paleo: params[:paleo])
       @search = Search.new(user_id: @login_user.id, keyword: params[:search])
 
       params[:vegan] == nil ? @search.vegan= false : @search.vegan= true
@@ -33,10 +32,11 @@ class RecipesController < ApplicationController
         if @search.save
             flash[:result_text] = "You succesessfully saved your search"
         end
-      else
-           flash[:result_text] = "New search wasn't created. You already have same search"
       end
     end
+
+
+
   end
 
 
