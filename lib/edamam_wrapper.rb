@@ -2,6 +2,7 @@ require 'httparty'
 
 class EdamamWrapper
   BASE_URL = "https://api.edamam.com/search?"
+  BASE_URI = "http://www.edamam.com/ontologies/edamam.owl%23recipe_"
   KEY = ENV['EDAMAM_KEY']
   ID = ENV['APP_ID']
 
@@ -25,7 +26,8 @@ class EdamamWrapper
   end
 
   def self.findRecipe(id)
-    url = BASE_URL + "r=#{id}&app_id =#{ID}&app_key=#{KEY}"
+    uri = BASE_URI + "#{id}"
+    url = BASE_URL + "r=#{uri}&app_id =#{ID}&app_key=#{KEY}"
 
     begin
       response = HTTParty.get(url).parsed_response
@@ -33,7 +35,7 @@ class EdamamWrapper
       return nil
     end
 
-
+    if response[0] != nil
       name = response[0]["label"]
       uri = response[0]["uri"]
       image = response[0]["image"]
@@ -44,7 +46,9 @@ class EdamamWrapper
       options[:ingredientLines] = response[0]["ingredientLines"]
       options[:dietLabels] = response[0]["dietLabels"]
       return Recipe.new(name, uri, image, options)
+    end
 
+    return nil
 
   end
 

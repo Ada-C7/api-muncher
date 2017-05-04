@@ -3,4 +3,41 @@
 #ingredients
 #dietary info -->
 
-<%= @recipe.name %>
+<article class="recipe">
+
+  <h2><%= @recipe.name %></h2>
+  <div class="recipe_image">
+    <img src="<%=@recipe.image%>">
+  </div>
+
+
+  <section class="ingredients">
+    <ul>
+    <% @recipe.ingredientLines.each do |ingredient| %>
+      <li><%= ingredient %></li>
+    <% end %>
+    </ul>
+  </section>
+
+  <%= link_to "Full recipe at #{@recipe.source}", @recipe.url, target: :_blank %>
+
+  <section class="labels">
+    <% if @recipe.dietLabels != nil %>
+      <h4>Dietary information</h4>
+      <ul>
+        <% @recipe.dietLabels.each do |label| %>
+          <li><%= label %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <% if @recipe.healthLabels != nil %>
+      <h4>Health information</h4>
+      <ul>
+        <% @recipe.healthLabels.each do |label| %>
+          <li><%= label %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </section>
+</article>
+<%= link_to "Return to search page", root_path %>
