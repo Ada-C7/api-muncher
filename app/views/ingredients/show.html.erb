@@ -1,7 +1,9 @@
 
 <section class="ingredient-list">
 
-<h2>The recipe you selected!</h2>
+  <h2>The recipe you selected!</h2>
+
+  <div class="transbox">
 
   <% @ingredients.each do | ingredient | %>
 
@@ -12,5 +14,5 @@
     <%=ingredient.totalNutrients %>
 
   <% end %>
-
+</div>
 </section>

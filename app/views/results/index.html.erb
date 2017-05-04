@@ -2,13 +2,16 @@
 
 <h2>Results for your search!</h2>
 
-<ul>
-  <% @recipes.each do | recipe | %>
-    <li>
-    <%=link_to recipe.name, ingredients_path + "?#{recipe.uri}" %>
-    <%=recipe.image %>
+  <div class="transbox">
+  
+  <ul>
+    <% @recipes.each do | recipe | %>
+      <li>
+      <%=link_to recipe.name, ingredients_path + "?#{recipe.uri}" %>
+      <%=recipe.image %>
 
-    </li>
+      </li>
     <% end %>
-</ul>
+  </ul>
+  </div>
 </section>
