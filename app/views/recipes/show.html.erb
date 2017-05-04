@@ -1,1 +1,14 @@
-<h1>Results/ShowPage/List10 <h1>
+<section class="row">
+<h1><%= @recipe[:label] %><h1>
+
+  <img class= "large-5 columns" src="<%= @recipe[:image_url] %>"  alt="recipe picture">
+
+  <article class="large-5 columns">
+    <h2>Ingredients</h2>
+    <ul>
+      <% @recipe[:ingredients].each do |ingredient| %>
+        <li><%= ingredient %></li>
+      <% end %>
+    </ul>
+  </article>
+</section>

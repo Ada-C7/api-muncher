@@ -15,11 +15,12 @@ class RecipesController < ApplicationController
   def show
     # raise
     search_params = {
-      recipe_id: params[:id]
-    }
+                      recipe_id: params[:id]
+                    }
+                    
     recipe_info = EdamamSearch.new(search_params)
     @recipe = recipe_info.search_results
-    raise
+    # raise
   end
 private
 

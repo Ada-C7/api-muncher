@@ -39,8 +39,7 @@ class EdamamSearch
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
     if response.count == 1
-      return response.individual_recipe_info
-      # return response
+      return wanted_recipe_info(response)
     elsif response["count"] > 0
       return labels_and_images(response)
     elsif response["error"]
@@ -61,7 +60,15 @@ private
     return results
   end
 
-  def individual_recipe_info(response)
-    response
+  def wanted_recipe_info(response)
+    recipe = Hash.new
+    recipe[:label] = response[0]["label"]
+    recipe[:image_url] = response[0]["image"]
+    recipe[:original_recipe] = response[0]["url"]
+    # you want ingredientLines
+    recipe[:ingredients] = response[0]["ingredientLines"]
+    recipe[:ingredients2] = response[0]["ingredients"]
+    recipe[:dietary_information] = response[0]["totalNutrients"]
+    recipe
   end
 end

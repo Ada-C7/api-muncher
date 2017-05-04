@@ -1,6 +1,7 @@
 require 'test_helper'
 
 describe EdamamSearch do
+
   before do
     @search_params = {
                       search_text: "cookies",
@@ -12,7 +13,11 @@ describe EdamamSearch do
                     from: 0,
                     to: 10
                    }
+    @recipe = {
+                recipe_id: "6ffeacec6d0c6f8bc9aee1de19065537"
+              }
   end
+
   describe 'initialize' do
 
     it 'requires search hash' do
@@ -49,6 +54,12 @@ describe EdamamSearch do
     end
 
     it 'returns one recipe if there is a r search paramater' do
+      VCR.use_cassette("search_results") do
+        search_input = EdamamSearch.new(@recipe)
+        response = search_input.search_results
+        # p response
+        response[:label].wont_be_nil
+      end
 
     end
 
