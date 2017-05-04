@@ -5,6 +5,7 @@ class HomepagesController < ApplicationController
 
   def index
     if params[:search_terms]
+      @search_terms = params[:search_terms]
       from = (params[:page]).to_i * 10
       @recipes = EdamamApiWrapper.search(params[:search_terms], from)
       @page = params[:page].to_i
@@ -17,7 +18,6 @@ class HomepagesController < ApplicationController
   def show
     uri = params[:uri]
     @recipe = EdamamApiWrapper.getRecipe(uri)
-    raise
   end
 
 end

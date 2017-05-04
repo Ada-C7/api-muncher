@@ -8,27 +8,16 @@
     <ul>
       <% @recipes.each do |recipe| %>
         <li>
-          <%= form_tag recipe_path, method: :get do %>
-            <%= hidden_field_tag :uri, recipe.uri %>
-            <%= submit_tag(recipe.name) %>
-          <% end %>
+          <%= link_to recipe.name, recipe_path(uri: recipe.uri) %>
         </li>
       <% end %>
     </ul>
   <% end %>
 
-<%= form_tag search_recipes_path, method: :get do %>
-  <%= hidden_field_tag :page, (params[:page].to_i + 1) %>
-  <%= hidden_field_tag :search_terms, params[:search_terms] %>
-  <%= submit_tag("Next 10 Results") %>
+<% if @page >= 1 %>
+  <%= link_to "Previous 10 Results", search_recipes_path(page: @page - 1, search_terms: @search_terms) %>
 <% end %>
 
-<% if @page >= 1 %>
-  <%= form_tag search_recipes_path, method: :get do %>
-    <%= hidden_field_tag :page, (params[:page].to_i - 1) %>
-    <%= hidden_field_tag :search_terms, params[:search_terms] %>
-    <%= submit_tag("Previous 10 Results") %>
-  <% end %>
-<% end %>
+<%= link_to "Next 10 Results", search_recipes_path(page: @page + 1, search_terms: @search_terms) %>
 
 </article>
