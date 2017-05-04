@@ -1,11 +1,15 @@
 <h1> Noice! It's the index "")</h1>
 
+<%= render partial: "search_bar" %>
 
-<% @recipes.each do |recipe| %>
-<%# raise %>
-
-<p>
-  <%= image_tag recipe.image %> Recipe: <%= link_to recipe.name, recipe_path(name: recipe.name, uri: recipe.uri) %>
-</p>
-
-<% end %>
+<section>
+  <ul>
+  <% @recipes.each do |recipe| %>
+  <%# raise %>
+    <li>
+    <%= image_tag recipe.image %>
+    <%= link_to recipe.name, recipe_path(name: recipe.name, uri: recipe.uri) %>
+    </li>
+  <% end %>
+  </ul>
+</section>

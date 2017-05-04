@@ -1,40 +1,48 @@
 <h4> Hey you made it! </h4>
 
+<%= render partial: "search_bar" %>
 
-<h1><%= @recipe.name  %></h1>
+<section>
 
-<%= image_tag @recipe.image %>
+  <h1><%= @recipe.name  %></h1>
 
-<%= link_to "Original Recipe", @recipe.options[:url] %>
+  <%= image_tag @recipe.image %>
 
-<p>
-  <%= @recipe.options[:servings] %> Servings
-</p>
-<p>
-  <%= @recipe.options[:calories] %> Calories
-</p>
+  <%= link_to "Original Recipe", @recipe.options[:url] %>
 
-<ul> Diet
-  <% @recipe.options[:diet].each do |label| %>
+  <p>
+    <%= @recipe.options[:servings] %> Servings
+  </p>
+  <p>
+    <%= @recipe.options[:calories] %> Calories
+  </p>
 
-  <li>
-    <%= label %>
-  </li>
-  <% end %>
-</ul>
+  <ul> Diet
+    <% @recipe.options[:diet].each do |label| %>
 
-<ul> Health Labels
-  <% for label in  @recipe.options[:healthLabels] %>
-  <li>
-    <%= label %>
-  </li>
-  <% end %>
-</ul>
+    <li>
+      <%= label %>
+    </li>
+    <% end %>
+  </ul>
 
-<ul> Ingredients
-  <% for label in @recipe.options[:ingredients] %>
-  <li>
-    <%= label %>
-  </li>
-  <% end %>
-</ul>
+  <ul> Health Labels
+    <% for label in  @recipe.options[:healthLabels] %>
+    <li>
+      <%= label %>
+    </li>
+    <% end %>
+  </ul>
+
+  <ul> Ingredients
+    <% for label in @recipe.options[:ingredients] %>
+    <li>
+      <%= label %>
+    </li>
+    <% end %>
+  </ul>
+</section>
+
+<div class="button">
+  <%= link_to "Back", results_path(:search) %>
+</div>
