@@ -1,5 +1,5 @@
 <h1> What's for dinner?! </h1>
-<%= form_for recipe_search_path(@recipe), method: :post do %>
+<%= form_tag recipes_path, method: :get do %>
   <%= label_tag :query %>
   <%= text_field_tag :query %>
   <%= submit_tag "Send It!" %>
