@@ -19,6 +19,10 @@ div.row {
   padding-top: 20px;
 }
 
+#button{
+  font-size: 25px;
+}
+
 h2 {
   padding-top: 40px;
   font-size: 50px;
@@ -31,6 +35,7 @@ div.transbox {
   background-color: #ffffff;
   opacity: 0.7;
   filter: alpha(opacity=70);
+  color: #4A3450;
 }
 
 div.transbox:hover {
@@ -38,6 +43,18 @@ div.transbox:hover {
   filter: alpha(opaacity=90);
 }
 
-#button{
-  font-size: 25px;
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: #4A3450;
+}
+
+a:hover {
+  color: #949D5F;
+}
+
+div#recipes{
+  font-size: 30px;
 }
