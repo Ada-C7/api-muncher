@@ -1,3 +1,8 @@
 <h3>A list of favorite recepies for <%= link_to @user.name, user_path(@user) %></h3>
-
+<%@user.recipes.each do |recipe|%>
+  <p>
+    <%=link_to recipe.name , show_recipe_path(recipe.recipe_uri)%>
+    <%=button_to "Remove from favorite" , recipe_path(recipe.id), method: :delete, class: "button hollow topbar-responsive-button "%>
+  </p>
+<%end%>
 <h3>Recent searches:</h3>

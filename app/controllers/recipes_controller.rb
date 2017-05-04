@@ -45,6 +45,14 @@ class RecipesController < ApplicationController
       @favorite_recipe = Recipe.new
     end
 
+    def destroy
+      favorite_recipe = Recipe.find(params[:id])
+      if favorite_recipe.destroy
+        redirect_to user_path(favorite_recipe.user.id)
+      end
+    end
+
+
 
     private
     def recipe_params
