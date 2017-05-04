@@ -8,29 +8,19 @@ class EdamamApiWrapper
   APP_KEY = ENV["APP_KEY"]
 
   def self.listRecipes(search_words)
-    # https://api.edamam.com/search?q=chicken&app_id=06e21391&app_key=a3c24327c4ec34b54f1230f61ed67379
-  #  url = "https://api.edamam.com/search?q=chicken&app_id=06e21391&app_key=a3c24327c4ec34b54f1230f61ed67379"
-  #         https://api.edamam.com/search?q=chicken&app_id=06e21391&app_key=a3c24327c4ec34b54f1230f61ed67379
-
-
    url = BASE_URL + "?q=#{ search_words }" + "&app_id=#{ APP_ID }" + "&app_key=#{ APP_KEY }"
    response = HTTParty.get(url)
-
    @recipes = []
-
-
-  #  puts "hits 0************** #{response["hits"]}*********"
   if response["hits"]
    response["hits"].each do | hit |
-     label = hit["recipe"]["label"]
-    #  label = hit[i]["recipe"]["label"]
-     @recipes << Recipe.new(label)
-    #  puts recipes
-
+     options = {
+     label: hit["recipe"]["label"],
+     image: hit["recipe"]["image"],
+     uri: hit["recipe"]["uri"].split("_").last.to_s
+   }
+     @recipes << Recipe.new(options)
     end
-    puts @recipes
   end
-
    return @recipes
   end
 
@@ -57,12 +47,17 @@ class EdamamApiWrapper
   #   return response["ok"]
   # end
   #
-  # def self.getChannel(channel_id)
-  #   url = BASE_URL + "channels.info?" + "token=#{TOKEN}&" + "channel=#{channel_id}"
-  #   response = HTTParty.get(url)
-  #
-  #   return Channel.new(response["channel"]["name"], response["channel"]["id"])
-  # end
+  def self.getRecipe(uri)
+    url = "https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl_" + uri
+    response = HTTParty.get(url)
+    options = {
+    label: response[0]["label"],
+    image:  response[0]["image"],
+    uri:  response[0]["uri"],
+    ingredientlines: response[0]["ingredientLines"]
+   }
+    return Recipe.new(options)
+  end
 
 
 end

@@ -5,13 +5,15 @@ require 'recipe'
 class HomepagesController < ApplicationController
   def index
     @recipes = EdamamApiWrapper.listRecipes(params[:search_words])
-
   end
 
   # def find_recipe(search_words)
   #   @recipes = EdamamApiWrapper.listRecipes
   # end
-
   def show
+    uri = params[:uri]
+    @recipe = EdamamApiWrapper.getRecipe(uri)
   end
+
+
 end
