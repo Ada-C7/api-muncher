@@ -18,7 +18,6 @@ describe "Rescipe" do
       # test_recipe.nutrients.must_equal {energy: 222, suger: "17g", calcuim: "400mg"}
     end
 
-
     it "Raises argument error if not passing all the required arguments" do
 
       proc {
@@ -27,7 +26,5 @@ describe "Rescipe" do
       uri = "test uri"
       image = "test image"
       test_recipe = Recipe.new(label, url, image, uri)}.must_raise ArgumentError
-
     end
-
 end

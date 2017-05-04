@@ -6,23 +6,31 @@ class SearchApiWrapper
   APP_ID = ENV["APP_ID"]
   APP_KEY = ENV["APP_KEY"]
 
-  def self.listRecipes(user_search)
+  def self.listRecipes(user_search,app_id = nil, app_key = nil)
+
+    app_id ||= APP_ID
+    app_key ||= APP_KEY
+
     url = BASE_URL + "?q=#{user_search}" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&to=10"
 
     response = HTTParty.get(url).parsed_response
     hits = response["hits"]
     recipes = []
-    hits.each do |hit|
-      recipe_details = hit["recipe"]
 
-      # label = recipe_details["label"]
-      # url = recipe_details["url"]
-      # uri = recipe_details["uri"]
-      # image = recipe_details["image"]
-      # ingredients = recipe_details["ingredientLines"]
-      # allergy_info = recipe_details["healthLabels"]
-      # nutrients = recipe_details["totalNutrients"]
-      recipes << Recipe.new(recipe_details)
+      if hits
+        hits.each do |hit|
+        recipe_details = hit["recipe"]
+
+        # label = recipe_details["label"]
+        # url = recipe_details["url"]
+        # uri = recipe_details["uri"]
+        # image = recipe_details["image"]
+        # ingredients = recipe_details["ingredientLines"]
+        # allergy_info = recipe_details["healthLabels"]
+        # nutrients = recipe_details["totalNutrients"]
+
+        recipes << Recipe.new(recipe_details)
+      end
     end
     return recipes
   end
