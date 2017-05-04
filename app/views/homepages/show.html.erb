@@ -1,5 +1,11 @@
-<h1>The Dish</h1>
 <main class="row">
+
+  <h1>The Dish</h1>
+
+  <%= image_tag(@search_recipes.image_url) %>
+  <p><%= link_to @search_recipes.name, recipes_path(@search_recipes.recipe.name) %></p>
+  <p><%= @search_recipes.ingredients %></p>
+  <p><%= @product.nutrition %></p>
 
 
 </main>
