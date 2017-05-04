@@ -573,7 +573,6 @@ describe Recipe do
     recipe.must_respond_to :uri
     recipe.must_respond_to :image
     recipe.must_respond_to :url
-    recipe.must_respond_to :ingredient_lines
     recipe.must_respond_to :ingredients
     recipe.must_respond_to :total_nutrients
     recipe.must_respond_to :total_daily
