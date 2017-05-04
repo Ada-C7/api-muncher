@@ -1,13 +1,24 @@
 <section class="search-results row">
 
-  <%= link_to "See next", next_path, method: :get %>
+  <section class="columns small-12">
+    <%= link_to "prev", recipes_path(prev: true), method: :get, class: "columns small-12 medium-6" %>
+    <%= link_to "next", recipes_path(next: true), method: :get, class: "columns small-12 medium-6" %>
+  </section>
 
-  <% @results[1..-1].each do |result| %>
+  <% if @results.empty? %>
+  <p>
+    Nothing found for that search
+    search terms are: <%= session[:search_terms] %>
+  </p>
+  <% else %>
+
+  <% @results.each do |result| %>
   <section class="indiv-recipe columns small-12 medium-6 large-6">
     <%= link_to image_tag(result.image), recipe_path(uri: result.uri), method: :get, class: "index-image" %>
     <div>
       <%= link_to truncate(result.name), recipe_path(uri: result.uri), method: :get, class: "recipe-title" %>
     </div>
   </section>
+  <% end %>
   <% end %>
 </section>
