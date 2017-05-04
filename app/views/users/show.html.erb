@@ -6,16 +6,31 @@
   </p>
 <%end%>
 <h3>Recent searches:</h3>
-<%@user.searches.each do |search|%>
-    <p>Keyword: <%=search.keyword%></p>
-    <div>Search options:
-      <p>Vegan: <%=search.vegan%></p>
-      <p>Kosher: <%=search.kosher%></p>
-      <p>Vegetarian:  <%=search.vegetarian%></p>
-      <p>Paleo: <%=search.paleo%></p>
-    </div>
+<table>
+  <tr>
+    <th> Search keyword </th>
+    <th> Search options</th>
+    <th> Search again? </th>
+  </tr>
+  <%@user.searches.each do |search|%>
+  <tr>
+    <td><%=search.keyword%> </td>
+    <td>
+      <%if search.vegan == true %>
+        <span>vegan </span>
+      <%end%>
+      <% if search.kosher == true%>
+        <span>kosher </span>
+      <%end%>
+      <% if search.vegetarian == true%>
+        <span>vegetarian </span>
+      <%end%>
+      <% if search.paleo == true%>
+        <span>paleo </span>
+      <%end%>
+    </td>
 
-    <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
+    <td> <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
       <%= hidden_field_tag :search, search.keyword %>
       <%= hidden_field_tag :from, params[:from], value: 0%>
       <%if search.vegan != false %>
@@ -32,6 +47,7 @@
       <%end%>
       <%= submit_tag "Search again", :name => nil , class: "button hollow topbar-responsive-button "%>
     <% end %>
-    <br>
-
-<%end%>
+    </td>
+  </tr>
+  <%end%>
+</table>

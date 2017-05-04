@@ -17,6 +17,7 @@ class RecipesController < ApplicationController
     else
       @recipes_number = all.length
     end
+
     if @login_user
       @search = Search.new(user_id: @login_user.id, keyword: params[:search])
 
@@ -34,9 +35,6 @@ class RecipesController < ApplicationController
         end
       end
     end
-
-
-
   end
 
 
@@ -67,6 +65,7 @@ class RecipesController < ApplicationController
     def destroy
       favorite_recipe = Recipe.find(params[:id])
       if favorite_recipe.destroy
+        flash[:result_text] = "You removed recipe from your favorite"
         redirect_to user_path(favorite_recipe.user.id)
       end
     end
