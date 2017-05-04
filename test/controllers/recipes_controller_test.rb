@@ -18,5 +18,23 @@ describe RecipesController do
     end
   end
 
-  
+  it "should succeed for an existing recipe" do
+    VCR.use_cassette("recipes") do
+      id = "http://www.edamam.com/ontologies/edamam.owl%23recipe_b09d5c2009adc8ea164d4b50d7398baa"
+      get show_recipe_path(id)
+      must_respond_with :success
+    end
+
+  end
+
+  it "renders 404 for a bad recipe id" do
+    VCR.use_cassette("recipes") do
+      id = "totally_made_up_id"
+      get show_recipe_path(id)
+      must_respond_with :not_found
+    end
+
+  end
+
+
 end

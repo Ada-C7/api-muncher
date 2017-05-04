@@ -12,6 +12,8 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @recipe = EdamamWrapper.findRecipe(params[:id])
+    render_404 unless @recipe
   end
 
 
