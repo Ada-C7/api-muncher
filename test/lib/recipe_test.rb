@@ -30,29 +30,21 @@ describe Recipe do
       end
     end
 
-    it "Can returns an empty array of if given a bogus search term" do
+    it "Returns an empty array of if given a bogus search term" do
       VCR.use_cassette("recipes") do
         recipes = Recipe.search("XXXXXXX")
         recipes.class.must_equal Array
-        recipes.lentgh.must_equal 0
+        recipes.length.must_equal 0
       end
     end
 
-
-
-
-
-
+    it "Raises an ArgumentError if no parameter is given" do
+      VCR.use_cassette("recipes") do
+        proc {
+          Recipe.search
+        }.must_raise ArgumentError
+      end
+    end
   end
-    #   it "Fails to send to a bogus channel" do
-    #     VCR.use_cassette("channels") do
-    #       channel = SlackChannel.new('this_channel_doesnt_exist')
-    #       proc {
-    #         channel.send("test message")
-    #       }.must_raise SlackChannel::SlackException
-    #     end
-    #   end
-    # end
-
 
 end
