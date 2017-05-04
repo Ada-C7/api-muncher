@@ -17,33 +17,20 @@ class EdamamSearch
   end
 
   def search_results
-
-    if @recipe_id
-      query_params = {
-                      "app_id" => ENV["EDAMAM_ID"],
-                      "app_key" => ENV["EDAMAM_KEY"],
-                       +
-                      "r" => "http://www.edamam.com/ontologies/edamam.owl%23recipe_" + @recipe_id
-                     }
-    else
-      query_params = {
-                      "app_id" => ENV["EDAMAM_ID"],
-                      "app_key" => ENV["EDAMAM_KEY"],
-                      "q" => @search_text,
-                      "to" => "#{@to}",
-                      "from" => "#{@from}"
-                     }
-    end
-
     query_params = {
                     "app_id" => ENV["EDAMAM_ID"],
                     "app_key" => ENV["EDAMAM_KEY"],
-                    "q" => @search_text,
+                    "q" => "#{@search_text}",
                     "to" => "#{@to}",
-                    "from" => "#{@from}"
-                    "r" => "http://www.edamam.com/ontologies/edamam.owl%23recipe_" + @recipe_id
+                    "from" => "#{@from}",
+                    "r" => "http://www.edamam.com/ontologies/edamam.owl%23recipe_#{@recipe_id}"
                    }
 
+    query_params = query_params.delete_if { |key, value| value.empty? || ( key == "r" && @recipe_id.nil?) }
+
+
+    # p query_params
+    # raise
     # response = HTTParty.get("https://api.edamam.com/search?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&q=#{@search_text}")
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
@@ -58,7 +45,7 @@ class EdamamSearch
   end
 
 private
-  def self.labels_and_images(response)
+  def labels_and_images(response)
     results = response["hits"].map do |info|
       recipe = Hash.new
       recipe[:id] = info["recipe"]["uri"].gsub("#", "%23")[53..-1]
@@ -69,7 +56,7 @@ private
     return results
   end
 
-  def self.wanted_recipe_info(response)
+  def wanted_recipe_info(response)
     recipe = Hash.new
     recipe[:label] = response[0]["label"]
     recipe[:image_url] = response[0]["image"]

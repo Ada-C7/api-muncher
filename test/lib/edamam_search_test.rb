@@ -20,19 +20,16 @@ describe EdamamSearch do
 
   describe 'initialize' do
 
-    it 'requires search hash' do
+    it 'requires search info' do
       search = EdamamSearch.new(@search_params)
       search.must_be_instance_of EdamamSearch
-      # p search
-      # search.search_text.must_equal text
     end
 
-    it 'will raise an error if not given search_text' do
+    it 'will raise an error if not given search info' do
       proc {
         EdamamSearch.new
       }.must_raise ArgumentError
     end
-
   end
 
   describe 'search_results' do
