@@ -12,17 +12,18 @@ class EdamamApiWrapper
     url = BASE_URL + "app_id=#{EDAMAM_ID}&" + "app_key=#{EDAMAM_KEY}&" + "q=#{search_terms}&" + "from=#{from}&" + "to=#{to}"
 
     response = HTTParty.get(url)
-    search_results = response["hits"]
-    recipes = []
-    recipes << response["count"]
-    if search_results
-      search_results.each do |recipe|
+    if response == nil
+      raise
+      return nil
+    else
+      recipes = []
+
+      response["hits"].each do |recipe|
         recipes << RecipeResult.new(recipe["recipe"]["label"],  recipe["recipe"]["image"],  recipe["recipe"]["uri"].gsub("#","%23"))
       end
-      return recipes
-    else
-      return false
+      recipes << response["count"]
     end
+    return recipes
 
     # return recipes
   end

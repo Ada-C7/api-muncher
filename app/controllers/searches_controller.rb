@@ -19,8 +19,9 @@ class SearchesController < ApplicationController
     # raise
     session[:search_terms] ||= params[:search_terms]
     @results = EdamamApiWrapper.querySearch(session[:search_terms], session[:from], session[:to])
-    session[:search_count] = @results.first
-    @results = @results[1..-1]
+    # raise
+    session[:search_count] = @results.last
+    @results = @results[0..-2]
     # raise
     # ADD BACK IN: params[:gluten], params[:dairy], params[:vegetarian], params[:kosher]
     # raise
