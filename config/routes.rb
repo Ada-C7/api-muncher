@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   get 'results/index', to: 'results#index', as: 'results'
 
+  get 'ingredients/show', to: 'ingredients#show', as: 'ingredients'
+
 end

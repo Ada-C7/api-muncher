@@ -5,8 +5,9 @@
 <ul>
   <% @recipes.each do | recipe | %>
     <li>
-    <%=recipe.name %>
-    <%=recipe.id %>
+    <%=link_to recipe.name, ingredients_path + "?#{recipe.uri}" %>
+    <%=recipe.image %>
+
     </li>
     <% end %>
 </ul>

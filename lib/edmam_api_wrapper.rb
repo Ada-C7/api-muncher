@@ -8,7 +8,7 @@ class EdmamApiWrapper
 
     fake_recipe = {
       "name" => "banana bread",
-      "uri" => "a_b",
+      "uri" => "http://www.edamam.com/ontologies/edamam.owl#recipe_f1c853a77986214680bbdd424883499a",
       "label" => "best banana bread",
       "image" => "foo",
       "source" => "bar",
@@ -19,31 +19,43 @@ class EdmamApiWrapper
 
     return [recipe]
 
-    token ||= token
-
-    url = BASE_URL + "recipes.list?" + "token=#{token}"
-
-    response = HTTParty.get(url)
-
-    recipes = []
-
-    if response ["recipes"]
-      response["recipes"].each do | recipe |
-        id = recipe["id"]
-        name = recipe["name"]
-        recipes << Recipe.new(name, id)
-      end
-    end
-    return recipes
+    # token ||= token
+    #
+    # url = BASE_URL + "recipes.list?" + "token=#{token}"
+    #
+    # response = HTTParty.get(url)
+    #
+    # recipes = []
+    #
+    # if response ["recipes"]
+    #   response["recipes"].each do | recipe |
+    #     id = recipe["id"]
+    #     name = recipe["name"]
+    #     recipes << Recipe.new(name, id)
+    #   end
+    # end
+    # return recipes
   end
 
-  def self.getRecipe(id)
-    url = BASE_URL + "recipes.info?" + "token=#{TOKEN}&recipe=#{id}"
+  def self.getRecipe(id=nil)
 
-    response = HTTParty.get(url)
+    fake_ingredients ={
+      "label" => "banana bread",
+      "image" => "picture here",
+      "source" => "source of recipe",
+      "url" => "url here",
+      "ingredientLines" => "lots of banannas",
+      "totalNutrients" => "super healthy stuff"
+    }
 
-    return Recipe.new(response["recipe"]["name"], response["recipe"]["id"])
+    ingredients = Ingredient.new(fake_ingredients)
+
+    return ingredients
+
+    #   url = BASE_URL + "recipes.info?" + "token=#{TOKEN}&recipe=#{id}"
+    #
+    #   response = HTTParty.get(url)
+    #
+    #   return Recipe.new(response["recipe"]["name"], response["recipe"]["id"])
   end
-
-
 end
