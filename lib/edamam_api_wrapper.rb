@@ -17,8 +17,8 @@ class EdamamApiWrapper
     end
   end
 
-  def self.show_recipe(uri)
-    url = BASE_URL + "r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{uri}"
+  def self.show_recipe(id)
+    url = BASE_URL + "r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{id}"
     response = HTTParty.get(url)[0]
 
     if response
