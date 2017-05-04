@@ -1,4 +1,5 @@
 class Recipe
+  attr_reader :title, :url, :image_url, :ingredients, :health_labels, :diet_labels, :nutrition_facts
 
   def initialize(params)
     @title = params[:title]
