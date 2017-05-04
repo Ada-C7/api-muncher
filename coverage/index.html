@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-04T12:28:37-07:00">2017-05-04T12:28:37-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-04T12:47:59-07:00">2017-05-04T12:47:59-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.79
+         3.82
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>6</b> files in total.
-    <b>59</b> relevant lines. 
-    <span class="green"><b>59</b> lines covered</span> and
+    <b>60</b> relevant lines. 
+    <span class="green"><b>60</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -87,7 +87,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>14.8</td>
+        <td>15.4</td>
       </tr>
       
       <tr>
@@ -103,9 +103,9 @@
       <tr>
         <td class="strong"><a href="#30f6567694d6201409bd5a90ad6d1493b1e5e343" class="src_link" title="test/lib/recipe_test.rb">test/lib/recipe_test.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>15</td>
-        <td>7</td>
-        <td>7</td>
+        <td>20</td>
+        <td>8</td>
+        <td>8</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -734,26 +734,26 @@
           <code class="ruby">  def initialize(options)</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="6">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="24" data-linenumber="6">
+          <span class="hits">24</span>
           
           <code class="ruby">    @label = options[:label]</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="7">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="24" data-linenumber="7">
+          <span class="hits">24</span>
           
           <code class="ruby">    @image =  options[:image]</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="8">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="24" data-linenumber="8">
+          <span class="hits">24</span>
           
           <code class="ruby">    @uri = options[:uri]</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="9">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="24" data-linenumber="9">
+          <span class="hits">24</span>
           
           <code class="ruby">    @ingredientlines = options[:ingredientlines]</code>
         </li>
@@ -764,8 +764,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="11">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="24" data-linenumber="11">
+          <span class="hits">24</span>
           
           <code class="ruby">    raise ArgumentError if @label == nil || @label == &quot;&quot;</code>
         </li>
@@ -1007,8 +1007,8 @@
     <h3>test/lib/recipe_test.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>7</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
+      <b>8</b> relevant lines. 
+      <span class="green"><b>8</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1043,55 +1043,55 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby"> it &quot;requires both recipe label and uri to initialize&quot; do</code>
+          <code class="ruby"> it &quot;requires recipe label &quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">   proc {</code>
+          <code class="ruby">   options = {</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="7">
           
-          <code class="ruby">     Recipe.new()</code>
+          
+          <code class="ruby">     label: nil,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby">   }.must_raise ArgumentError</code>
+          <code class="ruby">     image: &quot;www.url.com&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">     uri: &quot;www.recipe.com&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="10">
           
-          <code class="ruby">   proc {</code>
+          
+          <code class="ruby">   }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">       Recipe.new( &quot;label&quot; =&gt; &quot;monster bread&quot; )</code>
+          <code class="ruby">   proc {</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">     }.must_raise ArgumentError</code>
+          <code class="ruby">     Recipe.new(options)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">   end</code>
+          <code class="ruby">   }.must_raise ArgumentError</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
@@ -1100,7 +1100,37 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">   proc {</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">       Recipe.new(options)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">     }.must_raise ArgumentError</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">   end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">end</code>

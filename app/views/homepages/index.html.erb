@@ -20,7 +20,9 @@
     </li>
     <% end %>
     </ul>
+    <%= will_paginate @recipes, class: "row" %>
   <% else %>
   <%= "Looks like we didn't find any recipes with #{params[:search_words]}" %>
   <% end %>
+
 <% end %>

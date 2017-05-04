@@ -2,14 +2,17 @@ require "test_helper"
 
 describe Recipe do
 
- it "requires both recipe label and uri to initialize" do
+ it "requires recipe label " do
+   options = {
+     label: nil,
+     image: "www.url.com",
+     uri: "www.recipe.com"
+   }
+   
    proc {
-     Recipe.new()
+     Recipe.new(options)
    }.must_raise ArgumentError
 
-   proc {
-       Recipe.new( "label" => "monster bread" )
-     }.must_raise ArgumentError
    end
 
 end
