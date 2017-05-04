@@ -19,7 +19,7 @@ VCR.configure do |config|
     :record => :new_episodes,    # record new data when we don't have it yet
     :match_requests_on => [:method, :uri, :body] # The http method, URI and body of a request all need to match
   }
-  # Don't leave our Slack token lying around in a cassette file.
+
   # filter_sensitive_data is a method that comes from the VCR gem
   config.filter_sensitive_data("<KEY>") do
     ENV['EDAMAM_KEY']

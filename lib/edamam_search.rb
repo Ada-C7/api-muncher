@@ -35,9 +35,19 @@ class EdamamSearch
                      }
     end
 
+    query_params = {
+                    "app_id" => ENV["EDAMAM_ID"],
+                    "app_key" => ENV["EDAMAM_KEY"],
+                    "q" => @search_text,
+                    "to" => "#{@to}",
+                    "from" => "#{@from}"
+                    "r" => "http://www.edamam.com/ontologies/edamam.owl%23recipe_" + @recipe_id
+                   }
+
     # response = HTTParty.get("https://api.edamam.com/search?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&q=#{@search_text}")
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
+
     if response.count == 1
       return wanted_recipe_info(response)
     elsif response["count"] > 0
@@ -48,8 +58,7 @@ class EdamamSearch
   end
 
 private
-
-  def labels_and_images(response)
+  def self.labels_and_images(response)
     results = response["hits"].map do |info|
       recipe = Hash.new
       recipe[:id] = info["recipe"]["uri"].gsub("#", "%23")[53..-1]
@@ -60,7 +69,7 @@ private
     return results
   end
 
-  def wanted_recipe_info(response)
+  def self.wanted_recipe_info(response)
     recipe = Hash.new
     recipe[:label] = response[0]["label"]
     recipe[:image_url] = response[0]["image"]
