@@ -36,9 +36,9 @@ class SearchApiWrapper
   end
 
   def self.showRecipe(uri)
-    uri = BASE_URL + "?r=#{URI.encode(uri)}"
 
-    response = HTTParty.get(uri)
+    uri = BASE_URL + "?r=#{URI.encode(uri)}"
+    response = HTTParty.get(uri).parsed_response
     # label = response[0]["label"]
     # url = response[0]["url"]
     # uri = response[0]["uri"]
@@ -47,10 +47,8 @@ class SearchApiWrapper
     # allergy_info =
     #  response[0]["healthLabels"]
     #  nutrients = response[0]["totalNutrients"]
-    recipe = Recipe.new(response[0])
-
-    return recipe
-
-  end
+      recipe = Recipe.new(response[0])
+      return recipe
+    end
 
 end

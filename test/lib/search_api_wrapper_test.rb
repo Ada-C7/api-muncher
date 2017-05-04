@@ -1,17 +1,23 @@
 require 'test_helper'
 
 describe "SearchApiWrapper" do
+  before do
+    VCR.insert_cassette("recipe")
+  end
+
+  after do
+    VCR.eject_cassette("recipe")
+  end
+
 
   describe "Testing self.listRecipes" do
 
     it "Can get a list of recipes" do
-      VCR.use_cassette("recipe") do
         recipes = SearchApiWrapper.listRecipes("chicken" )
         recipes.must_be_instance_of Array
         recipes.each do |recipe|
           recipe.must_be_instance_of Recipe
         end
-      end
     end
 
     #Spend TOO MUCH TIME to make it pass but DAN told me to not worry about it
@@ -26,31 +32,28 @@ describe "SearchApiWrapper" do
 
     it "Will return empty array when there is no user search input " do
 
-      VCR.use_cassette("recipe") do
         recipes = SearchApiWrapper.listRecipes("")
-
         recipes.must_equal []
-      end
     end
 
     it "Will return empty array when user inter integr " do
 
-      VCR.use_cassette("recipe") do
         recipes = SearchApiWrapper.listRecipes("")
         recipes.must_equal []
       end
-    end
   end
 
   describe "self.showRecipe" do
     it "Can show a recipe for a specific uri" do
-      VCR.use_cassette("recipe") do
+        uri = "https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl%23recipe_637913ec61d9da69eb451818c3293df2"
         recipe = SearchApiWrapper.showRecipe(uri)
 
         recipe.must_be_instance_of Recipe
     end
+
+    it "Requires a uri to show a recipe" do
+        proc {
+         SearchApiWrapper.showRecipe("")}.must_raise JSON::ParserError
     end
-
   end
-
 end
