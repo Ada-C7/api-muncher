@@ -21,4 +21,26 @@ describe HomepagesController do
       end
     end
   end
+
+  describe "show" do
+    it "should get show recipe page" do
+      VCR.use_cassette("edamam") do
+        get recipe_path params: {
+          uri: "http://www.edamam.com/ontologies/edamam.owl%recipe_52dcbef56fc205d8f3fa8391c03f6ec8"
+        }
+        must_respond_with :success
+      end
+    end
+
+    it "should redirect to index if recipe not found" do
+      VCR.use_cassette("edamam") do
+        get recipe_path params: {
+          uri: "http://bad"
+        }
+        must_respond_with :redirect
+        must_redirect_to search_recipes_path
+      end
+    end
+
+  end
 end

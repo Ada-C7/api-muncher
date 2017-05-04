@@ -18,6 +18,10 @@ class HomepagesController < ApplicationController
   def show
     uri = params[:uri]
     @recipe = EdamamApiWrapper.getRecipe(uri)
+    if @recipe == nil
+      redirect_to search_recipes_path
+      flash[:warning] = "Could not find recipe"
+    end
   end
 
 end
