@@ -9,4 +9,27 @@
 <%@user.searches.each do |search|%>
     <p>Keyword: <%=search.keyword%></p>
     <p>Search options: <%=search.vegan%> <%=search.kosher%>  <%=search.vegetarian%>  <%=search.paleo%></p>
+
+    <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
+      <%= hidden_field_tag :search, search.keyword %>
+      <%= hidden_field_tag :from, params[:from], value: 0%>
+      <%if search.vegan != nil %>
+        <%=hidden_field_tag :vegan, search.vegan%>
+      <%end%>
+      <%if search.kosher != nil %>
+        <%puts "SEARCH KOSKER NOT NIL!!!"%>
+        <%=search.kosher%>
+        <%puts "SEARCH KOSKER NOT NIL!!!"%>
+        <%=hidden_field_tag :kosher, search.kosher%>
+      <%end%>
+      <%if search.vegetarian != nil %>
+        <%=hidden_field_tag :vegetarian, search.vegetarian%>
+      <%end%>
+      <%if search.paleo != nil %>
+        <%=hidden_field_tag :paleo, search.paleo%>
+      <%end%>
+      <%= submit_tag "Search again", :name => nil , class: "button hollow topbar-responsive-button "%>
+    <% end %>
+    <br>
+
 <%end%>

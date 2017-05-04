@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
     @optional_params += "&kosher=kosher" if params[:kosher] != nil
     @optional_params += "&vegetarian=vegetarian" if params[:vegetarian] != nil
     @optional_params += "&paleo=paleo" if params[:paleo] != nil
-    # @recipes = Recipe.search(params[:search], params[:from], params["health"])
+
     @recipes = RecipeApiWrapper.search(params[:search], params[:from], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
 
     if all  == nil || all== 0 || @recipes == nil || @recipes.length == 0
@@ -18,7 +18,12 @@ class RecipesController < ApplicationController
       @recipes_number = all.length
     end
     if @login_user
-      @search = Search.new(user_id: @login_user.id, keyword: params[:search], vegan: params[:vegan], kosher: params[:kosher],vegetarian: params[:vegetarian], paleo: params[:paleo])
+      # @search = Search.new(user_id: @login_user.id, keyword: params[:search], vegan: params[:vegan], kosher: params[:kosher],vegetarian: params[:vegetarian], paleo: params[:paleo])
+      @search = Search.new(user_id: @login_user.id, keyword: params[:search])
+      @search.vegan = true if  params[:vegan] != nil
+      @search.kosher = true if  params[:kosher] != nil
+      @search.vegetarian = true if  params[:vegetarian] != nil
+      @search.paleo = true if  params[:paleo] != nil
       if @search.save
           flash[:result_text] = "You succesessfully saved your search"
       end
