@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   get '/recipes', to: 'searches#recipes', as: 'recipes'
   get '/recipe', to: 'searches#recipe', as: 'recipe'
+  get '/recipes', to: 'searches#recipes', as: 'next'
+  get '/recipes', to: 'searches#recipes', as: 'prev'
+
 
   get '/login', to: 'sessions#login', as: 'login_form'
   post '/login', to: 'sessions#create', as: 'login'

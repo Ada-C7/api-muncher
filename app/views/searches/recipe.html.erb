@@ -1,82 +1,57 @@
-<p>
-  <%= link_to "Back to results", :back %>
-</p>
+<section class="row">
+  <section class="row">
+    <p class="columns small-12">
+      <%= link_to "Back to results", :back %>
+    </p>
+    <h1 class="columns small-12"><%= @recipe.name %></h1>
+  </section>
+  <section class="columns small-12 medium-4 ingredients-list">
 
-<h1><%= @recipe.name %></h1>
+    <h3>Ingredients</h3>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+      <li>
+        <%= ingredient %>
+      </li>
+      <% end %>
+    </ul>
+  </section>
+  <section class="columns small-12 medium-4 nutrition-info">
 
-<h3>Ingredients</h3>
-<ul>
-<% @recipe.ingredients.each do |ingredient| %>
-<li>
-  <%= ingredient %>
-</li>
-<% end %>
-</ul>
+    <h3>Nutrition Information</h3>
+    <table>
+      <thead>
+        <th>
+          Nutrient
+        </th>
+        <th>
+          Amount
+        </th>
+      </thead>
+      <% @nutrients.each do |nutrient| %>
+      <% if @recipe.nutrients[nutrient] %>
+      <tr>
+        <td>
+          <%= @recipe.nutrients[nutrient]["label"] %>
+        </td>
+        <td>
+          <%= @recipe.nutrients[nutrient]["quantity"].to_f.round(2) %> <%= @recipe.nutrients[nutrient]["unit"] %>
+        </td>
+      </tr>
+      <% end %>
+      <% end %>
+    </table>
+  </section>
+  <section class="columns small-12 medium-4 show-recipe-image">
 
-<h3>Nutrition Information</h3>
-<table>
-  <thead>
-    <th>
-      Nutrient
-    </th>
-    <th>
-      Amount
-    </th>
-  </thead>
-  <% if @recipe.nutrients["ENERC_KCAL"] %>
-  <tr>
-    <td>
-    <%= @recipe.nutrients["ENERC_KCAL"]["label"] %>
-    </td>
-    <td>
-      <%= @recipe.nutrients["ENERC_KCAL"]["quantity"].to_f.round(2) %> <%= @recipe.nutrients["PROCNT"]["unit"] %>
-    </td>
-  </tr>
-  <% end %>
-  <% if @recipe.nutrients["FAT"] %>
-  <tr>
-    <td>
-    <%= @recipe.nutrients["FAT"]["label"] %>
-    </td>
-    <td>
-      <%= @recipe.nutrients["FAT"]["quantity"].to_f.round(2) %> <%= @recipe.nutrients["PROCNT"]["unit"] %>
-    </td>
-  </tr>
-  <% end %>
-  <% if @recipe.nutrients["SUGAR"] %>
-  <tr>
-    <td>
-    <%= @recipe.nutrients["SUGAR"]["label"] %>
-    </td>
-    <td>
-      <%= @recipe.nutrients["SUGAR"]["quantity"].to_f.round(2) %> <%= @recipe.nutrients["PROCNT"]["unit"] %>
-    </td>
-  </tr>
-  <% end %>
-  <% if @recipe.nutrients["PROCNT"] %>
-  <tr>
-    <td>
-    <%= @recipe.nutrients["PROCNT"]["label"] %>
-    </td>
-    <td>
-      <%= @recipe.nutrients["PROCNT"]["quantity"].to_f.round(2) %> <%= @recipe.nutrients["PROCNT"]["unit"] %>
-    </td>
-  </tr>
-  <% end %>
-  <% if @recipe.nutrients["VITB12"] %>
-  <tr>
-    <td>
-    <%= @recipe.nutrients["VITB12"]["label"] %>
-    </td>
-    <td>
-      <%= @recipe.nutrients["VITB12"]["quantity"].to_f.round(2) %> <%= @recipe.nutrients["PROCNT"]["unit"] %>
-    </td>
-  </tr>
-  <% end %>
-</table>
-<aside class="show-recipe-image">
-  <%= image_tag @recipe.image %>
-  <p>
-    check out the entire recipe --including complete nutrition information and instructions-- at <%= link_to @recipe.recipe_source, "#{@recipe.recipe_url}", target: :_blank %>
-  </p>
-</aside>
+    <%= image_tag @recipe.image %>
+
+  </section>
+  <section class="row">
+
+    <p class="columns small-12 recipe-link">
+      check out the entire recipe --including complete nutrition information and instructions-- at <%= link_to @recipe.recipe_source, "#{@recipe.recipe_url}", target: :_blank %>
+    </p>
+
+  </section>
+</section>

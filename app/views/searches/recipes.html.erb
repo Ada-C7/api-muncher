@@ -1,13 +1,13 @@
-<section class="search-results">
+<section class="search-results row">
 
+  <%= link_to "See next", next_path, method: :get %>
 
-  <article class="recipe-results">
-
-    <% @results.each do |result| %>
-    <section class="indiv-recipe">
-      <%= image_tag result.image, class: "index-image" %>
-      <%= link_to result.name, recipe_path(uri: result.uri), method: :get, class: "recipe-title" %>
-    </section>
-    <% end %>
-  </article>
+  <% @results[1..-1].each do |result| %>
+  <section class="indiv-recipe columns small-12 medium-6 large-6">
+    <%= link_to image_tag(result.image), recipe_path(uri: result.uri), method: :get, class: "index-image" %>
+    <div>
+      <%= link_to truncate(result.name), recipe_path(uri: result.uri), method: :get, class: "recipe-title" %>
+    </div>
+  </section>
+  <% end %>
 </section>

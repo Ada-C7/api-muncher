@@ -11,7 +11,7 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <body class="row">
     <header>
       <h1><%= link_to "Aurora's Recipe Recs", root_path, method: :get %></h1>
       <ul>
@@ -30,13 +30,16 @@
         <li>
           My Favs
         </li>
+        <li>
+          <%= link_to "Start new search", root_path %>
+        </li>
       </ul>
     </header>
 
     <%= yield %>
     <footer>
       <p>
-        many thanks to the <%= link_to "Edamam API", 'https://www.edamam.com' %> for recipes
+        many thanks to <%= link_to "Edamam", 'https://www.edamam.com' %> for recipes
       </p>
     </footer>
 

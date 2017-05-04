@@ -9,11 +9,12 @@ class EdamamApiWrapper
 
   def self.querySearch(search_terms, from, to)
     #ADD BACK IN gluten = nil, dairy = nil, vegetarian = nil, kosher = nil
-    url = BASE_URL + "app_id=#{EDAMAM_ID}&" + "app_key=#{EDAMAM_KEY}&" + "q=#{search_terms}"
+    url = BASE_URL + "app_id=#{EDAMAM_ID}&" + "app_key=#{EDAMAM_KEY}&" + "q=#{search_terms}&" + "from=#{from}&" + "to=#{to}"
 
     response = HTTParty.get(url)
     search_results = response["hits"]
     recipes = []
+    recipes << response["count"]
     if search_results
       search_results.each do |recipe|
         recipes << RecipeResult.new(recipe["recipe"]["label"],  recipe["recipe"]["image"],  recipe["recipe"]["uri"].gsub("#","%23"))
@@ -21,6 +22,7 @@ class EdamamApiWrapper
     end
 
     return recipes
+    raise
   end
 
   def self.getRecipe(recipe_uri)

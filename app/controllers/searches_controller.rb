@@ -5,12 +5,14 @@ require_dependency '../../lib/recipe_result'
 
 class SearchesController < ApplicationController
   before_action :set_from_and_to
-
   def index
   end
 
   def recipes
     @results = EdamamApiWrapper.querySearch(params[:search_terms], params[:from], params[:to])
+    session[:search_count] = @results.first
+    @results = @results[1..-1]
+    raise
     # ADD BACK IN: params[:gluten], params[:dairy], params[:vegetarian], params[:kosher]
     # raise
   end
@@ -18,6 +20,7 @@ class SearchesController < ApplicationController
   def recipe
     @recipe = EdamamApiWrapper.getRecipe(params[:uri])
     # raise
+    @nutrients = %w(ENERC_KCAL FAT SUGAR PROCNT VITB12)
 
   end
 
@@ -43,9 +46,19 @@ class SearchesController < ApplicationController
 
   private
 
+  def next_ten
+    params[:from] += 10
+  end
+
+  def prev_ten
+    if params[:from] >= 10
+      params[:from] -= 10
+    end
+  end
+
   def set_from_and_to
     params[:from] ||= 0
-    params[:to] ||= 9
+    params[:to] ||= params[:from] + 9
   end
 
   def search_params

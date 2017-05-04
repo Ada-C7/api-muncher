@@ -1,10 +1,13 @@
-<h1>Log in to Recipe Recs</h1>
-<%= form_tag login_path do %>
-  <%= label_tag :provider %>
-  <%= text_field_tag :provider %>
+<section class="row">
 
-  <%= label_tag :uid %>
-  <%= text_field_tag :uid %>
+  <h1>Log in to Recipe Recs</h1>
+  <%= form_tag login_path do %>
+    <%= label_tag :provider %>
+    <%= text_field_tag :provider %>
 
-  <%= submit_tag "Log in" %>
-<% end %>
+    <%= label_tag :uid %>
+    <%= text_field_tag :uid %>
+
+    <%= submit_tag "Log in" %>
+  <% end %>
+</section>
