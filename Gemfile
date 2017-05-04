@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#paginate gem
+gem 'will_paginate', '~> 3.1.0'
 
 # API GEMS
 gem 'httparty'

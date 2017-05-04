@@ -10,8 +10,8 @@
   <% if @recipes %>
 <% @recipes.each do |recipe| %>
 <li><%= recipe.name %></li>
-  <li><%= recipe.uri %></li>
-  <li><%= recipe.image %></li>
+  <!-- <li><%# link_to 'recipe', recipe.uri %></li> -->
+  <li><%= image_tag recipe.image %>/></li>
   <% end %>
   <% end %>
 </ul>
