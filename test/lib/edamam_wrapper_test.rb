@@ -27,8 +27,25 @@ describe EdamamWrapper do
         response.must_equal []
       end
     end
+  end
 
+  describe "findRecipe" do
+    it "returns a single recipe given a valid recipe ID" do
+      VCR.use_cassette("recipes") do
+        id = "http://www.edamam.com/ontologies/edamam.owl%23recipe_a5306563833d2dc47dce23b814833124"
+        response = EdamamWrapper.findRecipe(id)
+        response.class.must_equal Recipe
+      end
+    end
 
+    it "returns nil if no recipe is returned" do
+      VCR.use_cassette("recipes") do
+        id = "totally_made_up_id"
+        response = EdamamWrapper.findRecipe(id)
+        response.must_be_nil
+      end
+
+    end
   end
 
 end

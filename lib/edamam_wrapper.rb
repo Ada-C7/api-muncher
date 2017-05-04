@@ -16,12 +16,37 @@ class EdamamWrapper
         #hits is an array of hashes
         #each hash has "recipe" as key
         name = hash["recipe"]["label"]
-        id = hash["recipe"]["uri"]
+        # id = hash["recipe"]["uri"].gsub(/[/#]/, "%23")
+        id = hash["recipe"]["uri"].tr('#', '%23')
         image = hash["recipe"]["image"]
         recipes << Recipe.new(name, id, image)
       end
     end
     return recipes
+  end
+
+  def self.findRecipe(id)
+    url = BASE_URL + "r=#{id}&app_id =#{ID}&app_key=#{KEY}"
+
+    begin
+      response = HTTParty.get(url).parsed_response
+    rescue
+      return nil
+    end
+
+
+      name = response[0]["label"]
+      id = response[0]["uri"]
+      image = response[0]["image"]
+      options = {}
+      options[:source] = response[0]["source"]
+      options[:url] = response[0]["url"]
+      options[:yield] = response[0]["yield"]
+      options[:ingredientLines] = response[0]["ingredientLines"]
+      options[:dietLabels] = response[0]["dietLabels"]
+      return Recipe.new(name, id, image, options)
+
+
   end
 
 end
