@@ -19,10 +19,12 @@ class EdamamApiWrapper
       search_results.each do |recipe|
         recipes << RecipeResult.new(recipe["recipe"]["label"],  recipe["recipe"]["image"],  recipe["recipe"]["uri"].gsub("#","%23"))
       end
+      return recipes
+    else
+      return false
     end
 
-    return recipes
-    raise
+    # return recipes
   end
 
   def self.getRecipe(recipe_uri)
