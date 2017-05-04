@@ -16,20 +16,15 @@ class SearchesController < ApplicationController
 
   def recipes
     check_next_and_prev
-    # raise
     session[:search_terms] ||= params[:search_terms]
     @results = EdamamApiWrapper.querySearch(session[:search_terms], session[:from], session[:to])
-    # raise
     session[:search_count] = @results.last
     @results = @results[0..-2]
-    # raise
     # ADD BACK IN: params[:gluten], params[:dairy], params[:vegetarian], params[:kosher]
-    # raise
   end
 
   def recipe
     @recipe = EdamamApiWrapper.getRecipe(params[:uri])
-    # raise
     @nutrients = %w(ENERC_KCAL FAT SUGAR PROCNT VITB12)
   end
 
