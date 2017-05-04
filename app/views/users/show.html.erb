@@ -1,10 +1,13 @@
 <h3>A list of favorite recepies for <%= link_to @user.name, user_path(@user) %></h3>
-<%@user.recipes.each do |recipe|%>
-  <p>
-    <%=link_to recipe.name , show_recipe_path(recipe.recipe_uri)%>
-    <%=button_to "Remove from favorite" , recipe_path(recipe.id), method: :delete, class: "button hollow topbar-responsive-button "%>
-  </p>
-<%end%>
+<table>
+  <%@user.recipes.each do |recipe|%>
+    <tr>
+        <td><%=link_to recipe.name , show_recipe_path(recipe.recipe_uri)%></td>
+        <td><%=button_to "Remove" , recipe_path(recipe.id), method: :delete, class: "button hollow topbar-responsive-button "%></td>
+    </tr>
+  <%end%>
+</table>
+
 <h3>Recent searches:</h3>
 <table>
   <tr>
@@ -29,23 +32,23 @@
         <span>paleo </span>
       <%end%>
     </td>
-
-    <td> <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
-      <%= hidden_field_tag :search, search.keyword %>
-      <%= hidden_field_tag :from, params[:from], value: 0%>
-      <%if search.vegan != false %>
-        <%=hidden_field_tag :vegan, "vegan"%>
-      <%end%>
-      <%if search.kosher != false %>
-        <%=hidden_field_tag :kosher, "kosher"%>
-      <%end%>
-      <%if search.vegetarian != false%>
-        <%=hidden_field_tag :vegetarian, "vegetarian"%>
-      <%end%>
-      <%if search.paleo != false %>
-        <%=hidden_field_tag :paleo, "paleo"%>
-      <%end%>
-      <%= submit_tag "Search again", :name => nil , class: "button hollow topbar-responsive-button "%>
+    <td>
+      <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
+        <%= hidden_field_tag :search, search.keyword %>
+        <%= hidden_field_tag :from, params[:from], value: 0%>
+        <%if search.vegan != false %>
+          <%=hidden_field_tag :vegan, "vegan"%>
+        <%end%>
+        <%if search.kosher != false %>
+          <%=hidden_field_tag :kosher, "kosher"%>
+        <%end%>
+        <%if search.vegetarian != false%>
+          <%=hidden_field_tag :vegetarian, "vegetarian"%>
+        <%end%>
+        <%if search.paleo != false %>
+          <%=hidden_field_tag :paleo, "paleo"%>
+        <%end%>
+        <%= submit_tag "Search again", :name => nil , class: "button hollow topbar-responsive-button "%>
     <% end %>
     </td>
   </tr>

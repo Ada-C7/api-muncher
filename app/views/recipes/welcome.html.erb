@@ -1,4 +1,4 @@
-<!--
+
 <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
   <ul class="orbit-container">
     <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
@@ -25,31 +25,11 @@
     <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
   </nav>
 </div>
- -->
-<!--
-<div id = 'search_form'>
+
+<section id = 'search_form'>
   <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Recipes", id: "search-field"%>
     <%= hidden_field_tag :from, params[:from], value: 0%>
-    <div>
-
-    <%@health_labels_list.each do |label|%>
-        <%= label_tag label %>
-        <%=check_box_tag 'health[]',label%>
-      <%end%>
-      </div>
-    <%= submit_tag "Search", :name => nil , class: "button hollow topbar-responsive-button ", id: "search-button"%>
-  <% end %>
-</div> -->
-
-
-
-
-<div id = 'search_form'>
-  <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Recipes", id: "search-field"%>
-    <%= hidden_field_tag :from, params[:from], value: 0%>
-    <div>
       <%= label_tag "vegan" %>
       <%=check_box_tag :vegan,"vegan"%>
       <%= label_tag "kosher" %>
@@ -58,7 +38,7 @@
       <%=check_box_tag :vegetarian,"vegetarian"%>
       <%= label_tag "paleo" %>
       <%=check_box_tag :paleo,"paleo"%>
-    </div>
+
     <%= submit_tag "Search", :name => nil , class: "button hollow topbar-responsive-button ", id: "search-button"%>
   <% end %>
-</div>
+</section>

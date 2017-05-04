@@ -20,13 +20,38 @@
 #search_form{
   position: absolute;
   z-index: 1000;
-  top: 20%;
-  left: 35%;
-  width: 300px;
+  top: 30%;
+  left: 40%;
+  width: 400px;
+}
+#search_form label{
+  display: inline;
+  padding-left: 16px;
+  margin-right: 0px;
 }
 input#search-button{
   width: 150px;
-  margin-left: 20%;
+  margin-left: 25%;
   border-color: white;
   color: white;
+}
+
+header{
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+form.button_to{
+  width:10%;
+  display: inline-block;
+}
+input.button.hollow.topbar-responsive-button.medium.login-logout-button,
+a.button.hollow.topbar-responsive-button.medium.home-button{
+  border-color: #B1CF5F;
+  color: #1B512D;
+}
+input#search-button:hover,
+input.button.hollow.topbar-responsive-button.medium.login-logout-button:hover,
+a.button.hollow.topbar-responsive-button.medium.home-button:hover{
+  background-color: #A9CC49;
 }

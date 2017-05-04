@@ -1,43 +1,45 @@
-<div>
-  <p>  <%=@recipe.label%></p>
-  <p> <%=image_tag @recipe.image, alt:"picture of #{@recipe.label}"%>
-  <p>Calories: <%=@recipe.calories.round(0)%></p>
+<section>
+  <div>
+    <p>  <%=@recipe.label%></p>
+    <p> <%=image_tag @recipe.image, alt:"picture of #{@recipe.label}"%>
+    <p>Calories: <%=@recipe.calories.round(0)%></p>
 
-<%alreary_in_favorite = false%>
-<%if @login_user != nil%>
-  <%@login_user.recipes.each do |recipe|%>
-      <%if recipe.recipe_uri == @recipe.uri %>
-        <%alreary_in_favorite = true%>
-      <%end%>
-  <%end%>
-    <%if alreary_in_favorite%>
-      <p>This recipe is already in favorite</p>
-    <%else%>
-      <%= form_for @favorite_recipe do |f| %>
-        <%= hidden_field_tag("user_id", @login_user.id)%>
-        <%= hidden_field_tag("recipe_uri", @recipe.uri)%>
-        <%= hidden_field_tag("name", @recipe.label)%>
-        <%= f.submit value: "Add to favorite" ,  class: "button hollow topbar-responsive-button "%>
+  <%alreary_in_favorite = false%>
+  <%if @login_user != nil%>
+    <%@login_user.recipes.each do |recipe|%>
+        <%if recipe.recipe_uri == @recipe.uri %>
+          <%alreary_in_favorite = true%>
+        <%end%>
+    <%end%>
+      <%if alreary_in_favorite%>
+        <p>This recipe is already in favorite</p>
+      <%else%>
+        <%= form_for @favorite_recipe do |f| %>
+          <%= hidden_field_tag("user_id", @login_user.id)%>
+          <%= hidden_field_tag("recipe_uri", @recipe.uri)%>
+          <%= hidden_field_tag("name", @recipe.label)%>
+          <%= f.submit value: "Add to favorite" ,  class: "button hollow topbar-responsive-button "%>
+      <% end %>
     <% end %>
-  <% end %>
-<%end%>
+  <%end%>
 
 
-  <div>Ingridients:
-     <%@recipe.ingredients.each do |ingridient|%>
-        <p><%=ingridient["text"]%></p>
-     <%end%>
-   </div>
-  <p>Diet labels:
-    <%@recipe.diet_labels.each do |l|%>
-      <%=l%>
-    <%end%>
-  </p>
-  <p>Health labels:
-    <%@recipe.health_labels.each do |l|%>
-      <%=l%>
-    <%end%>
-  </p>
-  <br>
+    <div>Ingridients:
+       <%@recipe.ingredients.each do |ingridient|%>
+          <p><%=ingridient["text"]%></p>
+       <%end%>
+     </div>
+    <p>Diet labels:
+      <%@recipe.diet_labels.each do |l|%>
+        <%=l%>
+      <%end%>
+    </p>
+    <p>Health labels:
+      <%@recipe.health_labels.each do |l|%>
+        <%=l%>
+      <%end%>
+    </p>
     <br>
-</div>
+      <br>
+  </div>
+</section>
