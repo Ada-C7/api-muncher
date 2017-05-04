@@ -1,1 +1,16 @@
-<h1>The recipe you selected!</h1>
+
+<section class="ingredient-list">
+
+<h2>The recipe you selected!</h2>
+
+  <% @ingredients.each do | ingredient | %>
+
+    <%=ingredient.label %>
+    <%=ingredient.image %>
+    <%=link_to ingredient.source, "#{ingredient.url}" %>
+    <%=ingredient.ingredientLines %>
+    <%=ingredient.totalNutrients %>
+
+  <% end %>
+
+</section>
