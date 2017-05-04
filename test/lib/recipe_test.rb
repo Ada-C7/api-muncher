@@ -29,6 +29,20 @@ describe Recipe do
         end
       end
     end
+
+    it "Can returns an empty array of if given a bogus search term" do
+      VCR.use_cassette("recipes") do
+        recipes = Recipe.search("XXXXXXX")
+        recipes.class.must_equal Array
+        recipes.lentgh.must_equal 0
+      end
+    end
+
+
+
+
+
+
   end
     #   it "Fails to send to a bogus channel" do
     #     VCR.use_cassette("channels") do
