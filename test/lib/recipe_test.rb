@@ -561,7 +561,6 @@ describe Recipe do
     recipe.uri.must_equal "http://www.edamam.com/ontologies/edamam.owl#recipe_c748acc6945e3ed9b8e46d6f6489f781"
     recipe.image.must_equal "https://www.edamam.com/web-img/5bc/5bc9890a55411da589e654974243ed00.jpg"
     recipe.url.must_equal "http://www.marthastewart.com/354962/ham-cheese-and-pickle-skewers"
-    recipe.ingredient_lines.must_equal recipe_hash["ingredientLines"]
     recipe.ingredients.must_equal recipe_hash["ingredients"]
     recipe.total_nutrients.must_equal recipe_hash["totalNutrients"]
     recipe.total_daily.must_equal recipe_hash["totalDaily"]
