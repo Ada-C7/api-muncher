@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @recipe = SearchApiWrapper.showRecipe(params[:uri]) 
 
   end
 
