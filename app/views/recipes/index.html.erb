@@ -1,12 +1,21 @@
 <h1>Search Results</h1>
 
 <section class="recipes-list">
-<ul>
-  <% @recipes.each do |recipe| %>
-  <li>
-    <%= link_to image_tag(recipe.image, class: "preview"), recipe.url, target: "_blank" %>
-    <%= link_to recipe.label, recipe.url, target: "_blank" %>
-  </li>
-  <% end %>
-</ul>
+
+<% if @recipes %>
+  <ul>
+    <% @recipes.each do |recipe| %>
+    <li>
+      <%#= link_to image_tag(recipe.image, class: "preview"), recipe.url %>
+      <%#= link_to recipe.label, recipe.url %>
+      <%= link_to image_tag(recipe.image, class: "preview"), recipe_path(recipe.id) %>
+      <%= link_to recipe.label, recipe_path(recipe.id) %>
+    </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    Sorry! No recipes match that search term.
+  </p>
+<% end %>
 </section>

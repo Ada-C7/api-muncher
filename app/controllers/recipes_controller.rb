@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.first
+    @recipe = EdamamApiWrapper.getRecipe(params[:recipe])
   end
 
 end

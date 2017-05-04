@@ -22,10 +22,10 @@ describe EdamamApiWrapper do
       recipes = EdamamApiWrapper.listRecipes("chocolate", "bad id", "bad key")
       recipes.must_equal []
 
-      recipes = EdamamApiWrapper.listRecipes("testing")
+      recipes = EdamamApiWrapper.listRecipes("abcdefghijklmnop")
       recipes.must_equal []
 
-      recipes = EdamamApiWrapper.listRecipes("testing", "bad id", "bad key")
+      recipes = EdamamApiWrapper.listRecipes("abcdefghijklmnop", "bad id", "bad key")
       recipes.must_equal []
     end
 
@@ -36,21 +36,19 @@ describe EdamamApiWrapper do
 
   describe "showRecipe" do
     it "can get a recipe given a valid recipe_id" do
-      skip
-      #   id = "C557BP9QE"
-      #   recipe = EdamamApiWrapper.getRecipe(id)
-      #
-      #   recipe.must_be_instance_of Recipe
-      #   recipe.name.must_equal "stacks_api_testing"
-      #   recipe.id.must_equal id
+        id = "http://www.edamam.com/ontologies/edamam.owl%23recipe_014db7797cad02460ab565a740d56f2d"
+        recipe = EdamamApiWrapper.getRecipe(id)
+
+        recipe.must_be_instance_of Recipe
+        recipe.id.must_equal "http://www.edamam.com/ontologies/edamam.owl#recipe_014db7797cad02460ab565a740d56f2d"
+        recipe.label.must_equal "Chocolate-Peanut Butter Terrine with Sugared Peanuts"
+        recipe.image.must_equal "https://www.edamam.com/web-img/41a/41a0a57253138f0bd3fec5e091a3459d.jpg"
     end
 
-    it "can get a recipe given a valid recipe_id" do
-      skip
-      # id = ":("
-      # recipe = EdamamApiWrapper.getRecipe(id)
-      # recipe.must_equal false
-      # end
+    it "cannot get a recipe without a valid recipe_id" do
+      id = ":("
+      recipe = EdamamApiWrapper.getRecipe(id)
+      recipe.must_equal false
     end
   end
 end

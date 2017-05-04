@@ -40,6 +40,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'minitest-vcr'
   gem 'webmock'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -58,7 +59,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
-  gem 'dotenv-rails'
 end
 
 gem 'httparty'

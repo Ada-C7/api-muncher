@@ -9,13 +9,10 @@ describe Recipe do
       "image" => "recipe.com/recipe.jpg",
       "url" => "recipe.com/recipe",
       "ingredientLines" => ["yummyness", "chocolate bits", "savoury sweet flavor"],
-      "calories" => 1000000,
-      "fat" => 0.0001,
-      "sugar" => 0.0000001,
-      "protein" => 7000,
-      "sodium" => 50
+      "dietLabels" => ["so healthy", "really we promise"],
+      "healthLabels" => ["happiness", "delight", "full tummy"]
     }
-    
+
       @recipe = Recipe.new(recipe_hash)
   end
 
@@ -39,10 +36,7 @@ describe Recipe do
     @recipe.image.must_equal "recipe.com/recipe.jpg"
     @recipe.url.must_equal "recipe.com/recipe"
     @recipe.ingredientLines.must_equal ["yummyness", "chocolate bits", "savoury sweet flavor"]
-    @recipe.calories.must_equal 1000000
-    @recipe.fat.must_equal 0.0001
-    @recipe.sugar.must_equal 0.0000001
-    @recipe.protein.must_equal 7000
-    @recipe.sodium.must_equal 50
+    @recipe.dietLabels.must_equal ["so healthy", "really we promise"]
+    @recipe.healthLabels.must_equal ["happiness", "delight", "full tummy"]
     end
   end
