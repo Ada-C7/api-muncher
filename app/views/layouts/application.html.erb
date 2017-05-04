@@ -12,8 +12,20 @@
   </head>
 
   <body>
+    <header>
+      <div class="row" id="top-row">
+        <h1 class="small-6 columns">
+          <%= link_to "Trickey Eats", root_path %>
+        </h1>
+      </div>
+    </header>
 
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
 
+    <footer>
+      Powered by <%= link_to "Edamam", "https://www.edamam.com/", target: :_blank %>
+    </footer>
   </body>
 </html>
