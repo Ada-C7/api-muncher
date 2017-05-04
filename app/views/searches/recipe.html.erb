@@ -1,0 +1,72 @@
+<p>
+  <%= link_to "Back to results", :back %>
+</p>
+
+<h1><%= @recipe.name %></h1>
+
+<h3>Ingredients</h3>
+<ul>
+<% @recipe.ingredients.each do |ingredient| %>
+<li>
+  <%= ingredient %>
+</li>
+<% end %>
+</ul>
+
+<h3>Nutrition Information</h3>
+<table>
+  <thead>
+    <th>
+      Nutrient
+    </th>
+    <th>
+      Amount
+    </th>
+  </thead>
+  <tr>
+    <td>
+    <%= @recipe.nutrients["ENERC_KCAL"]["label"] %>
+    </td>
+    <td>
+      <%= @recipe.nutrients["ENERC_KCAL"]["quantity"].to_f.round(2) %> <%= @recipe.nutrients["PROCNT"]["unit"] %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <%= @recipe.nutrients["FAT"]["label"] %>
+    </td>
+    <td>
+      <%= @recipe.nutrients["FAT"]["quantity"].to_f.round(2) %> <%= @recipe.nutrients["PROCNT"]["unit"] %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <%= @recipe.nutrients["SUGAR"]["label"] %>
+    </td>
+    <td>
+      <%= @recipe.nutrients["SUGAR"]["quantity"].to_f.round(2) %> <%= @recipe.nutrients["PROCNT"]["unit"] %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <%= @recipe.nutrients["PROCNT"]["label"] %>
+    </td>
+    <td>
+      <%= @recipe.nutrients["PROCNT"]["quantity"].to_f.round(2) %> <%= @recipe.nutrients["PROCNT"]["unit"] %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <%= @recipe.nutrients["VITB12"]["label"] %>
+    </td>
+    <td>
+      <%= @recipe.nutrients["VITB12"]["quantity"].to_f.round(2) %> <%= @recipe.nutrients["PROCNT"]["unit"] %>
+    </td>
+  </tr>
+</table>
+<aside class="show-recipe-image">
+  <%= image_tag @recipe.image %>
+  <p>
+    check out the entire recipe --including complete nutrition information and instructions-- at <%= link_to @recipe.recipe_source, "#{@recipe.recipe_url}", target: :_blank %>
+  </p>
+</aside>

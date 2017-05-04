@@ -1,12 +1,13 @@
 <section class="search-results">
 
-  
-  <ul>
+
+  <article class="recipe-results">
+
     <% @results.each do |result| %>
-    <li>
-      <%= image_tag result.image %>
-      <%= link_to result.name, root_path, method: :get %>
-    </li>
+    <section class="indiv-recipe">
+      <%= image_tag result.image, class: "index-image" %>
+      <%= link_to result.name, recipe_path(uri: result.uri), method: :get, class: "recipe-title" %>
+    </section>
     <% end %>
-  </ul>
+  </article>
 </section>

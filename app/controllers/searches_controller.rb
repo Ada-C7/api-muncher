@@ -12,6 +12,12 @@ class SearchesController < ApplicationController
     # raise
   end
 
+  def recipe
+    @recipe = EdamamApiWrapper.getRecipe(params[:uri])
+    # raise
+
+  end
+
   def new
     @search = Search.new
   end
