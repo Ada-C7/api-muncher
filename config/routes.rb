@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root "recipes#welcome"
+
+    get "/auth/:provider/callback", to: "sessions#create"
+    resources :users
+     post '/logout', to: 'sessions#logout', as: 'logout'
+
     get "/recipes/view_recipes" , to: "recipes#view_recipes", as: "view_recipes"
 
 

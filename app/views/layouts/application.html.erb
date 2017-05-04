@@ -13,6 +13,15 @@
 
 <body>
   <header>
+        <section >
+          <%if @login_user%>
+          <p>Currently logged in as <%=link_to @login_user.name, user_path(@login_user.id)%></p>
+          <%= button_to "Log out", logout_path,  class:"button medium"%>
+          <%else%>
+          <p>Not logged in</p>
+          <%= button_to "Log in", "/auth/google_oauth2", class:"button medium "%>
+          <%end%>
+        </section>
 
 
   </header>

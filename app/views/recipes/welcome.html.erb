@@ -31,11 +31,13 @@
   <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Recipes", id: "search-field"%>
     <%= hidden_field_tag :from, params[:from], value: 0%>
+    <div>
 
     <%@health_labels_list.each do |label|%>
         <%= label_tag label %>
-        <%=check_box_tag 'health_labels[]',label%>
+        <%=check_box_tag 'health[]',label%>
       <%end%>
+      </div>
     <%= submit_tag "Search", :name => nil , class: "button hollow topbar-responsive-button ", id: "search-button"%>
   <% end %>
 </div>

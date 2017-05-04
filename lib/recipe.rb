@@ -11,6 +11,7 @@ class Recipe
 
   # def initialize(label, image, uri, calories,diet_labels, health_labels, ingredients)
   def initialize(recipe_hash)
+    # raise RecipeException if
     @label = recipe_hash["label"]
     @image = recipe_hash["image"]
     index = recipe_hash["uri"].split("").find_index("_")
@@ -21,31 +22,31 @@ class Recipe
     @ingredients = recipe_hash["ingredients"]
   end
 
-  def self.count_all(keywords)
-    url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=0&to=2000"
+  def self.count_all(keywords,  health = nil)
+    health_options = ""
+    if health != nil
+      health_options = "&health=" + health.join(', ')
+    end
+    url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=0&to=2000#{health_options}"
     result = HTTParty.get(url).parsed_response["hits"].length
     return result
   end
 
-  def self.search(keywords, from, health_labels = nil)
+  def self.search(keywords, from, health = nil)
     puts ">>>>>>>> health_labels in search method>>>>>>>>>."
-    print health_labels
+    print health
     puts "<<<<<<<<health_labels in search method<<<<<<<<<"
 
-    
+
     health_options = ""
-    if health_labels != nil
-      health_labels.each do |item|
-        health_options += "&health=#{item}"
-      end
+    if health != nil
+      health_options = "&health=" + health.join(', ')
+      # health.each do |item|
+      #   health_options += "&health=#{item}"
+      # end
     end
-    # #
-    # health_options = ""
-    # if health_labels != nil
-    #   health_labels.each do |label|
-    #       health_options += "&healthLabels=#{label}"
-    #   end
-    # end
+    print ">>HEALTH OPTIONS:>>>#{health_options}"
+
 
 
     url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=#{from}&to=#{from.to_i+12}#{health_options}"
