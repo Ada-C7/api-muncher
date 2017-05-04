@@ -29,13 +29,13 @@ class EdamamApiWrapper
     url = BASE_URL + "r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{id}&" + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}"
 
     response = HTTParty.get(url)
-    if response["hits"]
-      label = ["hits"][0]["recipe"]["label"]
-      image = ["hits"][0]["recipe"]["image"]
-      uri = ["hits"][0]["recipe"]["uri"]
-      url = ["hits"][0]["recipe"]["url"]
+    if response[0]["uri"]
+      label = response[0]["label"]
+      image = response[0]["image"]
+      uri = response[0]["uri"].partition("recipe_").last
+      url = response[0]["url"]
 
-      Recipe.new(label, image, uri, url)
+      recipe = Recipe.new(label, image, uri, url)
     end
   return recipe
   end
