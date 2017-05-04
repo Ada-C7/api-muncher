@@ -3,6 +3,8 @@ require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
 require "minitest/rails"
 require "minitest/reporters"  # for Colorized output
+require 'vcr'
+require 'webmock/minitest'
 
 #  For colorful output!
 Minitest::Reporters.use!(
@@ -23,4 +25,15 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
   # Add more helper methods to be used by all tests here...
+
+  VRC.configure do |config|
+    config.cassette_library_dir = "test/cassettes"
+    config.hook_into :webmock
+    config.default_cassette_options = {
+      record: :new_episode,
+      match_request_on: [:method, :uri, :body]
+    }
+    config.filter_sensitive_data("<APP_ID>") { ENV["APP_ID"] }
+    config.filter_sensitive_data("<APP_KEY>") { ENV["APP_KEY"] }
+  end
 end

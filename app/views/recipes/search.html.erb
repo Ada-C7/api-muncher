@@ -1,6 +1,6 @@
 <h1>Search for a recipe!</h1>
 
 <%= form_tag(recipes_index_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], action_name: "Search Recipes" %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= search_field_tag(:query, nil, :placeholder => "Search", :required => true)%>
+    <%= submit_tag "Find Recipe!", class: 'button' %>
 <% end %>
