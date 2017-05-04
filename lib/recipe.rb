@@ -4,7 +4,7 @@ class Recipe
   def initialize(name, image, uri, options = {})
     @name = name
     @image = image
-    @uri = uri
+    @uri = URI.escape(uri)
     @ingredients = options[:ingredients]
     @link = options[:link]
     @diet = options[:diet]

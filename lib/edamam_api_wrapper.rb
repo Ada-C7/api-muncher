@@ -31,14 +31,14 @@ class EdamamApiWrapper
   def self.getRecipe(uri)
     url = BASE_URL + "r=#{uri}"
 
-    response = HTTParty.get(url).parsed_response
+    response = HTTParty.get(url).parsed_response[0]
 
-    name = response[0]["label"]
-    image = response[0]["image"]
-    uri = response[0]["uri"]
-    ingredients = response[0]["ingredientLines"]
-    link = response[0]["url"]
-    diet = response[0]["digest"]
+    name = response["label"]
+    image = response["image"]
+    uri = response["uri"]
+    ingredients = response["ingredientLines"]
+    link = response["url"]
+    diet = response["digest"]
 
     recipe = Recipe.new(name, image, uri, ingredients: ingredients, link: link, diet: diet)
   end
