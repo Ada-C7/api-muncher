@@ -8,11 +8,13 @@ class RecipesController < ApplicationController
   def index
     @search_term = params[:q]
     @list = Recipe.get_recipes(@search_term)
-
   end
 
   def show
-    uri = params[:uri]
+    @params = params[:uri] + "." + params[:format].gsub(/#/,'%23')
+    @recipe = Recipe.find(@params)
+
+    # uri = params[:uri]
     #recipe[:uri]
   end
 
