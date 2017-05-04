@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   root 'recipes#search'
   get '/search', to: 'recipes#search', as: 'search'
-  post '/results', to: 'recipes#results', as: 'results'
-  get '/results/:recipe', to: 'recipes#show', as: "recipe"
+  get '/results', to: 'recipes#results', as: 'results'
+  get '/recipe/:name', to: 'recipes#show', as: 'recipe'
+
 
 end

@@ -5,7 +5,7 @@
 <%# raise %>
 
 <p>
-  <%= recipe.image %> Recipe: <%= link_to recipe.name, recipe_path(recipe.uri) %>
+  <%= image_tag recipe.image %> Recipe: <%= link_to recipe.name, recipe_path(name: recipe.name, uri: recipe.uri) %>
 </p>
 
 <% end %>

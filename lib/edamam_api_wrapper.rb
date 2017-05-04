@@ -18,21 +18,21 @@ class EdamamApiWrapper
       response["hits"].each do |hit|
         name = hit["recipe"]["label"]
         image = hit["recipe"]["image"]
-        uri = hit["recipe"]["uri"]
-        url = hit["recipe"]["url"]
-        servings = hit["recipe"]["yield"]
-        dietLabels = hit["recipe"]["dietLabels"]
-        healthLabels = hit["recipe"]["healthLabels"]
-        ingredients = hit["recipe"]["ingredientList"]
+        uri = hit["recipe"]["uri"].gsub("#", "%23")
+        # url = hit["recipe"]["url"]
+        # servings = hit["recipe"]["yield"]
+        # dietLabels = hit["recipe"]["dietLabels"]
+        # healthLabels = hit["recipe"]["healthLabels"]
+        # ingredients = hit["recipe"]["ingredientList"]
 
-        recipes << Recipe.new(name, image, uri, options =
-        {
-          url: url,
-          servings: servings,
-          diet: dietLabels,
-          healthLabels: healthLabels,
-          ingredients: ingredients
-          }
+        recipes << Recipe.new(name, image, uri#, options =
+        # {
+        #   url: url,
+        #   servings: servings,
+        #   diet: dietLabels,
+        #   healthLabels: healthLabels,
+        #   ingredients: ingredients
+        # }
         )
       end
     end
@@ -42,11 +42,34 @@ class EdamamApiWrapper
 
   def self.showRecipe(uri)
 
-    url = BASE_URL + "r=#{uri.gsub("#", "%23")}" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}"
+    url = BASE_URL + "r=#{uri}" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}"
 
-    response = HTTParty.get(url)
-    raise
-    return response
+    response = HTTParty.get(url).first
+    recipe = nil
+
+    if response
+      name = response["label"]
+      image = response["image"]
+      uri = response["uri"].gsub("#", "%23")
+      url = response["url"]
+      servings = response["yield"]
+      dietLabels = response["dietLabels"]
+      healthLabels = response["healthLabels"]
+      ingredients = response["ingredientLines"]
+      calories = response["calories"]
+      #raise
+      recipe = Recipe.new(name, image, uri, options =
+      {
+        url: url,
+        servings: servings,
+        diet: dietLabels,
+        healthLabels: healthLabels,
+        ingredients: ingredients,
+        calories: calories
+      }
+      )
+    end
+    # TODO parse through the find hash!
+    return recipe
   end
-
 end

@@ -1,5 +1,40 @@
-<h1> Hey you made it! </h1>
+<h4> Hey you made it! </h4>
 
 
+<h1><%= @recipe.name  %></h1>
 
-<%= @recipe.name  %>
+<%= image_tag @recipe.image %>
+
+<%= link_to "Original Recipe", @recipe.options[:url] %>
+
+<p>
+  <%= @recipe.options[:servings] %> Servings
+</p>
+<p>
+  <%= @recipe.options[:calories] %> Calories
+</p>
+
+<ul> Diet
+  <% @recipe.options[:diet].each do |label| %>
+
+  <li>
+    <%= label %>
+  </li>
+  <% end %>
+</ul>
+
+<ul> Health Labels
+  <% for label in  @recipe.options[:healthLabels] %>
+  <li>
+    <%= label %>
+  </li>
+  <% end %>
+</ul>
+
+<ul> Ingredients
+  <% for label in @recipe.options[:ingredients] %>
+  <li>
+    <%= label %>
+  </li>
+  <% end %>
+</ul>

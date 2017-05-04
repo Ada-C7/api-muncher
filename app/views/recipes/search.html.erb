@@ -1,5 +1,5 @@
 
-<%= form_tag results_path, method: "post" do  %>
+<%= form_tag results_path, method: :get do  %>
 <%= label_tag(:search, "Enter Message") %>
 <%= text_field_tag(:search) %>
 <%= submit_tag("Send") %>

@@ -7,9 +7,11 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = EdamamApiWrapper.showRecipe(params[:recipe])
+    @recipe = EdamamApiWrapper.showRecipe(params[:uri])
   end
 
-  def search; end
+  def search
+    #@recipes = EdamamApiWrapper.findRecipes(params[:search])
+  end
 
 end
