@@ -12,6 +12,7 @@
 </head>
   <body>
     <header>
+
           <section >
             <%= link_to "Home", root_path,  class:"button hollow topbar-responsive-button medium home-button"%>
             <%if @login_user%>
@@ -22,11 +23,15 @@
               <span>Not logged in</span>
             <%end%>
           </section>
-          <section class="flash">
+          <div id = "flash">
             <% flash.each do |name, message| %>
-            <div class="<%= name %>"><%= message %></div>
+            <div class="<%= name %> callout secondary primary small" data-closable><%= message %>
+              <button class="close-button small" aria-label="Dismiss alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
             <% end %>
-          </section>
+          </div>
     </header>
     <%= yield %>
   </body>
