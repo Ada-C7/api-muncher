@@ -5,10 +5,12 @@ class EdamamSearch
 
   BASE_URL = "https://api.edamam.com/search?"
 
-  attr_reader :search_text, :results
+  attr_reader :search_text, :to, :from
 
-  def initialize(search_info)
-    @search_text = search_info
+  def initialize(search_params)
+    @search_text = search_params[:search_text]
+    @to = search_params[:to]
+    @from = search_params[:from]
     # @to = 0
     # @from =
     # health = search_hash[:health_options]
@@ -16,10 +18,13 @@ class EdamamSearch
   end
 
   def search_results
+
     query_params = {
                     "app_id" => ENV["EDAMAM_ID"],
                     "app_key" => ENV["EDAMAM_KEY"],
-                    "q" => @search_text
+                    "q" => @search_text,
+                    "to" => "#{@to}",
+                    "from" => "#{@from}"
                     # "Diet" => "",
                     # "Health" => ""
                    }
@@ -27,7 +32,7 @@ class EdamamSearch
     # response = HTTParty.get("https://api.edamam.com/search?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&q=#{@search_text}")
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
-
+    # raise
     if response["count"] > 0
       return labels_and_images(response)
     elsif response["error"]

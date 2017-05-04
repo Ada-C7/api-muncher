@@ -14,10 +14,15 @@
         <div><h5><%= link_to recipe[:label], "#" %></h5></div>
       </div>
     <% end %>
-
+  <% end %>
   </article>
 
-  <nav><%= link_to "Next", "#", class: "button" %> </nav>
-
-  <% end %>
+  <nav>
+    <% next_ten = @new_search.from + 10 %>
+    <%= form_tag recipes_path, method: :get do %>
+      <%= hidden_field_tag :search_text, "#{@new_search.search_text}" %>
+      <%= hidden_field_tag :from, next_ten %>
+      <%= submit_tag "Next 10" %>
+    <% end %>
+  </nav>
 </section>
