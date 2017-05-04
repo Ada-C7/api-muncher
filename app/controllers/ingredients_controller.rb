@@ -1,7 +1,7 @@
 class IngredientsController < ApplicationController
 
   def show
-    @ingredients = EdmamApiWrapper.getRecipe
+    @ingredient = EdmamApiWrapper.getRecipe
   end
 
 end

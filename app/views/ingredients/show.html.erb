@@ -5,14 +5,11 @@
 
   <div class="transbox">
 
-  <% @ingredients.each do | ingredient | %>
+    <p><%=@ingredient.label %></p>
+    <p><%=@ingredient.image %></p>
+    <p><%=link_to @ingredient.source, "#{@ingredient.url}" %></p>
+    <p><%=@ingredient.ingredientLines %></p>
+    <p><%=@ingredient.totalNutrients %></p>
 
-    <%=ingredient.label %>
-    <%=ingredient.image %>
-    <%=link_to ingredient.source, "#{ingredient.url}" %>
-    <%=ingredient.ingredientLines %>
-    <%=ingredient.totalNutrients %>
-
-  <% end %>
 </div>
 </section>
