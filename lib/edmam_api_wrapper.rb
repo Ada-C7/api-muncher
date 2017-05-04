@@ -10,7 +10,7 @@ class EdmamApiWrapper
       "name" => "banana bread",
       "uri" => "http://www.edamam.com/ontologies/edamam.owl#recipe_f1c853a77986214680bbdd424883499a",
       "label" => "best banana bread",
-      "image" => "foo",
+      "image" => "fetch.jpg",
       "source" => "bar",
       "url" => "foo"
     }
