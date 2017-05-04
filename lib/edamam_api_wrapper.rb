@@ -7,7 +7,7 @@ class EdamamApiWrapper
 
   def self.search(search_term)
     # raise
-    url = BASE_URL + "search?" + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}&" + "q=#{search_term}&" + "to=10"
+    url = BASE_URL + "search?" + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}&" + "q=#{search_term}&" + "to=100"
 
     response = HTTParty.get(url)
 
