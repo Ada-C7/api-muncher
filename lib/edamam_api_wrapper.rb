@@ -19,9 +19,7 @@ class EdamamApiWrapper
       recipes << Recipe.new(recipe_info)
     end
 
-    page = r["to"]
-
-    return [recipes, page]
+    return recipes
   end
 
   def self.findRecipe(uri)

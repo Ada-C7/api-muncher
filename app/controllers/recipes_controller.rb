@@ -1,3 +1,5 @@
+require_dependency '../../lib/edamam_api_wrapper'
+require_dependency '../../lib/recipe'
 
 class RecipesController < ApplicationController
   def index
@@ -6,12 +8,12 @@ class RecipesController < ApplicationController
   def recipes
     @ingredient = params[:search]
     if (params[:page].to_i == 1)
-      @recipes = EdamamApiWrapper.findRecipes(params[:search])[0]
+      @recipes = EdamamApiWrapper.findRecipes(params[:search])
       @page = 1
     else
       @page = params[:page].to_i
       from = (@page * 10) - 10
-      @recipes = EdamamApiWrapper.findRecipes(params[:search], from)[0]
+      @recipes = EdamamApiWrapper.findRecipes(params[:search], from)
     end
   end
 
