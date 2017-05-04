@@ -38,6 +38,11 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'dotenv-rails'
+  gem 'better_errors'
+  gem 'minitest-vcr'
+  gem 'webmock'
+
 end
 
 group :development do
@@ -50,6 +55,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "dotenv-rails"
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -66,6 +72,8 @@ gem 'foundation-rails'
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
+  gem 'simplecov'
+
 end
 
 gem 'httparty'
