@@ -1,9 +1,15 @@
 class HomepagesController < ApplicationController
-  def index
-    @recipes = SlackApiWrapper.listRecipes
+  def index;end
+
+  def list
+    @recipes = EdamamApiWrapper.listRecipes(params[:search_term])
+    #if params[:food]
+    # else
+    #   flash[:warning] = "please enter search term"
+    #   redirect_to :root
   end
 
   def show
-    @recipe = SlackApiWrapper.findRecipe(params[:uri])
+    @recipe = EdamamApiWrapper.findRecipe(params[:uri])
   end
 end
