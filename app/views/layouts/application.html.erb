@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Feed Yoself" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Feed. Yo. Self." %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -12,7 +12,7 @@
   </head>
 
   <header>
-    <%= link_to "Feed Yoself", root_path %>
+    <%= link_to "Feed. Yo. Self.", root_path %>
 
     <%= form_tag recipes_path, method: 'get', id: 'search-form' do %>
       <%#= hidden_field_tag :to, value: 10 %>
