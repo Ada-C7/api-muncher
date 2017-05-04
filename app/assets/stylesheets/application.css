@@ -1,3 +1,5 @@
+ @import url('foundation');
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -15,3 +17,24 @@
  *= require foundation_and_overrides
 
  */
+
+ h1, h3, footer {
+   text-align: center;
+ }
+
+ h1 {
+   margin-top: 5%;
+ }
+
+ main {
+   margin: 5%;
+ }
+
+ .helper {
+     border: 2px solid lightgray;
+     display: inline-block;
+ }
+
+ /*footer {
+   text-align: center;
+ }*/

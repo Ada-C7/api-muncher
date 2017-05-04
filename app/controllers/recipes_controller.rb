@@ -2,8 +2,10 @@ require 'edamam_recipes'
 
 class RecipesController < ApplicationController
 
+attr_reader :recipe_array, :recipe
+
   def index
-    @list = EdamamRecipes.get_recipes(params[:search_request])
+    @recipe_array = EdamamRecipes.get_recipes(params[:search_request])
   end
 
   def new
@@ -11,6 +13,7 @@ class RecipesController < ApplicationController
 
 
   def show
+    @recipe = EdamameRecipes.find_recipe(params[:uri])
   end
 
 
