@@ -1,22 +1,35 @@
-<h1>DISH BISH</h1>
+<main class="row">
 
+  <h1 class="centering"> DISH BISH</h1>
 
-<%= form_tag homepages_index_path, method: "get" do %>
-<%= label_tag(:search_term, "What sounds good?") %>
-<%= text_field_tag(:search_term) %>
-<%= submit_tag("Search") %>
+  <section class="centering">
 
-<% end %>
-<section class="recipes-list">
+    <%= form_tag homepages_index_path, method: "get" do %>
+    <%= label_tag(:search_term, "What sounds good?") %>
+    <%= text_field_tag(:search_term) %>
+    <%= submit_tag("Search") %>
 
-  <ul>
-    <% @search_recipes.each do |recipe| %>
-    <li>
-      <%= link_to recipe.label, recipes_show_path %>
-      <%= link_to image_tag(recipe.image), recipes_show_path %>
+  </section>
 
-    </li>
+  <% end %>
+  <section class="top columns large-4 small-12 recipes">
+    <p>
+      <%= will_paginate @search_recipes, class: "row" %>
+    </p>
+
+    <ul class="centering">
+      <% if @search_recipes != nil %>
+      <% @search_recipes.each do |recipe| %>
+      <li class="centering">
+        <%= link_to recipe.label, recipes_show_path %>
+        <%= link_to image_tag(recipe.image), recipes_show_path %>
+      </li>
+      <% end %>
+    </ul>
+    <% else %>
+    <p>
+      <%= "What the hell kind of food is that? Try again." %>
+    </p>
     <% end %>
-  </ul>
-</section>
-<%= will_paginate @search_recipes, class: "row" %>
+
+  </section>
