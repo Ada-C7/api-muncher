@@ -1,0 +1,7 @@
+<%= form_for @recipe, url: recipes_path do |recipe| %>
+
+<%= recipe.label :search_term %><br>
+<%= recipe.text_field :search_term %>
+
+<%= recipe.submit value: "Find recipes" %>
+<% end %>
