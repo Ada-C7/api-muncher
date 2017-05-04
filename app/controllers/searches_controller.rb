@@ -1,5 +1,7 @@
 # require 'edamam_api_wrapper'
 require_dependency '../../lib/edamam_api_wrapper'
+require_dependency '../../lib/recipe_result'
+
 
 class SearchesController < ApplicationController
   before_action :set_from_and_to
