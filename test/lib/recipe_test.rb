@@ -1,7 +1,6 @@
 require 'test_helper'
 
 describe Recipe do
-
   before do
     recipe_hash = {
       "id" => "recipe.com/recipe/ejfajfdn",
