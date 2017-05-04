@@ -1,23 +1,30 @@
-<article class="index">
-  <h2>Recipes</h2>
-  <% if @recipes.empty? %>
-    <p>
-      No recipes to display!
-    </p>
-  <% else %>
-    <ul>
-      <% @recipes.each do |recipe| %>
-        <li>
-          <%= link_to recipe.name, recipe_path(uri: recipe.uri) %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+<article class="index row">
+  <div class="small-12 columns">
+    <h2>Recipes</h2>
+    <% if @recipes.empty? %>
+      <p>
+        No recipes to display!
+      </p>
+    <% else %>
+      <ul>
+        <% @recipes.each do |recipe| %>
+          <div class="small-6 medium-4 columns">
+            <li>
+              <%= link_to recipe_path(uri: recipe.uri) do %>
+                <h4> <%= recipe.name %> </h4>
+                <%= image_tag recipe.image %>
+              <% end %>
+            </li>
+          </div>
+        <% end %>
+      </ul>
+    <% end %>
 
-<% if @page >= 1 %>
-  <%= link_to "Previous 10 Results", search_recipes_path(page: @page - 1, search_terms: @search_terms) %>
-<% end %>
+    <% if @page >= 1 %>
+      <%= link_to "Previous 10 Results", search_recipes_path(page: @page - 1, search_terms: @search_terms) %>
+    <% end %>
 
-<%= link_to "Next 10 Results", search_recipes_path(page: @page + 1, search_terms: @search_terms) %>
+    <%= link_to "Next 10 Results", search_recipes_path(page: @page + 1, search_terms: @search_terms) %>
 
+  </div>
 </article>
