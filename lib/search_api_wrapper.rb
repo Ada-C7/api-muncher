@@ -9,20 +9,20 @@ class SearchApiWrapper
   def self.listRecipes(user_search)
     url = BASE_URL + "?q=#{user_search}" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&to=10"
 
-    response = HTTParty.get(url)
+    response = HTTParty.get(url).parsed_response
     hits = response["hits"]
     recipes = []
     hits.each do |hit|
       recipe_details = hit["recipe"]
 
-      label = recipe_details["label"]
-      url = recipe_details["url"]
-      uri = recipe_details["uri"]
-      image = recipe_details["image"]
-      ingredients = recipe_details["ingredientLines"]
-      allergy_info = recipe_details["healthLabels"]
-      nutrients = recipe_details["totalNutrients"]
-      recipes << Recipe.new(label, url, image, ingredients, allergy_info, uri, nutrients)
+      # label = recipe_details["label"]
+      # url = recipe_details["url"]
+      # uri = recipe_details["uri"]
+      # image = recipe_details["image"]
+      # ingredients = recipe_details["ingredientLines"]
+      # allergy_info = recipe_details["healthLabels"]
+      # nutrients = recipe_details["totalNutrients"]
+      recipes << Recipe.new(recipe_details)
     end
     return recipes
   end
@@ -34,15 +34,15 @@ class SearchApiWrapper
 
 
 
-    label = response[0]["label"]
-    url = response[0]["url"]
-    uri = response[0]["uri"]
-    image = response[0]["image"]
-    ingredients = response[0]["ingredientLines"]
-    allergy_info =
-     response[0]["healthLabels"]
-     nutrients = response[0]["totalNutrients"]
-    recipe = Recipe.new(label, url, image, ingredients, allergy_info, uri, nutrients)
+    # label = response[0]["label"]
+    # url = response[0]["url"]
+    # uri = response[0]["uri"]
+    # image = response[0]["image"]
+    # ingredients = response[0]["ingredientLines"]
+    # allergy_info =
+    #  response[0]["healthLabels"]
+    #  nutrients = response[0]["totalNutrients"]
+    recipe = Recipe.new(response[0])
 
     return recipe
 

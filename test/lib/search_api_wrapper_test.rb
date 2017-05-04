@@ -13,6 +13,14 @@ describe "SearchApiWrapper" do
         end
       end
     end
+    it "Will return an empty array with a bad token" do
+      VCR.use_cassette("recipe") do
+
+        channels = SlackApiWrapper.listChannels("Bad token")
+        channels.must_equal []
+      end
+    end
+
   end
 
 
