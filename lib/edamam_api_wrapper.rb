@@ -19,7 +19,7 @@ class EdamamApiWrapper
     if response
       response.each_with_index do |recipe, i|
         recipe_hash = {
-          "id" => response[i]["recipe"]["uri"],
+          "id" => response[i]["recipe"]["uri"].gsub('#', '%23'),
           "label" => response[i]["recipe"]["label"],
           "image" => response[i]["recipe"]["image"]
         }
