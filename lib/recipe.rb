@@ -41,4 +41,16 @@ class Recipe
       return response.code
     end
   end
+
+  def self.count_results(search_term)
+    query_params = {
+      "q" => search_term,
+      "app_id" => ID,
+      "app_key" => KEY,
+    }
+
+    url = "#{BASE_URL}search"
+    response = HTTParty.get(url, query: query_params)
+    return response["count"]
+  end
 end
