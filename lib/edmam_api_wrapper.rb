@@ -1,40 +1,27 @@
 require 'httparty'
 
 class EdmamApiWrapper
-  BASE_URL = "https://api.edamam.com"
+  BASE_URL = "https://api.edamam.com/search"
+  APP_ID = ENV["EDMAM_ID"]
   TOKEN = ENV["EDMAM_TOKEN"]
 
-  def self.listRecipes(query = nil) # default query is nil
+  def self.listRecipes(query) # default query is nil
 
-    fake_recipe = {
-      "name" => "banana bread",
-      "uri" => "http://www.edamam.com/ontologies/edamam.owl#recipe_f1c853a77986214680bbdd424883499a",
-      "label" => "best banana bread",
-      "image" => "fetch.jpg",
-      "source" => "bar",
-      "url" => "foo"
-    }
+    if query == nil
+      raise ArgumentError
+    end
 
-    recipe = Recipe.new(fake_recipe)
+    url = "#{BASE_URL}?q=#{query}&app_id=#{APP_ID}&app_key=#{TOKEN}"
 
-    return [recipe]
+    response = HTTParty.get(url)
+    recipes = []
 
-    # token ||= token
-    #
-    # url = BASE_URL + "recipes.list?" + "token=#{token}"
-    #
-    # response = HTTParty.get(url)
-    #
-    # recipes = []
-    #
-    # if response ["recipes"]
-    #   response["recipes"].each do | recipe |
-    #     id = recipe["id"]
-    #     name = recipe["name"]
-    #     recipes << Recipe.new(name, id)
-    #   end
-    # end
-    # return recipes
+    if response["hits"]
+      response["hits"].each do | hit |
+        recipes << Recipe.new(hit["recipe"])
+      end
+    end
+    return recipes
   end
 
   def self.getRecipe(id=nil)

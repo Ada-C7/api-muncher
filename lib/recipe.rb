@@ -1,9 +1,8 @@
 class Recipe
-  attr_reader :name, :id, :uri, :label, :image, :source, :url
+  attr_reader :id, :uri, :label, :image, :source, :url
 
   def initialize(data)
 
-    @name = data.fetch("name")
     @id = data.fetch("uri").split("_").last
     @uri = data.fetch("uri")
     @label = data.fetch("label")

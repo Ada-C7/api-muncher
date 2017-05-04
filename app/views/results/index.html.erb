@@ -9,7 +9,7 @@
   <ul>
     <% @recipes.each do | recipe | %>
       <li>
-      <%=link_to recipe.name, ingredients_path + "?#{recipe.uri}" %>
+      <%=link_to recipe.label, ingredients_path + "?#{recipe.uri}" %>
       <%=recipe.image %>
 
       </li>
