@@ -7,19 +7,19 @@
   <%= submit_tag("Search") %>
 <% end %>
 
+<div class="row">
 
 <%if params[:search_words] %>
   <% if @recipes.length > 0 %>
-    <ul>
     <% @recipes.each do |recipe| %>
-    <li>
+      <div class="small-12 columns medium-6 columns end large-4 columns end">
       <%= image_tag recipe.image %>
-      <%= link_to recipe.label, homepages_show_path(recipe.uri) %>
-      <%#= recipe.uri %>
-      uri <%=  recipe.uri %>
-    </li>
+      <p>
+        <%= link_to recipe.label, homepages_show_path(recipe.uri) %>
+      </p>
+    </div>
     <% end %>
-    </ul>
+  </div>
     <%= will_paginate @recipes, class: "row" %>
   <% else %>
   <%= "Looks like we didn't find any recipes with #{params[:search_words]}" %>

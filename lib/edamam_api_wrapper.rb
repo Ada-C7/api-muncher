@@ -8,7 +8,7 @@ class EdamamApiWrapper
   APP_KEY = ENV["APP_KEY"]
 
   def self.listRecipes(search_words)
-   url = BASE_URL + "?q=#{ search_words }" + "&app_id=#{ APP_ID }" + "&app_key=#{ APP_KEY }"
+   url = BASE_URL + "?q=#{ search_words }" + "&app_id=#{ APP_ID }" + "&app_key=#{ APP_KEY }" + "&to=100"
    response = HTTParty.get(url)
    @recipes = []
   if response["hits"]
