@@ -1,7 +1,7 @@
 class ResultsController < ApplicationController
 
   def index
-    @ingredient = EdmamApiWrapper.listRecipes(params["q"])
+    @recipes = EdmamApiWrapper.listRecipes(params["q"])
   end
 
 end
