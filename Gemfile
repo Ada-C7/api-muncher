@@ -58,6 +58,9 @@ group :development do
   gem 'pry-rails'
 end
 
+gem 'foundation-rails'
+gem 'httparty'
+
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
