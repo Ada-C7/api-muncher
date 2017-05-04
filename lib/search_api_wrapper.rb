@@ -21,7 +21,8 @@ class SearchApiWrapper
       image = recipe_details["image"]
       ingredients = recipe_details["ingredientLines"]
       dietery_info = recipe_details["healthLabels"]
-      recipes << Recipe.new(label, url, image, ingredients, dietery_info, uri)
+      nutrients = recipe_details["totalNutrients"]
+      recipes << Recipe.new(label, url, image, ingredients, dietery_info, uri, nutrients)
     end
     return recipes
   end
@@ -31,17 +32,17 @@ class SearchApiWrapper
 
     response = HTTParty.get(uri)
 
-    data = response
 
-    # recipe_details = hit["recipe"]
 
-    label = data[0]["label"]
-    url = data[0]["url"]
-    uri = data[0]["uri"]
-    image = data[0]["image"]
-    ingredients = data[0]["ingredientLines"]
-    dietery_info = data[0]["healthLabels"]
-    recipe = Recipe.new(label, url, image, ingredients, dietery_info, uri)
+    label = response[0]["label"]
+    url = response[0]["url"]
+    uri = response[0]["uri"]
+    image = response[0]["image"]
+    ingredients = response[0]["ingredientLines"]
+    dietery_info =
+     response[0]["healthLabels"]
+     nutrients = response[0]["totalNutrients"]
+    recipe = Recipe.new(label, url, image, ingredients, dietery_info, uri, nutrients)
 
     return recipe
 
