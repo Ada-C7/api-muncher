@@ -18,7 +18,13 @@ class EdamamApiWrapper
       result["hits"].each do |result|
         name = result["recipe"]["label"]
         uri = result["recipe"]["uri"]
-        recipes << Recipe.new(name, uri)
+        options = {
+          image: result["recipe"]["image"],
+          ingredients: result["recipe"]["ingredientLines"],
+          url: result["recipe"]["url"]
+          #need to add nutritional_info
+        }
+        recipes << Recipe.new(name, uri, options)
       end
     end
     return recipes
@@ -40,13 +46,7 @@ class EdamamApiWrapper
     else
       info = result[0]
 
-      recipe = Recipe.new(info["label"], info["uri"],
-      options: {
-        image: info["image"],
-        url: info["url"],
-        ingredients: info["ingredientLines"],
-        nutritional_info: info["totalNutrients"]
-        })
+      recipe = Recipe.new(info["label"], info["uri"], info["image"], info["url"], info["ingredientLines"], info["totalNutrients"])
       return recipe
     end
   end
