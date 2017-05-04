@@ -3,6 +3,14 @@ require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
 require "minitest/rails"
 require "minitest/reporters"  # for Colorized output
+require 'vcr'
+require 'webmock/minitest'
+require 'simplecov'
+
+SimpleCov.start do
+  add_filter "/test/"
+end
+
 
 #  For colorful output!
 Minitest::Reporters.use!(
@@ -22,5 +30,21 @@ Minitest::Reporters.use!(
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
+
+  VCR.configure do |config|
+  #where to store the recorded tests (some people put them in fixtures)
+  config.cassette_library_dir = 'test/cassettes'
+
+  #tell VCR to use webmock to simultate
+  config.hook_into :webmock
+  #if no cassette, record a new episode
+    #decides which cassette to use based on HTTP verb, uri and body of message
+  config.default_cassette_options = {record: :new_episodes, match_requests_on: [:method, :uri, :body] }
+
+  #how to hide all tokens??
+  config.filter_sensitive_data( "<SLACK_TOKEN>" ) do
+    ENV[ "SLACK_TOKEN" ]
+  end
+end
   # Add more helper methods to be used by all tests here...
 end
