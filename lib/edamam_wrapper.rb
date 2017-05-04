@@ -45,6 +45,7 @@ class EdamamWrapper
       options[:yield] = response[0]["yield"]
       options[:ingredientLines] = response[0]["ingredientLines"]
       options[:dietLabels] = response[0]["dietLabels"]
+      options[:healthLabels] = response[0]["healthLabels"]
       return Recipe.new(name, uri, image, options)
     end
 
