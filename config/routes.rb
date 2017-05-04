@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 root "recipes#index"
 
-resources :recipes
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+resources :recipes, only: [:index]
+get "recipes/:label", to: "recipes#show", as: "recipe"
+
+
 end
