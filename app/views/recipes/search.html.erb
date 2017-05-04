@@ -1,4 +1,23 @@
 <h1>Working?</h1>
 
 
-<%= @recipes %>
+<table>
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Recipe</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipes_list.each do |recipe| %>
+    <tr>
+      <td>
+        <%= image_tag recipe.image  %>
+      </td>
+
+      <td>
+        <%= recipe.label %>
+      </td>
+      <% end %>
+    </tr>
+  </tbody>
