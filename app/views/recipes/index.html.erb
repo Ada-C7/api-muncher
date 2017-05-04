@@ -1,9 +1,14 @@
 <h1>Recipes</h1>
+<!-- need a form for search here -->
+<%= form_tag(root_path, method: :get) do %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+  <% end %> 
 
 <ul>
 <% @recipes.each do |recipe| %>
 <li><%= recipe.name %></li>
   <li><%= recipe.uri %></li>
   <li><%= recipe.image %></li>
-  <% end %> 
+  <% end %>
 </ul>
