@@ -1,6 +1,4 @@
-<h1>Hungry Weirdo</h1>
-
-<h3>Dish, bish...</h3>
+<h1>DISH BISH</h1>
 
 
 <%= form_tag homepages_index_path, method: "get" do %>
@@ -15,6 +13,7 @@
     <% @search_recipes.each do |recipe| %>
     <li>
       <%= link_to recipe.label, recipes_show_path %>
+      <%= link_to image_tag(recipe.image), recipes_show_path %>
     </li>
     <% end %>
   </ul>

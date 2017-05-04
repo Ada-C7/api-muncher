@@ -7,8 +7,4 @@ class HomepagesController < ApplicationController
     @search_recipes = EdamamApiWrapper.search(params[:search_term])
   end
 
-  def show
-    @top_ten_recipes 
-  end
-
 end
