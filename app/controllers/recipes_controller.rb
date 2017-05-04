@@ -7,15 +7,19 @@ class RecipesController < ApplicationController
                       from: params[:from].to_i,
                       to: params[:from].to_i + 10
                     }
-    # raise
     @new_search = EdamamSearch.new(search_params)
-    # raise
     @results = @new_search.search_results
-
   end
 
   # will show results from search
   def show
+    # raise
+    search_params = {
+      recipe_id: params[:id]
+    }
+    recipe_info = EdamamSearch.new(search_params)
+    @recipe = recipe_info.search_results
+    raise
   end
 private
 

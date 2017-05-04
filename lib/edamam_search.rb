@@ -5,35 +5,43 @@ class EdamamSearch
 
   BASE_URL = "https://api.edamam.com/search?"
 
-  attr_reader :search_text, :to, :from
+  attr_reader :search_text, :to, :from, :recipe_id
 
   def initialize(search_params)
     @search_text = search_params[:search_text]
     @to = search_params[:to]
     @from = search_params[:from]
-    # @to = 0
-    # @from =
+    @recipe_id = search_params[:recipe_id]
     # health = search_hash[:health_options]
     # diet = search_hash[:diet_options]
   end
 
   def search_results
 
-    query_params = {
-                    "app_id" => ENV["EDAMAM_ID"],
-                    "app_key" => ENV["EDAMAM_KEY"],
-                    "q" => @search_text,
-                    "to" => "#{@to}",
-                    "from" => "#{@from}"
-                    # "Diet" => "",
-                    # "Health" => ""
-                   }
+    if @recipe_id
+      query_params = {
+                      "app_id" => ENV["EDAMAM_ID"],
+                      "app_key" => ENV["EDAMAM_KEY"],
+                       +
+                      "r" => "http://www.edamam.com/ontologies/edamam.owl%23recipe_" + @recipe_id
+                     }
+    else
+      query_params = {
+                      "app_id" => ENV["EDAMAM_ID"],
+                      "app_key" => ENV["EDAMAM_KEY"],
+                      "q" => @search_text,
+                      "to" => "#{@to}",
+                      "from" => "#{@from}"
+                     }
+    end
 
     # response = HTTParty.get("https://api.edamam.com/search?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&q=#{@search_text}")
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
-    # raise
-    if response["count"] > 0
+    if response.count == 1
+      return response.individual_recipe_info
+      # return response
+    elsif response["count"] > 0
       return labels_and_images(response)
     elsif response["error"]
       raise EdamamException.new(response["error"])
@@ -45,11 +53,15 @@ private
   def labels_and_images(response)
     results = response["hits"].map do |info|
       recipe = Hash.new
-      recipe[:uri] = info["recipe"]["uri"]
+      recipe[:id] = info["recipe"]["uri"].gsub("#", "%23")[53..-1]
       recipe[:label] = info["recipe"]["label"]
       recipe[:image_url] = info["recipe"]["image"]
       recipe
     end
     return results
+  end
+
+  def individual_recipe_info(response)
+    response
   end
 end

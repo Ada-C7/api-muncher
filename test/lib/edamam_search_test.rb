@@ -35,17 +35,7 @@ describe EdamamSearch do
       VCR.use_cassette("search_results") do
         search_input = EdamamSearch.new(@search_params)
         response = search_input.search_results
-        # p response["count"]
         # p response
-
-        # array of recipe results names with image url
-        # x = response["hits"].map do |info|
-        #   recipe = Hash.new
-        #   recipe[:label] = info["recipe"]["label"]
-        #   recipe[:image_url] = info["recipe"]["image"]
-        #   recipe
-        # end
-        # p x
         response.count.must_be :>, 0
       end
     end
@@ -56,6 +46,10 @@ describe EdamamSearch do
         response = search_input.search_results
         response.must_be_nil
       end
+    end
+
+    it 'returns one recipe if there is a r search paramater' do
+
     end
 
     # it 'raises an error if something goes wrong ' do
