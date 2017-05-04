@@ -15,10 +15,10 @@
     <%= link_to "Feed Yoself", root_path %>
 
     <%= form_tag recipes_path, method: 'get', id: 'search-form' do %>
+      <%#= hidden_field_tag :to, value: 10 %>
       <%= text_field_tag :search_term, params[:search_term], placeholder: "Search Recipes: " %>
       <%= submit_tag 'Search', :name => nil %>
     <% end %>
-
   </header>
   <body>
 
