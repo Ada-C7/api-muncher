@@ -11,6 +11,10 @@
     </ul>
   <% end %>
 
-  <!-- <%= link_to  -->
+<%= form_tag search_recipes_path, method: :get do %>
+  <%= hidden_field_tag :page, params[:page] %>
+  <%= hidden_field_tag :search_terms, params[:search_terms] %>
+  <%= submit_tag("Next 10 Results") %>
+<% end %>
 
 </article>

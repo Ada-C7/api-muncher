@@ -6,7 +6,6 @@ class EdamamApiWrapper
   APP_KEY = ENV["APP_KEY"]
 
   def self.search(search_terms, from=0)
-    #adding from and to as default 1-10
 
     search = search_terms.gsub(' ','+')
     url = BASE_URL + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}&" + "q=#{search}&" + "from=#{from}"

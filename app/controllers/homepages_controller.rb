@@ -4,9 +4,12 @@ class HomepagesController < ApplicationController
   def root; end
 
   def index
-    raise
     if params[:search_terms]
-      @recipes = EdamamApiWrapper.search(params[:search_terms])
+      from = (params[:page]).to_i * 10
+      @recipes = EdamamApiWrapper.search(params[:search_terms], from)
+      page = params[:page].to_i
+      page += 1
+      params[:page] = page
     else
       flash[:warning] = "Please enter search terms"
       redirect_to :root
