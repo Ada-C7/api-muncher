@@ -1,4 +1,5 @@
 require 'httparty'
+require 'uri'
 
 class EdamamApiWrapper
   BASE_URL =  "https://api.edamam.com/search?"
@@ -24,11 +25,12 @@ class EdamamApiWrapper
   end
 
   def self.getRecipe(uri)
-    url = BASE_URL + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}&" + "r=" + uri
+    uri = URI.encode(uri)
+    url = BASE_URL + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}&" + "r=#{uri}"
 
     begin
-      result = HTTParty.get(url).parsed_response
-      raise
+      result = HTTParty.get("#{url}")
+      result = result.parsed_response
     rescue JSON::ParserError
       return nil
     end
