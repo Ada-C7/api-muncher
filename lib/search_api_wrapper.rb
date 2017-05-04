@@ -49,8 +49,3 @@ class SearchApiWrapper
   end
 
 end
-
-# 'https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl%23recipe_637913ec61d9da69eb451818c3293df2'
-#
-#
-# => 'https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl#recipe_f1c853a77986214680bbdd424883499a'
