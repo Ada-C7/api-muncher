@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "HunchMunch" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -12,9 +12,11 @@
   </head>
 
   <body>
+    <header>
     <nav>
-      <%= link_to 'Home', root_path %>
+      <h1> Hunch <%= link_to image_tag('monkey.png'), root_path %> Munch </h1>
     </nav>
+    </header>
 
     <section class='flash'>
       <% flash.each do |name, message| %>

@@ -1,17 +1,24 @@
-<h1><%= @recipe[0]['recipe']['label'] %></h1>
+<h2 class="recipetitle"><%= @recipe[0]['recipe']['label'] %></h2>
 
-Original Recipe: <%= link_to "#{@recipe[0]['recipe']['source']}", @recipe[0]['recipe']['url'] %>
-<%= image_tag @recipe[0]['recipe']['image'] %>
-
-Calories: <%= @recipe[0]['recipe']['calories'].floor %>
-
-<ul>
+<div class='showtop'>
+<section class='ingredientlist row'>
+<h3 class='small-12 columns ingredientlist'>Ingredients:</h3>
+<ul class="row small-up-2 medium-up-3 large-up-1">
 <% @recipe[0]['recipe']['ingredientLines'].each do |line| %>
-<li> <%= line %> </li>
+<li class="column"> <%= line %> </li>
 <%end%>
 </ul>
+</section>
 
-Nutrition Facts:
+<div class='row'>
+<h4 class='large-4 column ogsite'>Original Recipe:  <%= link_to "#{@recipe[0]['recipe']['source']}", @recipe[0]['recipe']['url'] %></h4>
+<%= image_tag @recipe[0]['recipe']['image'], onerror: 'this.error=null;this.src="https://uos.edu.pk/assets/backend/images/staff/imagenotfound.svg"', :alt => "Picture related to recipe", :class => 'showimage large-up-2 column' %>
+</div>
+</div>
+
+
+<section class="nutritionfacts row">
+<h3 class='small-12 columns'>Nutrition Facts:</h3>
 <table>
   <tr>
     <th> Nutrient </th>
@@ -25,3 +32,5 @@ Nutrition Facts:
    </tr>
      <%end%>
 </table>
+
+</section>
