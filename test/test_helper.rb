@@ -20,6 +20,17 @@ Minitest::Reporters.use!(
 # require "minitest/pride"
 
 class ActiveSupport::TestCase
+  VCR.configure do |config|
+    config.cassette_library_dir = "test/cassettes"
+    config.hook_into :webmock
+    config.default_cassette_options = {
+      record: :new_episodes,
+      match_requests_on: [:method, :uri, :body]
+    }
+    config.filter_sensitive_data("<EDAMAM_TOKEN>") do
+      ENV["EDAMAM_TOKEN"]
+    end
+  end
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
   # Add more helper methods to be used by all tests here...

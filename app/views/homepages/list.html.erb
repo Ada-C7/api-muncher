@@ -1,0 +1,12 @@
+<h1>List of recipes</h1>
+
+<section class="recipe-list">
+  <h1>Recipes for </h1>
+  <ul>
+    <% @recipes.each do |recipe| %>
+      <li>
+        <%= link_to recipe.name, show_recipe_path(recipe.id) %>
+      </li>
+    <% end %>
+  </ul>
+</section>

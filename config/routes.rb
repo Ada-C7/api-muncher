@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'homepages#index'
+
+  get '/recipes', to: 'homepages#list', as: 'list_recipes'
+  get '/recipes/:recipe_id', to: 'homepages#show', as: 'show_recipe'
 end
