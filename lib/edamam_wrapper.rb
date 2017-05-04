@@ -16,10 +16,9 @@ class EdamamWrapper
         #hits is an array of hashes
         #each hash has "recipe" as key
         name = hash["recipe"]["label"]
-        # id = hash["recipe"]["uri"].gsub(/[/#]/, "%23")
-        id = hash["recipe"]["uri"].tr('#', '%23')
+        uri = hash["recipe"]["uri"]
         image = hash["recipe"]["image"]
-        recipes << Recipe.new(name, id, image)
+        recipes << Recipe.new(name, uri, image)
       end
     end
     return recipes
@@ -36,7 +35,7 @@ class EdamamWrapper
 
 
       name = response[0]["label"]
-      id = response[0]["uri"]
+      uri = response[0]["uri"]
       image = response[0]["image"]
       options = {}
       options[:source] = response[0]["source"]
@@ -44,7 +43,7 @@ class EdamamWrapper
       options[:yield] = response[0]["yield"]
       options[:ingredientLines] = response[0]["ingredientLines"]
       options[:dietLabels] = response[0]["dietLabels"]
-      return Recipe.new(name, id, image, options)
+      return Recipe.new(name, uri, image, options)
 
 
   end
