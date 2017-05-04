@@ -6,9 +6,18 @@ class EdamamApiWrapper
   APP_ID = ENV["EDAMAM_APP_ID"]
   APP_KEY = ENV["EDAMAM_APP_KEY"]
 
-  def self.getChannel(search_term)
+  def self.search(search_term)
     url = BASE_URL + "q=#{search_term}" + "&app_id=#{APP_ID}&app_key=#{APP_KEY}"
+
     response = HTTParty.get(url)
-    raise 
-  end
-end
+    recipes = []
+    if response["hits"]
+      response["hits"].each do |hit|
+        name = ["recipe"]["label"]
+        uri = ["recipe"]["uri"]
+        image = ["recipe"]["image"]
+
+        raise
+
+      end 
+    end
