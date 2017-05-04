@@ -1,15 +1,11 @@
-require'recipe' #FIXME: just changed
+require'recipe'
 
 class RecipesController < ApplicationController
 
   def root; end
 
-  def index; end
-
-  def search_recipes
+  def search
     @recipes = Recipe.search(params[:search])
-
-    redirect_to recipes_path
   end
 
 end
