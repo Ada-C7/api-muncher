@@ -3,13 +3,18 @@
 
   <h2>The recipe you selected!</h2>
 
-  <div class="transbox">
+  <div class="row">
+    <div class="large-12 large-centered columns">
+      <div class="transbox">
+        <div id="ingredients">
 
     <p><%=@ingredient.label %></p>
     <p><%=@ingredient.image %></p>
     <p><%=link_to @ingredient.source, "#{@ingredient.url}" %></p>
     <p><%=@ingredient.ingredientLines %></p>
     <p><%=@ingredient.totalNutrients %></p>
-
+      </div>
+    </div>
+  </div>
 </div>
 </section>
