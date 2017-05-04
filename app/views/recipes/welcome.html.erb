@@ -26,7 +26,7 @@
   </nav>
 </div>
  -->
-
+<!--
 <div id = 'search_form'>
   <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Recipes", id: "search-field"%>
@@ -37,6 +37,29 @@
         <%= label_tag label %>
         <%=check_box_tag 'health[]',label%>
       <%end%>
+      </div>
+    <%= submit_tag "Search", :name => nil , class: "button hollow topbar-responsive-button ", id: "search-button"%>
+  <% end %>
+</div> -->
+
+
+
+
+<div id = 'search_form'>
+  <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Recipes", id: "search-field"%>
+    <%= hidden_field_tag :from, params[:from], value: 0%>
+    <div>
+      <%= label_tag "vegan" %>
+      <%=check_box_tag :vegan,"vegan"%>
+      <%= label_tag "kosher" %>
+      <%=check_box_tag :kosher,"kosher"%>
+      <%= label_tag "vegetarian" %>
+      <%=check_box_tag :vegetarian,"vegetarian"%>
+      <%= label_tag "paleo" %>
+      <%=check_box_tag :paleo,"paleo"%>
+
+
       </div>
     <%= submit_tag "Search", :name => nil , class: "button hollow topbar-responsive-button ", id: "search-button"%>
   <% end %>
