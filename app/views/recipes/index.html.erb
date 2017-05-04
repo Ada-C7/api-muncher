@@ -2,11 +2,12 @@
   <h1>Recipes</h1>
   <h2>Search Results</h2>
     <ul>
-      <% @results.each do |recipe| %>
+      <% @results_page.each do |recipe| %>
         <li>
           <%= link_to recipe.name, recipe_path(:name => recipe.name, :uri => recipe.uri) %>
           <%= image_tag recipe.image %>
         </li>
       <% end %>
     </ul>
+  <%= will_paginate @results_page %>
 </section>
