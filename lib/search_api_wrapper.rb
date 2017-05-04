@@ -20,9 +20,9 @@ class SearchApiWrapper
       uri = recipe_details["uri"]
       image = recipe_details["image"]
       ingredients = recipe_details["ingredientLines"]
-      dietery_info = recipe_details["healthLabels"]
+      allergy_info = recipe_details["healthLabels"]
       nutrients = recipe_details["totalNutrients"]
-      recipes << Recipe.new(label, url, image, ingredients, dietery_info, uri, nutrients)
+      recipes << Recipe.new(label, url, image, ingredients, allergy_info, uri, nutrients)
     end
     return recipes
   end
@@ -39,10 +39,10 @@ class SearchApiWrapper
     uri = response[0]["uri"]
     image = response[0]["image"]
     ingredients = response[0]["ingredientLines"]
-    dietery_info =
+    allergy_info =
      response[0]["healthLabels"]
      nutrients = response[0]["totalNutrients"]
-    recipe = Recipe.new(label, url, image, ingredients, dietery_info, uri, nutrients)
+    recipe = Recipe.new(label, url, image, ingredients, allergy_info, uri, nutrients)
 
     return recipe
 
