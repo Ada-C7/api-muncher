@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'homepages#root'
 
   get '/recipes', to: 'homepages#index', as: 'search_recipes'
+  get '/recipe', to: 'homepages#show', as: 'recipe'
 end

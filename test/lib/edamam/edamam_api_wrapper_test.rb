@@ -20,7 +20,7 @@ describe EdamamApiWrapper do
       end
     end
 
-    it "if the request has no mroe results to display, should return empty array" do
+    it "if the request has no more results to display, should return empty array" do
       VCR.use_cassette("edamam") do
         results = EdamamApiWrapper.search("chicken", 1000)
         results.must_equal []

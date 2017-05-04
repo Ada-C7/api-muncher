@@ -24,10 +24,11 @@ class EdamamApiWrapper
   end
 
   def self.getRecipe(uri)
-    url = BASE_URL + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}&" + "r=#{uri}"
+    url = BASE_URL + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}&" + "r=" + uri
 
     begin
       result = HTTParty.get(url).parsed_response
+      raise
     rescue JSON::ParserError
       return nil
     end

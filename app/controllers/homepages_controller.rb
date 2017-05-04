@@ -14,4 +14,10 @@ class HomepagesController < ApplicationController
     end
   end
 
+  def show
+    uri = params[:uri]
+    @recipe = EdamamApiWrapper.getRecipe(uri)
+    raise
+  end
+
 end
