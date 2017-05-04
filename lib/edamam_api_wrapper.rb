@@ -16,9 +16,8 @@ class EdamamApiWrapper
       response["hits"].each do |hit|
         label = hit["recipe"]["label"]
         image = hit["recipe"]["image"]
-        uri = hit["recipe"]["uri"]
+        uri = hit["recipe"]["uri"].partition("recipe_").last
         url = hit["recipe"]["url"]
-
         recipes << Recipe.new(label, image, uri, url)
       end
     end
@@ -26,8 +25,18 @@ class EdamamApiWrapper
     return recipes
   end
 
-# def self.findRecipe(uri)
-#   url = BASE_URL + "r=%23#{uri}&" + APP_ID + "&" + APP_KEY
-# end
+  def self.findRecipe(id)
+    url = BASE_URL + "r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{id}&" + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}"
 
+    response = HTTParty.get(url)
+    if response["hits"]
+      label = ["hits"][0]["recipe"]["label"]
+      image = ["hits"][0]["recipe"]["image"]
+      uri = ["hits"][0]["recipe"]["uri"]
+      url = ["hits"][0]["recipe"]["url"]
+
+      Recipe.new(label, image, uri, url)
+    end
+  return recipe
+  end
 end

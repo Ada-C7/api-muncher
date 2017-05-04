@@ -10,6 +10,6 @@ class HomepagesController < ApplicationController
   end
 
   def show
-    @recipe = EdamamApiWrapper.findRecipe(params[:uri])
+    @recipe = EdamamApiWrapper.findRecipe(params[:recipe_id])
   end
 end
