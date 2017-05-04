@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root 'recipes#search'
-  
-  get 'recipes/index'
 
-  get 'recipes/show'
+  get '/search', to: 'recipes#search'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/index', to: 'recipes#index', as: 'list_recipes'
+
+  get '/show/*uri', to: 'recipes#show', format: false, as: 'show'
+
 end
