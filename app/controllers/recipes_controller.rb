@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
     def view_recipes
       all =  RecipeApiWrapper.all(params[:search], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
       @search_query = params[:search]
-      @optional_params = "" # need it in view
+      @optional_params = ""
       @optional_params += "&vegan=vegan" if params[:vegan] != nil
       @optional_params += "&kosher=kosher" if params[:kosher] != nil
       @optional_params += "&vegetarian=vegetarian" if params[:vegetarian] != nil
@@ -16,6 +16,9 @@ class RecipesController < ApplicationController
         redirect_to root_path
       else
         @recipes_number = all.length
+        @per_page = 12
+        @number_of_pages = @recipes_number/@per_page
+        @number_of_pages += 1 if @recipes_number % @per_page > 0
       end
 
       if @login_user
@@ -68,6 +71,5 @@ class RecipesController < ApplicationController
     def search_params
       params.require(:search).permit(:search, :from, :vegan, :kosher, :vegetarian, :paleo)
     end
-
 
   end
