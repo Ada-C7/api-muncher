@@ -3,7 +3,6 @@
 
 <ul class ="index">
   <% @recipes.each_with_index do |recipe, index| %>
-
   <li>
     <% if index%2 == 0 %>
       <ul class="float-index-left">
@@ -18,6 +17,20 @@
     <%end%>
     <section class="clearfix"> </section>
   </li>
-
   <% end %>
 </ul>
+
+
+<section>
+  <% if params[:from] != 0 %>
+        <% current_start = params[:from].to_i  %>
+        <% previous_start = current_start - 10  %>
+        <% previous_end = current_start %>
+
+<%= button_to "Previous", {:controller => "recipes", :action => "index", :search => "chicken",:from => 5, :to =>9}, method: :get%>
+
+
+
+<% end %>
+  <h4>next</h4>
+</section>

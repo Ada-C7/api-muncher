@@ -22,11 +22,13 @@ class Recipe
     end
   end
 
-  def self.search(item)
+  def self.search(item, from, to)
     query_params = {
       "app_id" => ENV["EDAMAM_API_APP_ID"],
       "app_key" => ENV["EDAMAM_API_APP_KEY"],
-      "q" => item
+      "q" => item,
+      "from" => from,
+      "to" => to
     }
 
     recipes = HTTParty.get(BASE_URL, query: query_params).parsed_response["hits"]
