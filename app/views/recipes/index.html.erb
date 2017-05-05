@@ -1,7 +1,7 @@
 <section class="row">
 <h1>Search Results</h1>
   <article class="large-12 columns">
-  <% if @results.nil? %>
+  <% if @list_of_recipes.nil? %>
 
     <p> Sorry there are no results </p>
     <%= link_to "Back To Search", recipe_search_path, class: "button" %>

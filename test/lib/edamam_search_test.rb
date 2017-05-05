@@ -14,7 +14,7 @@ describe EdamamSearch do
                     to: 10
                    }
     @recipe = {
-                recipe_id: "6ffeacec6d0c6f8bc9aee1de19065537"
+                recipe_id: "_6ffeacec6d0c6f8bc9aee1de19065537"
               }
   end
 
@@ -46,7 +46,7 @@ describe EdamamSearch do
       VCR.use_cassette("search_results") do
         search_input = EdamamSearch.new(@no_results)
         response = search_input.search_results
-        response.must_be_nil
+        response[0].must_be_nil
       end
     end
 
@@ -55,7 +55,7 @@ describe EdamamSearch do
         search_input = EdamamSearch.new(@recipe)
         response = search_input.search_results
         # p response
-        response[:label].wont_be_nil
+        response.label.wont_be_nil
       end
 
     end

@@ -2,7 +2,7 @@ class Recipe
   attr_reader :id, :label, :image_url, :ingredients, :dietary_information, :original_recipe
 
   def initialize(info)
-    @id = info[:recipe_id]
+    @id = info[:id]
     @label = info[:label]
     @image_url = info[:image_url]
     @ingredients = info[:ingredients]
@@ -11,19 +11,17 @@ class Recipe
   end
 
   def self.list_of_recipes(response)
-    list = []# pass in recipe_data["hits"]
-    response.each do |recipe_hash|
-      
-
-      info = {
-              recipe_id: api_data[:uri][52..-1],
-              label: api_data[:label],
-              image_url: api_data[:image]
-             }
-      list << Recipe.new(info)
+    list = response.map do |info|
+      recipe = Hash.new
+      recipe[:id] = info["recipe"]["uri"][50..-1]
+      recipe[:label] = info["recipe"]["label"]
+      recipe[:image_url] = info["recipe"]["image"]
+      Recipe.new(recipe)
     end
     return list
   end
+
+
 
   def self.individual_recipe(response)
     info = Hash.new

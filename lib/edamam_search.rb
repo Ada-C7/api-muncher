@@ -25,7 +25,7 @@ class EdamamSearch
                     "q" => "#{@search_text}",
                     "to" => "#{@to}",
                     "from" => "#{@from}",
-                    "r" => "http://www.edamam.com/ontologies/edamam.owl%23recipe_#{@recipe_id}"
+                    "r" => "http://www.edamam.com/ontologies/edamam.owl%23recipe#{@recipe_id}"
                    }
 
     query_params = query_params.delete_if { |key, value| value.empty? || ( key == "r" && @recipe_id.nil?) }
@@ -36,7 +36,7 @@ class EdamamSearch
 
     if response.count == 1
       return Recipe.individual_recipe(response[0])
-    elsif response["count"] > 0
+    elsif response["count"]
       return Recipe.list_of_recipes(response["hits"])
     elsif response["error"]
       raise EdamamException.new(response["error"])
