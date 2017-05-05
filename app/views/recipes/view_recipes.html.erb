@@ -3,14 +3,12 @@
     <div>
       <%if params[:from].to_i != 0%>
         <li class="pagination-previous">
-          <%from = params[:from].to_i - @per_page%>
-          <%= link_to "Previous", {controller: 'recipes', action: 'view_recipes', :from => from, :search => params[:search], :vegan => params[:vegan],:kosher => params[:kosher], :vegetarian => params[:vegetarian], :paleo => params[:paleo] }%>
+          <%= link_to "Previous", {controller: 'recipes', action: 'view_recipes', :from => @from_previous, :search => params[:search], :vegan => params[:vegan],:kosher => params[:kosher], :vegetarian => params[:vegetarian], :paleo => params[:paleo] }%>
         </li>
       <%end%>
       <%if params[:from].to_i != @recipes_number - @per_page%>
         <li class="pagination-next">
-          <%from = params[:from].to_i + @per_page%>
-          <%= link_to "Next", {controller: 'recipes', action: 'view_recipes', :from => from, :search => params[:search], :vegan => params[:vegan],:kosher => params[:kosher], :vegetarian => params[:vegetarian], :paleo => params[:paleo] }%>
+          <%= link_to "Next", {controller: 'recipes', action: 'view_recipes', :from => @from_next, :search => params[:search], :vegan => params[:vegan],:kosher => params[:kosher], :vegetarian => params[:vegetarian], :paleo => params[:paleo] }%>
         </li>
       <%end%>
     </div>

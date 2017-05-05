@@ -12,7 +12,7 @@
     </table>
     </section>
     <section class = "small-12 medium-12 large-6 columns">
-      <h3>10 most-recent searches:</h3>
+      <h3>Your recent searches:</h3>
       <table>
         <tr>
           <th> Search keyword </th>
@@ -20,7 +20,7 @@
           <th> Date </th>
           <th> Search again? </th>
         </tr>
-        <%@user.searches[0..9].reverse_each do |search|%>
+        <%@user.searches.reverse_each do |search|%>
         <tr>
           <td><%=search.keyword%> </td>
           <td>
@@ -59,6 +59,7 @@
           </td>
         </tr>
         <%end%>
+
       </table>
 
     </section>

@@ -12,6 +12,9 @@ class RecipesController < ApplicationController
         @per_page = 12
         @number_of_pages = @recipes_number/@per_page
         @number_of_pages += 1 if @recipes_number % @per_page > 0
+
+        @from_previous = params[:from].to_i - @per_page
+        @from_next = params[:from].to_i + @per_page
       end
 
       if @login_user

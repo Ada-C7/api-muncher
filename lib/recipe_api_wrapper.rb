@@ -38,12 +38,12 @@ class RecipeApiWrapper
       recipes.each do |hit|
         recipe = hit["recipe"]
         recipe_object = RecipeApiWrapper.new(recipe)
-        recipe_object.bookmarked = hit["bookmarked"]
+
         list_of_recipes_object << recipe_object
       end
       return list_of_recipes_object
-    else
-      raise RecipeException.new(response)
+    # else
+    #   raise RecipeException.new(response)
     end
   end
 
