@@ -24,17 +24,7 @@
 
   </section>
 
-  <section class="columns small-12 medium-6 large-4 ingredients-list">
 
-    <h3>Ingredients</h3>
-    <ul>
-      <% @recipe.ingredients.each do |ingredient| %>
-      <li>
-        <%= ingredient %>
-      </li>
-      <% end %>
-    </ul>
-  </section>
   <section class="columns small-12 medium-6 large-4 nutrition-info">
 
     <h3>Nutrition Information</h3>
@@ -60,4 +50,15 @@
       <% end %>
       <% end %>
     </table>
+  </section>
+  <section class="columns small-12 medium-6 large-4 ingredients-list">
+
+    <h3>Ingredients</h3>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+      <li>
+        <%= ingredient %>
+      </li>
+      <% end %>
+    </ul>
   </section>

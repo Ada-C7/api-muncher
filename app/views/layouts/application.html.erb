@@ -12,40 +12,47 @@
 </head>
 
 <body class="row">
-  <header>
-    <h1><%= link_to "Aurora's Recipe Recs", root_path, method: :get %></h1>
-    <ul>
+  <header class="row">
+    <h1 class="columns small-12 medium-6 large-6"><%= link_to "Aurora's Recipe Recs", root_path, method: :get %></h1>
+    <section class="credits">
+      <p class="columns small-12 medium-3 large-3 personal-credit">
+        a project by <%= link_to "Aurora Anderson", "http://github.com/auroralemieux" %>
+      </p>
+      <p class="columns small-12 medium-3 large-3 api-credit">
+        recipe search powered by <%= link_to "Edamam", 'https://www.edamam.com' %>
+      </p>
+    </section>
+    <section class="row">
+
+    <ul class="columns small-12 ">
       <% if current_user %>
       <li>
         logged in as <%= current_user.provider %>
       </li>
       <li>
-        <%= link_to "Logout", logout_path, method: :delete %>
+        <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
       </li>
       <li>
-        <%= link_to "My Account", account_path, method: :get %>
+        <%= link_to "My Account", account_path, method: :get, class: "button" %>
       </li>
       <% else %>
       <li>
-        <%= link_to "Login", login_form_path, method: :get %>
+        <%= link_to "Login", login_form_path, method: :get, class: "button" %>
       </li>
       <% end %>
       <li>
-        <%= link_to "New search", root_path %>
+        <%= link_to "New search", root_path, method: :get, class: "button" %>
       </li>
     </ul>
+  </section>
+
   </header>
   <section class="errors">
 
   </section>
   <%= yield %>
   <footer class="row">
-    <p class="columns small-12 medium-6">
-      a project by <%= link_to "Aurora Anderson", "http://github.com/auroralemieux" %>
-    </p>
-    <p class="columns small-12 medium-6">
-      many thanks to <%= link_to "Edamam", 'https://www.edamam.com' %> for recipes
-    </p>
+
   </footer>
 
 </body>
