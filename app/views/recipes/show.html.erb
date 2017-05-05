@@ -14,6 +14,11 @@
   <%= ingredient %>
   <% end %>
   <%= @recipe.calories %>
+  <%# raise %>
+  <% @recipe.nutrients.each do |nutrient| %>
+  <%= nutrient[1]["label"]%>
+  <%= nutrient[1]["quantity"] %>
+  <% end %>
 
 
 <!-- # uri, name, image, img_source, url, r_yield, diet_labels, health_labels, ingredients, calories -->

@@ -37,7 +37,7 @@ class EdamamApiWrapper
     url = BASE_URL + "search?" + "app_id=#{APP_ID}&app_key=#{APP_KEY}" + "&r=#{recipe_uri}"
 
     response = HTTParty.get(url)
-    # raise
+      # raise
     if response[0]
       uri = response[0]["uri"]
       name = response[0]["label"]
@@ -49,8 +49,9 @@ class EdamamApiWrapper
       health_labels = response[0]["healthLabels"]
       ingredients = response[0]["ingredientLines"]
       calories = response[0]["calories"]
+      nutrients = response[0]["totalNutrients"]
 
-      Recipe.new(uri, name, image, url, r_yield, diet_labels, health_labels, ingredients, calories)
+      Recipe.new(uri, name, image, url, r_yield, diet_labels, health_labels, ingredients, calories, nutrients)
     end
 
   end
