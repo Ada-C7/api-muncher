@@ -1,3 +1,4 @@
+<div class="small-12 columns medium-6 columns end large-8 columns end">
 <h3><%= @recipe.label %></h3>
 <%= image_tag @recipe.image %>
 
@@ -10,8 +11,11 @@
   </li>
   <% end %>
 </ul>
+</div>
+
 
 <h4>Nutritional Info</h4>
+
 <table class="nutrients">
   <thead>
    <tr>
@@ -43,4 +47,4 @@
 </table>
 
 </p>
-<%= link_to @recipe.url, @recipe.url %>
+<%= link_to @recipe.url, @recipe.url, target: "_blank" %>

@@ -16,6 +16,14 @@ describe EdamamApiWrapper do
    end
   end
 
+  it "should get index with a valid search term" do
+    VCR.use_cassette("edamam") do
+    recipes = EdamamApiWrapper.listRecipes("oihsdfo")
+    recipes.must_be_instance_of Array
+    recipes.length.must_equal 0
+   end
+  end
+
   it "should get show with a valid recipe url" do
     VCR.use_cassette("edamam") do
     recipe = EdamamApiWrapper.getRecipe("29f79e3691f3732cfb97c459fa925f65")
@@ -23,11 +31,11 @@ describe EdamamApiWrapper do
    end
   end
 
-  # it "should ?? with a invalid recipe url" do
-  #   VCR.use_cassette("edamam") do
-  #   EdamamApiWrapper.getRecipe("zzzzzzzzzzzz")
-  #
-  #  end
-  # end
+  it "should return nil with a invalid recipe url" do
+    VCR.use_cassette("edamam") do
+    recipe = EdamamApiWrapper.getRecipe("zzzzzzzzzzzz")
+    recipe.must_be_nil
+   end
+  end
 
 end

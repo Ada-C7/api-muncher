@@ -7,9 +7,16 @@ class HomepagesController < ApplicationController
     orig_recipes = EdamamApiWrapper.listRecipes(params[:search_words])
     if params[:search_words]
       @recipes = orig_recipes.paginate :per_page => 10, :page => params[:page]
+      if @recipes.length < 1
+        flash[:status] = :failure
+        flash[:result_text] = "We couldn't find that, we are BEARY sorry!"
+        redirect_to root_path
+      end
     end
     return @recipes
   end
+
+
 
   # def find_recipe(search_words)
   #   @recipes = EdamamApiWrapper.listRecipes
