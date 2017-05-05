@@ -2,7 +2,40 @@
 
 <h3><%= @recipe.name %></h3>
 <%= link_to "Full recipe can be found here", @recipe.url %>
-<p>Ingredients: <%= @recipe.ingredients %></p>
+<p>Ingredients:
+  <% @recipe.ingredients.each do |ingredient| %>
+  <li><%= ingredient %></li>
+  <% end %>
+</p>
 <p>Dietary Information: </p>
+<section class="nutrition-table">
+  <table>
+    <thead>
+      <tr>
+        <th>label</th>
+        <th>total</th>
+        <th>daily %</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe.calories.each do |nutrition| %>
+      <tr>
+        <td><%= nutrition["label"] %></td>
+        <td><%= nutrition["total"].round(2) %> <%= nutrition["unit"] %></td>
+        <td><%= nutrition["daily"].round(2) %></td>
+      </tr>
+        <% if nutrition["sub"] %>
+          <% nutrition["sub"].each do |sub| %>
+          <tr>
+            <td><%= sub["label"] %></td>
+            <td><%= sub["total"].round(2)%> <%= sub["unit"] %></td>
+            <td><%= sub["daily"].round(2) %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</section>
 
 <%= link_to "Home", root_path, class: "button" %>
