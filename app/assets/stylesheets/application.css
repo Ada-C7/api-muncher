@@ -26,6 +26,14 @@ li {
 /*=====================
 index header
 =======================*/
+header {
+  background-color: #aab468;
+  border-width: 2px 0;
+  border-style: solid;
+  border-color: #2c8993;
+}
+
+
 #searchbox {
   width: 70%;
 }
@@ -35,4 +43,9 @@ footer
 =======================*/
 #logo {
   height: 50px;
+}
+
+footer {
+  padding-top: 5px;
+  border-top: 3px solid #aab468;
 }
