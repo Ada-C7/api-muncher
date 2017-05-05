@@ -45,10 +45,22 @@ describe EdamamApiWrapper do
         recipe.image.must_equal "https://www.edamam.com/web-img/41a/41a0a57253138f0bd3fec5e091a3459d.jpg"
     end
 
+    it "cannot get a recipe without a valid uri" do
+      id = "http://www.wrong.com"
+      recipe = EdamamApiWrapper.getRecipe(id)
+      recipe.must_be_nil
+    end
+
     it "cannot get a recipe without a valid recipe_id" do
       id = ":("
       recipe = EdamamApiWrapper.getRecipe(id)
-      recipe.must_equal false
+      recipe.must_be_nil
+    end
+
+    it "cannot get a recipe without a valid recipe_id and rescues input without colon from API parser error" do
+      id = "whoooooa this is wrong"
+      recipe = EdamamApiWrapper.getRecipe(id)
+      recipe.must_be_nil
     end
   end
 end

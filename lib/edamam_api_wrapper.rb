@@ -19,7 +19,7 @@ class EdamamApiWrapper
     if response
       response.each_with_index do |recipe, i|
         recipe_hash = {
-          "id" => response[i]["recipe"]["uri"].gsub('#', '%23'),
+          "id" => response[i]["recipe"]["uri"],
           "label" => response[i]["recipe"]["label"],
           "image" => response[i]["recipe"]["image"]
         }
@@ -30,17 +30,14 @@ class EdamamApiWrapper
     return recipes
   end
 
-  def self.getRecipe(id, app_id = nil, app_key = nil)
-    app_id ||= APP_ID
-    app_key ||= APP_KEY
-
-    url = BASE_URL + "search?r=#{ id }&" + "app_id=#{ app_id }&" + "app_key=#{ app_key }"
+  def self.getRecipe(id)
+    url = BASE_URL + "search?r=#{ id }"
 
     response = HTTParty.get(url).parsed_response[0]
 
     if response
       recipe_hash = {
-        "id" => response["uri"].gsub('#', '%23'),
+        "id" => response["uri"],
         "label" => response["label"],
         "image" => response["image"],
         "url" => response["url"],
@@ -50,8 +47,9 @@ class EdamamApiWrapper
       }
 
       return Recipe.new(recipe_hash)
-    else
-      return false
     end
+
+  rescue JSON::ParserError
+    return nil
   end
 end
