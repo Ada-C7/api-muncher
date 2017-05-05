@@ -15,6 +15,15 @@ class EdamamRecipe
     @label = info_hash[:label]
     @image = info_hash[:image]
   end
+  
+  def self.find(obj)
+    found_obj = self.all.select { |object| object == obj}
+    return found_obj.first # returns nil if for empty array
+  end
+
+  def self.all
+    ObjectSpace.each_object(self).to_a
+  end
 
   def self.search(search_text, from = "0", to = "10")
     url = "#{BASE_URL_SEARCH}?q=#{search_text}&from=#{from}&to=#{to}&api_id=#{ENV["EDAMAM_APP_ID"]}&api_key=#{ENV["EDAMAM_APP_KEY"]}"
