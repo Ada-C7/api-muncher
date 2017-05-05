@@ -1,3 +1,10 @@
+
 <% @recipes.each do |recipe| %>
   <%= recipe.uri %>
+<% end %>
+
+<%= form_tag recipes_path, method: :get do %>
+  <%= hidden_field_tag :search, params[:search] %>
+  <%= hidden_field_tag :from, (@from.to_i + 10) %>
+  <%= submit_tag "Next 10" %>
 <% end %>

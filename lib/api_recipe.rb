@@ -14,14 +14,14 @@ class ApiRecipe
     @source = hash_params[:source]
   end
 
-  def self.find(query)
+  def self.find(query, from)
     query_params = {
       "q" => query,
       "app_id" => ENV["EDAMAM_APP_ID"],
       "app_key" => ENV["EDAMAM_APP_KEYS"],
       "health" => "vegan",
-      "from" => 0,
-      "to" => 100
+      "from" => from,
+      "to" => (from.to_i + 10)
     }
 
     url = "#{BASE_URL}search?"
