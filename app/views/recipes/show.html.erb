@@ -22,7 +22,7 @@
   <% @recipe.nutrients.each do |nutrient| %>
   <tr><th>
   <%= nutrient[1]["label"]%></th>
-  <td><%= nutrient[1]["quantity"].to_i %></tr></td>
+  <td><%= nutrient[1]["quantity"].to_i %><%= nutrient[1]["unit"]%></tr></td>
   <% end %>
 </table>
 
