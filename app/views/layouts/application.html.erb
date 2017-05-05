@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Recipe Recs</title>
+  <title>Recipe Recs</title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body class="row">
-    <header>
-      <h1><%= link_to "Aurora's Recipe Recs", root_path, method: :get %></h1>
-      <ul>
-        <% if current_user %>
-        <li>
-          logged in as <%= current_user.provider %>
-        </li>
-        <li>
-          <%= link_to "Logout", logout_path, method: :delete %>
-        </li>
-        <% else %>
-        <li>
-          <%= link_to "Login", login_form_path, method: :get %>
-        </li>
-        <% end %>
-        <li>
-          <%= link_to "My Account", account_path, method: :get %>
-        </li>
-        <li>
-          <%= link_to "Start new search", root_path %>
-        </li>
-      </ul>
-    </header>
+<body class="row">
+  <header>
+    <h1><%= link_to "Aurora's Recipe Recs", root_path, method: :get %></h1>
+    <ul>
+      <% if current_user %>
+      <li>
+        logged in as <%= current_user.provider %>
+      </li>
+      <li>
+        <%= link_to "Logout", logout_path, method: :delete %>
+      </li>
+      <li>
+        <%= link_to "My Account", account_path, method: :get %>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to "Login", login_form_path, method: :get %>
+      </li>
+      <% end %>
+      <li>
+        <%= link_to "New search", root_path %>
+      </li>
+    </ul>
+  </header>
 
-    <%= yield %>
-    <footer>
-      <p>
+  <%= yield %>
+  <footer>
+    <ul class="row">
+      <li class="columns small-12 medium-6">
+        a project by <%= link_to "Aurora Anderson", "http://github.com/auroralemieux" %>
+      </li>
+      <li class="columns small-12 medium-6">
         many thanks to <%= link_to "Edamam", 'https://www.edamam.com' %> for recipes
-      </p>
-    </footer>
+      </li>
+    </ul>
+  </footer>
 
-  </body>
+</body>
 </html>
