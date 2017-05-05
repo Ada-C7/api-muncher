@@ -2,14 +2,12 @@ require 'json'
 
 class Recipe
 
-  attr_reader :label, :image, :url, :ingredient_lines, :diet_labels
+  attr_reader :label, :image, :uri
 
-  def initialize(label, image, url, ingredient_lines, diet_labels)
+  def initialize(label, image, uri)
     @label = label
     @image = image
-    @url = url
-    @ingredient_lines = ingredient_lines
-    @diet_labels = diet_labels
+    @uri = uri
   end
 
   def self.search(search_term)
@@ -18,20 +16,16 @@ class Recipe
 
     response = HTTParty.get(url).parsed_response
 
-
     recipes_list = []
 
     # Working, but loop needs to be DRYed
-    count = 0
-    10.times do
+    ## LOok up for specific api -- may have documentation
+    10.times do |count|
       label = response['hits'][count]['recipe']['label']
       image = response['hits'][count]['recipe']['image']
-      url = response['hits'][count]['recipe']['url']
-      ingredient_lines = response['hits'][count]['recipe']['ingredientLines']
-      diet_labels = response['hits'][count]['recipe']['dietLabels']
+      uri = response['hits'][count]['recipe']['url']
 
-      recipes_list << Recipe.new(label, image, url, ingredient_lines, diet_labels)
-      count += 1
+      recipes_list << Recipe.new(label, image, uri)
     end
 
     # raise
