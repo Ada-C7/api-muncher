@@ -4,8 +4,8 @@
     <ul>
       <% @results_page.each do |recipe| %>
         <li>
-          <%= link_to recipe.name, recipe_path(:name => recipe.name, :uri => recipe.uri) %>
           <%= image_tag recipe.image %>
+          <%= link_to recipe.name, recipe_path(:name => recipe.name, :uri => recipe.uri) %>
         </li>
       <% end %>
     </ul>
