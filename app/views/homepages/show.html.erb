@@ -1,7 +1,17 @@
 <h1><%= @recipe.label %></h1>
-  <%= image_tag @recipe.image %>
-<%= @recipe.ingredientlines %>
+<%= image_tag @recipe.image %>
+
+<h4>Ingredients</h4>
+
+<ul>
+  <% @recipe.ingredientlines.each do |line| %>
+  <li>
+    <%= line %>
+  </li>
+  <% end %>
+
+</ul>
 <p>
 
 </p>
-<%= @recipe.uri %>
+<%= link_to @recipe.uri, @recipe.uri %>
