@@ -30,13 +30,13 @@ class RecipesApiWrapper
     if response["hits"]
       recipes_list = response["hits"].map do |hit|
         recipe_data = {
-          uri: hit["recipe"]["label"]
-          label: hit["recipe"]["label"]
-          image: hit["recipe"]["label"]
-          url: hit["recipe"]["label"]
-          calories: hit["recipe"]["label"]
-          dietlabels: hit["recipe"]["label"]
-          healthlabels: hit["recipe"]["label"]
+          uri: hit["recipe"]["label"],
+          label: hit["recipe"]["label"],
+          image: hit["recipe"]["label"],
+          url: hit["recipe"]["label"],
+          calories: hit["recipe"]["label"],
+          dietlabels: hit["recipe"]["label"],
+          healthlabels: hit["recipe"]["label"],
           ingredients: hit["recipe"]["label"]
         }
         self.new(recipe_data)
