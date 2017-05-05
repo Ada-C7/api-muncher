@@ -57,7 +57,7 @@ a:hover {
 }
 
 
-div#ingredients {
+div.ingredients {
   font-size: 30px;
 }
 
@@ -85,6 +85,14 @@ div.recipe-transbox:hover {
 
 image {
   padding-bottom: 20px;
+}
+
+div.nutrition {
+  font-size: 20px;
+}
+
+div.source {
+  font-size: 30px;
 }
 
 footer {

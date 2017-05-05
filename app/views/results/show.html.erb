@@ -6,25 +6,41 @@
   <div class="row">
     <div class="large-12 large-centered columns">
       <div class="transbox">
-        <div id="ingredients">
-
+        <div class="ingredients">
         <p><%=@recipe.label%></p>
         <p><%= image_tag(@recipe.image, :size => "600x700", :alt => "#{@recipe.label}") %></p>
+
+        <h4><strong>Ingredients:</strong></h4>
         <% @recipe.ingredientLines.each do | line | %>
 
           <p><%=line%></p>
         <% end %>
+        </div>
 
-        <% @recipe.totalNutrients.each do | k, v | %>
+      <h4><strong>Nutritional Information:</strong></h4>
 
-        <p><%= v["label"] %> <%= v["quantity"].round(2) %><%= v["unit"] %></p>
+      <div class="nutrition">
+        <table style="width:100%">
+          <tr>
+            <th>Label</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+          </tr>
+          <% @recipe.totalNutrients.each do | k, v | %>
+          <tr>
 
-        <% end %>
+            <td><%= v["label"] %></td>
+            <td><%= v["quantity"].round %></td>
+            <td><%= v["unit"] %></td>
+          </tr>
 
+          <% end %>
+        </div>
+        </table>
 
+      <div class="source">
         <p>Courtesy of: <%=link_to @recipe.source, "#{@recipe.url}" %></p>
         <!-- # add target="_blank" to open link in new tab -->
-
       </div>
     </div>
   </div>
