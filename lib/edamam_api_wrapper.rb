@@ -1,5 +1,5 @@
 require "httparty"
-class EdamamApiWrapper
+class EdamamApiWrapper < ApplicationController
 
   URL = "https://api.edamam.com/search"
   HEADERS = {
