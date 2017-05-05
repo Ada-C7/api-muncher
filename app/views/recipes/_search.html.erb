@@ -1,0 +1,17 @@
+
+<%=form_tag recipes_path, method: :get do %>
+  <%= hidden_field_tag(:from,  "0") %>
+  <%= hidden_field_tag(:to, "10") %>
+<div class = "row inline">
+  <!-- <div class = "large-2 columns">
+    <%#=label_tag(:search_text, "Search")%>
+  </div> -->
+  <div class = "large-10 columns">
+    <%=text_field_tag :search_text%>
+  </div>
+  <div class = "large-2 columns">
+    <%=submit_tag "Go!"%>
+  </div>
+</div>
+
+<%end %>
