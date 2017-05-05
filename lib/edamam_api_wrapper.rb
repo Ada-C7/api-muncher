@@ -1,7 +1,7 @@
 require 'httparty'
 
 class EdamamApiWrapper
-
+ attr_reader :uri
   BASE_URL = "https://api.edamam.com/"
   APP_ID = ENV["EDAMAM_APP_ID"]
   APP_KEY = ENV["EDAMAM_APP_KEY"]
@@ -14,7 +14,7 @@ class EdamamApiWrapper
     response = HTTParty.get(url)
     # raise
     recipes = []
-    # raise
+    #  raise
     if response["hits"]
       response["hits"].each do |hit|
         name = hit["recipe"]["label"]
@@ -34,7 +34,7 @@ class EdamamApiWrapper
   def self.show_recipe(recipe_uri)
 
     # https://api.edamam.com/search?app_id=98890148&app_key=f45d95396610b94a0125add2218b269f&r=http://www.edamam.com/ontologies/edamam.owl%23recipe_637913ec61d9da69eb451818c3293df2
-    url = BASE_URL + "search?" + "app_id=#{APP_ID}&app_key=#{APP_KEY}" + "&r=" + "http://www.edamam.com/ontologies/edamam.owl%23recipe_#{recipe_uri}"
+    url = BASE_URL + "search?" + "app_id=#{APP_ID}&app_key=#{APP_KEY}" + "&r=#{recipe_uri}"
 
     response = HTTParty.get(url)
     raise
