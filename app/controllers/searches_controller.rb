@@ -4,13 +4,13 @@ require_dependency '../../lib/recipe_result'
 
 
 class SearchesController < ApplicationController
-  before_action :check_next_and_prev
+  before_action :check_next_and_prev, only: [:recipes]
 
   def index
     session[:search_count] = nil
     session[:search_terms] = nil
     session[:from] = 0
-    session[:to] = 10
+    session[:to] = 12
     session[:health] = nil
   end
 
@@ -67,22 +67,26 @@ class SearchesController < ApplicationController
 
   def check_next_and_prev
     if params[:prev] == "true"
-      if session[:from] - 10 >= 0
-        session[:from] -= 10
-        session[:to] -= 10
+      if session[:from] - 12 >= 0
+        session[:from] -= 12
+        session[:to] -= 12
 
       end
-      params[:prev] = nil
+      # params.delete(:prev)
+      redirect_to recipes_path
+      # raise
     end
 
     if params[:next] == "true"
       # raise
-      if session[:to] + 10 <= session[:search_count]
-        session[:to] += 10
-        session[:from] += 10
+      if session[:to] + 12 <= session[:search_count]
+        session[:to] += 12
+        session[:from] += 12
 
       end
-      params[:next] = nil
+      redirect_to recipes_path
+      
+      # params.delete(:next)
     end
   end
 
