@@ -12,46 +12,9 @@
   </head>
 
   <body>
-    <header class="row">
-      <section class="large-8 columns, small-4 columns">
-        <%= form_tag recipes_path, method: :get do %>
-
-          <%= label_tag :Search %>
-          <%= text_field_tag :search_text %>
-
-          <p> Dietary Options: </p>
-          <%= check_box_tag "health[]", "Gluten" %>
-          <%= label_tag "health[]", "Gulten Free" %>
-          <%= check_box_tag "health[]", "Dairy" %>
-          <%= label_tag "health[]", "Dairy Free" %>
-          <%= check_box_tag "health[]", "Egg" %>
-          <%= label_tag "health[]", "Egg Free" %>
-          <%= check_box_tag "health[]", "Soy" %>
-          <%= label_tag "health[]", "Soy Free" %>
-          <%= check_box_tag "health[]", "Peanuts" %>
-          <%= label_tag "health[]", "Peanut Free" %>
-
-          <%= check_box_tag "health[]", "Paleo" %>
-          <%= label_tag "health[]", "Paleo"%>
-          <%= check_box_tag "health[]", "Vegan" %>
-          <%= label_tag "health[]", "Vegan" %>
-          <%= check_box_tag "health[]", "Vegetarian" %>
-          <%= label_tag "health[]", "Vegetarian" %>
-
-          <p>Macro Options: </p>
-          <%= check_box_tag "diet[]", "Balanced" %>
-          <%= label_tag "diet[]", "Balanced" %>
-          <%= check_box_tag "diet[]", "High-Protein" %>
-          <%= label_tag "diet[]", "High Protein" %>
-          <%= check_box_tag "diet[]", "Low-Carb" %>
-          <%= label_tag "diet[]", "Low Carb" %>
-          <%= check_box_tag "diet[]", "Low-Fat" %>
-          <%= label_tag "diet[]", "Low Fat" %>
-
-          <%= hidden_field_tag :from, 0 %>
-          <div><%= submit_tag "Send" %></div>
-        <% end %>
-      </secion>
+    <header>
+      <img src="http://morethanfood.co.za/wp-content/uploads/2015/04/Craig-Cormack-Recipe-Header.jpg" alt="food">
+      <h1>Muncher</h1>
     </header>
 
     <%= yield %>

@@ -16,6 +16,28 @@
 
  */
 
+form {
+  text-align: center;
+  width: 100%;
+}
+
+header {
+  border: solid;
+  /*text-align: center;*/
+}
+
+/*this is the submit button for searh*/
+[type='submit'], [type='button'] {
+  margin: 0.5em;
+  padding: 0.25em;
+}
+
+.search_label label {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
 .large-4 {
   text-align: center;
 }
