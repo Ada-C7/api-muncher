@@ -44,7 +44,7 @@
     <ul>
       <% @recent_searches.each do |search| %>
       <li>
-        <%= link_to "#{search['search_terms']} (#{search['health']})", recipes_path(search_terms: search["search_terms"], health: search["health"]), method: :get, class: "recent-search-line" %>
+        <%= link_to "#{search['search_terms']} #{search['health']}", recipes_path(search_terms: search["search_terms"], health: search["health"]), method: :get, class: "recent-search-line" %>
         <%# search["search_terms"] %>
       </li>
       <% end %>

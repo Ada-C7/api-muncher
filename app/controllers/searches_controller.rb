@@ -5,7 +5,7 @@ require_dependency '../../lib/recipe_result'
 
 class SearchesController < ApplicationController
   before_action :check_next_and_prev, only: [:recipes]
-  # before_action :recent_searches
+  before_action :limit_recent_searches
 
   def index
     session[:recent_searches] ||= []
@@ -98,6 +98,12 @@ class SearchesController < ApplicationController
 
   def search_params
     params.require(:search).permit(:search_terms, :health)
+  end
+
+  def limit_recent_searches
+    if session[:recent_searches].length > 10
+      session[:recent_searches] = session[:recent_searches][-10..-1]
+    end
   end
 
   # def recent_searches
