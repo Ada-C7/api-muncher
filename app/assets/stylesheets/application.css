@@ -109,3 +109,20 @@ footer{
   align-text: center;
   margin-bottom: 0;
 }
+
+
+form.button_to {
+  max-width: 20%;
+  margin: 0;
+}
+
+.nav_link, p.view_count, form.button_to{
+  display: inline-block;
+  margin: auto;
+  margin-bottom: 0.5em;
+}
+
+.pager {
+  max-width: 60%;
+  margin-left: 28%;
+}
