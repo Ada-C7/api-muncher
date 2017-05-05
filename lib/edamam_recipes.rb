@@ -1,5 +1,4 @@
 require 'httparty'
-# require 'pry-rails'
 require 'uri'
 
 class EdamamRecipes
@@ -20,18 +19,18 @@ class EdamamRecipes
 
   end
 
-  def self.get_recipes(search_request)
+  def self.get_recipes(search_request, from, to)
     # query_params = {
     #   "app_id" => ENV["EDAMAM_APP_ID"],
     #   "app_key" => ENV["EDAMAM_APP_KEY"],
     #   "q" => search_request
-    #   "from" => 0,
-    #   "to" => 10,
+    #   "from" => "from",
+    #   "to" => "to",
     # }
 
     # url = "https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}"
     # recipes = HTTParty.get("https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}")
-    recipes = HTTParty.get("https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}")
+    recipes = HTTParty.get("https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}&from=#{from_point}&to=#{to_point}
     recipe_array = []
      recipes["hits"].each do |recipe|
        recipe_array << self.new({ uri: recipe["recipe"]["uri"], label: recipe["recipe"]["label"], image: recipe["recipe"]["image"] })

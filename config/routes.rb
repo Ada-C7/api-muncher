@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'recipes#search'
 
-  get '/recipes', to: 'recipes#index', as: 'danroberts'
+  get '/recipes', to: 'recipes#index', as: 'recipes'
 #alias for that route 'recipes'
   get '/recipes/:uri', to: 'recipes#show', as: 'recipe'
 

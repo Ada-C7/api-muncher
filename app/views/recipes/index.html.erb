@@ -10,4 +10,11 @@
           </div>
       <% end %>
   </div>
+
+<% link_to "Previous 10", << { q: from: to: }, class: "button" %>
+recipe_array << self.new({ uri: recipe["recipe"]["uri"], label: recipe["recipe"]["label"], image: recipe["recipe"]["image"] })
+
+
+<% link_to "Next 10", class: "button" %>
+
 </main>

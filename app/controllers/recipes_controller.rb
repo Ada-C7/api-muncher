@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
 attr_reader :recipe_array, :recipe
 
   def index
-    @recipe_array = EdamamRecipes.get_recipes(params[:search_request])
+    @recipe_array = EdamamRecipes.get_recipes(params[:search_request],params[:from],params[:to])
   end
 
   def new

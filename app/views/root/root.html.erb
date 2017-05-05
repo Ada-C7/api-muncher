@@ -2,5 +2,9 @@
   <%= label_tag :search_request %>
   <%= text_field_tag :search_request %>
 
+
+    <%= f.hidden_field :from_point, value: 0 %>
+    <%= f.hidden_field :to_point, value: 20 %>
+
   <%= submit_tag "Get Recipes!" %>
 <% end %>
