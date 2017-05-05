@@ -6,4 +6,9 @@ Rails.application.routes.draw do
 
   post '/recipes', to: 'recipes#index', as: "recipes_path"
 
+  get "/auth/:provider/callback", to: "users#create"
+  get 'signout', to: "users#destroy", as: 'signout'
+
+  resources :users, only: [:create, :destroy]
+
 end

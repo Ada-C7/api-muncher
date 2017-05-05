@@ -42,6 +42,7 @@ group :development, :test do
   gem 'webmock'
   gem 'dotenv-rails'
   gem 'simplecov'
+  gem 'omniauth-google-oauth2', "~> 0.2.1"
 end
 
 group :development do
