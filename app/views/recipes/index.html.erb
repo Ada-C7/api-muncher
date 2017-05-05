@@ -22,16 +22,21 @@
 
 
 <section>
-  <% if params[:from] != 0 %>
+
+  <% if params[:from] != "0" %>
         <% current_start = params[:from].to_i  %>
         <% previous_start = current_start - 10  %>
         <% previous_end = current_start %>
-
-
 <%= button_to "Previous", recipes_path, method: :get, :params =>{:search => params[:search], :from => previous_start, :to => previous_end }%>
-
-
-
 <% end %>
-  <h4>next</h4>
+
+<%= "~ you are viewing #{params[:search]} recipes #{params[:from]} to #{params[:to]} ~"%>
+
+<% if params[:from] != "0" %>
+      <% current_start = params[:from].to_i  %>
+      <% previous_start = current_start - 10  %>
+      <% previous_end = current_start %>
+<%= button_to "Previous", recipes_path, method: :get, :params =>{:search => params[:search], :from => previous_start, :to => previous_end }%>
+<% end %>
+
 </section>
