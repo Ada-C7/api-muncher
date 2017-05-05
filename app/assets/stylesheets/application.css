@@ -60,7 +60,7 @@ ul {
 
 /*Header*/
 header h1 {
-  font-size: 1em;
+  font-size: 1.3em;
   background-color: #0072BB;
 }
 
@@ -76,7 +76,7 @@ footer {
   background-color: rgba(255, 76, 59, 0.75);
   color: white;
   font-weight: bold;
-  margin: 100px 0 150px 0;
+  margin: 50px 0 75px 0;
   padding: 20px 5%;
 }
 

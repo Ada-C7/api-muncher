@@ -28,55 +28,59 @@
     <h4 class="small-12 columns">Nutritional Info</h4>
       <div class="small-12 small-centered columns">
         <table>
-          <tr>
-            <th></th>
-            <th>Per Serving</th>
-            <th>Percent of Daily Value</th>
-          </tr>
-          <tr>
-            <td>Calories</td>
-            <td><%= @recipe.nutritional_info["ENERC_KCAL"]["quantity"].round(2) %></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Total Fat</td>
-            <td> <%= @recipe.nutritional_info["FAT"]["quantity"].round(1) %> grams</td>
-            <td><%= @recipe.daily["FAT"]["quantity"].round(1) %>%</td>
-          </tr>
-            <td>Saturated Fat</td>
-            <td> <%= @recipe.nutritional_info["FASAT"]["quantity"].round(1) %> grams</td>
-            <td><%= @recipe.daily["FASAT"]["quantity"].round(1) %>%</td>
-          </tr>
-          </tr>
-            <td>Trans Fat</td>
-            <td> <%= @recipe.nutritional_info["FATRN"]["quantity"].round(1) %> grams</td>
-            <td></td>
-          </tr>
-            <td>Sodium</td>
-            <td><%= @recipe.nutritional_info["NA"]["quantity"].round(1) %> grams</td>
-            <td><%= @recipe.daily["NA"]["quantity"].round(1) %>%</td>
-          </tr>
-          </tr>
-            <td>Carbohydrates</td>
-            <td><%= @recipe.nutritional_info["CHOCDF"]["quantity"].round(1) %> grams</td>
-            <td><%= @recipe.daily["CHOCDF"]["quantity"].round(1) %>%</td>
-          </tr>
-          </tr>
-            <td>Fiber</td>
-            <td><%= @recipe.nutritional_info["FIBTG"]["quantity"].round(1) %> grams</td>
-            <td><%= @recipe.daily["FIBTG"]["quantity"].round(1) %>%</td>
-          </tr>
-          </tr>
-            <td>Sugar</td>
-            <td><%= @recipe.nutritional_info["SUGAR"]["quantity"].round(1) %> grams</td>
-            <td></td>
-          </tr>
-          </tr>
-            <td>Protein</td>
-            <td><%= @recipe.nutritional_info["PROCNT"]["quantity"].round(1) %> grams</td>
-            <td><%= @recipe.daily["PROCNT"]["quantity"].round(1) %>%</td>
-          </tr>
-        </table>
+
+        <tr>
+          <th></th>
+          <th>Per Serving</th>
+          <th>Percent of Daily Value</th>
+        </tr>
+        <tr>
+          <td>Calories</td>
+          <td> <%= @n_info[0] %> </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Total Fat</td>
+          <td> <%= @n_info[1] %> grams</td>
+          <td> <%= @n_info[2] %>% </td>
+        </tr>
+        <tr>
+          <td>Saturated Fat</td>
+          <td> <%= @n_info[3] %> grams</td>
+          <td> <%= @n_info[4] %>% </td>
+        </tr>
+        <tr>
+          <td>Trans Fat</td>
+          <td> <%= @n_info[5] %> grams</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Sodium</td>
+          <td> <%= @n_info[6] %> grams</td>
+          <td> <%= @n_info[7] %>%</td>
+        </tr>
+        <tr>
+          <td>Carbohydrates</td>
+          <td> <%= @n_info[8] %> grams</td>
+          <td> <%= @n_info[9] %>% </td>
+        </tr>
+        <tr>
+          <td>Fiber</td>
+          <td> <%= @n_info[10] %> grams</td>
+          <td> <%= @n_info[11] %>% </td>
+        </tr>
+        </tr>
+          <td>Sugar</td>
+          <td> <%= @n_info[12] %> grams</td>
+          <td></td>
+        </tr>
+        </tr>
+          <td>Protein</td>
+          <td> <%= @n_info[13] %> grams</td>
+          <td> <%= @n_info[14] %>% </td>
+        </tr>
+      </table>
+
       </div>
     </section>
 </article>
