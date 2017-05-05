@@ -40,10 +40,10 @@ class SearchesController < ApplicationController
   def new; end
 
   def create
-    @search = Search.new(search_terms: session[:search_terms], user_id: current_user.id)
+    @search = Search.new(search_terms: session[:search_terms], user_id: current_user.id, health: session[:health])
     # @search.user_id = session[:user_id]
     if @search.save
-      flash.now[:success] = "Successfully saved search #{session[:search_terms]}"
+      flash.now[:success] = "Successfully saved search #{session[:search_terms]} (#{session[:health]})"
       redirect_to account_path
     else
       flash.now[:failure] = "Unable to save search"
@@ -85,7 +85,7 @@ class SearchesController < ApplicationController
 
       end
       redirect_to recipes_path
-      
+
       # params.delete(:next)
     end
   end
