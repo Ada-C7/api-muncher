@@ -1,15 +1,12 @@
 require 'json'
 
 class Recipe
+  attr_reader :label, :image, :uri
 
-  attr_reader :label, :image, :url, :ingredient_lines, :diet_labels
-
-  def initialize(label, image, url, ingredient_lines, diet_labels)
+  def initialize(label, image, uri)
     @label = label
     @image = image
-    @url = url
-    @ingredient_lines = ingredient_lines
-    @diet_labels = diet_labels
+    @uri = uri
   end
 
   def self.search(search_term)
@@ -20,22 +17,19 @@ class Recipe
 
     recipes_list = []
 
-    # Working, but loop needs to be DRYed
-    count = 0
-    10.times do
-      label = response['hits'][count]['recipe']['label']
-      image = response['hits'][count]['recipe']['image']
-      url = response['hits'][count]['recipe']['url']
-      ingredient_lines = response['hits'][count]['recipe']['ingredientLines']
-      diet_labels = response['hits'][count]['recipe']['dietLabels']
+    if response['count'] == 0
+      return recipes_list
+    else
+      10.times do |count|
+        label = response['hits'][count]['recipe']['label']
+        image = response['hits'][count]['recipe']['image']
+        uri = response['hits'][count]['recipe']['uri']
 
-      recipes_list << Recipe.new(label, image, url, ingredient_lines, diet_labels)
-      count += 1
+        recipes_list << Recipe.new(label, image, uri)
+      end
     end
 
-    # raise
-
-    return recipes_list#recipe_display
+    return recipes_list
   end
 
   def list_display

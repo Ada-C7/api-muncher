@@ -78,4 +78,4 @@ gem 'json'
 
 gem 'binding_of_caller'
 
-# gem 'rails-api'
+gem 'simplecov', :require => false, :group => :test
