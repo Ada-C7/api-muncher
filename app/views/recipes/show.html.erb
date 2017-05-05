@@ -1,5 +1,26 @@
 <h1>Show Page</h1>
 
-<%= @recipe.label %>
-<%= @recipe.ingredients %>
-<%= @recipe.dietery_info %>
+<%= image_tag(@recipe.image) %>
+
+
+<div><%= link_to @recipe.label, @recipe.url %></div>
+<h3>ingredients </h3>
+<div> <ul><% @recipe.ingredients.each do |item| %>
+
+     <li>
+       <%= item %>
+     </li>
+     <% end %>
+
+</ul></div>
+<h3>Allergy information</h3>
+<div><%= @recipe.allergy_info %></div>
+
+<h3>Dietery information</h3>
+<div><ul>
+  <% (@recipe.nutrients.keys).each do |key| %>
+  <li>
+    <%= @recipe.nutrients[key]["label"] %> <%= @recipe.nutrients[key]["quantity"].round(2) %> <%= @recipe.nutrients[key]["unit"] %>
+  </li>
+  <% end %>
+</ul></div>

@@ -7,19 +7,9 @@ class RecipesController < ApplicationController
     else
       @recipes = []
     end
-
   end
 
   def show
-    @recipe = SearchApiWrapper.showRecipe(params[:uri]) 
-
+    @recipe = SearchApiWrapper.showRecipe(params[:uri])
   end
-
-  def new
-
-  end
-
-
-
-
 end
