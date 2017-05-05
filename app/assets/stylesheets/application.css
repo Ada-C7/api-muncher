@@ -15,3 +15,24 @@
  *= require foundation_and_overrides
 
  */
+
+
+
+ header {
+   padding: 0.5rem;
+   /*border: 0.3rem solid #ffbb00;*/
+   background-color: #ffbb00;
+   min-height: 3rem;
+   margin: 0;
+ }
+
+ main {
+   /*background: linear-gradient(to bottom right, #ffbb00, white);*/
+   padding: 2.5rem;
+   background: linear-gradient(155deg, #ffbb00, white);
+   min-height: 30rem;
+ }
+
+ footer {
+   padding: 0.5rem;
+ }
