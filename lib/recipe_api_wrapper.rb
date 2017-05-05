@@ -7,7 +7,7 @@ class RecipeApiWrapper
   end
 
   BASE_URL = "https://api.edamam.com/search?"
-  attr_accessor :label, :image, :uri, :calories, :diet_labels, :health_labels, :ingredients, :bookmarked
+  attr_accessor :label, :image, :uri, :calories, :diet_labels, :health_labels, :ingredients
 
   def initialize(recipe_hash)
     @label = recipe_hash["label"]
@@ -18,7 +18,6 @@ class RecipeApiWrapper
     @diet_labels = recipe_hash["dietLabels"]
     @health_labels = recipe_hash["healthLabels"]
     @ingredients = recipe_hash["ingredients"]
-    # @bookmarked = recipe_hash["bookmarked"]
   end
 
   def self.all(keywords,  vegan=nil, kosher=nil, vegetarian=nil, paleo=nil)
@@ -28,12 +27,10 @@ class RecipeApiWrapper
     return result
   end
 
-
   def self.search(keywords, from,  vegan=nil, kosher=nil, vegetarian=nil, paleo=nil)
     health_options = RecipeApiWrapper.health_options(vegan, kosher, vegetarian, paleo)
     url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=#{from}&to=#{from.to_i+12}#{health_options}"
-    print "THIS IS URL:"
-    print url
+
     response = HTTParty.get(url)
     list_of_recipes_object = []
     if response["hits"]
@@ -46,21 +43,16 @@ class RecipeApiWrapper
       end
       return list_of_recipes_object
     else
-      puts "ERROR"
+      raise RecipeException.new(response)
     end
   end
 
   def self.find_recipe(uri)
     url = "#{BASE_URL}r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{uri}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}"
-
     response = HTTParty.get(url).parsed_response
     recipe = RecipeApiWrapper.new(response[0])
-
-    # recipe.bookmarked = response[0]["bookmarked"] ??????????????
-
     return recipe
   end
-
 
   private
   def self.health_options(vegan, kosher, vegetarian, paleo)
@@ -71,6 +63,4 @@ class RecipeApiWrapper
     health_options += "&health=" + paleo if paleo != nil
     return health_options
   end
-
-
-end # end of class
+end
