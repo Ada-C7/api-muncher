@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RecipesController::index::show" skipped="0" failures="0" errors="1" tests="1" assertions="0" time="0.002571071992861107">
+  <testcase name="test_0001_can show a recipe" classname="RecipesController::index::show" assertions="0" time="0.002571071992861107">
+    <error type="test_0001_can show a recipe" message="ActionController::UrlGenerationError: No route matches {:action=&gt;&quot;show&quot;, :controller=&gt;&quot;recipes&quot;} missing required keys: [:uri]...">
+Failure:
+test_0001_can show a recipe(RecipesController::index::show) [/Users/habsr/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/journey/formatter.rb:51]:
+ActionController::UrlGenerationError: No route matches {:action=&gt;"show", :controller=&gt;"recipes"} missing required keys: [:uri]
+    test/controllers/recipes_controller_test.rb:19:in `block (4 levels) in &lt;top (required)&gt;'
+    </error>
+  </testcase>
+</testsuite>

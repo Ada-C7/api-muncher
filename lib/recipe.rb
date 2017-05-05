@@ -2,6 +2,8 @@ class Recipe
   attr_reader :name, :image, :url, :r_yield, :diet_labels, :health_labels, :ingredients, :calories, :nutrients
   attr_accessor :uri
 
+  
+
 
   def initialize(name, uri, image, options = {} )
     #  url=nil, r_yield=nil, diet_labels=nil, health_labels=nil, ingredients=nil, calories=nil, nutrients=nil)

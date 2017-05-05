@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Recipe" skipped="0" failures="0" errors="0" tests="3" assertions="2" time="0.0003474219993222505">
-  <testcase name="test_0002_Must initialize name and id properly" classname="Recipe" assertions="0" time="2.8287991881370544e-05">
+<testsuite name="Recipe" skipped="0" failures="0" errors="0" tests="3" assertions="5" time="0.0010112970194313675">
+  <testcase name="test_0001_Cannot be initialized without at least 3 parameters" classname="Recipe" assertions="2" time="0.00032268400536850095">
   </testcase>
-  <testcase name="test_0003_Can create a recipe instance" classname="Recipe" assertions="0" time="1.295501715503633e-05">
+  <testcase name="test_0003_Can create a recipe instance" classname="Recipe" assertions="0" time="2.4617998860776424e-05">
   </testcase>
-  <testcase name="test_0001_Cannot be initialized without parameters" classname="Recipe" assertions="2" time="0.0003061789902858436">
+  <testcase name="test_0002_Must initialize name, uri and image properly" classname="Recipe" assertions="3" time="0.0006639950152020901">
   </testcase>
 </testsuite>
