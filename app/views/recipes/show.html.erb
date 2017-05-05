@@ -59,7 +59,7 @@
 
   </section>
 </article>
-<%= link_to "Return to search page", root_path %>
+<%= link_to "Return to search page", root_path({search_term: params[:search_term]}) %>
 <footer>
   <ul>
     <li class="attribution">Powered by

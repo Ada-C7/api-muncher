@@ -25,7 +25,7 @@
         <div class="column column-block">
           <img src="<%= recipe.image %>">
           <br/>
-          <%= link_to recipe.name, show_recipe_path(recipe.id) %>
+          <%= link_to recipe.name, show_recipe_path(recipe.id, {search_term: params[:search_term]}) %>
         </div>
       <% end %>
     </div>
