@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
 
   # List the recipes from a given search
   def index
-    @recipes = Recipe.search(params[:search],params[:from],params[:to])
+    @recipes, @total_count  = Recipe.search(params[:search],params[:from],params[:to])
   end
 
   def show

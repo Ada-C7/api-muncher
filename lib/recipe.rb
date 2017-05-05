@@ -31,18 +31,20 @@ class Recipe
       "to" => to
     }
 
-    recipes = HTTParty.get(BASE_URL, query: query_params).parsed_response["hits"]
+    recipes = HTTParty.get(BASE_URL, query: query_params).parsed_response
+
+    total_count = recipes["count"]
 
     recipe_array =[]
 
-    recipes.each do |recipe|
+    recipes["hits"].each do |recipe|
       id = recipe["recipe"]["uri"].split("_").last
 
       recipe_params = {name: recipe["recipe"]["label"], image: recipe["recipe"]["image"], id: id }
 
         recipe_array << Recipe.new(recipe_params)
       end
-    return recipe_array
+    return recipe_array, total_count
   end
 
 
