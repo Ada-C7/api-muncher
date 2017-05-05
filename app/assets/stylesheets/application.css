@@ -13,5 +13,11 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
+*/
+ .paginate a {
+   display: inline-block;
+ }
 
- */
+ form {
+   margin-bottom: 15px;
+ }

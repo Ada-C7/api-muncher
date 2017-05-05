@@ -5,6 +5,12 @@ class RecipesController < ApplicationController
       @recipes = SearchApiWrapper.listRecipes(params[:q])
       @recipes_pages = @recipes.paginate(:page => params[:page], :per_page => 10)
 
+      if @recipes.empty?
+        flash[:error] = "Sorry, there is no match"
+      else
+        return @recipes
+      end
+
     # @recipes = SearchApiWrapper.getRecipes("chicken")
     # else
       # @recipes = []
