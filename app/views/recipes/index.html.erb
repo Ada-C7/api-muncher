@@ -1,25 +1,34 @@
-<h2>Find recipes</h2>
+<div class="row small-up-1 large-up-2">
+  <div class="column column-block">
+    <h2>Recipe finder</h2>
+  </div>
 
-
-<%= form_tag root_path, method: "get" do %>
-  <%= label_tag(:search_term, "Search term") %>
-  <%= text_field_tag(:search_term) %>
-
-
-
-  <%= submit_tag("Search") %>
-
-<% end %>
-
-<ul>
-  <% if @recipes %>
-    <% @recipes.each do |recipe| %>
-    <li><img src="<%= recipe.image %>">
-    <%= link_to recipe.name, show_recipe_path(recipe.id) %></li>
-
+  <div class="column column-block">
+    <%= form_tag root_path, method: "get" do %>
+      <%= label_tag(:search_term, "Search term") %>
+      <div class="row">
+        <div class="small-9 columns"
+        <%= text_field_tag(:search_term) %>
+        </div>
+        <div class="small-3 columns">
+          <%= submit_tag("Search", class: "button") %>
+        </div>
+      </div>
     <% end %>
+  </div>
+</div>
 
-    <%= will_paginate @recipes %>
-
+  <% if @recipes %>
+    <div class="row small-up-1 large-up-4">
+      <% @recipes.each do |recipe| %>
+        <div class="column column-block">
+          <img src="<%= recipe.image %>">
+          <br/>
+          <%= link_to recipe.name, show_recipe_path(recipe.id) %>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <%= will_paginate @recipes %>
+    </div>
   <% end %>
-</ul>
