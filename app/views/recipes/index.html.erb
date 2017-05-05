@@ -1,8 +1,15 @@
 <h1>All recipes for ...</h1>
+
+<% if @list_of_recipes.length > 0 %>
 <ul>
-  <% @list_of_recepies.each do |recipe| %>
+  <%= @list_of_recipes.each do |recipe| %>
   <li>
     <%= recipe.label %>
+    <div>
+    <%= image_tag(recipe.image) %>
+  </div>
+
   </li>
   <% end %>
 </ul>
+<% end %>

@@ -36,7 +36,30 @@ describe Recipe do
         r = Recipe.search("potato")
         r.nil?.must_equal false
       end
+    end
 
+    it "Raise RecipeException for bogus word" do
+      proc {
+        VCR.use_cassette('recipes') do
+         Recipe.search("pottttto")
+        end
+      }.must_raise Recipe::RecipeException
+    end
+
+    it "Raise ArgumentError for blank argument" do
+      proc {
+        VCR.use_cassette('recipes') do
+         Recipe.search(" ")
+        end
+      }.must_raise ArgumentError
+    end
+
+    it "Raise ArgumentError for empty argument" do
+      proc {
+        VCR.use_cassette('recipes') do
+         Recipe.search("")
+        end
+      }.must_raise ArgumentError
     end
   end
 end

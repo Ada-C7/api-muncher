@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem "binding_of_caller"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use postgresql as the database for Active Record
@@ -41,7 +41,7 @@ group :development, :test do
   gem 'minitest-vcr'
   gem 'webmock'
   gem 'dotenv-rails'
-
+  gem 'simplecov'
 end
 
 group :development do
@@ -61,7 +61,7 @@ group :development do
   gem 'pry-rails'
 end
 
-# API GEMS
+# API GEM
 gem 'httparty'
 gem 'awesome_print'
 gem 'foundation-rails'

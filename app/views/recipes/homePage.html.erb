@@ -1,0 +1,8 @@
+<h1>All recipes for ...</h1>
+<h1>Please type a key word for recipes</h1>
+
+<%= form_tag(recipes_path, method: "post") do %>
+  <%= label_tag(:name, "Search for:") %>
+  <%= text_field_tag :name, params[:name] %>
+  <%= submit_tag("Search") %>
+<% end %>

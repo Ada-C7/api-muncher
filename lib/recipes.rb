@@ -6,43 +6,43 @@ class Recipe
   class RecipeException < StandardError
   end
 
+  BASE_URL = "https://api.edamam.com/search?"
+
   attr_accessor :label, :image, :url, :calories, :dietLabels, :healthLabels, :ingredients
 
   def initialize(params)
     raise ArgumentError if params == nil
-      @label = params[:label]
-      @image = params[:image]
-      @url = params[:url]
-      @calories = params[:calories]
-      @dietLabels = params[:dietLabels]
-      @healthLabels = params[:healthLabels]
-      @ingredients = params[:ingredients]
+    @label = params[:label]
+    @image = params[:image]
+    @uri = params[:uri]
+    @calories = params[:calories]
+    @dietLabels = params[:dietLabels]
+    @healthLabels = params[:healthLabels]
+    @ingredients = params[:ingredients]
   end
 
-  BASE_URL = "https://api.edamam.com/search"
   def self.search(name)
-    # query_params = {
-    #   "app_id" => ENV["APP_ID"],
-    #   "app_key" => ENV["APP_KEY"],
-    #   "q" => name
-    # }
-    url = "#{BASE_URL}?q=#{name}&app_id=#{ENV["APP_ID"]}&app_key=#{ENV["APP_KEY"]}"
-    response = HTTParty.get(url) #.parsed_response
+    raise ArgumentError if name == nil || name == " " || name == ""
+    query_params = {
+      "app_id" => ENV["APP_ID"],
+      "app_key" => ENV["APP_KEY"],
+      "q" => name
+    }
+    response = HTTParty.get(BASE_URL, query: query_params).parsed_response
 
-    list_of_recepies = []
-
-    # binding.pry
-    if response['more']
-      response.parsed_response["hits"].each do |hit|
-        recipe = hit["recipe"]
-        # recipe_instance = self.new(hit.label, hit.image, hit.url, hit.calories, hit.dietLabels, hit.healthLabels, hit.ingredients)
-        recipe_instance = self.new(hit)
-          # ["label"], hit["image"],hit["url"],
-          #       hit["calories"], hit["dietLabels"], hit["healthLabels"],
-          #       hit["ingredients"])
-        list_of_recepies << recipe_instance
+    if response['hits']
+      list_of_recipes = response["hits"].map do |hit|
+                        recipe_data = {
+                          label: hit["recipe"]["label"],
+                          image:hit["recipe"]["image"],
+                          uri: hit["recipe"]["url"],
+                          calories: hit["recipe"]["calories"],
+                          dietLabels: hit["recipe"]["dietLabels"],
+                          healthLabels: hit["recipe"]["healthLabels"],
+                          ingredients: hit["recipe"]["ingredients"]
+                        }
+      self.new(recipe_data)
       end
-      list_of_recepies
     else
       raise RecipeException.new(response["error"])
     end
