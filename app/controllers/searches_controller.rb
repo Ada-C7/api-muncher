@@ -21,18 +21,16 @@ class SearchesController < ApplicationController
     session[:search_count] = @results.last
     @results = @results[0..-2]
     # ADD BACK IN: params[:gluten], params[:dairy], params[:vegetarian], params[:kosher]
-
-
   end
 
   def recipe
     @recipe = EdamamApiWrapper.getRecipe(params[:uri])
+    # raise
     @nutrients = %w(ENERC_KCAL FAT SUGAR PROCNT VITB12)
   end
 
-  def new
-    @search = Search.new
-  end
+  # do I need this at all?
+  def new; end
 
   def create
     @search = Search.new
@@ -47,6 +45,7 @@ class SearchesController < ApplicationController
 
   end
 
+  # do I need this either?
   def destroy; end
 
   private

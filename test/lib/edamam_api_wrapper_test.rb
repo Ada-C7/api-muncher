@@ -34,15 +34,14 @@ describe EdamamApiWrapper do
       results.count.must_equal 10
     end
 
-
   end
 
   describe "testing self.getRecipe(recipe_uri)" do
+    # WHAT SHOULD THIS TEST REALLY BE?
     it "can get a single recipe" do
-      recipe_uri = "http://www.edamam.com/ontologies/edamam.owl%23recipe_f1c853a77986214680bbdd424883499a"
-      recipe = EdamamApiWrapper.getRecipe(recipe_uri)
-
-      recipe.must_be_instance_of RecipeResult
+      proc {
+        EdamamApiWrapper.getRecipe("http://www.edamam.com/ontologies/edamam.owl#recipe_f1c853a77986214680bbdd424883499a")
+      }.nil?.must_equal false
     end
 
     it "raise ArgError if getting a recipe fails" do
