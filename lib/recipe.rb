@@ -17,8 +17,9 @@ class Recipe
     @diet_labels = recipe_params[:diet_labels]
     @calories = recipe_params[:calories]
     @yield = recipe_params[:yield]
-    @calories_per_serving = @calories/@yield
-
+    if @calories && @yield && @yield != 0
+      @calories_per_serving = @calories/@yield
+    end
   end
 
   def self.search(item)

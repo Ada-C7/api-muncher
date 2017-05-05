@@ -1,14 +1,23 @@
-<h2><%= "Here are some delectable #{params[:search]} recipes" %> </h2>
+<h2 id="index-title"><%= "Here are some delectable #{params[:search]} recipes..." %></h2>
 
 
-<ul>
-<% @recipes.each do |recipe| %>
+<ul class ="index">
+  <% @recipes.each_with_index do |recipe, index| %>
 
+  <li>
+    <% if index%2 == 0 %>
+      <ul class="float-index-left">
+        <li class="index_recipe"> <%= link_to recipe.name, recipe_path(recipe.id), method: :get %></li>
+        <li class="index_recipe">  <%= link_to (image_tag recipe.image, alt:"picture of #{recipe.name}", class:"index-picture"), recipe_path(recipe.id), method: :get %></li>
+      </ul>
+    <% else %>
+      <ul class="float-index-right">
+        <li class="index_recipe"> <%= link_to recipe.name, recipe_path(recipe.id), method: :get %></li>
+        <li class="index_recipe">  <%= link_to (image_tag recipe.image, alt:"picture of #{recipe.name}", class:"index-picture"), recipe_path(recipe.id), method: :get %></li>
+      </ul>
+    <%end%>
+    <section class="clearfix"> </section>
+  </li>
 
-<li> <%= link_to recipe.name, recipe_path(recipe.id), method: :get %>
-  <%= link_to (image_tag recipe.image, alt:"picture of #{recipe.name}"), recipe_path(recipe.id), method: :get %>
-</li>
-
-
-<% end %>
+  <% end %>
 </ul>
