@@ -1,18 +1,17 @@
 
-    <section class="search-results">
+<section class="search-results">
 
-      <h2 class="recipe-list">Results for your search!</h2>
+  <h2 class="recipe-list">Results for your search!</h2>
 
-            <% @recipes.each do | recipe | %>
-            <div class="transbox">
-              <div class="row">
-            <div class="small-6 small-centered columns">
+    <% @recipes.each do | recipe | %>
+      <div class="recipe-transbox">
+      <div class="large-6 large-centered columns">
 
-              <a class="title"><%=link_to recipe.label, ingredients_path + "?#{recipe.uri}"%></a>
-              <a class="img"><%= link_to image_tag(recipe.image, :size => "400x500", :alt => "recipe photo #{recipe.label}"), ingredients_path + "?#{recipe.uri}" %></a>
+      <%=link_to recipe.label, ingredients_path + "?#{recipe.uri}"%>
+      <%= link_to image_tag(recipe.image, :size => "400x500", :alt => "recipe photo #{recipe.label}"), ingredients_path + "?#{recipe.uri}" %>
 
-            </div>
-          </div>
         </div>
-            <% end %>
-      </section>
+        </div>
+
+        <% end %>
+</section>
