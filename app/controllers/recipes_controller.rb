@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   def index
     @search_results = {
       q: params[:q],
-      recipes: EdamamApiWrapper.all(params[:q])
+      recipes: EdamamApiWrapper::all(params[:q])
     }
   end
 
