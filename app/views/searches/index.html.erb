@@ -1,5 +1,11 @@
 <section class="homepage row">
-  <section class="search-form columns small-12 medium-6">
+<style type="text/css">
+.homepage {
+  background: url(<%= randomized_background_image %>) no-repeat center center fixed;
+  background-size: cover;
+}
+</style>
+  <section class="search-form columns small-12 medium-8">
 
     <h1>What sounds good?</h1>
     <%= form_tag recipes_path, method: "get" do %>
@@ -11,14 +17,14 @@
       <%= radio_button_tag :health, "vegetarian" %>
       <%= label_tag :vegetarian %>
 
-      <%= radio_button_tag :health, "dairy-free" %>
-      <%= label_tag :dairy, "Dairy-free" %>
+      <%= radio_button_tag :health, "balanced" %>
+      <%= label_tag :balanced, "Balanced" %>
 
-      <%= radio_button_tag :health, "kosher" %>
-      <%= label_tag :kosher %>
+      <%= radio_button_tag :health, "peanut-free" %>
+      <%= label_tag :peanut, "Peanut-free" %>
 
-      <%= radio_button_tag :health, "gluten-free" %>
-      <%= label_tag :gluten, "Gluten-free" %>
+      <%= radio_button_tag :health, "high-protein" %>
+      <%= label_tag :protein, "High-protein" %>
 
       <%= radio_button_tag :health, "none" %>
       <%= label_tag :none %>
@@ -34,7 +40,7 @@
 
     <% end %>
   </section>
-  <section class="columns small-12 medium-6 recent-searches">
+  <section class="columns small-12 medium-4 recent-searches">
     <h1>Recent Searches</h1>
     <% if @recent_searches.empty? %>
     <p>

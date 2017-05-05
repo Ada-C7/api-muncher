@@ -13,18 +13,10 @@
 
 <body class="row">
   <header class="row">
-    <h1 class="columns small-12"><%= link_to "Recipe Rex", root_path, method: :get %></h1>
-    <section class="credits">
-      <p class="columns small-12 medium-6 large-6 personal-credit">
-        a project by <%= link_to "Aurora Anderson", "http://github.com/auroralemieux", target: :_blank %>
-      </p>
-      <p class="columns small-12 medium-6 large-6 api-credit">
-        recipe search powered by <%= link_to "Edamam", "https://www.edamam.com", target: :_blank %>
-      </p>
-    </section>
-    <section class="row">
+    <h1 class="columns small-12 medium-3"><%= link_to "Recipe Rex", root_path, method: :get %></h1>
 
-      <section class="columns small-12 ">
+
+      <section class="columns small-12 medium-6">
         <% if current_user %>
         <p>
           logged in as <%= current_user.provider %>
@@ -36,7 +28,9 @@
         <% end %>
           <%= link_to "New search", root_path, method: :get, class: "button" %>
       </section>
-    </section>
+      <section class="columns small-12 medium-3">
+        <%= image_tag "trex" %>
+      </section>
 
   </header>
   <section class="errors">
@@ -48,7 +42,14 @@
   </section>
   <%= yield %>
   <footer class="row">
-
+    <section class="credits">
+      <p class="columns small-12 medium-6 large-6 personal-credit">
+        a project by <%= link_to "Aurora Anderson", "http://github.com/auroralemieux", target: :_blank %>
+      </p>
+      <p class="columns small-12 medium-6 large-6 api-credit">
+        recipe search powered by <%= link_to "Edamam", "https://www.edamam.com", target: :_blank %>
+      </p>
+    </section>
   </footer>
 
 </body>
