@@ -17,6 +17,7 @@ class RecipesController < ApplicationController
   def show
     @search_term = params["q"]
     @recipe = Recipe.search("q" => params["id"]).first
+    #full recipe
   end
 
   #add strong params

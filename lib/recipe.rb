@@ -1,7 +1,7 @@
 require 'httparty'
 
 class Recipe
-  BASE_URL = "https://api.edamam.com/"
+  URL = "https://api.edamam.com/search"
   ID = ENV["EDAMOM_ID"]
   KEY = ENV["EDAMOM_KEY"]
 
@@ -18,20 +18,10 @@ class Recipe
   # returns a collection of recipe objects that match the search conditions
   # if no range (to:, from:) is provided, defaults to first ten
   def self.search(query_params)
-    # binding.pry
     query_params["app_id"] = ID
     query_params["app_key"] = KEY
 
-    # {
-    #   "q" => search_term,
-    #   "app_id" => ID,
-    #   "app_key" => KEY,
-    #   "from" => 0,
-    #   "to" => 2
-    # }
-
-    url = "#{BASE_URL}search"
-    response = HTTParty.get(url, query: query_params)
+    response = HTTParty.get(URL, query: query_params)
     if response.code == 200
       recipes = response["hits"].map do |recipe_data|
         self.new(recipe_data["recipe"])
@@ -49,8 +39,7 @@ class Recipe
       "app_key" => KEY,
     }
 
-    url = "#{BASE_URL}search"
-    response = HTTParty.get(url, query: query_params)
+    response = HTTParty.get(URL, query: query_params)
     return response["count"]
   end
 end
