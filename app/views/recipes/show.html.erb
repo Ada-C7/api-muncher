@@ -3,12 +3,36 @@
     <%= image_tag(info.image, :alt => "recipe photo #{info.label}") %>
   </section>
   <h3><%= info.label %></h3>
+
   <% if info.url != nil %>
     <h4><%= link_to "Link to original recipe", info.url, alt: "External link to original recipe", target: "_blank" %></h4>
   <% else %>
     <h4>No external link available for this recipe</h4>
   <% end %>
+
+  <h4>Ingredients:</h4>
+  <ul>
+  <% info.ingredientLines.each do |ingredient| %>
+    <li>
+    <%= ingredient %>
+    </li>
+  <% end %>
+  </ul>
+
+  <section id="dietary-info">
+    <h4>Dietary Info</h4>
+    <h5>Diet Labels:</h5>
+    <% info.dietLabels.each do |item| %>
+      <%= item %></br>
+    <% end %>
+
+    </br><h5>Health Labels:</h5>
+    <% info.healthLabels.each do |item| %>
+      <%= item %></br>
+    <% end %>
+
+  </section>
 <% end %>
-Link to the original recipe (opens in a new tab)
-Ingredients
+<!-- Ingredients
 Dietary information
+dietLabels, healthLabels, ingredientLines -->
