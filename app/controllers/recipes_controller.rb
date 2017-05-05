@@ -12,9 +12,8 @@ class RecipesController < ApplicationController
                         diet: params[:diet]
                       }
       # raise
-      new_search = EdamamSearch.new(search_params)
-      search_results = new_search.search_results
-      @list_of_recipes = Recipe.list_of_recipes(search_results)
+      results = get_api_search(search_params)
+      @list_of_recipes = Recipe.list_of_recipes(results)
     end
   end
 
@@ -25,11 +24,13 @@ class RecipesController < ApplicationController
                       recipe_id: params[:id]
                     }
 
-    recipe_info = EdamamSearch.new(search_params)
-    search_results = recipe_info.search_results
-    @recipe = Recipe.individual_recipe(search_results)
+    recipe_results = get_api_search(search_params)
+    @recipe = Recipe.individual_recipe(recipe_results)
     # raise
   end
 private
 
+  def get_api_search(search_params)
+    return EdamamSearch.new(search_params).search_results
+  end
 end
