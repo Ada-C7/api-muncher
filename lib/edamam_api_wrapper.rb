@@ -51,7 +51,9 @@ class EdamamApiWrapper
       calories = response[0]["calories"]
       nutrients = response[0]["totalNutrients"]
 
-      Recipe.new(uri, name, image, url, r_yield, diet_labels, health_labels, ingredients, calories, nutrients)
+      Recipe.new(name, uri, image, url: url, r_yield: r_yield, diet_labels: diet_labels, health_labels: health_labels,  ingredients: ingredients, calories: calories, nutrients: nutrients)
+
+      # url , r_yield, diet_labels, health_labels, ingredients, calories, nutrient)
     end
 
   end

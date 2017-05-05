@@ -1,5 +1,6 @@
 <h1>Recipe</h1>
 <%= @recipe.name %>
+<%# raise %>
 <%= @recipe.uri %>
 <%= image_tag @recipe.image %>
 <%= link_to 'See Recipe', @recipe.url, target: :_blank%>
@@ -15,10 +16,15 @@
   <% end %>
   <%= @recipe.calories %>
   <%# raise %>
+
+  <table>
+    <caption>Nutrition Information</caption>
   <% @recipe.nutrients.each do |nutrient| %>
-  <%= nutrient[1]["label"]%>
-  <%= nutrient[1]["quantity"] %>
+  <tr><th>
+  <%= nutrient[1]["label"]%></th>
+  <td><%= nutrient[1]["quantity"].to_i %></tr></td>
   <% end %>
+</table>
 
 
 <!-- # uri, name, image, img_source, url, r_yield, diet_labels, health_labels, ingredients, calories -->
