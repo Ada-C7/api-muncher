@@ -12,7 +12,7 @@ module ApiMuncher
 
     #this loads everything in the lib folder automatically
     config.autoload_paths << Rails.root.join('lib')
-    config.enable_dependency_loading = true
+    config.eager_load_paths << Rails.root.join('lib')
 
     config.generators do |g|
       g.test_framework :minitest, spec: true
