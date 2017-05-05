@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
 
   def index
     @search_term = params["q"]
-    @recipes = Recipe.search("q" => params["q"], "to" => params["to"], "from" => params["from"])
+    @recipes = Recipe.search(params_hash)
     count = Recipe.count_results(params["q"])
     @to = (params["to"] ||= 10).to_i
     @to += 10 if count > @to
@@ -18,4 +18,8 @@ class RecipesController < ApplicationController
   end
 
   #add strong params
+  private
+  def params_hash
+    { "q" => params["q"], "from" => params["from"] ||= 0, "to" => params["to"] ||= 10 }
+  end
 end
