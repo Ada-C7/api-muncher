@@ -1,8 +1,6 @@
-
 class SessionsController < ApplicationController
   def create
     auth_hash = request.env['omniauth.auth']
-
     if auth_hash['uid']
       user = User.find_by(uid: auth_hash[:uid], provider: 'google')
       if user.nil?

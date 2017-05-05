@@ -1,19 +1,13 @@
 <main>
   <section class = "row">
     <section class = "small-12 medium-12 large-6 columns">
-
       <h4>  <%=@recipe.label%></h4>
        <%=image_tag @recipe.image, alt:"picture of #{@recipe.label}"%>
     </section>
     <section class = "small-12 medium-12 large-6 columns">
-    <%alreary_in_favorite = false%>
+
     <%if @login_user != nil%>
-      <%@login_user.recipes.each do |recipe|%>
-          <%if recipe.recipe_uri == @recipe.uri %>
-            <%alreary_in_favorite = true%>
-          <%end%>
-      <%end%>
-        <%if alreary_in_favorite%>
+        <%if @login_user.alreary_in_favorite?(@recipe)%>
           <h5>This recipe is already in favorite</h5>
         <%else%>
           <%= form_for @favorite_recipe do |f| %>
@@ -29,16 +23,14 @@
          <%@recipe.ingredients.each do |ingridient|%>
             <p><%=ingridient["text"]%></p>
          <%end%>
-      <h4>Diet labels:</h4>
-        <%@recipe.diet_labels.each do |l|%>
-          <%=l%>
-        <%end%>
-
-      <h4>Health labels:</h4>
-        <%@recipe.health_labels.each do |l|%>
-          <%=l%>
-        <%end%>
-
+    <h4>Diet labels:</h4>
+      <%@recipe.diet_labels.each do |l|%>
+        <%=l%>
+      <%end%>
+    <h4>Health labels:</h4>
+      <%@recipe.health_labels.each do |l|%>
+        <%=l%>
+      <%end%>
     </section>
   </section>
 </main>

@@ -12,7 +12,7 @@
     </table>
     </section>
     <section class = "small-12 medium-12 large-6 columns">
-      <h3>Recent searches:</h3>
+      <h3>10 most-recent searches:</h3>
       <table>
         <tr>
           <th> Search keyword </th>
@@ -20,20 +20,20 @@
           <th> Date </th>
           <th> Search again? </th>
         </tr>
-        <%@user.searches.reverse_each do |search|%>
+        <%@user.searches[0..9].reverse_each do |search|%>
         <tr>
           <td><%=search.keyword%> </td>
           <td>
-            <%if search.vegan == true %>
+            <%if search.vegan%>
               <span>vegan </span>
             <%end%>
-            <% if search.kosher == true%>
+            <% if search.kosher%>
               <span>kosher </span>
             <%end%>
-            <% if search.vegetarian == true%>
+            <% if search.vegetarian%>
               <span>vegetarian </span>
             <%end%>
-            <% if search.paleo == true%>
+            <% if search.paleo%>
               <span>paleo </span>
             <%end%>
           </td>
@@ -42,16 +42,16 @@
             <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
               <%= hidden_field_tag :search, search.keyword %>
               <%= hidden_field_tag :from, params[:from], value: 0%>
-              <%if search.vegan != false %>
+              <%if search.vegan %>
                 <%=hidden_field_tag :vegan, "vegan"%>
               <%end%>
-              <%if search.kosher != false %>
+              <%if search.kosher%>
                 <%=hidden_field_tag :kosher, "kosher"%>
               <%end%>
-              <%if search.vegetarian != false%>
+              <%if search.vegetarian %>
                 <%=hidden_field_tag :vegetarian, "vegetarian"%>
               <%end%>
-              <%if search.paleo != false %>
+              <%if search.paleo %>
                 <%=hidden_field_tag :paleo, "paleo"%>
               <%end%>
               <%= submit_tag "Search again", :name => nil , class: "button hollow topbar-responsive-button "%>
