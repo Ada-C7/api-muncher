@@ -23,38 +23,35 @@ class Recipe
 
     recipes = HTTParty.get(BASE_URL, query: query_params).parsed_response["hits"]
 
-
-
     recipe_array =[]
 
     recipes.each do |recipe|
       id = recipe["recipe"]["uri"].split("_").last
-      
+
       recipe_params = {name: recipe["recipe"]["label"], image: recipe["recipe"]["image"], id: id,
         original_url: recipe["recipe"]["url"]}
 
         recipe_array << Recipe.new(recipe_params)
       end
-      return recipe_array
-    end
+    return recipe_array
+  end
 
 
-    def self.getRecipe(name)
+  def self.getRecipe(id)
+    query_params = {
+      "app_id" => ENV["EDAMAM_API_APP_ID"],
+      "app_key" => ENV["EDAMAM_API_APP_KEY"],
+      "q" => id
+    }
 
-      query_params = {
-        "app_id" => ENV["EDAMAM_API_APP_ID"],
-        "app_key" => ENV["EDAMAM_API_APP_KEY"],
-        "q" => name
-      }
+    recipe = HTTParty.get(BASE_URL, query: query_params).parsed_response["hits"][0]
 
-      recipe = HTTParty.get(BASE_URL, query: query_params).parsed_response["hits"][0]
+    id = recipe["recipe"]["uri"].split("_").last
 
-      id = recipe["recipe"]["uri"].split("_").last
+    recipe_params = {name: recipe["recipe"]["label"], image: recipe["recipe"]["image"], id: id,
+      original_url: recipe["recipe"]["url"]}
 
-      recipe_params = {name: recipe["recipe"]["label"], image: recipe["recipe"]["image"], id: id,
-        original_url: recipe["recipe"]["url"]}
-
-        return Recipe.new(recipe_params)
+    return Recipe.new(recipe_params)
 
 
         # if response["channel"]
@@ -62,10 +59,10 @@ class Recipe
         # else
         #   return nil
         # end
-      end
+  end
 
 
-    end
+end
 
 
 

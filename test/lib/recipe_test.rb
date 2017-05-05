@@ -47,4 +47,14 @@ describe Recipe do
     end
   end
 
+  describe "getRecipe" do
+    it "Can search for a specific recipe based on an id, and returns a Recipe" do
+      VCR.use_cassette("recipes") do
+        id = 'c92c402e57d06df096adbffc393010c5'
+        steamed_salmon = Recipe.getRecipe(id)
+        steamed_salmon.class.must_equal Recipe
+        steamed_salmon.id.must_equal id
+      end
+    end
+  end
 end
