@@ -7,5 +7,4 @@ class RecipesController < ApplicationController
   def search
     @recipes_list = Recipe.search(params[:search])
   end
-
 end

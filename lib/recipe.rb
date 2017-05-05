@@ -18,6 +18,7 @@ class Recipe
 
     response = HTTParty.get(url).parsed_response
 
+
     recipes_list = []
 
     # Working, but loop needs to be DRYed
