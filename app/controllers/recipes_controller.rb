@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
                       from: params[:from].to_i,
                       to: params[:from].to_i + 10
                     }
+    raise
     @new_search = EdamamSearch.new(search_params)
     search_results = @new_search.search_results
     @list_of_recipes = Recipe.list_of_recipes(search_results)

@@ -14,7 +14,7 @@ class EdamamSearch
     @to = search_params[:to]
     @from = search_params[:from]
     @recipe_id = search_params[:recipe_id]
-    # health = search_hash[:health_options]
+    @health = search_params[:health_options]
     # diet = search_hash[:diet_options]
   end
 
@@ -25,6 +25,7 @@ class EdamamSearch
                     "q" => "#{@search_text}",
                     "to" => "#{@to}",
                     "from" => "#{@from}",
+                    "Health" => "#{@health}",
                     "r" => "http://www.edamam.com/ontologies/edamam.owl%23recipe#{@recipe_id}"
                    }
 
