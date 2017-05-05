@@ -11,7 +11,7 @@ class EdamamApiWrapper
 
     search_term = search_term.gsub(/\s/, '+')
 
-    url = BASE_URL + "search?q=#{ search_term }&" + "app_id=#{ app_id }&" + "app_key=#{ app_key }"
+    url = BASE_URL + "search?q=#{ search_term }&" + "app_id=#{ app_id }&" + "app_key=#{ app_key }&" + "to=100"
 
     response = HTTParty.get(url).parsed_response["hits"]
 

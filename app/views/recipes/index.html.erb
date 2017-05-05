@@ -8,6 +8,7 @@
       <%= link_to recipe.label, recipe_path(:label => recipe.label, :recipe_id => recipe.id) %>
     </li>
     <% end %>
+    <%= will_paginate @results %>
   </ul>
 <% else %>
   <p>
