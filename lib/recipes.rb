@@ -8,7 +8,7 @@ class Recipe
 
   BASE_URL = "https://api.edamam.com/search?"
 
-  attr_accessor :label, :image, :url, :calories, :dietLabels, :healthLabels, :ingredients
+  attr_accessor :label, :image, :uri, :calories, :dietLabels, :healthLabels, :ingredients
 
   def initialize(params)
     raise ArgumentError if params == nil

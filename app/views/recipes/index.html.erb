@@ -2,9 +2,9 @@
 
 <% if @list_of_recipes.length > 0 %>
 <ul>
-  <%= @list_of_recipes.each do |recipe| %>
+  <% @list_of_recipes.each do |recipe| %>
   <li>
-    <%= recipe.label %>
+    <%= link_to recipe.label, recipe.uri %>
     <div>
     <%= image_tag(recipe.image) %>
   </div>
