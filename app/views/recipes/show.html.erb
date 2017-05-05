@@ -6,8 +6,10 @@
   </div >
 
   <div class="small-12 medium-6 column">
-   <h3>Allergy information</h3>
-     <ul>
+
+  <p >
+   <h3 class="text-center">Allergy information</h3>
+     <ul class="text-center allergy_list">
       <% if @recipe.allergy_info.count == 0 %>
         <li>
           None
@@ -20,11 +22,13 @@
         <% end %>
         <% end %>
       </ul>
+    </p>
+
   </div>
 </div>
 
 <div class="row">
-  <div class="column">
+  <!-- <div class="column"> -->
     <h3>Ingredients </h3>
         <ul><% @recipe.ingredients.each do |item| %>
             <li>
@@ -32,7 +36,7 @@
             </li>
             <% end %>
         </ul>
-  </div>
+  <!-- </div> -->
 </div>
 
 <div class="row">

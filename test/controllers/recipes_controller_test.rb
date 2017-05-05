@@ -10,7 +10,7 @@ describe RecipesController do
   end
 
   it "Should get index" do
-    get recipes_path
+    get recipes_path("chicken")
     must_respond_with :success
   end
 
