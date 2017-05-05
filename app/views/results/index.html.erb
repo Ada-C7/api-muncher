@@ -1,16 +1,19 @@
-<section class="row recipe-list" data-equalizer data-equalize-on="medium">
 
-  <h2>Results for your search!</h2>
-    <div class="column large-4">
-      <div class="transbox" data-equalizer-watch>
-        <div id="recipes">
 
+    <section class="search-results">
+
+      <h2 class="recipe-list">Results for your search!</h2>
+
+      <div class="transbox">
+        <div class="row">
+          <div class="col-lg-12 col-lg-5">
             <% @recipes.each do | recipe | %>
-            <ul>
-              <li><%=link_to recipe.label, ingredients_path + "?#{recipe.uri}"%></li>
-              <%= link_to image_tag(recipe.image, :size => "400x500", :alt => "recipe photo #{recipe.label}"), ingredients_path + "?#{recipe.uri}" %>
-            </ul>
+
+              <a class="card-title"><%=link_to recipe.label, ingredients_path + "?#{recipe.uri}"%></a>
+              <a class="img-card"><%= link_to image_tag(recipe.image, :size => "400x500", :alt => "recipe photo #{recipe.label}"), ingredients_path + "?#{recipe.uri}" %></a>
+
             <% end %>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
