@@ -2,8 +2,6 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :searches
 
-
-
   def self.build_from_google(auth_hash)
     user = User.new
     user.uid   = auth_hash["uid"]

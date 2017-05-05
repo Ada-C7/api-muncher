@@ -15,8 +15,10 @@ require "minitest/rails"
         :match_requests_on => [:method, :uri, :body] # The http method, URI and body of a request all need to match
       }
       # Don't leave our Slack token lying around in a cassette file.
-      config.filter_sensitive_data("<EDAMAM_ID>", "<EDAMAM_KEY>") do
-        ENV['EDAMAM_ID'],
+      config.filter_sensitive_data("<EDAMAM_ID>") do
+        ENV['EDAMAM_ID']
+      end
+      config.filter_sensitive_data("<EDAMAM_KEY>") do
         ENV['EDAMAM_KEY']
       end
     end
@@ -41,4 +43,25 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
   # Add more helper methods to be used by all tests here...
+  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+# Add more helper methods to be used by all tests here...
+def setup
+  OmniAuth.config.test_mode = true # turn on OmniAuth mocking
+end
+
+def mock_auth_hash(user)
+  return {
+    provider: user.provider,
+    uid: user.uid,
+    info: {
+      email: user.email,
+      name: user.name
+    }
+  }
+end
+
+def login(user)
+  OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new(mock_auth_hash(user))
+  get auth_callback_path(:google)
+end
 end

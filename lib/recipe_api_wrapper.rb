@@ -12,8 +12,9 @@ class RecipeApiWrapper
   def initialize(recipe_hash)
     @label = recipe_hash["label"]
     @image = recipe_hash["image"]
-    index = recipe_hash["uri"].split("").find_index("_")
-    @uri = recipe_hash["uri"][index+1..-1]
+    # index = recipe_hash["uri"].split("").find_index("_")
+    # @uri = recipe_hash["uri"][index+1..-1]
+    @uri = recipe_hash["uri"][50..-1]
     @calories = recipe_hash["calories"]
     @diet_labels = recipe_hash["dietLabels"]
     @health_labels = recipe_hash["healthLabels"]

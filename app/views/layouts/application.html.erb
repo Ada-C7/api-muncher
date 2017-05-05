@@ -20,7 +20,6 @@
             Currently logged in as <%=link_to @login_user.name, user_path(@login_user.id)%>
             <%else%>
             <%= button_to "Log in", "/auth/google_oauth2", class:"button medium   hollow topbar-responsive-button login-logout-button "%>
-              <span>Not logged in</span>
             <%end%>
           </section>
           <div id = "flash">
