@@ -1,7 +1,63 @@
 require "test_helper"
 
 describe RecipesController do
-  # it "must be a real test" do
-  #   flunk "Need real tests"
-  # end
+  describe "view_recipes" do
+    it "responds wuth success for good data" do
+      VCR.use_cassette("recipes") do
+       post recipes_path(search: "orange", from: 0)
+       must_respond_with :success
+     end
+    end
+    it "still responds with success with bad data" do
+     VCR.use_cassette("bad_recipe_data") do
+       post recipes_path(search: "blablablabla", from: 0)
+       must_respond_with :success
+     end
+   end
+  end
+
+
+
+  describe "show_recipe" do
+    it "returns recipe " do
+      VCR.use_cassette("search") do
+        get recipe_path("93b8fb05570b29f1b9c09a2dbf70ef44")
+      end
+      must_respond_with :success
+    end
+  end
+
+  describe "create" do
+    it "successfully creates new recipe" do
+      user = User.first
+      start_count = user.recepies.count
+
+      recipe_data = {
+        recipe: {
+          name: "chicken salad",
+          recipe_uri: "fakeuri_fakeuri_fakeuri_fakeuri_fakeuri_",
+          user_id: user.id
+        }
+      }
+      post recipes_path, params: recipe_data
+      must_redirect_to show_recipe_path(Recipe.last.recipe_uri)
+      end_count = User.first.recepies.count
+      end_count.must_equal start_count + 1
+      recipe = Recipe.last
+      recipe.name.must_equal recipe_data[:recipe][:name]
+    end
+
+  end
+
+  describe "destroy " do
+    it "successfully destroying a recipe" do
+      recipe = Recipe.first
+      delete recipe_path(recipe.id)
+      must_redirect_to user_path(recipe.user.id)
+      Recipe.find_by(id: recipe.id).must_equal nil
+    end
+  end
+
+
+
 end

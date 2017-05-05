@@ -39,9 +39,9 @@ class RecipesController < ApplicationController
       @favorite_recipe = Recipe.new
     end
 
-    def new
-      @favorite_recipe = Recipe.new
-    end
+    # def new
+    #   @favorite_recipe = Recipe.new
+    # end
 
     def create
       @favorite_recipe = Recipe.new(name: params[:name],recipe_uri: params[:recipe_uri], user_id: params[:user_id])
