@@ -9,10 +9,11 @@
         <div id="ingredients">
 
         <p><%=@recipe.label%></p>
-        <p><%=@recipe.image%></p>
+        <p><%= image_tag(@recipe.image, :size => "600x700", :alt => "#{@recipe.label}") %></p>
         <p><%=@recipe.ingredientLines%></p>
         <p><%=@recipe.totalNutrients%></p>
         <p>Courtesy of: <%=link_to @recipe.source, "#{@recipe.url}" %></p>
+        <!-- # add target="_blank" to open link in new tab -->
 
       </div>
     </div>
