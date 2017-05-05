@@ -23,12 +23,10 @@ class Recipe
     10.times do |count|
       label = response['hits'][count]['recipe']['label']
       image = response['hits'][count]['recipe']['image']
-      uri = response['hits'][count]['recipe']['url']
+      uri = response['hits'][count]['recipe']['uri']
 
       recipes_list << Recipe.new(label, image, uri)
     end
-
-    # raise
 
     return recipes_list#recipe_display
   end
