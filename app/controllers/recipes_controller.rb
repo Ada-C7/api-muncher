@@ -16,6 +16,6 @@ class RecipesController < ApplicationController
   def show
     @uri = params[:uri]
     @recipe = Recipe_Api_Wrapper.showRecipe(@uri)
-    raise
+    # raise
   end
 end
