@@ -1,14 +1,14 @@
 class RecipesController < ApplicationController
 
   def index
-    if params[:q]
+    # if params[:q]
       @recipes = SearchApiWrapper.listRecipes(params[:q])
       @recipes_pages = @recipes.paginate(:page => params[:page], :per_page => 10)
 
     # @recipes = SearchApiWrapper.getRecipes("chicken")
-    else
-      @recipes = []
-    end
+    # else
+      # @recipes = []
+    # end
   end
 
   def show

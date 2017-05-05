@@ -20,14 +20,9 @@ describe "SearchApiWrapper" do
         end
     end
 
-    #Spend TOO MUCH TIME to make it pass but DAN told me to not worry about it
-
     it "Will return an empty array with invalid APP_ID and KEY_ID" do
-      VCR.use_cassette("bad_uri") do
-
         recipes = SearchApiWrapper.listRecipes("chicken", "eee", "")
         recipes.must_equal []
-       end
     end
 
     it "Will return empty array when there is no user search input " do

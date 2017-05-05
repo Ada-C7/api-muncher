@@ -11,7 +11,7 @@ class SearchApiWrapper
     app_id ||= APP_ID
     app_key ||= APP_KEY
 
-    url = BASE_URL + "?q=#{user_search}" + "&app_id=#{app_id}" + "&app_key=#{app_key}" + "&to=15"
+    url = BASE_URL + "?q=#{user_search}" + "&app_id=#{app_id}" + "&app_key=#{app_key}" + "&to=40"
 
     response = HTTParty.get(url).parsed_response
     hits = response["hits"]

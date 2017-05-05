@@ -12,7 +12,10 @@
   <li>
     <%= link_to recipe.label, recipe_path(:label => recipe.label, :uri =>recipe.uri) %><%= link_to image_tag(recipe.image), recipe.url %>
   </li>
+
 <% end  %>
-  <%= will_paginate @recipes_pages %>
+<%= will_paginate @recipes_pages %>
+
 </ul>
+
 </section>

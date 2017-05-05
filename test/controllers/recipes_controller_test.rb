@@ -14,4 +14,10 @@ describe RecipesController do
     must_respond_with :success
   end
 
+  it "Should get show" do
+    get recipe_path(label:'chicken', uri:"https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl%23recipe_637913ec61d9da69eb451818c3293df2")
+    # recipe = SearchApiWrapper.showRecipe("https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl%23recipe_637913ec61d9da69eb451818c3293df2")
+    must_respond_with :success
+  end
+
 end
