@@ -33,4 +33,13 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
   # Add more helper methods to be used by all tests here...
+
+  def good_api_search
+    search_params = { search_text: "cookies", from: 0, to: 10 }
+
+    VCR.use_cassette("search_results") do
+      search_input = EdamamSearch.new(search_params)
+      return search_input.search_results
+    end
+  end
 end
