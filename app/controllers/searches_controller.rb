@@ -4,7 +4,7 @@ require_dependency '../../lib/recipe_result'
 
 
 class SearchesController < ApplicationController
-  # before_action :check_next_and_prev
+  before_action :check_next_and_prev
 
   # after_action :set_from_and_to, only: [:prev_ten, :next_ten]
   def index
@@ -15,12 +15,14 @@ class SearchesController < ApplicationController
   end
 
   def recipes
-    check_next_and_prev
+    # check_next_and_prev
     session[:search_terms] ||= params[:search_terms]
     @results = EdamamApiWrapper.querySearch(session[:search_terms], session[:from], session[:to])
     session[:search_count] = @results.last
     @results = @results[0..-2]
     # ADD BACK IN: params[:gluten], params[:dairy], params[:vegetarian], params[:kosher]
+
+
   end
 
   def recipe

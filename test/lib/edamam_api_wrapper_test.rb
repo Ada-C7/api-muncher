@@ -45,11 +45,11 @@ describe EdamamApiWrapper do
       recipe.must_be_instance_of RecipeResult
     end
 
-    it "returns false getting a recipe fails" do
-      recipe_uri = "fake"
-      recipe = EdamamApiWrapper.getRecipe(recipe_uri)
-      # ?????? not sure what this actually returns
-      recipe.name.must_equal nil
+    it "raise ArgError if getting a recipe fails" do
+      proc {
+        recipe_uri = "fake"
+        recipe = EdamamApiWrapper.getRecipe(recipe_uri)
+      }.must_raise ArgumentError
     end
 
   end
