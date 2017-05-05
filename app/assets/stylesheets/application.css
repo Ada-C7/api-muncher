@@ -46,13 +46,13 @@ h1#home {
 }
 
 form {
-  /*padding: 10% 25%;*/
+  padding: 2em 15em;
 }
 
 input[type=search] {
   border: 1px solid #27909F;
-  border-radius: 20px;
-  padding: 10px 20px;
+  border-radius: 2em;
+  padding: 1.5em 2em;
   float: left;
 
   -webkit-appearance: none;
@@ -62,8 +62,8 @@ input[type=submit] {
   color: #fff;
   text-align: center;
   border: none;
-  border-radius: 15px;
-  padding: 10px 40px;
+  border-radius: 2em;
+  padding: 1em 4em;
   background-color: #27909F;
   float: right;
 
@@ -76,10 +76,17 @@ input[type="submit"]:hover, input[type="submit"]:active {
 
 
 /*content*/
-
+p {
+  text-align: center;
+}
 
 /*footer*/
 
 footer {
-  margin: 100px;
+  float: right;
+  margin-top: 10em;
+}
+
+footer * {
+  display: inline-block;
 }
