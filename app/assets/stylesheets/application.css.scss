@@ -16,9 +16,106 @@
 
  */
 
+ // fonts
+ // special elite for main header
+ // regular headers use bad script
+ // molengo for recipe text
+ // homemade apple for recipes page titles
+ // clicker script for links
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Clicker+Script|Homemade+Apple|Molengo|Special+Elite');
+
  * {
    list-style: none;
+   padding: 0px;
+   margin: 0px;
  }
 
- body {
+ // header
+
+
+
+ .trex {
+   height: 200px;
  }
+
+
+.top-nav {
+  display: block;
+
+  // text-align: center;
+}
+
+.top-nav li {
+  padding-right: 30px;
+  display: inline-block;
+}
+ // index
+
+ h2, h3 {
+   font-family: "Bad Script";
+   text-align: center;
+ }
+
+ .nav {
+   text-align: center;
+ }
+
+ p, form {
+   font-family: "Molengo";
+ }
+
+ a {
+   font-family: "Clicker Script";
+   font-size: 2em;
+ }
+
+ header h1 a {
+   font-family: "Special Elite";
+  //  font-size: 4em;
+ }
+
+ .recipe-title {
+   font-family: "Homemade Apple";
+   font-size: 1em;
+ }
+
+ .recipe-title-div {
+   padding-top: 5px;
+
+ }
+
+ .indiv-recipe {
+   text-align: center;
+   padding-bottom: 30px;
+
+ }
+
+// footer
+
+footer .credits {
+  display: block;
+}
+
+footer a {
+  font-family: "Molengo";
+  font-size: 1em;
+}
+
+.credits p {
+  display: inline-block;
+  text-align: center;
+  font-size: .5em;
+}
+
+// account
+
+
+.saved-searches a, .saved-recipes a {
+  font-family: "Molengo";
+  font-size: 1em;
+}
+
+.saved-searches, .saved-recipes {
+  text-align: center;
+  
+}

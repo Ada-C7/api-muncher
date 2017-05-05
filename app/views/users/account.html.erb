@@ -7,7 +7,7 @@
       No saved searches yet.
     </p>
     <% else %>
-    <ul>
+    <ul class="saved-searches">
       <% @searches.each do |search| %>
       <li>
         <%= link_to "#{search.search_terms} #{search.get_health}", recipes_path(search_terms: search.search_terms, health: search.health), class: "search-link" %>
@@ -24,7 +24,7 @@
       No saved recipes yet.
     </p>
     <% else %>
-    <ul>
+    <ul class="saved-recipes">
       <% @recipes.each do |recipe| %>
       <li>
         <%= link_to recipe.name, recipe.recipe_url, class: "recipe-link", target: :_blank %>

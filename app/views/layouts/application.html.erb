@@ -13,24 +13,41 @@
 
 <body class="row">
   <header class="row">
-    <h1 class="columns small-12 medium-3"><%= link_to "Recipe Rex", root_path, method: :get %></h1>
+    <section class=" columns small-12 medium-9">
+
+      <h1 class="columns small-12"><%= link_to "Recipe Rex", root_path, method: :get %></h1>
 
 
-      <section class="columns small-12 medium-6">
+      <section class="columns small-12">
+        <ul class="top-nav">
+
         <% if current_user %>
-        <p>
-          logged in as <%= current_user.provider %>
-        </p>
-          <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
-          <%= link_to "My Account", account_path, method: :get, class: "button" %>
+
+        <li>
+          <%= link_to "Logout", logout_path, method: :delete, class: "" %>
+        </li>
+        <li>
+          <%= link_to "My Account", account_path, method: :get, class: "" %>
+        </li>
+
         <% else %>
-          <%= link_to "Login", login_form_path, method: :get, class: "button" %>
+
+        <li>
+          <%= link_to "Login", login_form_path, method: :get, class: "" %>
+        </li>
+
         <% end %>
-          <%= link_to "New search", root_path, method: :get, class: "button" %>
+
+        <li>
+          <%= link_to "New search", root_path, method: :get, class: "" %>
+        </li>
+      </ul>
+
       </section>
-      <section class="columns small-12 medium-3">
-        <%= image_tag "trex" %>
-      </section>
+    </section>
+    <section class="columns small-12 medium-3">
+      <%= image_tag "trex", class: "trex" %>
+    </section>
 
   </header>
   <section class="errors">
@@ -40,13 +57,15 @@
     </p>
     <% end %>
   </section>
-  <%= yield %>
+  <section class="content row">
+    <%= yield %>
+  </section>
   <footer class="row">
     <section class="credits">
-      <p class="columns small-12 medium-6 large-6 personal-credit">
+      <p class="columns small-12 personal-credit">
         a project by <%= link_to "Aurora Anderson", "http://github.com/auroralemieux", target: :_blank %>
       </p>
-      <p class="columns small-12 medium-6 large-6 api-credit">
+      <p class="columns small-12 api-credit">
         recipe search powered by <%= link_to "Edamam", "https://www.edamam.com", target: :_blank %>
       </p>
     </section>
