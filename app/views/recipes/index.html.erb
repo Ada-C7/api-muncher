@@ -1,4 +1,20 @@
+
 <h1>Recipes#index</h1>
 <p>Find me in app/views/recipes/index.html.erb</p>
 
-<%= @recipes %>
+  <% @recipes.each do |recipe| %>
+  <%= image_tag("#{recipe.image}", :alt => "recipe image") %>
+  <br>
+  <br>
+  <ul>
+
+    <li><%= link_to "#{recipe.label}", recipe.uri %></li>
+
+    <li>Calories: <%= recipe.calories %></li>
+    <li>Ingredients: <%= recipe.ingredient_lines %></li>
+    <li><%= link_to "#{recipe.recipe_source_label}", recipe.recipe_source_url %></li>
+    <li><%= recipe.health_label %></li>
+  </ul>
+  <% end %>
+
+</div>
