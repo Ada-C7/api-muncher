@@ -7,9 +7,9 @@
       <div class="recipe-transbox">
       <div class="large-6 large-centered columns">
 
-      <h3 class = "recipe-title"><%=link_to recipe.label, recipe_path + "?#{recipe.url}"%></h3>
+      <h3 class = "recipe-title"><%=link_to recipe.label, recipe_path + "?recipe=#{URI.encode(recipe.uri)}"%></h3>
       <image class="recipe-image"><%= link_to image_tag(recipe.image, :size => "800x900",
-      :alt => "recipe photo #{recipe.label}"), recipe_path + "?#{recipe.url}" %></image>
+      :alt => "recipe photo #{recipe.label}"), recipe_path + "?recipe=#{URI.encode(recipe.uri)}" %></image>
 
         </div>
         </div>

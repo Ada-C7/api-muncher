@@ -23,36 +23,14 @@ class EdmamApiWrapper
     return recipes
   end
 
-  def self.getRecipe(query)
-    puts ">>>>> Calling getRecipe"
-
-    # fake_ingredients ={
-    #   "label" => "banana bread",
-    #   "image" => "picture here",
-    #   "source" => "source of recipe",
-    #   "url" => "url here",
-    #   "ingredientLines" => "lots of bananas",
-    #   "totalNutrients" => "super healthy stuff"
-    # }
-    #
-    # ingredients = Ingredient.new(fake_ingredients)
-
-    # return ingredients
-
-    url = "#{BASE_URL}?q=vegan+#{query}&app_id=#{APP_ID}&app_key=#{TOKEN}"
+  def self.getRecipe(uri)
+    uri = URI.encode(uri)
+    url = "#{BASE_URL}?r=" + uri + "&app_id=#{APP_ID}&app_key=#{TOKEN}"
 
     response = HTTParty.get(url)
 
-    puts response
-
-    # ingredients = []
-
     if response[0]
       return Recipe.new(response[0])
-      # response[0]["ingredients"].each do | ingredient |
-      #   ingredients << Ingredient.new(ingredient)
-      # end
     end
-    # return ingredients
   end
 end

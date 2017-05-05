@@ -5,7 +5,7 @@ class ResultsController < ApplicationController
   end
 
   def show
-    @recipe = EdmamApiWrapper.getRecipe(params["q"])
+    @recipe = EdmamApiWrapper.getRecipe(params["recipe"])
   end
 
 end
