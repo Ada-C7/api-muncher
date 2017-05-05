@@ -19,7 +19,8 @@
              <%= button_to "Log out", logout_path,  class:"button hollow topbar-responsive-button medium login-logout-button" %>
             Currently logged in as <%=link_to @login_user.name, user_path(@login_user.id)%>
             <%else%>
-            <%= button_to "Log in", "/auth/google_oauth2", class:"button medium   hollow topbar-responsive-button login-logout-button "%>
+              <%= button_to "Log in", "/auth/google_oauth2", class:"button medium   hollow topbar-responsive-button login-logout-button "%>
+                Login to save your favorite recipes and save your searches
             <%end%>
           </section>
           <div id = "flash">

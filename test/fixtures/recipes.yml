@@ -4,8 +4,7 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+recipe:
+   name: "chicken salad"
+   recipe_uri: "d611b46c76dfb67266d7560e7b199c51"
+   user: natalia

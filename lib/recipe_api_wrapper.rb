@@ -29,8 +29,8 @@ class RecipeApiWrapper
   def self.search(keywords, from,  vegan=nil, kosher=nil, vegetarian=nil, paleo=nil)
     health_options = RecipeApiWrapper.health_options(vegan, kosher, vegetarian, paleo)
     url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=#{from}&to=#{from.to_i+12}#{health_options}"
-
     response = HTTParty.get(url)
+
     list_of_recipes_object = []
     if response["hits"]
       recipes = response.parsed_response["hits"]
@@ -49,8 +49,6 @@ class RecipeApiWrapper
   def self.find_recipe(uri)
     url = "#{BASE_URL}r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{uri}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}"
     response = HTTParty.get(url).parsed_response
-    puts "API WRAPPER RESPONSE IN FIND RECIPE:"
-    puts response[0]
     recipe = RecipeApiWrapper.new(response[0])
     return recipe
   end

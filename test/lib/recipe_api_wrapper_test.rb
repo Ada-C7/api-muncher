@@ -1,4 +1,5 @@
 require 'test_helper'
+# require 'httparty'
 
 describe "RecipeApiWrapper" do
   describe "initialize" do
@@ -13,7 +14,7 @@ describe "RecipeApiWrapper" do
         "ingredients"  =>  {hash: "ingridients", more: "someline"},
       }
       r = RecipeApiWrapper.new(recipe_hash)
-
+      r.calories.must_equal "calories"
       r.label.must_equal "label"
     end
     it " argument error if no arguments is presented" do
@@ -50,19 +51,17 @@ describe "RecipeApiWrapper" do
     end
     it "return max 300 recepies" do
       VCR.use_cassette("recipes_all") do
-        result = RecipeApiWrapper.search("apple", 0)
+        result = RecipeApiWrapper.all("apple")
         result.length.must_equal 300
       end
     end
-
   end
-
 
   describe "self.find_recipe(uri)" do
     it "find one recipe" do
       VCR.use_cassette("recipe") do
         recipe = RecipeApiWrapper.find_recipe("d38d01540acb03fba45e4ac2660627ac")
-        recipe.name.must_equal "Sunday Supper: Jerk Half-Chickens"
+        recipe.label.must_equal "Sunday Supper: Jerk Half-Chickens"
         recipe.must_be_kind_of RecipeApiWrapper
       end
     end
@@ -73,7 +72,6 @@ describe "RecipeApiWrapper" do
         end
       end
     end
-
 
     describe "self.health_options" do
       it "return string if at least one options are given" do

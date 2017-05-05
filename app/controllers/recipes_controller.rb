@@ -38,8 +38,6 @@ class RecipesController < ApplicationController
 
     def show_recipe
       @recipe = RecipeApiWrapper.find_recipe(params[:uri])
-      # print "RECIPE IN CONTROLLER:"
-      # print @recipe.uri
       @favorite_recipe = Recipe.new
     end
 
