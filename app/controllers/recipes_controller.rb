@@ -1,3 +1,5 @@
+require "search_api_wrapper"
+
 class RecipesController < ApplicationController
 
   def index
