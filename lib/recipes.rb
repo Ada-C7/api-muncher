@@ -8,11 +8,11 @@ class Recipe
   BASE_URL = "https://api.edamam.com/search"
   MAX_HITS = 200
 
-  def self.get_recipes(search_term)
+  def self.get_recipes(search_term, from)
     result = []
-    url = BASE_URL + "?app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&q=#{search_term}"
+    url = BASE_URL + "?app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&q=#{search_term}" + "&from=#{from}" + "&to=#{from.to_i + 10}"
     data = HTTParty.get(url)
-    if data["count"] != 0
+    if data["count"] != 0 && data["hits"] != nil
       10.times do |i|
         label = data["hits"][i]["recipe"]["label"]
         image = data["hits"][i]["recipe"]["image"]

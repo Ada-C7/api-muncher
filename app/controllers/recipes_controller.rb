@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
 
   def index
     @search_term = params[:q]
-    @list = Recipe.get_recipes(@search_term)
+    @list = Recipe.get_recipes(@search_term, params[:from])
   end
 
   def show
