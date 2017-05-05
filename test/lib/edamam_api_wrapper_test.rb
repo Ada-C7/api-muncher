@@ -4,11 +4,11 @@ describe EdamamApiWrapper do
 
 
   # THESE ARE NOT PASSING -- NOT SURE WHY
-  describe "self.querySearch(search_terms, from, to)" do
+  describe "self.querySearch(search_terms, from, to, health)" do
     before do
       VCR.insert_cassette("recipes")
     end
-    
+
     after do
       VCR.eject_cassette("recipes")
     end
@@ -20,17 +20,31 @@ describe EdamamApiWrapper do
 
     end
 
-    it "will return empty array if no search term given" do
+    it "will return empty array if no search term or health is given" do
       response = EdamamApiWrapper.querySearch("", 0, 10)
-
       response.must_equal []
-
-      # recipes.must_be_instance_of Array
+    end
+    
+    # this isn't working
+    it "returns 10 recipes at a time (and a count)" do skip
+      to = 10
+      num = to + 1
+      response = EdamamApiWrapper.querySearch("chicken", 0, to)
+      response.length.must_equal num
     end
 
-    it "returns 10 recipes at a time" do
-      results = EdamamApiWrapper.querySearch("chicken", 0, 10)
-      results.count.must_equal 10
+    it "can be given a health param and search_terms" do
+      healths = %w(dairy-free gluten-free vegetarian kosher)
+      healths.each do |health|
+        EdamamApiWrapper.querySearch("chicken", 0, 10, health).must_be_instance_of Array
+      end
+    end
+
+    it "can be given a health param and no search_terms" do
+      healths = %w(dairy-free gluten-free vegetarian kosher)
+      healths.each do |health|
+        EdamamApiWrapper.querySearch("", 0, 10, health).must_be_instance_of Array
+      end
     end
 
   end

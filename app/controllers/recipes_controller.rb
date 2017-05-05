@@ -1,9 +1,9 @@
 class RecipesController < ApplicationController
 
-
-  def new
-    @recipe = Recipe.new
-  end
+  ### don't think I need this
+  # def new
+  #   @recipe = Recipe.new
+  # end
 
   def create
     @recipe = Recipe.new(name: session[:recipe_name], recipe_url: session[:recipe_url], user_id: current_user.id)
