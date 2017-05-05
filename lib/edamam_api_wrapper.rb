@@ -20,7 +20,7 @@ class EdamamApiWrapper
     recipes = []
     if search_results
         search_results.each do |recipe|
-        recipes << Recipe.new(recipe["recipe"]["label"], recipe["recipe"]["image"], recipe["recipe"]["uri"].partition("recipe_").last, recipe["recipe"]["url"])
+        recipes << Recipe.new(recipe["recipe"]["label"], recipe["recipe"]["image"], recipe["recipe"]["uri"].partition("recipe_").last)
       end
     end
     return recipes
@@ -32,17 +32,7 @@ class EdamamApiWrapper
     response = HTTParty.get(url)
     recipe = response.first
     if recipe
-      label = recipe["label"]
-      image = recipe["image"]
-      uri = recipe["uri"].partition("recipe_").last
-      url = recipe["url"]
-      options = {}
-      options[:ingredientLines] = recipe["ingredientLines"]
-      options[:totalNutrients] = recipe["totalNutrients"]
-      options[:totalDaily] = recipe["totalDaily"]
-      options[:digest] = recipe["digest"]
-
-      recipe = Recipe.new(label, image, uri, url, options)
+      recipe = Recipe.new(recipe["label"], recipe["image"], recipe["uri"].partition("recipe_").last, url: recipe["url"], ingredientLines: recipe["ingredientLines"], totalNutrients: recipe["totalNutrients"], totalDaily: recipe["totalDaily"], digest: recipe["digest"])
     end
   return recipe
   end

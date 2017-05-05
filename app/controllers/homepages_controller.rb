@@ -29,8 +29,6 @@ class HomepagesController < ApplicationController
     else
       @next_link = "<a class=\"button\" href=\"" + list_recipes_path(:search_term => params[:search_term], :page => page + 1) + "\">Next</a>"
     end
-
-
   end
 
   def show
