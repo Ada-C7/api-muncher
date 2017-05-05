@@ -1,3 +1,57 @@
-<p>
-  This is the show page
-</p>
+
+<section class ="row ">
+  <h3 class = "large-8 columns"> <%= @recipe[0]["label"] %> </h3>
+
+  <div class = "large-4 columns">
+    <p>
+      Source: <%= link_to @recipe[0]["source"], @recipe[0]["url"], target: :_blank%>
+
+    </p>
+    <p>
+      <%= link_to "Edamam's page", @recipe[0]["shareAs"], target: :_blank%>
+    </p>
+  </div>
+
+</section>
+
+
+<section class = "row my_box">
+
+    <div class = "large-3 columns recipe">
+
+      <%=image_tag(@recipe[0]["image"], alt: "recipe image not available", class: "recipe_image_show")%>
+    </div>
+
+    <div class = "large-4 columns recipe">
+
+      <h4> Ingredients </h4>
+      <div class = "ingredients">
+        <% @recipe[0]["ingredients"].each do |text|%>
+        <p>
+          <%=text["text"] %>
+        </p>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class = "large-5 columns recipe">
+      <h4> Nutrition Facts </h4>
+
+      <section class="row ">
+        <table>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+          <%# @works.each do |work| %>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <%#end %>
+        </table>
+      </section>
+
+    </div>
+</section>
