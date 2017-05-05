@@ -15,3 +15,43 @@
  *= require foundation_and_overrides
 
  */
+
+/*General Styling*/
+body {
+  font-size: 20px;
+  font-family: 'Love Ya Like A Sister', cursive;
+  /*text-align: center;*/
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Pacifico', cursive;
+}
+
+/*Header*/
+header h1 {
+  font-size: 1em;
+}
+
+/*Footer*/
+footer {
+  margin-top: 40px;
+}
+
+/*Root page*/
+.root {
+  background-color: gold;
+}
+
+.title {
+  text-align: center;
+}
+
+label {
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.button {
+  display: block;
+  margin: auto;
+}

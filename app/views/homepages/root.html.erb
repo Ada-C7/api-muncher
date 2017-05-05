@@ -1,26 +1,32 @@
-<article class="index">
+<article class="root row">
 
-  <section class="intro">
+  <section class="intro small-10 small-centered  columns">
 
-    <h2>Welcome to Trickey-Eats!</h2>
-    <h3>Where it shouldn't be Trickey to find something to eat.</h3>
+    <h2 class="title">Welcome to Trickey-Eats!</h2>
+    <h3 class="title">Where it shouldn't be Trickey to find something to eat.</h3>
     <p>
-      (This is a pun on Lynn Trickey’s last name.  She knows it’s spelled differently than the word tricky.  She learned that in the First Grade during a very traumatic spelling lesson.  Thanks for reminding her.)
+      (This is a pun on Lynn Trickey’s last name.  She knows it’s spelled differently than the word tricky.  She learned that in the First Grade during a very traumatic spelling lesson.  Thanks for bringing it up.)
     </p>
 
   </section>
 
-  <section class="search">
-    <h3>Find Something Yummy for your Tummy</h3>
+  <section class="search small-10 small-centered columns">
 
    <%= form_tag search_recipes_path, method: :get do %>
 
-      <%= label_tag(:search_terms, "What are you Hungry for?") %>
-      <%= text_field_tag(:search_terms) %>
+      <div class="small-12 columns">
+        <%= label_tag(:search_terms, "What are you Hungry for?") %>
+      </div>
+
+      <div class="small-12 columns">
+        <%= text_field_tag(:search_terms) %>
+      </div>
 
       <%= hidden_field_tag :page, 0 %>
 
-      <%= submit_tag("Find Recipe") %>
+      <div class="small-12 columns">
+        <%= submit_tag "Find Recipe", class: "button" %>
+      </div>
 
    <% end %>
   </section>
