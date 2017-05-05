@@ -1,5 +1,5 @@
 require 'httparty'
-
+require "recipe"
 class SearchApiWrapper
 
   BASE_URL = "https://api.edamam.com/search"
