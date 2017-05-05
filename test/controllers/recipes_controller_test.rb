@@ -19,6 +19,7 @@ describe RecipesController do
     # recipe = SearchApiWrapper.showRecipe("https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl%23recipe_637913ec61d9da69eb451818c3293df2")
     must_respond_with :success
   end
+
   it "should show flash message when there is no match of search item " do
       get recipes_path("123")
       flash[:error].must_equal "Sorry, there is no match"

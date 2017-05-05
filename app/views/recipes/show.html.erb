@@ -1,40 +1,53 @@
 <h1><%= link_to @recipe.label, @recipe.url, target: :_blank %></h1>
 
 <div class="row">
-<div class=""><%= link_to image_tag(@recipe.image), @recipe.url, target: :_blank %></div>
-<!-- <div><%#= link_to @recipe.label, @recipe.url, target: :_blank %></div> -->
-<div >
-<h3>Ingredients </h3>
- <ul><% @recipe.ingredients.each do |item| %>
-     <li>
-       <%= item %>
-     </li>
-     <% end %>
-</ul></div>
+  <div class="small-12 medium-6 column">
+    <%= link_to image_tag(@recipe.image), @recipe.url, target: :_blank %>
+  </div >
+
+  <div class="small-12 medium-6 column">
+   <h3>Allergy information</h3>
+     <ul>
+      <% if @recipe.allergy_info.count == 0 %>
+        <li>
+          None
+        </li>
+      <% else %>
+        <% @recipe.allergy_info.each do |item| %>
+          <li>
+           <%= item %>
+          </li>
+        <% end %>
+        <% end %>
+      </ul>
+  </div>
 </div>
 
+<div class="row">
+  <div class="column">
+    <h3>Ingredients </h3>
+        <ul><% @recipe.ingredients.each do |item| %>
+            <li>
+              <%= item %>
+            </li>
+            <% end %>
+        </ul>
+  </div>
+</div>
 
-<h3>Allergy information</h3>
-
-<div> <ul>
-  <% if @recipe.allergy_info.count == 0 %>
-    <li>
-      None
-    </li>
-  <% else %>
-    <% @recipe.allergy_info.each do |item| %>
-      <li>
-       <%= item %>
-      </li>
-    <% end %>
-  <% end %>
-</ul></div>
-
-<h3>Dietery information</h3>
-<div><ul>
-  <% (@recipe.nutrients.keys).each do |key| %>
-  <li>
-    <%= @recipe.nutrients[key]["label"] %> <%= @recipe.nutrients[key]["quantity"].round(2) %> <%= @recipe.nutrients[key]["unit"] %>
-  </li>
-  <% end %>
-</ul></div>
+<div class="row">
+    <h3>Dietery information</h3>
+      <table class="diet-table">
+        <% (@recipe.nutrients.keys).each do |key| %>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td class="small-12 medium-4 column">
+              <%= @recipe.nutrients[key]["label"] %></td>
+             <td class="small-12 medium-4 column">
+               <%= @recipe.nutrients[key]["quantity"].round(2) %></td>
+             <td class="small-12 medium-4 column" >
+               <%= @recipe.nutrients[key]["unit"] %><td>
+        </tr>
+        <% end %>
+      </table>
+</div>
