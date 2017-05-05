@@ -1,3 +1,6 @@
+require_dependency '../../lib/edamam_api_wrapper'
+require_dependency '../../lib/recipe'
+
 class RecipesController < ApplicationController
 
     def results
@@ -19,7 +22,7 @@ class RecipesController < ApplicationController
 
     def show
       @recipe = EdamamApiWrapper.getRecipe(params[:recipe_id])
-    
+
       if !@recipe
         flash[:error] = "Cannot find that recipe"
         render_404
