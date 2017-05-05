@@ -1,7 +1,7 @@
 require 'httparty'
 
 class EdamamApiWrapper
- attr_reader :uri
+ # attr_reader :uri
   BASE_URL = "https://api.edamam.com/"
   APP_ID = ENV["EDAMAM_APP_ID"]
   APP_KEY = ENV["EDAMAM_APP_KEY"]
@@ -38,6 +38,18 @@ class EdamamApiWrapper
 
     response = HTTParty.get(url)
     raise
+    if response[0]
+      uri = response[0]["uri"]
+      name = response[0]["label"]
+      image = response[0]["image"]
+      img_source = response[0]["source"]
+      url = response[0]["url"]
+      r_yield = response[0]["yield"]
+      diet_labels = response[0]["dietLabels"]
+      health_labels = response[0]["healthLabels"]
+      ingredients = response[0]["ingredientLines"]
+      calories = response[0]["calories"]
+      Recipe.new()
 
   end
 end
