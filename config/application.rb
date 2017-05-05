@@ -11,9 +11,9 @@ module ApiMuncher
     # Force new test files to be generated in the minitest-spec style
 
     #this loads everything in the lib folder automatically
-    config.autoload_paths << Rails.root.join('app/lib')
+    # config.autoload_paths << Rails.root.join('app/lib')
     config.eager_load_paths << "#{Rails.root}/lib"
-    
+
     config.generators do |g|
       g.test_framework :minitest, spec: true
     end
