@@ -14,17 +14,18 @@
 <body>
   <header>
     <div>
-      <h1>Measure Twice</h1>
+      <h1><%= link_to "Measure Twice", root_path, method: :get %></h1>
     </div>
     <div>
       <h3>The Best Way To Find Great Recipes</h3>
     </div>
   </header>
   <%= yield %>
-  <!-- <footer class="footer row">
-    <div class="small-12">
-      <p>add footer contents</p>
+  <footer class="footer">
+      <p>This site is powered by </p>
+    <div class="attribution">
+      <%= link_to image_tag("http://media.prleap.com/image/5419/full/_logo_edamam.jpg"), "http://developer.edamam.com" %>
     </div>
-  </footer> -->
+  </footer>
 </body>
 </html>

@@ -1,0 +1,60 @@
+<div class="show row">
+  <div class="show-det small-12 medium-6 column">
+    <div class="show-top">
+    <h4><%= @recipe.label %></h4>
+      <%= image_tag(@recipe.image)%>
+    </div>
+    <section class="det-table">
+      <table>
+        <thead>
+          <tr>
+            <th><%= @recipe.ingredients.length %> Ingredients</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recipe.ingredients.each do | ingredient | %>
+          <tr>
+            <td><%=ingredient["text"]%></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+    <div class="links">
+      <div class="link">
+        <%= link_to "Get Instructions", @recipe.url %>
+      </div>
+      <div class="link">
+        <%= link_to "Back to Search Results", :back %>
+      </div>
+    </div>
+  </div>
+  <div class="small-12 medium-6 column">
+    <section class="nutri-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Nutrition</th>
+            <th>Total</th>
+            <th>Daily</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recipe.total_nutrients.keys.each do |key| %>
+          <tr>
+            <td><%= @recipe.total_nutrients[key]["label"]%></td>
+            <td><%= @recipe.total_nutrients[key]["quantity"].round(0) %> <%= @recipe.total_nutrients[key]["unit"] %></td>
+            <td>
+              <% if @recipe.total_daily[key] %>
+              <%= @recipe.total_daily[key]["quantity"].round(0) %> <%= @recipe.total_daily[key]["unit"] %>
+              <% else %>
+              --
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>

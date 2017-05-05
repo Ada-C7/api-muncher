@@ -27,7 +27,6 @@ class EdamamApiWrapper
     url = BASE_URL + "?r=#{uri.gsub("#","%23")}"+ "&app_id=#{EDAMAM_ID}" + "&app_key=#{EDAMAM_KEY}"
     response = HTTParty.get(url)
     recipe = Recipe.new(response[0])
-   raise
     return recipe
   end
 end

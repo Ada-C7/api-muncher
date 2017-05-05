@@ -1,6 +1,6 @@
 <div class="main row">
   <% 2.times do |n| %>
-    <div class="small-6 medium-6 column">
+    <div class="small-12 medium-6 column">
       <% if n == 0 %>
         <% half = @recipes[0..4]%>
       <% else %>
@@ -9,11 +9,10 @@
 
       <% half.each do | recipe | %>
       <div class="result-recipe">
-        <h4><%= link_to recipe.label, recipe_details_path(uri: recipe.uri), method: :get, class: "title" %></h4>
+        <h5><%= link_to recipe.label, recipe_details_path(uri: recipe.uri), method: :get, class: "title" %></h5>
         <%= link_to image_tag(recipe.image), recipe_details_path(uri: recipe.uri), method: :get, class:"image" %>
       </div>
       <% end %>
-
     </div>
   <% end %>
 </div>
