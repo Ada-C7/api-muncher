@@ -42,8 +42,11 @@ class ActiveSupport::TestCase
   config.default_cassette_options = {record: :new_episodes, match_requests_on: [:method, :uri, :body] }
 
   #how to hide all tokens??
-  config.filter_sensitive_data( "<SLACK_TOKEN>" ) do
-    ENV[ "SLACK_TOKEN" ]
+  config.filter_sensitive_data( "<EDAMAM_ID>" ) do
+    ENV[ "EDAMAM_ID" ]
+  end
+  config.filter_sensitive_data( "<EDMAM_KEY>" ) do
+    ENV[ "EDAMAM_KEY" ]
   end
 end
   # Add more helper methods to be used by all tests here...
