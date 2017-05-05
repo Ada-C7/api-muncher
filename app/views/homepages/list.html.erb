@@ -1,7 +1,7 @@
 <h1>List of recipes</h1>
 
 <section class="recipe-list">
-  <h1>Recipes for </h1>
+  <h1>Recipes for <%= @search_term %></h1>
   <ul>
     <% @recipes.each do |recipe| %>
       <li>
@@ -9,4 +9,8 @@
       </li>
     <% end %>
   </ul>
+
+<%= previous_link.html_safe %>
+<%= next_link.html_safe %>
 </section>
+<%= link_to "Home", root_path, class: "button" %>

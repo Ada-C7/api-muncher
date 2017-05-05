@@ -2,11 +2,15 @@ class HomepagesController < ApplicationController
   def index;end
 
   def list
-    @recipes = EdamamApiWrapper.listRecipes(params[:search_term])
-    #if params[:food]
-    # else
-    #   flash[:warning] = "please enter search term"
-    #   redirect_to :root
+    if params[:search_term] && params[:search_term] != ""
+      @recipes = EdamamApiWrapper.listRecipes(params[:search_term], params[:page])
+    else
+      flash[:warning] = "please enter search term"
+      redirect_to :root
+      return
+    end
+
+    @search_term = params[:search_term]
   end
 
   def show
