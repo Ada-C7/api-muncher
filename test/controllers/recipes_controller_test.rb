@@ -6,9 +6,10 @@ describe RecipesController do
     must_respond_with :success
   end
 
-  it "should get a list of recipes" do
-    get recipes_path, params: { search: "chicken" }
-    must_respond_with :success
-  end
-
+    VCR.use_cassette("get_recipes") do
+      it "should get a list of recipes" do
+        get get_recipes_path, params: {"search" => "chicken", page: "1"}
+        must_respond_with :success
+      end
+    end
 end
