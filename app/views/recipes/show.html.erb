@@ -1,1 +1,13 @@
-<h2><%= @recipe.name %></h2>
+<h3><%= @recipe.name %></h3>
+<%= image_tag @recipe.image, alt:"picture of #{@recipe.name}"%>
+
+<section>
+<h4>INGREDITENTS</h4>
+<ul>
+
+</ul>
+
+</section>
+
+
+<h5><%= link_to "Link to original recipe", @recipe.original_url %></h5>
