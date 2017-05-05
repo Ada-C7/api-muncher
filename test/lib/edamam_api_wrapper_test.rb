@@ -25,6 +25,16 @@ describe EdamamApiWrapper do
       recipes.length.must_equal 0
     end
 
+    it "requires a valid API ID" do
+      recipes = EdamamApiWrapper.listRecipes("bread", "345")
+      recipes.must_equal []
+     end
+
+    it "requires a valid API KEY" do
+      recipes = EdamamApiWrapper.listRecipes("bread", "8db3c059", "345")
+      recipes.must_equal []
+    end
+
 
   end
 
@@ -36,8 +46,19 @@ describe EdamamApiWrapper do
       recipe.id.wont_be_nil
     end
 
-    it "returns 404 for an invalid recipe id" do
+    it "returns nil if recipe id isn't valid" do
+      recipe = EdamamApiWrapper.getRecipe("86d1850")
+      recipe.must_be_nil
+    end
 
+    it "requires a valid API ID" do
+      recipe = EdamamApiWrapper.getRecipe("86d1850abc8e15b20f0bdec30647839a", "86d18")
+      recipe.must_be_nil
+    end
+
+    it "requires a valid API KEY" do
+      recipe = EdamamApiWrapper.getRecipe("86d1850abc8e15b20f0bdec30647839a", "86d1850", "abc")
+      recipe.must_be_nil
     end
 
   end

@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
       end
       results = EdamamApiWrapper.listRecipes(params[:query])
 
-      if results.length == 0
+      if results.empty?
         flash.now[:error] = "Your search had no results. Try again!"
         render 'index'
       else
@@ -19,10 +19,10 @@ class RecipesController < ApplicationController
 
     def show
       @recipe = EdamamApiWrapper.getRecipe(params[:recipe_id])
-
+    
       if !@recipe
         flash[:error] = "Cannot find that recipe"
-        redirect_to recipes_results_path
+        render_404
       else
         return @recipe
       end
