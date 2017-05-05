@@ -23,14 +23,23 @@ li {
   list-style-type: none;
 }
 
+h1, h2, h3, h4 {
+  font-family: 'Amatic SC', cursive;
+}
+
+* {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
 /*=====================
 index header
 =======================*/
 header {
-  background-color: #aab468;
+  background-image: url(/assets/cloth.png);
   border-width: 2px 0;
   border-style: solid;
   border-color: #2c8993;
+  margin-bottom: 5px;
 }
 
 
@@ -47,5 +56,5 @@ footer
 
 footer {
   padding-top: 5px;
-  border-top: 3px solid #aab468;
+  border-top: 3px solid #2c8993;
 }
