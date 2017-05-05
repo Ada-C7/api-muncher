@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
     if params[:search_term]
       result_recipes = EdamamApiWrapper.listRecipes(params[:search_term])
 
-      @recipes = Kaminari.paginate_array(result_recipes, total_count: 100).page(params[:page]).per(10)
+      @recipes = Kaminari.paginate_array(result_recipes, total_count: 120).page(params[:page]).per(12)
     end
   end
 

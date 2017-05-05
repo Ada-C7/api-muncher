@@ -15,3 +15,56 @@
  *= require foundation_and_overrides
 
  */
+
+@import url('https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Yanone+Kaffeesatz');
+
+/*font-family: 'Bungee', cursive;*/
+
+/*general rules */
+* {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+button, input, select, textarea {
+  font-family : inherit;
+  font-size   : 100%;
+}
+
+/*header*/
+h1#home a {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 3em;
+  margin: auto;
+  text-align: center;
+}
+
+h1#home {
+  text-align: center;
+}
+
+#search-form {
+  margin: auto;
+  padding: 50px 25%;
+}
+
+input#search-button {
+  /*margin: auto;*/
+  /*text-align: center;*/
+}
+
+input[type=search] {
+  border: 1px solid #25A48F;
+  border-radius: 20px;
+  padding: 15px;
+
+  -webkit-appearance: none;
+}
+
+/*content*/
+
+
+/*footer*/

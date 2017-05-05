@@ -1,18 +1,16 @@
-<section class="recipes-list">
-
-<% if @recipes %>
-  <ul>
+<% if @recipes.nil? %>
+<% elsif !@recipes.empty? %>
+  <section class="row small-up-1 medium-up-3 large-up-4 recipes-list">
     <% @recipes.each do |recipe| %>
-    <li>
+    <article class="column">
       <%= link_to image_tag(recipe.image, class: "preview"), recipe_path(:label => recipe.label, :recipe_id => recipe.id) %>
       <%= link_to recipe.label, recipe_path(:label => recipe.label, :recipe_id => recipe.id) %>
-    </li>
+    </article>
     <% end %>
     <%= paginate @recipes %>
-  </ul>
-<% else %>
+  </section>
+<% elsif @recipes.empty? %>
   <p>
-    Please enter a new search term above.
+    No results found. Please enter a new search term above.
   </p>
 <% end %>
-</section>

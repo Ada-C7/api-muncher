@@ -12,12 +12,13 @@
   </head>
 
   <header>
-    <%= link_to "Feed. Yo. Self.", root_path %>
+    <h1 id="home" class="row">
+      <%= link_to "Feed. Yo. Self.", root_path %>
+    </h1>
 
-    <%= form_tag recipes_path, method: 'get', id: 'search-form' do %>
-      <%#= hidden_field_tag :to, value: 10 %>
-      <%= text_field_tag :search_term, params[:search_term], placeholder: "Search Recipes: " %>
-      <%= submit_tag 'Search', :name => nil %>
+    <%= form_tag recipes_path, method: 'get', class: "row", id: "search-form" do %>
+      <%= text_field_tag :search_term, params[:search_term], placeholder: "Search Recipes: ", type: "search" %>
+      <%= submit_tag 'Search', :name => nil, id:"search-button" %>
     <% end %>
   </header>
   <body>
@@ -25,8 +26,8 @@
     <%= yield %>
 
   </body>
-  <footer>
-    <h4>Powered by</h4>
+  <footer class="row">
+    <h6>Powered by</h6>
     <%= link_to image_tag("https://www.edamam.com/images/logo-site-header.png", class: "logo"), "https://www.edamam.com/" %>
   </footer>
 
