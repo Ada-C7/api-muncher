@@ -27,7 +27,8 @@
         <% previous_start = current_start - 10  %>
         <% previous_end = current_start %>
 
-<%= button_to "Previous", {:controller => "recipes", :action => "index", :search => "chicken",:from => 5, :to =>9}, method: :get%>
+
+<%= button_to "Previous", recipes_path, method: :get, :params =>{:search => params[:search], :from => previous_start, :to => previous_end }%>
 
 
 
