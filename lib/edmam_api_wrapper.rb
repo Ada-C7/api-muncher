@@ -11,7 +11,7 @@ class EdmamApiWrapper
       raise ArgumentError
     end
 
-    url = "#{BASE_URL}?q=#{query}&app_id=#{APP_ID}&app_key=#{TOKEN}"
+    url = "#{BASE_URL}?q=vegan+#{query}&app_id=#{APP_ID}&app_key=#{TOKEN}"
 
     response = HTTParty.get(url)
     recipes = []
