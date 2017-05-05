@@ -74,9 +74,26 @@ input[type="submit"]:hover, input[type="submit"]:active {
   background-color: #71C2CD;
 }
 
+header {
+  margin: 2em 0 5em 0;
+}
 
 /*content*/
 p {
+  text-align: center;
+}
+
+article {
+  margin-bottom: 3em;
+}
+
+.pages a {
+  display: inline;
+}
+
+nav.pagination {
+  margin: auto;
+  padding: 0 5em;
   text-align: center;
 }
 
