@@ -68,6 +68,8 @@ GEM
     dotenv-rails (2.2.0)
       dotenv (= 2.2.0)
       railties (>= 3.2, < 5.1)
+    emoji (1.0.7)
+      json
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -211,6 +213,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   dotenv-rails
+  emoji
   foundation-rails
   httparty
   jbuilder (~> 2.5)

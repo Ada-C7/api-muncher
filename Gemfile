@@ -63,6 +63,7 @@ end
  gem 'httparty'
  gem 'foundation-rails'
  gem 'will_paginate'
+ gem 'emoji'
 
 group :test do
   gem 'minitest-rails'
