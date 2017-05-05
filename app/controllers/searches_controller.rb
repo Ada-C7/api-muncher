@@ -1,3 +1,7 @@
+require_dependency '../../lib/edamam_api_wrapper'
+require_dependency '../../lib/recipe'
+
+
 class SearchesController < ApplicationController
 
   def results
