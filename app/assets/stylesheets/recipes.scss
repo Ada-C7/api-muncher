@@ -1,3 +1,50 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.column {
+  padding: 0;
+}
+
+.my_box {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border: 0.05rem solid grey;
+  border-radius: 0.3rem;
+  background-color: #ffff00;
+  position: relative;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+    width: 100%;
+}
+
+.recipe_image_index {
+  // border-radius: 0.3rem;
+  border-radius: 100%;
+}
+.recipe_image_show {
+  border-radius: 0.3rem;
+}
+
+.description {
+
+}
+
+.button {
+  background-color: #dae8da;
+  color: grey;
+  width: 100%;
+  border-radius: 0.3rem;
+}
+
+.cta_button{
+  vertical-align: bottom;
+
+}
+
+.ingredients p {
+  margin: 0;
+  padding: 0;
+}
