@@ -1,20 +1,32 @@
 <h1>Show Page</h1>
 
-<%= image_tag(@recipe.image) %>
+<%= link_to image_tag(@recipe.image), @recipe.url, target: :_blank %>
 
 
-<div><%= link_to @recipe.label, @recipe.url %></div>
+<div><%= link_to @recipe.label, @recipe.url, target: :_blank %></div>
 <h3>ingredients </h3>
 <div> <ul><% @recipe.ingredients.each do |item| %>
-
      <li>
        <%= item %>
      </li>
      <% end %>
-
 </ul></div>
+
 <h3>Allergy information</h3>
-<div><%= @recipe.allergy_info %></div>
+
+<div> <ul>
+  <% if @recipe.allergy_info.count == 0 %>
+    <li>
+      None
+    </li>
+  <% else %>
+    <% @recipe.allergy_info.each do |item| %>
+      <li>
+       <%= item %>
+      </li>
+    <% end %>
+  <% end %>
+</ul></div>
 
 <h3>Dietery information</h3>
 <div><ul>
