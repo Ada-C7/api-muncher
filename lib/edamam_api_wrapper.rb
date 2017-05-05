@@ -29,4 +29,8 @@ class EdamamApiWrapper
     return recipes
 
   end
+
+
+  def self.show_recipe(id)
+  end 
 end

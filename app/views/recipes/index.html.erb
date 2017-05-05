@@ -1,15 +1,17 @@
 <h1>Recipes</h1>
 <!-- need a form for search here -->
 <%= form_tag(root_path, method: :get) do %>
-  <%= label_tag(:q, "Recipe name?") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-  <% end %>
+<%= label_tag(:q, "Recipe name?") %>
+<%= text_field_tag(:q) %>
+<%= submit_tag("Search") %>
+<% end %>
 
 <ul>
+
   <% if @recipes %>
-<% @recipes.each do |recipe| %>
-<li><%= recipe.name %></li>
+  <%= will_paginate @recipes %>
+  <% @recipes.each do |recipe| %>
+  <li><%= recipe.name %></li>
   <!-- <li><%# link_to 'recipe', recipe.uri %></li> -->
   <li><%= image_tag recipe.image %>/></li>
   <% end %>
