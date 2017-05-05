@@ -39,7 +39,7 @@ a:hover {
 index header
 =======================*/
 header {
-  background-image: url(/assets/cloth.png);
+  background-image: url('<%= asset_path("cloth.png")%>');
   border-width: 6px 0;
   /*border-top-style: solid;*/
   border-style: solid;
