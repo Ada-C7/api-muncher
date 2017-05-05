@@ -8,12 +8,5 @@ class RecentSearch
     @health = health
   end
 
-  def has_health?
-    if self.health != nil
-      return "(#{self.health})"
-    else
-      return ""
-    end
-  end
 
 end

@@ -8,7 +8,6 @@ class SearchesController < ApplicationController
   before_action :limit_recent_searches
 
   def index
-    session[:recent_searches] ||= []
     @recent_searches = session[:recent_searches]
     session[:search_count] = nil
     session[:search_terms] = nil
@@ -101,6 +100,7 @@ class SearchesController < ApplicationController
   end
 
   def limit_recent_searches
+    session[:recent_searches] ||= []
     if session[:recent_searches].length > 10
       session[:recent_searches] = session[:recent_searches][-10..-1]
     end
