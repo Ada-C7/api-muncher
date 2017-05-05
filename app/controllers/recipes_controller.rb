@@ -13,7 +13,8 @@ class RecipesController < ApplicationController
     else
       @page = params[:page].to_i
       from = (@page * 10) - 10
-      @recipes = EdamamApiWrapper.findRecipes(params[:search], from)
+      to = from + 9
+      @recipes = EdamamApiWrapper.findRecipes(params[:search], from, to)
     end
   end
 

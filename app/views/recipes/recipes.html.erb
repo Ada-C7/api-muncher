@@ -1,3 +1,5 @@
+<body class="results">
+
 <main class="row">
 
 <h1 class="recipes-header"><%= @ingredient.capitalize %> Recipes</h1>
@@ -15,7 +17,7 @@
 <section class="top columns large-4 small-12 product" >
 <ul class="recipe">
   <li>
-    <%= link_to recipe.label, get_recipe_path(:label => recipe.label, :uri => recipe.uri), class: "recipe-title" %>
+    <h3><%= link_to recipe.label, get_recipe_path(:label => recipe.label, :uri => recipe.uri), class: "recipe-title" %></h3>
   </li>
   <li>
     <%= image_tag(recipe.image) %>
@@ -32,3 +34,4 @@
 
 
 </main>
+</body>
