@@ -31,7 +31,8 @@ class EdamamApi
     recipe_array = []
     if response["hits"]
       response["hits"].each do |recipe|
-        recipe_array << self.new({label: recipe["recipe"]["label"], image: recipe["recipe"]["image"], source: recipe["recipe"]["source"], uri: recipe["recipe"]["uri"], url: recipe["recipe"]["url"], health_label: recipe["recipe"]["healthLabels"], calories: ((recipe["recipe"]["calories"])/4).round , ingredient_lines: recipe["recipe"]["ingredientLines"].length  })
+        recipe_array << self.new(
+        { label: recipe["recipe"]["label"], image: recipe["recipe"]["image"], source: recipe["recipe"]["source"], uri: recipe["recipe"]["uri"], url: recipe["recipe"]["url"], health_label: recipe["recipe"]["healthLabels"], calories: recipe["recipe"]["calories"], ingredient_lines: recipe["recipe"]["ingredientLines"] })
       end
     else
       raise EdamamApiException.new(response["Error, no recipes resulted. "])

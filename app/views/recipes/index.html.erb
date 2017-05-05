@@ -7,14 +7,10 @@
   <br>
   <br>
   <ul>
-
     <li><%= link_to "#{recipe.label}", recipe.uri %></li>
-
-    <li>Calories: <%= recipe.calories %></li>
-    <li>Ingredients: <%= recipe.ingredient_lines %></li>
+    <li>Calories: <%= ((recipe.calories)/4).round %></li>
+    <li>Ingredients: <%= (recipe.ingredient_lines).length %></li>
     <li><%= link_to "#{recipe.recipe_source_label}", recipe.recipe_source_url %></li>
     <li><%= recipe.health_label %></li>
   </ul>
   <% end %>
-
-</div>
