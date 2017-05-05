@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - ngx_openresty
       Date:
-      - Fri, 05 May 2017 18:14:51 GMT
+      - Fri, 05 May 2017 18:14:52 GMT
       Content-Type:
       - text/html
       Content-Length:
@@ -181,5 +181,5 @@ http_interactions:
         for Android</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div><!-- /footer-apps -->\n\t\t\t</div><!--
         /group-2 -->\n\t\t</footer>\n\t</div><!-- /general -->\n</body>\n\n</html>"
     http_version: 
-  recorded_at: Fri, 05 May 2017 18:14:51 GMT
+  recorded_at: Fri, 05 May 2017 18:14:52 GMT
 recorded_with: VCR 3.0.3

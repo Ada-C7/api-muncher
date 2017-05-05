@@ -2,20 +2,20 @@ require 'test_helper'
 
 describe "RecipeApiWrapper" do
   describe "initialize" do
-    # it "Takes a recipe_hash as an argument" do
-    #   recipe_hash = {
-    #     label: "label",
-    #     image: "image is here",
-    #     calories: "calories",
-    #     uri: "iridjksdkjdkdskjkdsjkdskdjsdkjs123_123",
-    #     diet_labels: ["one", "two"],
-    #     health_labels: ["one", "two"],
-    #     ingredients:  {hash: "ingridients", more: "someline"},
-    #   }
-    #   r = RecipeApiWrapper.new(recipe_hash)
-    #
-    #   r.label.must_equal "label"
-    # end
+    it "Takes a recipe_hash as an argument" do
+      recipe_hash = {
+        "label" => "label",
+        "image"  =>"image is here",
+        "calories" => "calories",
+        "uri"  => "http://www.edamam.com/ontologies/edamam.owl#recipe_d611b46c76dfb67266d7560e7b199c51",
+        "diet_labels"  => ["one", "two"],
+        "health_labels"  => ["one", "two"],
+        "ingredients"  =>  {hash: "ingridients", more: "someline"},
+      }
+      r = RecipeApiWrapper.new(recipe_hash)
+
+      r.label.must_equal "label"
+    end
     it " argument error if no arguments is presented" do
       proc { RecipeApiWrapper.new }.must_raise ArgumentError
     end
@@ -61,7 +61,7 @@ describe "RecipeApiWrapper" do
   describe "self.find_recipe(uri)" do
     it "find one recipe" do
       VCR.use_cassette("recipe") do
-        recipe = RecipeApiWrapper.find_recipe("_d38d01540acb03fba45e4ac2660627ac")
+        recipe = RecipeApiWrapper.find_recipe("d38d01540acb03fba45e4ac2660627ac")
         recipe.name.must_equal "Sunday Supper: Jerk Half-Chickens"
         recipe.must_be_kind_of RecipeApiWrapper
       end
@@ -76,7 +76,6 @@ describe "RecipeApiWrapper" do
 
 
     describe "self.health_options" do
-
       it "return string if at least one options are given" do
         vegan,kosher, vegetarian, paleo = "vegan","kosher", "vegetarian", "paleo"
         RecipeApiWrapper.health_options(vegan, kosher, vegetarian, paleo).must_be_kind_of String

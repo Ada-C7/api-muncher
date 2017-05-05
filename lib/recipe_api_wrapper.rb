@@ -12,9 +12,7 @@ class RecipeApiWrapper
   def initialize(recipe_hash)
     @label = recipe_hash["label"]
     @image = recipe_hash["image"]
-    # index = recipe_hash["uri"].split("").find_index("_")
-    # @uri = recipe_hash["uri"][index+1..-1]
-    @uri = recipe_hash["uri"][50..-1]
+    @uri = recipe_hash["uri"][51..-1]
     @calories = recipe_hash["calories"]
     @diet_labels = recipe_hash["dietLabels"]
     @health_labels = recipe_hash["healthLabels"]
@@ -44,13 +42,15 @@ class RecipeApiWrapper
       end
       return list_of_recipes_object
     # else
-    #   raise RecipeException.new(response)
+    #   raise RecipeException.new(response) # for some
     end
   end
 
   def self.find_recipe(uri)
     url = "#{BASE_URL}r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{uri}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}"
     response = HTTParty.get(url).parsed_response
+    puts "API WRAPPER RESPONSE IN FIND RECIPE:"
+    puts response[0]
     recipe = RecipeApiWrapper.new(response[0])
     return recipe
   end
