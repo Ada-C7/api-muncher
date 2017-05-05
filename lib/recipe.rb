@@ -1,7 +1,6 @@
 require 'json'
 
 class Recipe
-
   attr_reader :label, :image, :uri
 
   def initialize(label, image, uri)
@@ -18,17 +17,19 @@ class Recipe
 
     recipes_list = []
 
-    # Working, but loop needs to be DRYed
-    ## LOok up for specific api -- may have documentation
-    10.times do |count|
-      label = response['hits'][count]['recipe']['label']
-      image = response['hits'][count]['recipe']['image']
-      uri = response['hits'][count]['recipe']['uri']
+    if response['count'] == 0
+      return recipes_list
+    else
+      10.times do |count|
+        label = response['hits'][count]['recipe']['label']
+        image = response['hits'][count]['recipe']['image']
+        uri = response['hits'][count]['recipe']['uri']
 
-      recipes_list << Recipe.new(label, image, uri)
+        recipes_list << Recipe.new(label, image, uri)
+      end
     end
 
-    return recipes_list#recipe_display
+    return recipes_list
   end
 
   def list_display
