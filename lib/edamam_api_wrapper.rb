@@ -34,6 +34,7 @@ class EdamamApiWrapper
       label: response[0]["label"],
       image:  response[0]["image"],
       uri:  response[0]["uri"],
+      url: response[0] ["url"],
       recipe_source: response[0]["source"],
       totalNutrients: response[0]["totalNutrients"],
       ingredientLines: response[0]["ingredientLines"]

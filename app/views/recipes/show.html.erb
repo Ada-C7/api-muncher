@@ -1,9 +1,13 @@
 <main class="row">
 
   <h1>The Dish</h1>
+  <p class="Home">
+  <%= link_to "New Search", root_path %>
+  </p>
 
   <p><%=image_tag @show_recipe.image %></p>
-  <p><%= link_to @show_recipe.label, @show_recipe.recipe_source %></p>
+  <p><%= link_to @show_recipe.label, @show_recipe.url %></p>
+
 
   <table>
     <thead>
