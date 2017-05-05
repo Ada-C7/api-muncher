@@ -8,7 +8,8 @@ class RecipesController < ApplicationController
                       to: params[:from].to_i + 10
                     }
     @new_search = EdamamSearch.new(search_params)
-    @list_of_recipes = @new_search.search_results
+    search_results = @new_search.search_results
+    @list_of_recipes = Recipe.list_of_recipes(search_results)
   end
 
   # will show results from search
@@ -19,7 +20,8 @@ class RecipesController < ApplicationController
                     }
 
     recipe_info = EdamamSearch.new(search_params)
-    @recipe = recipe_info.search_results
+    search_results = recipe_info.search_results
+    @recipe = Recipe.individual_recipe(search_results)
     # raise
   end
 private

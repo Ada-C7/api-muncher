@@ -35,35 +35,19 @@ class EdamamSearch
     response = HTTParty.get(url, query: query_params)
 
     if response.count == 1
-      return Recipe.individual_recipe(response[0])
-    elsif response["count"]
-      return Recipe.list_of_recipes(response["hits"])
-    elsif response["error"]
-      raise EdamamException.new(response["error"])
+      return response[0]
+    elsif response["hits"]
+      return response["hits"]
+    else
+      raise EdamamException.new(resposne)
     end
+    #
+    # if response.count == 1
+    #   return Recipe.individual_recipe(response[0])
+    # elsif response["count"]
+    #   return Recipe.list_of_recipes(response["hits"])
+    # elsif response["error"]
+    #   raise EdamamException.new(response["error"])
+    # end
   end
-
-# private
-#   def labels_and_images(response)
-#     results = response["hits"].map do |info|
-#       recipe = Hash.new
-#       recipe[:id] = info["recipe"]["uri"].gsub("#", "%23")[53..-1]
-#       recipe[:label] = info["recipe"]["label"]
-#       recipe[:image_url] = info["recipe"]["image"]
-#       recipe
-#     end
-#     return results
-#   end
-#
-#   def wanted_recipe_info(response)
-#     recipe = Hash.new
-#     recipe[:label] = response[0]["label"]
-#     recipe[:image_url] = response[0]["image"]
-#     recipe[:original_recipe] = response[0]["url"]
-#     # you want ingredientLines
-#     recipe[:ingredients] = response[0]["ingredientLines"]
-#     recipe[:ingredients2] = response[0]["ingredients"]
-#     recipe[:dietary_information] = response[0]["totalNutrients"]
-#     recipe
-#   end
 end

@@ -1,5 +1,6 @@
 <section class="row">
 <h1>Search Results</h1>
+
   <article class="large-12 columns">
   <% if @list_of_recipes.nil? %>
 
@@ -14,6 +15,7 @@
         <div><h5><%= link_to recipe.label, recipe_path(recipe.id) %></h5></div>
       </div>
     <% end %>
+
   <% end %>
   </article>
 

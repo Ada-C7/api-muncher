@@ -11,17 +11,15 @@ class Recipe
   end
 
   def self.list_of_recipes(response)
-    list = response.map do |info|
+    list = response.map do |api_info|
       recipe = Hash.new
-      recipe[:id] = info["recipe"]["uri"][50..-1]
-      recipe[:label] = info["recipe"]["label"]
-      recipe[:image_url] = info["recipe"]["image"]
+      recipe[:id] = api_info["recipe"]["uri"][50..-1]
+      recipe[:label] = api_info["recipe"]["label"]
+      recipe[:image_url] = api_info["recipe"]["image"]
       Recipe.new(recipe)
     end
     return list
   end
-
-
 
   def self.individual_recipe(response)
     info = Hash.new
