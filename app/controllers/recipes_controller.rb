@@ -6,13 +6,12 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new
-    if @recipe.create(name: params[:recipe_name], recipe_url: params[:recipe_url])
+    @recipe = Recipe.new(name: session[:recipe_name], recipe_url: session[:recipe_url], user_id: current_user.id)
+    if @recipe.save
       flash[:success] = "Added #{@recipe.name} to your favorites list"
-      redirect to :root
+      redirect_to account_path
     else
       flash.new[:failure] = "Unable to add to favorites right now. Sorry!"
-      render :new
     end
 
   end

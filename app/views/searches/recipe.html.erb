@@ -1,11 +1,30 @@
-<section class="row">
   <section class="row">
-    <p class="columns small-12">
+    <p class="columns small-12 medium-6">
       <%= link_to "Back to results", recipes_path %>
     </p>
+    <% if current_user %>
+    <p class="columns small-12 medium-6">
+      <%= link_to "This recipe is my fave!", save_recipe_path, method: :post %>
+    </p>
+    <% end %>
+
     <h1 class="columns small-12"><%= @recipe.name %></h1>
+
   </section>
-  <section class="columns small-12 medium-4 ingredients-list">
+  <section class="row">
+
+    <p class="columns small-6 large-12 recipe-link">
+      check out the entire recipe --including complete nutrition information and instructions-- at <%= link_to @recipe.recipe_source, "#{@recipe.recipe_url}", target: :_blank %>
+    </p>
+
+  </section>
+  <section class="columns small-6 medium-6 large-4 show-recipe-image">
+
+    <%= image_tag @recipe.image %>
+
+  </section>
+
+  <section class="columns small-12 medium-6 large-4 ingredients-list">
 
     <h3>Ingredients</h3>
     <ul>
@@ -16,7 +35,7 @@
       <% end %>
     </ul>
   </section>
-  <section class="columns small-12 medium-4 nutrition-info">
+  <section class="columns small-12 medium-6 large-4 nutrition-info">
 
     <h3>Nutrition Information</h3>
     <table>
@@ -42,16 +61,3 @@
       <% end %>
     </table>
   </section>
-  <section class="columns small-12 medium-4 show-recipe-image">
-
-    <%= image_tag @recipe.image %>
-
-  </section>
-  <section class="row">
-
-    <p class="columns small-12 recipe-link">
-      check out the entire recipe --including complete nutrition information and instructions-- at <%= link_to @recipe.recipe_source, "#{@recipe.recipe_url}", target: :_blank %>
-    </p>
-
-  </section>
-</section>

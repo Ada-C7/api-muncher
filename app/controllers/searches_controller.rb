@@ -27,6 +27,8 @@ class SearchesController < ApplicationController
     @recipe = EdamamApiWrapper.getRecipe(params[:uri])
     # raise
     @nutrients = %w(ENERC_KCAL FAT SUGAR PROCNT VITB12)
+    session[:recipe_name] = @recipe.name
+    session[:recipe_url] = @recipe.recipe_url
   end
 
   # do I need this at all?

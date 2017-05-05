@@ -26,7 +26,7 @@
     <ul>
       <% @recipes.each do |recipe| %>
       <li>
-        <%= link_to search.search_terms, search.url, class: "recipe-link" %>
+        <%= link_to recipe.name, recipe.recipe_url, class: "recipe-link", target: :_blank %>
       </li>
       <% end %>
     </ul>
