@@ -17,5 +17,9 @@
 </ul>
 
 <% if params[:search] %>
-  <%= link_to "next", params.permit(:page, :search).merge(page: params[:page].to_i + 1) %>
+  <% page = params[:page].to_i %>
+  <% if page > 1 %>
+    <%= link_to "prev", params.permit(:search).merge(page: page - 1) %>
+  <% end %>
+  <%= link_to "next", params.permit(:search).merge(page: page + 1) %>
 <% end %>
