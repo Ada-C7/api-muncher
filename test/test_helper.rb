@@ -26,14 +26,16 @@ VCR.configure do |config|
     :match_requests_on => [:method, :uri, :body]
   }
 
-  config.filter_sensitive_data("<APP_KEY>") do
+  config.filter_sensitive_data("<APP_KEY>", "<APP_ID>") do
     ENV['APP_KEY']
-  end
-
-  config.filter_sensitive_data("<APP_ID>") do
     ENV['APP_ID']
   end
-end
+end 
+
+#   config.filter_sensitive_data("<APP_ID>") do
+#
+#   end
+# end
 
 
 # To add Capybara feature tests add `gem "minitest-rails-capybara"`
