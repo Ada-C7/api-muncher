@@ -23,11 +23,11 @@ describe EdamamApiWrapper do
    end
   end
 
-  it "should ?? with a invalid recipe url" do
-    VCR.use_cassette("edamam") do
-    recipe = EdamamApiWrapper.getRecipe("sajdpqoweqwo")
-
-   end
-  end
+  # it "should ?? with a invalid recipe url" do
+  #   VCR.use_cassette("edamam") do
+  #   EdamamApiWrapper.getRecipe("zzzzzzzzzzzz")
+  #
+  #  end
+  # end
 
 end

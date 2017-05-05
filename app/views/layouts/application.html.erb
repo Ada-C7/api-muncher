@@ -11,7 +11,12 @@
     <%= csrf_meta_tags %>
   </head>
   <header>
-    <h1><%= link_to "Recipe Finder", root_path %></h1>
+    <div >
+
+    <%= link_to image_tag('pandalogo.png', class: "logo"), homepages_index_path  %>
+  </div>
+    <h1><%= link_to "Panda-licious", root_path %></h1>
+    <h5> What are you hungry for?</h5>
   </header>
 
   <body>

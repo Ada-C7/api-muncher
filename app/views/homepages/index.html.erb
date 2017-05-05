@@ -3,7 +3,6 @@
 
 
 <%= form_tag(homepages_index_path, method: "get") do %>
-<%= label_tag(:search_words, "Search for:") %>
 <div class="input-group input-group-rounded">
   <%= text_field_tag(:search_words, nil, :placeholder => "Ingredients", :class => "input-group-field", :type => "search") %>
   <div class="input-group-button">
