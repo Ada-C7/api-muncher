@@ -48,7 +48,10 @@ class SearchesController < ApplicationController
   end
 
   # do I need this either?
-  def destroy; end
+  def destroy
+    Search.find_by_id(params[:id]).destroy
+    redirect_to account_path
+  end
 
   private
 

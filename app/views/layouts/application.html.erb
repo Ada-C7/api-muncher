@@ -24,31 +24,35 @@
     </section>
     <section class="row">
 
-    <ul class="columns small-12 ">
-      <% if current_user %>
-      <li>
-        logged in as <%= current_user.provider %>
-      </li>
-      <li>
-        <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
-      </li>
-      <li>
-        <%= link_to "My Account", account_path, method: :get, class: "button" %>
-      </li>
-      <% else %>
-      <li>
-        <%= link_to "Login", login_form_path, method: :get, class: "button" %>
-      </li>
-      <% end %>
-      <li>
-        <%= link_to "New search", root_path, method: :get, class: "button" %>
-      </li>
-    </ul>
-  </section>
+      <ul class="columns small-12 ">
+        <% if current_user %>
+        <li>
+          logged in as <%= current_user.provider %>
+        </li>
+        <li>
+          <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
+        </li>
+        <li>
+          <%= link_to "My Account", account_path, method: :get, class: "button" %>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to "Login", login_form_path, method: :get, class: "button" %>
+        </li>
+        <% end %>
+        <li>
+          <%= link_to "New search", root_path, method: :get, class: "button" %>
+        </li>
+      </ul>
+    </section>
 
   </header>
   <section class="errors">
-
+    <% flash.each do |key, value| %>
+    <p class="alert alert-<%= key %>">
+      <%= value %>
+    </p>
+    <% end %>
   </section>
   <%= yield %>
   <footer class="row">

@@ -18,6 +18,7 @@ class RecipesController < ApplicationController
 
   def destroy
     Recipe.find(params[:id]).destroy
+    redirect_to account_path
   end
 
 end

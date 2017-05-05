@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   get '/', to: 'searches#recipes', as: 'prev'
 
   post '/recipes/save_search', to: 'searches#create', as: 'save_search'
+  delete '/searches/:id', to: 'searches#destroy', as: 'delete_search'
+
+
   post '/recipes/save_recipe', to: 'recipes#create', as: 'save_recipe'
+  delete '/recipes/:id', to: 'recipes#destroy', as: 'delete_recipe'
 
 
 

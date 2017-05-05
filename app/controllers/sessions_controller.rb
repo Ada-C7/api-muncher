@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       user = User.create(provider: params[:provider], uid: params[:uid])
       if user.id != nil
         session[:user_id] = user.id
-        flash[:success] = "Logged in as #{user.username}"
+        flash[:success] = "Successfully logged in"
         redirect_to :root
       else
         flash.now[:failure] = "Sorry, unable to log in"
@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
 
   def logout
     session[:user_id] = nil
+    flash[:success] = "Come back soon!"
     redirect_to :root
   end
 

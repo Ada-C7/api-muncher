@@ -11,6 +11,7 @@
       <% @searches.each do |search| %>
       <li>
         <%= link_to search.search_terms, recipes_path(search_terms: search.search_terms), class: "search-link" %>
+        <%= link_to "delete", delete_search_path(search.id), method: :delete, class: "delete", data: { confirm: 'Really delete this saved search?' } %>
       </li>
       <% end %>
     </ul>
@@ -27,6 +28,7 @@
       <% @recipes.each do |recipe| %>
       <li>
         <%= link_to recipe.name, recipe.recipe_url, class: "recipe-link", target: :_blank %>
+        <%= link_to "delete", delete_recipe_path(recipe.id)  , method: :delete, class: "delete", data: { confirm: 'Really delete this saved recipe?' } %>
       </li>
       <% end %>
     </ul>
