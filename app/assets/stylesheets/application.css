@@ -13,5 +13,22 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
+*/
 
- */
+
+
+  /*font-family: Georgia,serif;*/
+
+
+ .paginate a {
+   display: inline-block;
+ }
+
+ form {
+   margin-bottom: 15px;
+ }
+
+ .diet-table {
+   font-size: .9em;
+   width: 37em;
+ }

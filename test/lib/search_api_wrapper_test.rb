@@ -31,10 +31,10 @@ describe "SearchApiWrapper" do
         recipes.must_equal []
     end
 
-    it "Will return empty array when user inter integr " do
+    it "Will get list of recipes when user enters integer " do
 
         recipes = SearchApiWrapper.listRecipes("")
-        recipes.must_equal []
+        recipes.must_be_kind_of Array
       end
   end
 
@@ -46,7 +46,6 @@ describe "SearchApiWrapper" do
     end
 
     it "Requires a uri to show a recipe" do
-
          SearchApiWrapper.showRecipe("").must_equal nil
     end
   end
