@@ -8,7 +8,7 @@
   <ul>
     <% if @recipes != nil %>
     <% @recipes.each do |recipe| %>
-    <li> <%= link_to image_tag(recipe.img_url, alt: "picture of recipe") %></li>
+    <li> <%= link_to image_tag(recipe.img_url, alt: "picture of recipe"), recipe_path(recipe.id) %></li>
     <li><%= link_to recipe.name %></li>
     <% end %>
   </ul>

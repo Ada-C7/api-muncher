@@ -14,11 +14,10 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.search(params[:recipe][:term][:id])
+    @recipe = Recipe.single_search(params[:id])
+    raise
     if @recipe.nil?
       head :not_found
     end
-
   end
-
 end
