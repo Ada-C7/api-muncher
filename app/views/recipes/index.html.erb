@@ -6,11 +6,13 @@
 <%= text_field_tag(:q) %>
 <%= submit_tag("Search") %>
 <% end %>
-
+<section>
 <ul>
 <% @recipes.each do |recipe| %>
   <li>
     <%= link_to recipe.label, recipe_path(:label => recipe.label, :uri =>recipe.uri) %><%= link_to image_tag(recipe.image), recipe.url %>
   </li>
 <% end  %>
+  <%= will_paginate @recipes_pages %>
 </ul>
+</section>
