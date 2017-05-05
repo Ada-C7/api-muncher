@@ -2,10 +2,9 @@ class RecipesController < ApplicationController
 
     def view_recipes
       all_without_from =  RecipeApiWrapper.all(params[:search], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
-
       @recipes = RecipeApiWrapper.search(params[:search], params[:from], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
 
-      if all_without_from  == nil || all_without_from== 0 || @recipes == nil || @recipes.length == 0
+      if all_without_from  == nil || all_without_from == 0 || @recipes == nil || @recipes.length == 0
         flash[:result_text] = "Could not find recipes. Try again"
         redirect_to root_path
       else
@@ -58,7 +57,7 @@ class RecipesController < ApplicationController
     end
 
     private
-    def recipe_params
+    def favorite_recipe_params
       params.require(:favorite_recipe).permit(:name, :recipe_uri, :user_id)
     end
 

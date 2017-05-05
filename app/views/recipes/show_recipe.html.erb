@@ -10,7 +10,7 @@
         <%if @login_user.alreary_in_favorite?(@recipe)%>
           <h5>This recipe is already in favorite</h5>
         <%else%>
-          <%= form_for @favorite_recipe do |f| %>
+        <%= form_for @favorite_recipe do |f| %>
             <%= hidden_field_tag("user_id", @login_user.id)%>
             <%= hidden_field_tag("recipe_uri", @recipe.uri)%>
             <%= hidden_field_tag("name", @recipe.label)%>

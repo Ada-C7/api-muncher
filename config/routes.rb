@@ -3,14 +3,11 @@ Rails.application.routes.draw do
     root "recipes#welcome"
 
     get "/auth/:provider/callback", to: "sessions#create"
-    resources :users
-     post '/logout', to: 'sessions#logout', as: 'logout'
+    post '/logout', to: 'sessions#logout', as: 'logout'
+    resources :users, only: [:show]
 
     get "/recipes/view_recipes" , to: "recipes#view_recipes", as: "view_recipes"
-
-
     get "/recipes/show_recipe/:uri", to: "recipes#show_recipe", as: "show_recipe"
-    resources :recipes
-
+    resources :recipes, only: [:new, :create, :destroy]
 
 end
