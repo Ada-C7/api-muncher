@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get '/recipes', to: 'searches#recipes', as: 'recipes'
   get '/recipe', to: 'searches#recipe', as: 'recipe'
   get '/recipes', to: 'searches#recipes', as: 'next'
-  get '/recipes', to: 'searches#recipes', as: 'prev'
+  get '/', to: 'searches#recipes', as: 'prev'
+
+  post '/recipes/save_search', to: 'searches#create', as: 'save_search'
 
 
   get '/login', to: 'sessions#login', as: 'login_form'
@@ -14,4 +16,5 @@ Rails.application.routes.draw do
   delete '/login', to: 'sessions#logout', as: 'logout'
 
 
+  get '/account', to: 'users#account', as: 'account'
 end

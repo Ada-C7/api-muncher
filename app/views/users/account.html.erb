@@ -1,0 +1,35 @@
+<section class="account-page row">
+  <h1><%= current_user.username %></h1>
+  <section class="columns small-12 medium-6">
+    <h3>My Saved Searches</h3>
+    <% if @searches.empty? %>
+    <p>
+      No saved searches yet.
+    </p>
+    <% else %>
+    <ul>
+      <% @searches.each do |search| %>
+      <li>
+        <%= link_to search.search_terms, recipes_path(search_terms: search.search_terms), class: "search-link" %>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
+  </section>
+  <section class="columns small-12 medium-6">
+    <h3>My Favorite Recipes</h3>
+    <% if @recipes.empty? %>
+    <p>
+      No saved recipes yet.
+    </p>
+    <% else %>
+    <ul>
+      <% @recipes.each do |recipe| %>
+      <li>
+        <%= link_to search.search_terms, search.url, class: "recipe-link" %>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
+  </section>
+</section>
