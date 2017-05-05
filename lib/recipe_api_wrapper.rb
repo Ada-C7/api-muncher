@@ -1,5 +1,5 @@
 require 'httparty'
-require 'uri'
+# require 'uri'
 
 class Recipe_Api_Wrapper
   BASE_URL = "https://api.edamam.com/"
@@ -30,7 +30,6 @@ class Recipe_Api_Wrapper
     url = BASE_URL + "search?" + "app_id=#{ ID }" + "&app_key=#{ KEY }" + "&r=#{ uri }"
 
     response = HTTParty.get(url)
-
     recipes = []
     response.parsed_response.each do |recipe|
       info = Recipe.new(recipe["uri"], recipe["label"], recipe["image"], recipe["url"], recipe["dietLabels"], recipe["healthLabels"], recipe["ingredientLines"])

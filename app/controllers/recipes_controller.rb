@@ -1,5 +1,5 @@
-require "recipe_api_wrapper"
-require "recipe"
+require_dependency "./lib/recipe_api_wrapper"
+require_dependency "./lib/recipe"
 
 class RecipesController < ApplicationController
   def search;end

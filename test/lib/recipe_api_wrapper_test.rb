@@ -6,14 +6,13 @@ describe Recipe_Api_Wrapper do
   after do
     VCR.eject_cassette("recipes")
   end
-
+  
   it "Can get a list of recipes" do
-    # VCR.use_cassette("edamam") do
-      recipes = Recipe_Api_Wrapper.listRecipes("durian")
-      recipes.must_be_instance_of Array
-      recipes.each do |recipe|
-        recipe.must_be_instance_of Recipe
-      end
-    # end
+    recipes = Recipe_Api_Wrapper.listRecipes("durian")
+    recipes.must_be_instance_of Array
+    recipes.each do |recipe|
+      recipe.must_be_instance_of Recipe
+    end
+
   end
 end
