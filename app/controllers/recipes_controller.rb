@@ -1,3 +1,4 @@
+require "recipe"
 class RecipesController < ApplicationController
   def search
     recipe = Recipe.new
