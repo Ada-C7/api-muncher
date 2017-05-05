@@ -7,14 +7,12 @@
 <%#= @recipes["hits"][3]["recipe"]["label"]%>
 <body>
 <% @recipes["hits"].each do |r| %>
-<h1><%= link_to r["recipe"]["label"], recipe_path(params[:search_term], @recipes["hits"].index(r))%></h1>
+<% @uri = r["recipe"]["uri"].sub("http://www.edamam.com/ontologies/edamam.owl#", "") %>
+<h3><%= link_to r["recipe"]["label"], recipe_path(@uri)%></h3>
 <%= image_tag(r["recipe"]["image"], size: "200")%>
+
 <% end %>
-
-<%#= link_to "More recipes", list_path %>
+<% from = (params[:from].to_i + 10).to_s %>
+<% to = (params[:to].to_i + 10).to_s %>
+<p><%= link_to "More recipes", list_path(from, to), method: :get, class: "button"  %></p>
 </body>
-
-
-<footer>
-  <p>Powered by: <%= image_tag("https://corehealth.global/images/default-source/meetwilo-screenshots/edamam-logo.png?sfvrsn=10")%></p>
-</footer>

@@ -7,6 +7,8 @@ class Recipe
   end
 
   BASE_URL = "https://api.edamam.com/search?"
+  RECIPE_URL = "http://www.edamam.com/ontologies/edamam.owl%23"
+
 
   # attr_reader :search_term, :health, :diet
 
@@ -22,7 +24,19 @@ class Recipe
       "from" => from,
       "to" => to
     }
+
     response = HTTParty.get(BASE_URL, query: query_params)
+  end
+
+  def find_this_recipe(uri)
+
+    query_params = {
+      "app_id" => ENV["App_ID"],
+      "app_key" => ENV["App_Key"],
+      "r" => RECIPE_URL + uri
+    }
+    response = HTTParty.get(BASE_URL, query: query_params)
+
   end
 end
 

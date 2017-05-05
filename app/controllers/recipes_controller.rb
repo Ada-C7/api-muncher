@@ -1,7 +1,6 @@
 class RecipesController < ApplicationController
   def search
     recipe = Recipe.new
-
   end
 
   # def search
@@ -11,10 +10,15 @@ class RecipesController < ApplicationController
   # end
 
   def list
+    # session[:search_word] = nil
     recipe = Recipe.new
-    @from = 0
-    @to = 10
-    @recipes = recipe.send_search(params[:search_term], @from, @to)
+    session[:search_word] = params[:search_term] if session[:search_word] == nil
+    # @from = 0
+    # @to = 10
+    @recipes = recipe.send_search(session[:search_word], params[:from], params[:to])
+
+
+
 
 
     #  b["hits"][0]["recipe"]["uri"]
@@ -26,11 +30,8 @@ class RecipesController < ApplicationController
 
   def show
     recipe = Recipe.new
-    @from = 0
-    @to = 10
-    @recipes = recipe.send_search(params[:key_word], @from, @to)
-
-    @recipe = @recipes["hits"][params[:index].to_i]
-
+    @uri = params[:uri]
+    @recipe = recipe.find_this_recipe(@uri)[0]
+    @nurients = @recipe["totalNutrients"].map {|key, value| value}
   end
 end

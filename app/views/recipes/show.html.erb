@@ -1,1 +1,34 @@
-<%= @recipe["recipe"]["label"] %>
+<h2><%= @recipe["label"] %></h2>
+<%= image_tag(@recipe["image"], size: "200")%>
+<h4><%= link_to "Click here for the Recipe", @recipe["shareAs"] %></h4>
+
+<ul>
+<h4>ingredients</h4>
+<% @recipe["ingredientLines"].each do |ing| %>
+<li><%= ing %></li>
+<% end %>
+<br>
+<h4>Dietary Information</h4>
+  Calories: <%= number_with_delimiter(@recipe["calories"].round(0)) %>
+
+ <%#= @recipe["totalWeight"] %>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Label</th>
+      <th>Quantity</th>
+      <th>Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @nurients.each do |nutrient| %>
+      <tr>
+        <td><%= nutrient["label"] %></td>
+        <td><%= number_with_delimiter(nutrient["quantity"].round(0)) %></td>
+        <td><%= nutrient["unit"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
