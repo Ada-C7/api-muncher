@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Recipe" skipped="0" failures="0" errors="0" tests="1" assertions="2" time="0.00035697498242370784">
+  <testcase name="test_0001_Cannot be initialized without parameters" classname="Recipe" assertions="2" time="0.00035697498242370784">
+  </testcase>
+</testsuite>
