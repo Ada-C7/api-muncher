@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-04T17:31:28-07:00">2017-05-04T17:31:28-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-05T10:11:53-07:00">2017-05-05T10:11:53-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         21.5
+         21.32
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>6</b> files in total.
-    <b>107</b> relevant lines. 
-    <span class="green"><b>107</b> lines covered</span> and
+    <b>108</b> relevant lines. 
+    <span class="green"><b>108</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -63,9 +63,9 @@
       <tr>
         <td class="strong"><a href="#c5fb5c4137e83954ffb4fcc254100893f0490bd2" class="src_link" title="app/controllers/recipes_controller.rb">app/controllers/recipes_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>18</td>
-        <td>9</td>
-        <td>9</td>
+        <td>20</td>
+        <td>10</td>
+        <td>10</td>
         <td>0</td>
         <td>1.2</td>
       </tr>
@@ -167,8 +167,8 @@
     <h3>app/controllers/recipes_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>9</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
+      <b>10</b> relevant lines. 
+      <span class="green"><b>10</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -233,52 +233,64 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">      @recipes = EdamamApiWrapper.listRecipes(params[:search_term])</code>
+          <code class="ruby">      result_recipes = EdamamApiWrapper.listRecipes(params[:search_term])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">      @recipes = Kaminari.paginate_array(result_recipes, total_count: 100).page(params[:page]).per(10)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def show</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    @recipe = EdamamApiWrapper.getRecipe(params[:recipe_id])</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="15">
           
           
           <code class="ruby"></code>
         </li>
       
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def show</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    @recipe = EdamamApiWrapper.getRecipe(params[:recipe_id])</code>
+        </li>
+      
         <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">end</code>
@@ -383,7 +395,7 @@
         <li class="covered" data-hits="5" data-linenumber="14">
           <span class="hits">5</span>
           
-          <code class="ruby">    url = BASE_URL + &quot;search?q=#{ search_term }&amp;&quot; + &quot;app_id=#{ app_id }&amp;&quot; + &quot;app_key=#{ app_key }&amp;&quot; + &quot;to=100&quot;</code>
+          <code class="ruby">    url = BASE_URL + &quot;search?q=#{ search_term }&amp;&quot; + &quot;app_id=#{ app_id }&amp;&quot; + &quot;app_key=#{ app_key }&amp;&quot; + &quot;&amp;from=0&amp;to=100&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
