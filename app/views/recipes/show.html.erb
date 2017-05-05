@@ -1,3 +1,15 @@
 <h2><%= @recipe.label %></h2>
 
-<%= image_tag @recipe.image, alt: @recipe.label %>
+<section class="row">
+  <section class="medium-4 small-12 columns">
+    <%= image_tag @recipe.image, alt: @recipe.label %>
+  </section>
+  <section class="medium-8 small-12 columns">
+    <h3>Ingredients:</h3>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient %></li>
+      <% end %>
+    </ul>
+  </section>
+</section>
