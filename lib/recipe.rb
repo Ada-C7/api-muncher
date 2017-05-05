@@ -23,14 +23,18 @@ class Recipe
       "&q=#{key_word}"+
       "&from=#{from}"+
       "&to=#{to}"
-    
+
+
     health_params = ""
-    health.each do |h|
-      health_params << "&health=#{h}"
+    if health != nil
+      health.each do |h|
+        health_params << "&health=#{h}"
+      end
     end
     url = BASE_URL + query_params + health_params
     response = HTTParty.get(url)
     return response
+
     puts "Sent request to #{response.request.last_uri.to_s}"
 
   end

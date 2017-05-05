@@ -6,13 +6,17 @@
 <%#= @recipes["hits"][2]["recipe"]["label"]%>
 <%#= @recipes["hits"][3]["recipe"]["label"]%>
 <body>
+<% counter = 0%>
 <% @recipes["hits"].each do |r| %>
 <% @uri = r["recipe"]["uri"].sub("http://www.edamam.com/ontologies/edamam.owl#", "") %>
 <h5><%= link_to r["recipe"]["label"], recipe_path(@uri)%></h5>
 <%= image_tag(r["recipe"]["image"], size: "200")%>
-
+<% counter +=1 %>
 <% end %>
+<div><%= "No More Recipes" if counter < 10 %></div>
 <% from = (params[:from].to_i + 10).to_s %>
 <% to = (params[:to].to_i + 10).to_s %>
-<div><%= link_to "More recipes", list_path(from, to, "health" => @health), method: :get, class: "button"  %></div>
+<% if counter == 10 %>
+<div><%= link_to "More recipes", list_path(from, to, "health" => @health, "search_term" => @search_word), method: :get, class: "button"  %></div>
+<% end %>
 </body>
