@@ -5,43 +5,40 @@
   background-size: cover;
 }
 </style>
+<section class="opaque-wrapper">
   <section class="search-form columns small-12 medium-8">
 
-    <h2>What sounds good?</h2>
+    <h2 class="index-header-left">What sounds good?</h2>
     <%= form_tag recipes_path, method: "get" do %>
 
     <p>
       Please pick one of the following:
     </p>
-    <li>
-      <%= radio_button_tag :health, "vegetarian" %>
-      <%= label_tag :vegetarian %>
+    <%= radio_button_tag :health, "vegetarian" %>
+    <%= label_tag :vegetarian %>
 
-      <%= radio_button_tag :health, "balanced" %>
-      <%= label_tag :balanced, "Balanced" %>
+    <%= radio_button_tag :health, "balanced" %>
+    <%= label_tag :balanced, "Balanced" %>
 
-      <%= radio_button_tag :health, "peanut-free" %>
-      <%= label_tag :peanut, "Peanut-free" %>
+    <%= radio_button_tag :health, "peanut-free" %>
+    <%= label_tag :peanut, "Peanut-free" %>
 
-      <%= radio_button_tag :health, "high-protein" %>
-      <%= label_tag :protein, "High-protein" %>
+    <%= radio_button_tag :health, "high-protein" %>
+    <%= label_tag :protein, "High-protein" %>
 
-      <%= radio_button_tag :health, "none" %>
-      <%= label_tag :none %>
-    </li>
+    <%= radio_button_tag :health, "none" %>
+    <%= label_tag :none %>
 
-    <li>
-      <%= label_tag :search_terms %>
-      <%= text_field_tag :search_terms %>
-    </li>
+    <%= label_tag :search_terms %>
+    <%= text_field_tag :search_terms %>
 
 
-    <%= submit_tag "Search", class: "button" %>
+    <%= submit_tag "Search", class: "search-btn" %>
 
     <% end %>
   </section>
   <section class="columns small-12 medium-4 recent-searches">
-    <h2>Recent Searches</h2>
+    <h2 class="index-header">Recent Searches</h2>
     <% if @recent_searches.empty? %>
     <p>
       No searches yet.
@@ -49,7 +46,7 @@
     <% else %>
     <ul>
       <% @recent_searches.each do |search| %>
-      <li>
+      <li class="recent-search-line">
         <%= link_to "#{search['search_terms']} #{search['health']}", recipes_path(search_terms: search["search_terms"], health: search["health"]), method: :get, class: "recent-search-line" %>
         <%# search["search_terms"] %>
       </li>
@@ -57,6 +54,7 @@
     </ul>
     <% end %>
   </section>
+</section>
 
 
 

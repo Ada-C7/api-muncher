@@ -50,13 +50,7 @@
     </section>
 
   </header>
-  <section class="errors">
-    <% flash.each do |key, value| %>
-    <p class="alert alert-<%= key %>">
-      <%= value %>
-    </p>
-    <% end %>
-  </section>
+  
   <section class="content row">
     <%= yield %>
   </section>

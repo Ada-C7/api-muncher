@@ -1,94 +1,116 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- *= require foundation_and_overrides
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require foundation_and_overrides
 
- */
+*/
 
- // fonts
- // special elite for main header
- // regular headers use bad script
- // molengo for recipe text
- // homemade apple for recipes page titles
- // clicker script for links
+// fonts
+// special elite for main header
+// regular headers use bad script
+// molengo for recipe text
+// homemade apple for recipes page titles
+// clicker script for links
 @import url('https://fonts.googleapis.com/css?family=Bad+Script|Clicker+Script|Homemade+Apple|Molengo|Special+Elite');
 
- * {
-   list-style: none;
-   padding: 0px;
-   margin: 0px;
- }
+* {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
 
- // header
+// header
 
+form label {
+  font-size: 1em;
+}
 
+.search-btn {
 
- .trex {
-   height: 200px;
- }
+}
 
+.trex {
+  height: 200px;
+}
 
-.top-nav {
+.top-nav, ul .nav {
   display: block;
 
   // text-align: center;
+}
+
+.nav li {
+  display: inline-block;
+  padding: 0 40px;
 }
 
 .top-nav li {
   padding-right: 30px;
   display: inline-block;
 }
- // index
+// index
+.recent-search-line {
+  text-align: center;
+}
 
- h2, h3 {
-   font-family: "Bad Script";
-   text-align: center;
- }
+.recent-search-line a {
+  font-family: "Molengo";
+  font-size: 1em;
+}
 
- .nav {
-   text-align: center;
- }
+h2, h3 {
+  font-family: "Bad Script";
+  text-align: center;
+}
 
- p, form {
-   font-family: "Molengo";
- }
+.index-header {
+  padding-top: 20px;
+}
 
- a {
-   font-family: "Clicker Script";
-   font-size: 2em;
- }
+.nav {
+  text-align: center;
+}
 
- header h1 a {
-   font-family: "Special Elite";
+p, form {
+  font-family: "Molengo";
+}
+
+a {
+  font-family: "Clicker Script";
+  font-size: 2em;
+}
+
+header h1 a {
+  font-family: "Special Elite";
   //  font-size: 4em;
- }
+}
 
- .recipe-title {
-   font-family: "Homemade Apple";
-   font-size: 1em;
- }
+.recipe-title {
+  font-family: "Homemade Apple";
+  font-size: 1em;
+}
 
- .recipe-title-div {
-   padding-top: 5px;
+.recipe-title-div {
+  padding-top: 5px;
 
- }
+}
 
- .indiv-recipe {
-   text-align: center;
-   padding-bottom: 30px;
+.indiv-recipe {
+  text-align: center;
+  padding-bottom: 30px;
 
- }
+}
 
 // footer
 
@@ -107,15 +129,24 @@ footer a {
   font-size: .5em;
 }
 
+.index-header-left {
+  text-align: left;
+}
+
 // account
+.opaque-wrapper {
+  background: rgba(white, 0.75);
+}
 
-
-.saved-searches a, .saved-recipes a {
+.saved-searches a, .saved-recipes a, .recipe-link a {
   font-family: "Molengo";
   font-size: 1em;
 }
 
-.saved-searches, .saved-recipes {
+.saved-searches, .saved-recipes, .recipe-link {
   text-align: center;
-  
+}
+
+a {
+  color: black;
 }
