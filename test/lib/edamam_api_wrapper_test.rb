@@ -24,12 +24,14 @@ describe EdamamApiWrapper do
       response = EdamamApiWrapper.querySearch("", 0, 10)
       response.must_equal []
     end
-    
+
     # this isn't working
     it "returns 10 recipes at a time (and a count)" do skip
       to = 10
-      num = to + 1
-      response = EdamamApiWrapper.querySearch("chicken", 0, to)
+      from = 0
+      num = to + 2
+      health = "vegetarian"
+      response = EdamamApiWrapper.querySearch("chicken", from, to, health)
       response.length.must_equal num
     end
 

@@ -25,15 +25,27 @@ describe SearchesController do
       must_respond_with :success
     end
 
+    it "must get a search" do
+      get recipes_path(search_terms: "pink food", from: 0, to: 12, health: "vegetarian")
+      must_respond_with :success
+
+    end
+
   end
   # this isn't working
   describe "#recipe" do
     it "should get a single recipe successfully" do skip
       real_uri = "http://www.edamam.com/ontologies/edamam.owl%23recipe_b63034f899ef1b5c7c939ec7e1ca6b1b"
-      recipe = EdamamApiWrapper.getRecipe(real_uri)
+      recipe = EdamamApiWrapper.getRecipe(uri: real_uri)
       recipe.must_be_instance_of RecipeResult
       # get recipe_path(recipe.uri)
       # must_respond_with :success
+    end
+
+    it "should get the recipe page" do skip
+      recipe = RecipeResult.create("pink toast", "image_url", "http://www.edamam.com/ontologies/edamam.owl%23recipe_b63034f899ef1b5c7c939ec7e1ca6b1b")
+      get recipe_path(uri: recipe.uri)
+      must_respond_with :success
     end
 
     it "should show a nice error message if it can't get it" do skip
@@ -42,6 +54,17 @@ describe SearchesController do
   end
 
   describe "#create" do
+
+    it "can create a search" do skip
+      proc { post save_search_path, params: { search:
+                { search_terms: "pink lady",
+                  health: "vegetarian",
+                  user_id: 1
+                }
+              }
+            }.must_change 'Search.count', 1
+    end
+
 
     it "successfully saves a search" do skip
       post save_search_path()
@@ -77,7 +100,5 @@ describe SearchesController do
 
     end
   end
-  # it "must be a real test" do
-  #   flunk "Need real tests"
-  # end
+
 end

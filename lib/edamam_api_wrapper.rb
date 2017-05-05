@@ -40,8 +40,7 @@ class EdamamApiWrapper
     response = HTTParty.get(url)
     recipe_hash = response.first
     if recipe_hash
-      recipe = RecipeResult.new(recipe_hash["label"], recipe_hash["image"], recipe_hash["uri"], recipe_hash["url"], recipe_hash["ingredientLines"], recipe_hash["healthLabels"], recipe_hash["source"],
-      recipe_hash["totalNutrients"])
+      recipe = RecipeResult.new(recipe_hash["label"], recipe_hash["image"], recipe_hash["uri"], recipe_hash["url"], recipe_hash["ingredientLines"], recipe_hash["healthLabels"], recipe_hash["source"], recipe_hash["totalNutrients"])
     else
       return nil
     end
