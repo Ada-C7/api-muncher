@@ -61,6 +61,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'awesome_print'
 gem 'foundation-rails'
 gem 'httparty'
+gem 'will_paginate'
 
 group :test do
   gem 'minitest-rails'
