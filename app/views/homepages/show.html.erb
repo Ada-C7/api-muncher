@@ -18,7 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @recipe.calories.each do |nutrition| %>
+      <% @recipe.nutritions.each do |nutrition| %>
         <tr>
           <td><%= nutrition["label"] %></td>
           <td><%= nutrition["total"].round(2) %> <%= nutrition["unit"] %></td>

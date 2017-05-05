@@ -1,5 +1,5 @@
 class Recipe
-  attr_reader :name, :image_url, :id, :url, :ingredients, :nutrients, :daily_nutrients, :calories
+  attr_reader :name, :image_url, :id, :url, :ingredients, :nutritions
 
   def initialize(label, image, uri, options = {})
     raise ArgumentError if label == nil || label == "" || uri == nil || uri == ""
@@ -9,6 +9,6 @@ class Recipe
 
     @url = options[:url]
     @ingredients = options[:ingredientLines]
-    @calories = options[:digest]
+    @nutritions = options[:digest]
   end
 end
