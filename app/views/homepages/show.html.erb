@@ -1,0 +1,8 @@
+<h1>Recipe Details</h1>
+
+<h3><%= @recipe.name %></h3>
+<%= link_to "Full recipe can be found here", @recipe.url %>
+<p>Ingredients: <%= @recipe.ingredients %></p>
+<p>Dietary Information: </p>
+
+<%= link_to "Home", root_path, class: "button" %>

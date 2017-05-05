@@ -11,14 +11,12 @@ class EdamamApiWrapper
     url = BASE_URL + "q=#{search}&" + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}"
 
     response = HTTParty.get(url)
+    search_results = response["hits"]
+
     recipes = []
-    if response["hits"]
-      response["hits"].each do |hit|
-        label = hit["recipe"]["label"]
-        image = hit["recipe"]["image"]
-        uri = hit["recipe"]["uri"].partition("recipe_").last
-        url = hit["recipe"]["url"]
-        recipes << Recipe.new(label, image, uri, url)
+    if search_results
+        search_results.each do |recipe|
+        recipes << Recipe.new(recipe["recipe"]["label"], recipe["recipe"]["image"], recipe["recipe"]["uri"].partition("recipe_").last, recipe["recipe"]["url"])
       end
     end
 
@@ -29,13 +27,19 @@ class EdamamApiWrapper
     url = BASE_URL + "r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{id}&" + "app_id=#{APP_ID}&" + "app_key=#{APP_KEY}"
 
     response = HTTParty.get(url)
-    if response["hits"]
-      label = ["hits"][0]["recipe"]["label"]
-      image = ["hits"][0]["recipe"]["image"]
-      uri = ["hits"][0]["recipe"]["uri"]
-      url = ["hits"][0]["recipe"]["url"]
+    recipe = response.first
+    if recipe
+      label = recipe["label"]
+      image = recipe["image"]
+      uri = recipe["uri"].partition("recipe_").last
+      url = recipe["url"]
+      options = {}
+      options[:ingredientLines] = recipe["ingredientLines"]
+      options[:totalNutrients] = recipe["totalNutrients"]
+      options[:totalDaily] = recipe["totalDaily"]
+      options[:digest] = recipe["digest"]
 
-      Recipe.new(label, image, uri, url)
+      recipe = Recipe.new(label, image, uri, url, options)
     end
   return recipe
   end
