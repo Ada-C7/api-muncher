@@ -17,18 +17,9 @@
 
 */
 
-/*footer {
-border-top: 1px solid black;
-position: absolute;
-left: 0;
-bottom: 0;
-height: 30px;
-width: 100%;
-}*/
 
 
-
- body {
+body {
   background-color: #d6f8b9;
 }
 
@@ -53,12 +44,12 @@ a:hover {
 }
 ul.floa
 t-index-left{
-float: left;
+  float: left;
 }
 
 ul.float-index-right{
-float: right;
-margin-right: 10%;
+  float: right;
+  margin-right: 10%;
 }
 
 section.clearfix{
@@ -69,9 +60,9 @@ section.clearfix{
 }
 
 ul.index::after {
-    content: "";
-    clear: both;
-    display: table;
+  content: "";
+  clear: both;
+  display: table;
 }
 
 
@@ -114,17 +105,17 @@ footer{
 
 
 /*form.button_tov_link.na {
-  max-width: 20%;
-  margin: 0;
+max-width: 20%;
+margin: 0;
 }
 
 form.button_to.nav_link, p.view_count {
-  display: inline-block;
-  margin: auto;
-  margin-bottom: 0.5em;
+display: inline-block;
+margin: auto;
+margin-bottom: 0.5em;
 }*/
 /*
 .pager {
-  max-width: 60%;
-  margin-left: 28%;
+max-width: 60%;
+margin-left: 28%;
 }*/
