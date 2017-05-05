@@ -14,7 +14,7 @@ module ApiMuncher
     end
 
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
-    # config.autoload_paths += Dir["#{config.root}/app/models/**/"]
+    config.autoload_paths += Dir["#{config.root}/app/models/**/"]
     config.autoload_paths << Rails.root.join('lib')  #add lib folder to folders that are automatically loaded with rails
 
     # Settings in config/environments/* take precedence over those specified here.
