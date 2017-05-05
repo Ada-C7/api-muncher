@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   get 'results/index', to: 'results#index', as: 'results'
 
-  get 'ingredients/show', to: 'ingredients#show', as: 'ingredients'
+  get 'recipes/show', to: 'results#show', as: 'recipe'
 
 end

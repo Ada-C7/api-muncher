@@ -12,7 +12,7 @@ class EdmamApiWrapper
 
     url = "#{BASE_URL}?q=vegan+#{query}&app_id=#{APP_ID}&app_key=#{TOKEN}"
 
-    response = HTTParty.get(url)
+    response = HTTParty.get(url) # JSON object
     recipes = []
 
     if response["hits"]
@@ -23,7 +23,8 @@ class EdmamApiWrapper
     return recipes
   end
 
-  def self.getRecipe
+  def self.getRecipe(query)
+    puts ">>>>> Calling getRecipe"
 
     # fake_ingredients ={
     #   "label" => "banana bread",
@@ -42,13 +43,16 @@ class EdmamApiWrapper
 
     response = HTTParty.get(url)
 
-    ingredients = []
+    puts response
 
-    if response["hits"]["recipe"]
-      response["ingredients"].each do | ingredient |
-        ingredients << Recipe.new(response["recipe"]["ingredients"])
-      end
+    # ingredients = []
+
+    if response[0]
+      return Recipe.new(response[0])
+      # response[0]["ingredients"].each do | ingredient |
+      #   ingredients << Ingredient.new(ingredient)
+      # end
     end
-    return ingredients
+    # return ingredients
   end
 end

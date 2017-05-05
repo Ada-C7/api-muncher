@@ -8,11 +8,12 @@
       <div class="transbox">
         <div id="ingredients">
 
-    <p><%=@ingredient.label %></p>
-    <p><%=@ingredient.image %></p>
-    <p>Courtesy of: <%=link_to @ingredient.source, "#{@ingredient.url}" %></p>
-    <p><%=@ingredient.ingredientLines %></p>
-    <p><%=@ingredient.totalNutrients %></p>
+        <p><%=@recipe.label%></p>
+        <p><%=@recipe.image%></p>
+        <p><%=@recipe.ingredientLines%></p>
+        <p><%=@recipe.totalNutrients%></p>
+        <p>Courtesy of: <%=link_to recipe.source, "#{@recipe.url}" %></p>
+
       </div>
     </div>
   </div>
