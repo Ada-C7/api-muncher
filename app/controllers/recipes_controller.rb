@@ -1,3 +1,5 @@
+require_dependency '../../lib/recipe_api_wrapper'
+
 class RecipesController < ApplicationController
 
     def view_recipes
