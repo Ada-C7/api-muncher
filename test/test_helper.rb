@@ -26,11 +26,16 @@ class ActiveSupport::TestCase
     config.cassette_library_dir = "test/cassettes"
     config.hook_into :webmock
     config.default_cassette_options = {
-      :record => :new_episode,
-      :match_request_on => [:method, :uri, :body]
+      record: :new_episodes,
+      match_requests_on: [:method, :uri, :body]
     }
-    config.filter_sensitive_data("<APP_ID>") { ENV["APP_ID"] }
-    config.filter_sensitive_data("<APP_KEY>") { ENV["APP_KEY"] }
+    config.filter_sensitive_data("<APP_ID>") do
+
+      ENV["APP_ID"]
+    end
+    config.filter_sensitive_data("<APP_KEY>") do # ENV["APP_KEY"]
+      ENV["APP_KEY"]
+    end
   end
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all

@@ -1,2 +1,7 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<% @recipe.each do |info| %>
+  <h3><%= info.label %></h3>
+<% end %>
+Name
+Link to the original recipe (opens in a new tab)
+Ingredients
+Dietary information

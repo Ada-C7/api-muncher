@@ -11,7 +11,7 @@ class Recipe_Api_Wrapper
     munch_id = ID if munch_id == nil
     munch_key = KEY if munch_key == nil
 
-    url = BASE_URL + "search?" + "&app_id=#{munch_id}" + "&app_key=#{munch_key}" + "&q=#{query}&" + "&from=0&to=100"
+    url = BASE_URL + "search?" + "&app_id=#{ munch_id }" + "&app_key=#{ munch_key }" + "&q=#{ query }&" + "&from=0&to=100"
 
     response = HTTParty.get(url)
 
@@ -27,8 +27,8 @@ class Recipe_Api_Wrapper
   end
 
   def self.showRecipe(uri)
-    url = BASE_URL + "search?" + "&r=#{URI.encode(uri)}"
-    
+    url = BASE_URL + "search?" + "app_id=#{ ID }" + "&app_key=#{ KEY }" + "&r=#{ uri }"
+
     response = HTTParty.get(url)
 
     recipes = []
