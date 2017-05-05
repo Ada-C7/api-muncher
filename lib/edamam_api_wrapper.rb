@@ -26,6 +26,7 @@ class EdamamApiWrapper
       list.each do |recipe|
         recipes << RecipeResult.new(recipe["recipe"]["label"],  recipe["recipe"]["image"],  recipe["recipe"]["uri"].gsub("#","%23"))
       end
+      recipes << RecentSearch.new(search_terms, health)
       recipes << response["count"]
     end
     return recipes
@@ -47,5 +48,6 @@ class EdamamApiWrapper
 
     return recipe
   end
+
 
 end

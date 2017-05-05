@@ -24,26 +24,18 @@
     </section>
     <section class="row">
 
-      <ul class="columns small-12 ">
+      <section class="columns small-12 ">
         <% if current_user %>
         <p>
           logged in as <%= current_user.provider %>
         </p>
-        <li>
           <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
-        </li>
-        <li>
           <%= link_to "My Account", account_path, method: :get, class: "button" %>
-        </li>
         <% else %>
-        <li>
           <%= link_to "Login", login_form_path, method: :get, class: "button" %>
-        </li>
         <% end %>
-        <li>
           <%= link_to "New search", root_path, method: :get, class: "button" %>
-        </li>
-      </ul>
+      </section>
     </section>
 
   </header>

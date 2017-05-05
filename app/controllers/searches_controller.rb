@@ -5,8 +5,11 @@ require_dependency '../../lib/recipe_result'
 
 class SearchesController < ApplicationController
   before_action :check_next_and_prev, only: [:recipes]
+  # before_action :recent_searches
 
   def index
+    session[:recent_searches] ||= []
+    @recent_searches = session[:recent_searches]
     session[:search_count] = nil
     session[:search_terms] = nil
     session[:from] = 0
@@ -24,8 +27,11 @@ class SearchesController < ApplicationController
     else
       @results = EdamamApiWrapper.querySearch(session[:search_terms], session[:from], session[:to])
     end
-    session[:search_count] = @results.last
+    session[:search_count] = @results.last # get the count for the session
     @results = @results[0..-2]
+    session[:recent_searches] << @results.last #shovel the search into the list
+    @results = @results[0..-2]
+
   end
 
   def recipe
@@ -93,5 +99,8 @@ class SearchesController < ApplicationController
   def search_params
     params.require(:search).permit(:search_terms, :health)
   end
+
+  # def recent_searches
+  # end
 
 end

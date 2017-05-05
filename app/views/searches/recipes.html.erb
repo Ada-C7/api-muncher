@@ -15,8 +15,9 @@
 
     <%= link_to "next", recipes_path(next: true), method: :get, class: "columns small-12 medium-6" %>
   </section>
+
   <% @results.each do |result| %>
-  <section class="indiv-recipe columns small-12 medium-4 large-3">
+  <section class="indiv-recipe columns small-12 large-3">
     <%= link_to image_tag(result.image), recipe_path(uri: result.uri), method: :get, class: "index-image" %>
     <div>
       <%= link_to truncate(result.name), recipe_path(uri: result.uri), method: :get, class: "recipe-title" %>
@@ -24,4 +25,5 @@
   </section>
   <% end %>
   <% end %>
+
 </section>

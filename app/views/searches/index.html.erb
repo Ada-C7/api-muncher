@@ -1,5 +1,5 @@
 <section class="homepage row">
-  <section class="search-form columns small-12 medium-12 large-6">
+  <section class="search-form columns small-12 medium-6">
 
     <h1>What sounds good?</h1>
     <%= form_tag recipes_path, method: "get" do %>
@@ -32,6 +32,23 @@
 
     <%= submit_tag "Search", class: "button" %>
 
+    <% end %>
+  </section>
+  <section class="columns small-12 medium-6 recent-searches">
+    <h1>Recent Searches</h1>
+    <% if @recent_searches.empty? %>
+    <p>
+      No searches yet.
+    </p>
+    <% else %>
+    <ul>
+      <% @recent_searches.each do |search| %>
+      <li>
+        <%= link_to "#{search['search_terms']} (#{search['health']})", recipes_path(search_terms: search["search_terms"], health: search["health"]), method: :get, class: "recent-search-line" %>
+        <%# search["search_terms"] %>
+      </li>
+      <% end %>
+    </ul>
     <% end %>
   </section>
 
