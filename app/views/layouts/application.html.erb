@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Yellowtail');
+</style>
   <head>
-    <h1>Cook Yo Food</h1>
+    <div class="row">
+      <div class="small-3 small-centered columns">
+        <h1 id="title"><%= link_to "Lookin2Cookin", root_path%></h1>
+      </div>
+    </div>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
@@ -18,7 +25,12 @@
 
   </body>
 
-  <footer>
-    Powered by <img src="http://media.prleap.com/image/5419/full/_logo_edamam.jpg" alt="edamam" height="60" width="70">
-  </footer>
+  <!-- <footer class="footer">
+    <div>
+      Powered by Edamam
+    </div>
+    <div>
+      Googly Eyes: Pen <a href="https://codepen.io/loktar00/pen/FmkAd">Loktar</a>
+    </div>
+  </footer> -->
 </html>

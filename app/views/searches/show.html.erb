@@ -1,47 +1,34 @@
   <h2><%= @recipe.label %></h2>
+<body class="white center">
 
-<ul>
-  <li>
-    <%= image_tag(@recipe.image, :alt => @recipe.label) %>
-  </li>
-  <li>
-    Recipe on: <%= link_to @recipe.source, @recipe.url %>
-  </li>
-</ul>
+<%= image_tag(@recipe.image, :alt => @recipe.label) %>
+Recipe on: <%= link_to @recipe.source, @recipe.url %>
 
 
 
-Ingredients
-<ul>
+<h4>Ingredients</h4>
   <% @recipe.ingredients.each do |label| %>
-  <li>
-    <%= label["quantity"]%> <%= label["measure"] %>(s) <%= label["food"] %>
-  </li>
+    <li>
+      <%= label["quantity"]%> <%= label["measure"] %>(s) <%= label["food"] %>
+    </li>
   <% end %>
-</ul>
 
 
 
-Diet Labels
-<ul>
+<h4>Diet Labels</h4>
   <% @recipe.dietlabels.each do |label| %>
-  <li>
-    <%= label %>
-  </li>
+    <p class="label"> <%= label %> </p>
   <% end %>
-</ul>
 
-Health Labels
-<ul>
+  <h4>Health Labels</h4>
   <% @recipe.healthlabels.each do |label| %>
-  <li>
-    <%= label %>
-  </li>
+    <p class="label"> <%= label %></p>
   <% end %>
-</ul>
+</body>
 
-Total Nutrition
-<table>
+
+<h4>Total Nutrition</h4>
+<table class="table center">
   <caption>
     Total Nutrition
   </caption>
@@ -56,3 +43,13 @@ Total Nutrition
   </tr>
   <% end %>
 </table>
+
+
+<footer class="white center">
+  <div>
+    Powered by Edamam
+  </div>
+  <div>
+    Googly Eyes: Pen <a href="https://codepen.io/loktar00/pen/FmkAd">Loktar</a>
+  </div>
+</footer>
