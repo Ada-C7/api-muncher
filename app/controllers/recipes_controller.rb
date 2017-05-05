@@ -12,14 +12,11 @@ class RecipesController < ApplicationController
   def list
     # session[:search_word] = nil
     recipe = Recipe.new
-    session[:search_word] = params[:search_term] if session[:search_word] == nil
+    @search_word = params[:search_term] if @search_word == nil
     # @from = 0
     # @to = 10
-    @recipes = recipe.send_search(session[:search_word], params[:from], params[:to])
-
-
-
-
+    @recipes = recipe.send_search(session[:search_word], params[:from], params[:to], params[:health])
+    @health = params[:health]
 
     #  b["hits"][0]["recipe"]["uri"]
     #  b["hits"][0]["recipe"]["ingredientLines"]

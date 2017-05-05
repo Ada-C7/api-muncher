@@ -8,11 +8,11 @@
 <body>
 <% @recipes["hits"].each do |r| %>
 <% @uri = r["recipe"]["uri"].sub("http://www.edamam.com/ontologies/edamam.owl#", "") %>
-<h3><%= link_to r["recipe"]["label"], recipe_path(@uri)%></h3>
+<h5><%= link_to r["recipe"]["label"], recipe_path(@uri)%></h5>
 <%= image_tag(r["recipe"]["image"], size: "200")%>
 
 <% end %>
 <% from = (params[:from].to_i + 10).to_s %>
 <% to = (params[:to].to_i + 10).to_s %>
-<p><%= link_to "More recipes", list_path(from, to), method: :get, class: "button"  %></p>
+<div><%= link_to "More recipes", list_path(from, to, "health" => @health), method: :get, class: "button"  %></div>
 </body>

@@ -16,16 +16,23 @@ class Recipe
     # @search_term = search_term
   end
 
-  def send_search(key_word, from, to)
-    query_params = {
-      "app_id" => ENV["App_ID"],
-      "app_key" => ENV["App_Key"],
-      "q" => key_word,
-      "from" => from,
-      "to" => to
-    }
+  def send_search(key_word, from, to, health)
+    query_params =
+      "app_id=#{ENV["App_ID"]}"+
+      "&app_key=#{ENV["App_Key"]}"+
+      "&q=#{key_word}"+
+      "&from=#{from}"+
+      "&to=#{to}"
+    
+    health_params = ""
+    health.each do |h|
+      health_params << "&health=#{h}"
+    end
+    url = BASE_URL + query_params + health_params
+    response = HTTParty.get(url)
+    return response
+    puts "Sent request to #{response.request.last_uri.to_s}"
 
-    response = HTTParty.get(BASE_URL, query: query_params)
   end
 
   def find_this_recipe(uri)
