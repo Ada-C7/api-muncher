@@ -1,6 +1,5 @@
 <section class="row">
 
-
   <article class="large-12 columns">
   <% if @list_of_recipes.nil? %>
 
@@ -25,13 +24,15 @@
       </div>
     <% end %>
 
-
   </article>
 
   <nav>
     <% next_ten = @new_search.from + 10 %>
+
     <%= form_tag recipes_path, method: :get do %>
       <%= hidden_field_tag :search_text, "#{@new_search.search_text}" %>
+      <%= hidden_field_tag "health[]", "#{@new_search.health}" %>
+      <%= hidden_field_tag "diet[]", "#{@new_search.diet}" %>
       <%= hidden_field_tag :from, next_ten %>
       <%= submit_tag "Next 10" %>
     <% end %>
