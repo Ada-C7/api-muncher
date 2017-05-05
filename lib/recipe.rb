@@ -1,6 +1,9 @@
 require 'httparty'
 
 class Recipe
+  class RecipeError < StandardError
+  end
+
   URL = "https://api.edamam.com/search"
   ID = ENV["EDAMOM_ID"]
   KEY = ENV["EDAMOM_KEY"]
@@ -28,7 +31,7 @@ class Recipe
       end
       return recipes
     else
-      return response.code
+      raise RecipeError.new(response.code)
     end
   end
 
