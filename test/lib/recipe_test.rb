@@ -48,18 +48,18 @@ describe Recipe do
   end
 
   describe 'self.search' do
-
+    it 'search results returns an array' do
+      VCR.use_cassette('recipes') do
+        recipe = Recipe.search('arugula')
+        recipe.class.must_equal Array
+      end
+    end
   end
 end
 
-
-# it 'takes a name' do
-#   name = 'test channel'
-#   sc = SlackChannel.new(name)
-#   sc.name.must_equal name
-# end
-
-# VCR.use_cassette('channels') do
-#   channel = SlackChannel.new('queues_api_testing')
-#   channel.send('I love you everything burrito.')
+# it 'can send a message to a real channel' do
+#   VCR.use_cassette('channels') do
+#     channel = SlackChannel.new('queues_api_testing')
+#     channel.send('I love you everything burrito.')
+#   end
 # end
