@@ -16,19 +16,10 @@
       <div class="top-bar">
         <div class="top-bar-left">
           <ul class="menu">
-            <li class="menu-text"><%= link_to "API Muncher", #root_path %></li>
-            <li><%= link_to "Something1"#, "/categories"%></li>
-            <li><%= link_to "Something2"#, "/merchants"%></li>
-            <li><%= link_to "Something3"#, "/products"%></li>
+            <li class="menu-text"><%= link_to "API Muncher", root_path %></li>
           </ul>
         </div>
         <div class="top-bar-right">
-          <%= link_to "Cart", cart_path, class: "button small" %>
-          <% #if @login_merchant %>
-          <%= link_to '#' #{}"Merchant Log Out", "/logout", class: "button small" %>
-          <% #else %>
-          <%= link_to "#" #"Merchant Log In", "/auth/github", class: "button small" %>
-          <% #end %>
         </div>
       </div>
     </header>
