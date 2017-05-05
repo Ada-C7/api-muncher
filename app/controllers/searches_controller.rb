@@ -1,6 +1,8 @@
 # require 'edamam_api_wrapper'
 require_dependency '../../lib/edamam_api_wrapper'
 require_dependency '../../lib/recipe_result'
+require_dependency '../../lib/recent_search'
+
 
 
 class SearchesController < ApplicationController
