@@ -16,7 +16,7 @@ class SearchesController < ApplicationController
 
   def recipes
     session[:search_terms] ||= params[:search_terms]
-    if %w(vegetarian dairy-free kosher gluten-free).include?(params[:health])
+    if ["vegetarian", "dairy-free", "kosher", "gluten-free"].include?(params[:health])
       session[:health] = params[:health]
     end
     if session[:health] != nil
