@@ -1,17 +1,65 @@
 <h2> Search Results </h2>
 
-<%= form_tag(recipes_path, :method => "get") do %>
+<%= form_tag(recipes_path(1), :method => "get") do %>
     <%= text_field_tag :search_term, params[:search_term], placeholder: "Search More Recipes" %>
     <%= submit_tag "Search", :name => nil %>
 <% end %>
 
+<div>
+  <h3>Filter results via dietary labels: </h3>
+    <%= form_tag({controller:'recipes', action: 'index'}, method: 'get') do %>
+      <%= hidden_field_tag :search_term, params[:search_term] %>
+      <%= hidden_field_tag :page_num, 1 %>
+
+      <ul class="row small-up-2 medium-2 large-3">
+        <% @diet_labels.each do |label| %>
+            <li class='column'>
+              <%= check_box_tag "dietary_labels[]", label -%>
+              <%= label_tag label %>
+            </li>
+        <% end %>
+      </ul>
+
+      <ul class="row small-up-2 medium-2 large-3">
+        <% @health_labels.each do |label| %>
+            <li class='column'>
+              <%= check_box_tag "dietary_labels[]", label -%>
+              <%= label_tag label %>
+            </li>
+        <% end %>
+      </ul>
+      <%= submit_tag "Filter" %>
+      <% end %>
+
+<% if params[:dietary_labels] %>
+      <p> Applied Filters:
+        <% params[:dietary_labels].each do |label| %>
+        <%= label %> ~
+        <%end%>
+      </p>
+  <%end%>
+</div>
+
 <div class="cardContainer">
 <% @recipes.each do |recipe| %>
   <div class="card">
-    <%= link_to image_tag(recipe["recipe"]["image"], onerror: 'this.error=null;this.src="https://uos.edu.pk/assets/backend/images/staff/imagenotfound.svg"', :alt => "Picture related to recipe") , recipe_path(:uri => recipe["recipe"]["uri"].tr('http://www.edamam.com/ontologies/edamam.owl#recipe_', ''), :search_term => params[:search_term]) %>
+    <%= link_to image_tag(recipe["recipe"]["image"], onerror: 'this.error=null;this.src="https://uos.edu.pk/assets/backend/images/staff/imagenotfound.svg"', :alt => "Picture related to recipe") , recipe_path(:uri => recipe["recipe"]["uri"].tr('http://www.edamam.com/ontologies/edamam.owl#recipe_', ''), :search_term => params[:search_term], :page_num => params[:page_num], :dietary_labels => params[:dietary_labels]) %>
     <div class="card-section">
-    <%= link_to recipe["recipe"]["label"], recipe_path(:uri => recipe["recipe"]["uri"].tr('http://www.edamam.com/ontologies/edamam.owl#recipe_', ''), :search_term => params[:search_term])%>
+    <%= link_to recipe["recipe"]["label"], recipe_path(:uri => recipe["recipe"]["uri"].tr('http://www.edamam.com/ontologies/edamam.owl#recipe_', ''), :search_term => params[:search_term], :page_num => params[:page_num], :dietary_labels => params[:dietary_labels])%>
   </div>
 </div>
   <%end%>
 </div>
+
+<% if params[:page_num].to_i > 1 %>
+      <% if params[:page_num].to_i > 2 %>
+        <%= link_to "First", recipes_path(1, :search_term => params[:search_term]), :class => 'button' %>
+        <%= image_tag('dotdotdot.png', :class => 'pageicon') %>
+      <%end%>
+    <%= link_to "Previous", recipes_path(params[:page_num].to_i - 1, :search_term => params[:search_term]), :class => 'button' %>
+    <%= image_tag('dotdotdot.png', :class => 'pageicon') %>
+<%end%>
+
+<% unless @recipes.empty? || params[:page_num].to_i == 100 %>
+<%= link_to "Next", recipes_path(params[:page_num].to_i + 1, :search_term => params[:search_term], :dietary_labels => params[:dietary_labels]), :class => 'button' %>
+<%end%>

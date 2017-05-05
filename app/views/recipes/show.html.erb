@@ -1,19 +1,37 @@
 <h2 class="recipetitle"><%= @recipe[0]['recipe']['label'] %></h2>
 
-<div class='showtop'>
-<section class='ingredientlist row'>
-<h3 class='small-12 columns ingredientlist'>Ingredients:</h3>
-<ul class="row small-up-2 medium-up-3 large-up-1">
-<% @recipe[0]['recipe']['ingredientLines'].each do |line| %>
-<li class="column"> <%= line %> </li>
-<%end%>
-</ul>
-</section>
+<%= link_to "Back to Search", :back, :class => 'backsearch' %>
 
-<div class='row'>
-<h4 class='large-4 column ogsite'>Original Recipe:  <%= link_to "#{@recipe[0]['recipe']['source']}", @recipe[0]['recipe']['url'] %></h4>
-<%= image_tag @recipe[0]['recipe']['image'], onerror: 'this.error=null;this.src="https://uos.edu.pk/assets/backend/images/staff/imagenotfound.svg"', :alt => "Picture related to recipe", :class => 'showimage large-up-2 column' %>
-</div>
+<div class='showtop'>
+
+  <section class='ingredientlist row'>
+    <h3 class='small-12 columns ingredientlist'>Ingredients:</h3>
+
+      <ul class="row small-up-2 medium-up-3 large-up-1">
+          <% @recipe[0]['recipe']['ingredientLines'].each do |line| %>
+              <li class="column"> <%= line %> </li>
+          <%end%>
+      </ul>
+
+      <h3> Dietary Labels: </h3>
+      <ul>
+          <% @recipe[0]['recipe']['healthLabels'].each do |label| %>
+              <li> <%= label %> </li>
+          <%end%>
+
+          <% @recipe[0]['recipe']['dietLabels'].each do |label| %>
+              <li> <%= label %> </li>
+          <%end%>
+      </ul>
+
+  </section>
+
+
+  <div class='row'>
+    <h4 class='large-4 column ogsite'>Original Recipe:  <%= link_to "#{@recipe[0]['recipe']['source']}", @recipe[0]['recipe']['url'] %></h4>
+      <%= image_tag @recipe[0]['recipe']['image'], onerror: 'this.error=null;this.src="https://uos.edu.pk/assets/backend/images/staff/imagenotfound.svg"', :alt => "Picture related to recipe", :class => 'showimage large-up-2 column' %>
+  </div>
+
 </div>
 
 

@@ -35,6 +35,8 @@ footer{
   text-align: center;
   width: 100%;
   padding: 10px;
+  background-color: #cfd8dc;
+  margin-top: 30px;
 }
 
 img.footercredit{
@@ -107,7 +109,7 @@ input{
    display: flex;
    flex-direction: column;
    border: none;
-   background-color: #ffd54f;
+   background-color: #cfd8dc;
  }
 
 .card:hover{
@@ -116,7 +118,7 @@ input{
 
 .card a{
   font-family: 'Comfortaa';
-  color: #009688;
+  color: darkred;
 }
 
 .card img {
@@ -185,8 +187,14 @@ section.ingredientlist{
   float: left;
 }
 
+section.ingredientlist ul{
+  background-color: #cfd8dc;
+  color: darkred;
+}
+
 h3.ingredientlist{
   padding:0px;
+  background-color: #f44336;
 }
 
 h3{
@@ -227,4 +235,22 @@ tr:nth-child(even) td{
 tr:nth-child(odd){
   background-color: #ffa000;
   color: darkred;
+}
+
+.backsearch{
+  color: #eceff1;
+}
+
+.button{
+  background-color: #ffe082;
+  color: #f44336;
+}
+
+.button:hover{
+  background-color: #ff8f00;
+}
+
+img.pageicon{
+  width: 2%;
+  margin-bottom: 11px;
 }
