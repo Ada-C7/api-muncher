@@ -10,7 +10,7 @@
   <% @recipes.each do |recipe| %>
     <li>
       <%= image_tag recipe.image, alt: recipe.label %>
-      <%= link_to recipe.label, recipe_path(recipe.uri) %>
+      <%= link_to recipe.label, recipe_path(recipe.id) %>
     </li>
   <% end %>
 </ul>

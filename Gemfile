@@ -57,7 +57,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'rails-erd'
-  gem 'dotenv-rails'
 end
 
 group :test do
@@ -68,6 +67,7 @@ end
 group :development, :test do
   gem 'minitest-vcr'
   gem 'webmock'
+  gem 'dotenv-rails'
 end
 
 gem 'awesome_print'

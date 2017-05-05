@@ -17,7 +17,7 @@ class EdamamApiWrapper
     end
   end
 
-  def self.show_recipe(id)
+  def self.get_recipe(id)
     url = BASE_URL + "r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{id}"
     response = HTTParty.get(url)[0]
 
@@ -29,7 +29,7 @@ class EdamamApiWrapper
         health_labels: response["healthLabels"],
         calories: response["calories"]
       }
-      return Recipe.new(response["label"], response["uri"].partition("recipe_").last, response["image"], options )
+      return Recipe.new(response["label"], id, response["image"], options )
     else
       return nil
     end
