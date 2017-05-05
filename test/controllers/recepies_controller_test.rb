@@ -4,16 +4,16 @@ describe RecipesController do
   describe "view_recipes" do
     it "responds wuth success for good data" do
       VCR.use_cassette("recipes") do
-       post recipes_path(search: "orange", from: 0)
-       must_respond_with :success
-     end
+        post recipes_path(search: "orange", from: 0)
+        must_respond_with :success
+      end
     end
     it "still responds with success with bad data" do
-     VCR.use_cassette("bad_recipe_data") do
-       post recipes_path(search: "blablablabla", from: 0)
-       must_respond_with :success
-     end
-   end
+      VCR.use_cassette("bad_recipe_data") do
+        post recipes_path(search: "blablablabla", from: 0)
+        must_respond_with :success
+      end
+    end
   end
 
 
