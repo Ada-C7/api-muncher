@@ -7,11 +7,12 @@
     Nothing found for that search
   </p>
   <% else %>
+  <% if current_user %>
+  <%= link_to "save this search", save_search_path, method: :post, class: "columns small-12" %>
+  <% end %>
   <section class="columns small-12">
     <%= link_to "prev", recipes_path(prev: true), method: :get, class: "columns small-12 medium-6" %>
-    <% if current_user %>
-    <%= link_to "save this search", save_search_path, method: :post %>
-    <% end %>
+
     <%= link_to "next", recipes_path(next: true), method: :get, class: "columns small-12 medium-6" %>
   </section>
   <% @results.each do |result| %>
