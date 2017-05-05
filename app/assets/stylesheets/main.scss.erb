@@ -1,5 +1,8 @@
+$main-color: pink;
+$main-font: 'Pacifico', cursive;
+
 h1 {
-  font-family: 'Pacifico', cursive;
+  font-family: $main-font;
 }
 
 .index {
@@ -21,7 +24,7 @@ transform: translate(-50%, -50%);
 }
 
 .recipes-header {
-  color: pink;
+  color: $main-color;
   text-align:center;
   padding: 3%;
 }
@@ -35,11 +38,28 @@ transform: translate(-50%, -50%);
 
 .recipe-header {
   text-align:center;
-  color: pink;
+  color: $main-color;
   padding: 3%;
 }
 
 h3 {
-  font-family: 'Pacifico', cursive;
+  font-family: $main-font;
   color:pink;
+}
+
+.page {
+  text-align: center;
+  padding: 3%;
+  a {
+    margin: 5%;
+  }
+}
+
+.recipe-title {
+  font-family: $main-font;
+  color: $main-color;
+  &:hover {
+    color: darken($main-color, 5%);
+  }
+
 }
