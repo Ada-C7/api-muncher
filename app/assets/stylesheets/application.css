@@ -15,3 +15,35 @@
  *= require foundation_and_overrides
 
  */
+
+ /*footer {
+   border-top: 1px solid black;
+     position: absolute;
+     left: 0;
+     bottom: 0;
+     height: 30px;
+     width: 100%;
+ }*/
+
+footer{
+  border-top: 1.5px solid green;
+}
+.text-center{
+  margin-top: 0.5rem;
+text-align: center;
+}
+
+ .attribution#logo {
+     /*display: inline-block;*/
+     height: 2rem;
+     width: 8rem;
+     /*margin-left: 2rem;*/
+     /*align-content: center;*/
+    margin: auto;
+}
+ .attribution{
+  /*display: inline-block;*/
+  color: darkgreen;
+  align-text: center;
+  margin-bottom: 0;
+}

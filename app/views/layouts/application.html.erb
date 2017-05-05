@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
+<body>
 
-    <%= yield %>
+      <%= yield %>
+  <footer>
+    <section class="text-center">
 
-  </body>
-</html>
+      <p class = "attribution"> All recipe information courtesy of </p>
+      <p class = "attribution", id="logo"><%= link_to (image_tag "edamam_logo1.png", alt:"Edamam logo"), "https://www.edamam.com/", target: :_blank%> </p>
+    </section>
+  </footer>
+
+
+    </body>
+    </html>
