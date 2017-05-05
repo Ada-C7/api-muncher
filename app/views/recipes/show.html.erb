@@ -2,11 +2,25 @@
 <%= image_tag @recipe.image, alt:"picture of #{@recipe.name}"%>
 
 <section>
-<h4>INGREDITENTS</h4>
-<ul>
+  <h4>Ingredients:</h4>
 
-</ul>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%=ingredient%></li>
+    <% end %>
+  </ul>
 
+</section>
+
+
+<section>
+  <h4>Dietary Information:</h4>
+  <h5>Health Labels</h5>
+  <ul>
+    <% @recipe.health_labels.each do |health_label| %>
+      <li><%=health_label%></li>
+    <% end %>
+  </ul>
 </section>
 
 

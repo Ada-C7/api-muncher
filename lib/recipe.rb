@@ -5,13 +5,15 @@ class Recipe
 
   BASE_URL = "https://api.edamam.com/search"
 
-  attr_reader :name, :image, :id, :original_url
+  attr_reader :name, :image, :id, :original_url, :ingredients, :health_labels
 
   def initialize(recipe_params)
     @name = recipe_params[:name]
     @image = recipe_params[:image]
     @id = recipe_params[:id]
     @original_url = recipe_params[:original_url]
+    @ingredients = recipe_params[:ingredients]
+    @health_labels = recipe_params[:health_labels]
   end
 
   def self.search(item)
@@ -28,8 +30,7 @@ class Recipe
     recipes.each do |recipe|
       id = recipe["recipe"]["uri"].split("_").last
 
-      recipe_params = {name: recipe["recipe"]["label"], image: recipe["recipe"]["image"], id: id,
-        original_url: recipe["recipe"]["url"]}
+      recipe_params = {name: recipe["recipe"]["label"], image: recipe["recipe"]["image"], id: id }
 
         recipe_array << Recipe.new(recipe_params)
       end
@@ -49,7 +50,8 @@ class Recipe
     id = recipe["recipe"]["uri"].split("_").last
 
     recipe_params = {name: recipe["recipe"]["label"], image: recipe["recipe"]["image"], id: id,
-      original_url: recipe["recipe"]["url"]}
+      original_url: recipe["recipe"]["url"], ingredients: recipe["recipe"]["ingredientLines"], health_labels: recipe["recipe"]["healthLabels"]}
+
 
     return Recipe.new(recipe_params)
 
