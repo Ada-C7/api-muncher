@@ -4,8 +4,10 @@ class EdamamApiWrapper
   app_key = ENV["EDAMAM_KEY"]
   BASE_URL = "#{base}app_id=#{app_id}&app_key=#{app_key}&health=vegan&"
 
-  def self.list_recipes(search)
-    url = BASE_URL + "q=#{search}"
+  def self.list_recipes(search, page = 1)
+    page_start = (page.to_i - 1) * 10
+    page_end = page_start + 10
+    url = BASE_URL + "q=#{search}&from=#{page_start}&to=#{page_end}"
     response =  HTTParty.get(url)
 
     if response["hits"]
