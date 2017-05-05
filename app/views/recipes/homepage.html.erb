@@ -1,0 +1,6 @@
+<%= form_tag(recipes_path, method: "get") do %>
+  <%= label_tag :query_term, "Search..." %>
+  <%= text_field_tag :query_term %>
+
+  <%= submit_tag "Search" %>
+<% end %>

@@ -1,12 +1,18 @@
 require 'HTTParty'
-require '.env'
+require 'recipes'
+require 'dotenv-rails'
 
 class RecipesController < ApplicationController
   def index
-    @data = RecipesApiWrapper.search(query)
+    @recipes = RecipesApiWrapper.search(params[:query_term])
+    # in brackets: form field that will be accepting the query term
+    # this index page is displaying the results, so another view page will have to be made for the form the user enters the search into, doesn't need its own controller
   end
 
   def show
+  end
+
+  def homepage
   end
 end
 

@@ -5,19 +5,25 @@ require 'dotenv-rails'
 BASE_URL = "https://api.edamam.com/search"
 
 class RecipesApiWrapper
-  attr_accessor :name
+  attr_accessor :name, :uri, :label
 
-  def initialize
+  def initialize(params)
+    @uri = params[:uri]
+    @label = params[:label]
+
   end
 
   def self.search(query)
     query_params = {
-      "q" => query
-      "app_id" => EDAMAM_ID
-      "app_key" => EDAMAM_TOKEN
+      "q" => query,
+      "app_id" => ENV["EDAMAM_ID"],
+      "app_key" => ENV["EDAMAM_TOKEN"]
     }
 
-    return HTTParty.get("#{BASE_URL}?app_key=#{app_key}&app_id=#{app_id}&q=#{query}")
+
+    return HTTParty.get(BASE_URL, query: query_params)
+
+    # if logic: send back array of recipes if 'more' response
 
   end
 end

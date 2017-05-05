@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'recipes/index'
+  root 'recipes#homepage'
+
+  get '/recipes', to: 'recipes#index', as: 'recipes'
 
   get 'recipes/show'
 
