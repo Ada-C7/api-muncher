@@ -6,7 +6,7 @@ class HomepagesController < ApplicationController
   def index
     orig_recipes = EdamamApiWrapper.listRecipes(params[:search_words])
     if params[:search_words]
-      @recipes = orig_recipes.paginate :per_page => 5, :page => params[:page]
+      @recipes = orig_recipes.paginate :per_page => 10, :page => params[:page]
     end
     return @recipes
   end

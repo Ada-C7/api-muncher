@@ -17,7 +17,7 @@ class EdamamApiWrapper
      label: hit["recipe"]["label"],
      image: hit["recipe"]["image"],
      uri: hit["recipe"]["uri"].split("_").last.to_s
-   }
+     }
      @recipes << Recipe.new(options)
     end
   end
@@ -53,7 +53,7 @@ class EdamamApiWrapper
     options = {
     label: response[0]["label"],
     image:  response[0]["image"],
-    uri:  response[0]["uri"],
+    url:  response[0]["url"],
     ingredientlines: response[0]["ingredientLines"]
    }
     return Recipe.new(options)

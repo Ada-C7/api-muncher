@@ -10,10 +10,16 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
+  <header>
+    <h1><%= link_to "Recipe Finder", root_path %></h1>
+  </header>
 
   <body>
 
     <%= yield %>
 
   </body>
+  <footer>
+    <%= link_to (image_tag "edamamlogo.png"), "http://developer.edamam.com" %>
+  </footer>
 </html>

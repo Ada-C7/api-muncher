@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-04T12:47:59-07:00">2017-05-04T12:47:59-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-04T20:57:28-07:00">2017-05-04T20:57:28-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">100.0%</span></span>
+    (<span class="covered_percent"><span class="green">98.39%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.82
+         23.95
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>6</b> files in total.
-    <b>60</b> relevant lines. 
-    <span class="green"><b>60</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed </span>
+    <b>62</b> relevant lines. 
+    <span class="green"><b>61</b> lines covered</span> and
+    <span class="red"><b>1</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#a526ccbb29e08e0dcce3e61cc53efb94587fbe5f" class="src_link" title="app/controllers/homepages_controller.rb">app/controllers/homepages_controller.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>19</td>
-        <td>8</td>
-        <td>8</td>
-        <td>0</td>
-        <td>1.0</td>
+        <td class="green strong">91.67 %</td>
+        <td>23</td>
+        <td>12</td>
+        <td>11</td>
+        <td>1</td>
+        <td>0.9</td>
       </tr>
       
       <tr>
@@ -77,7 +77,7 @@
         <td>20</td>
         <td>20</td>
         <td>0</td>
-        <td>3.7</td>
+        <td>21.7</td>
       </tr>
       
       <tr>
@@ -87,7 +87,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>15.4</td>
+        <td>127.3</td>
       </tr>
       
       <tr>
@@ -103,9 +103,9 @@
       <tr>
         <td class="strong"><a href="#30f6567694d6201409bd5a90ad6d1493b1e5e343" class="src_link" title="test/lib/recipe_test.rb">test/lib/recipe_test.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>20</td>
-        <td>8</td>
-        <td>8</td>
+        <td>18</td>
+        <td>6</td>
+        <td>6</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -165,11 +165,11 @@
         <div class="source_table" id="a526ccbb29e08e0dcce3e61cc53efb94587fbe5f">
   <div class="header">
     <h3>app/controllers/homepages_controller.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="green">91.67 %</span> covered</h4>
     <div>
-      <b>8</b> relevant lines. 
-      <span class="green"><b>8</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>12</b> relevant lines. 
+      <span class="green"><b>11</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -188,10 +188,10 @@
           <code class="ruby">require &#39;recipe&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="3">
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">require &#39;will_paginate/array&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
@@ -215,76 +215,100 @@
         <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
-          <code class="ruby">    @recipes = EdamamApiWrapper.listRecipes(params[:search_words])</code>
+          <code class="ruby">    orig_recipes = EdamamApiWrapper.listRecipes(params[:search_words])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    if params[:search_words]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="missed" data-hits="0" data-linenumber="9">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      @recipes = orig_recipes.paginate :per_page =&gt; 10, :page =&gt; params[:page]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
           
           
-          <code class="ruby">  # def find_recipe(search_words)</code>
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #   @recipes = EdamamApiWrapper.listRecipes</code>
+          <code class="ruby">    return @recipes</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">  # end</code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="13">
           
-          <code class="ruby">  def show</code>
+          
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="14">
           
-          <code class="ruby">    uri = params[:uri]</code>
+          
+          <code class="ruby">  # def find_recipe(search_words)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="15">
           
-          <code class="ruby">    @recipe = EdamamApiWrapper.getRecipe(uri)</code>
+          
+          <code class="ruby">  #   @recipes = EdamamApiWrapper.listRecipes</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
+          <code class="ruby">  # end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def show</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    uri = params[:uri]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    @recipe = EdamamApiWrapper.getRecipe(uri)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="23">
           
           
           <code class="ruby">end</code>
@@ -371,7 +395,7 @@
         <li class="covered" data-hits="3" data-linenumber="11">
           <span class="hits">3</span>
           
-          <code class="ruby">   url = BASE_URL + &quot;?q=#{ search_words }&quot; + &quot;&amp;app_id=#{ APP_ID }&quot; + &quot;&amp;app_key=#{ APP_KEY }&quot;</code>
+          <code class="ruby">   url = BASE_URL + &quot;?q=#{ search_words }&quot; + &quot;&amp;app_id=#{ APP_ID }&quot; + &quot;&amp;app_key=#{ APP_KEY }&quot; + &quot;&amp;to=100&quot;</code>
         </li>
       
         <li class="covered" data-hits="3" data-linenumber="12">
@@ -398,8 +422,8 @@
           <code class="ruby">   response[&quot;hits&quot;].each do | hit |</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="16">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="200" data-linenumber="16">
+          <span class="hits">200</span>
           
           <code class="ruby">     options = {</code>
         </li>
@@ -425,11 +449,11 @@
         <li class="never" data-hits="" data-linenumber="20">
           
           
-          <code class="ruby">   }</code>
+          <code class="ruby">     }</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="21">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="200" data-linenumber="21">
+          <span class="hits">200</span>
           
           <code class="ruby">     @recipes &lt;&lt; Recipe.new(options)</code>
         </li>
@@ -734,26 +758,26 @@
           <code class="ruby">  def initialize(options)</code>
         </li>
       
-        <li class="covered" data-hits="24" data-linenumber="6">
-          <span class="hits">24</span>
+        <li class="covered" data-hits="203" data-linenumber="6">
+          <span class="hits">203</span>
           
           <code class="ruby">    @label = options[:label]</code>
         </li>
       
-        <li class="covered" data-hits="24" data-linenumber="7">
-          <span class="hits">24</span>
+        <li class="covered" data-hits="203" data-linenumber="7">
+          <span class="hits">203</span>
           
           <code class="ruby">    @image =  options[:image]</code>
         </li>
       
-        <li class="covered" data-hits="24" data-linenumber="8">
-          <span class="hits">24</span>
+        <li class="covered" data-hits="203" data-linenumber="8">
+          <span class="hits">203</span>
           
           <code class="ruby">    @uri = options[:uri]</code>
         </li>
       
-        <li class="covered" data-hits="24" data-linenumber="9">
-          <span class="hits">24</span>
+        <li class="covered" data-hits="203" data-linenumber="9">
+          <span class="hits">203</span>
           
           <code class="ruby">    @ingredientlines = options[:ingredientlines]</code>
         </li>
@@ -764,8 +788,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="24" data-linenumber="11">
-          <span class="hits">24</span>
+        <li class="covered" data-hits="203" data-linenumber="11">
+          <span class="hits">203</span>
           
           <code class="ruby">    raise ArgumentError if @label == nil || @label == &quot;&quot;</code>
         </li>
@@ -1007,8 +1031,8 @@
     <h3>test/lib/recipe_test.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>8</b> relevant lines. 
-      <span class="green"><b>8</b> lines covered</span> and
+      <b>6</b> relevant lines. 
+      <span class="green"><b>6</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1076,61 +1100,49 @@
           <code class="ruby">   }</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="11">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="11">
           
-          <code class="ruby">   proc {</code>
+          
+          <code class="ruby">   </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">     Recipe.new(options)</code>
+          <code class="ruby">   proc {</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">   }.must_raise ArgumentError</code>
+          <code class="ruby">     Recipe.new(options)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
+          <code class="ruby">   }.must_raise ArgumentError</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
-          
-          <code class="ruby">   proc {</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
-          
-          <code class="ruby">       Recipe.new(options)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="17">
-          
-          
-          <code class="ruby">     }.must_raise ArgumentError</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby">   end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">end</code>
