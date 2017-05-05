@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Open+Sans" rel="stylesheet">
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
@@ -12,21 +12,23 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
-    <header>
-      <div class="row" id="top-row">
-        <h1 class="small-10 small-centered columns">
-          <%= link_to "Trickey Eats", root_path %>
-        </h1>
-      </div>
-    </header>
+  <div class="row">
+    <body class="small-12 columns">
+      <header>
+        <div class="row" id="top-row">
+          <h1 class="small-10 small-centered columns">
+            <%= link_to "Trickey Eats", root_path %>
+          </h1>
+        </div>
+      </header>
 
-    <main>
-      <%= yield %>
-    </main>
+      <main>
+        <%= yield %>
+      </main>
 
-    <footer class="small-10 small-centered columns">
-      Powered by <%= link_to "Edamam", "https://www.edamam.com/", target: :_blank %>
-    </footer>
-  </body>
+      <footer class="small-10 small-centered columns">
+        Powered by <%= link_to "Edamam", "https://www.edamam.com/", target: :_blank %>
+      </footer>
+    </body>
+  </div>
 </html>

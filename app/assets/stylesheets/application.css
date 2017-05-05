@@ -14,44 +14,105 @@
  *= require_self
  *= require foundation_and_overrides
 
+pallet
+
+blue Hex 1:  #0072BB ▼
+reddish Hex 2:  #FF4C3B rgba(255, 76, 59, 0.5);
+yellowish Hex 3:  #FFD034
  */
 
 /*General Styling*/
 body {
   font-size: 20px;
-  font-family: 'Love Ya Like A Sister', cursive;
+  font-family: 'Open Sans', sans-serif;
   /*text-align: center;*/
+  background-image: url("https://static.pexels.com/photos/5317/food-salad-restaurant-person.jpg");
+  background-size: 100%;
+  background-repeat: repeat-y;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Love Ya Like A Sister', cursive;
 }
 
-/*Header*/
-header h1 {
-  font-size: 1em;
+a {
+  color: white;
 }
 
-/*Footer*/
-footer {
-  margin-top: 40px;
-}
-
-/*Root page*/
-.root {
-  background-color: gold;
-}
-
-.title {
-  text-align: center;
-}
-
-label {
-  font-size: 1.25em;
-  text-align: center;
+a:hover, a::selection {
+  color: #FF4C3B;
 }
 
 .button {
   display: block;
   margin: auto;
 }
+
+li {
+  list-style: none;
+  text-align: center;
+}
+
+/*Header*/
+header h1 {
+  font-size: 1em;
+  background-color: #0072BB;
+}
+
+/*Footer*/
+footer {
+  color: white;
+  background-color: #0072BB;
+  width: 100%;
+}
+
+/*Root page*/
+.root {
+  background-color: rgba(255, 76, 59, 0.75);
+  color: white;
+  font-weight: bold;
+  margin: 100px 0 150px 0;
+  padding: 20px 5%;
+}
+
+.title {
+  text-align: center;
+}
+
+.intro p {
+  font-size: .75em;
+}
+
+label {
+  font-size: 1.25em;
+  text-align: center;
+  color: white;
+}
+
+/*index*/
+.index {
+  overflow: scroll;
+  height: 100vh;
+  background-color: rgba(255, 208, 52, .75);
+}
+
+.recipes h2 {
+  text-align: center;
+}
+
+.square {
+  margin: 10px 0;
+}
+
+.left {
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.right {
+  text-align: right;
+  padding-bottom: 20px;
+}
+
+/*
+.articles*/
