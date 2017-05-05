@@ -32,11 +32,18 @@
 
 <%= "~ you are viewing ##{params[:from]} to #{params[:to]} of #{@total_count} #{params[:search]} recipes~"%>
 
-<% if params[:to].to_i < @total_count %>
-      <% current_end = params[:to].to_i  %>
-      <% next_start = current_end  %>
-      <% next_end = next_start + 10 %>
-<%= button_to "Next", recipes_path, method: :get, :params => {:search => params[:search], :from => next_start, :to => next_end }%>
+<% if params[:to].to_i <= (@total_count-20) %>
+    <% current_end = params[:to].to_i  %>
+    <% next_start = current_end  %>
+    <% next_end = next_start + 10 %>
+    <%= button_to "Next", recipes_path, method: :get, :params => {:search => params[:search], :from => next_start, :to => next_end }%>
+
+<% else %>
+    <% current_end = params[:to].to_i  %>
+    <% next_start = current_end  %>
+    <% next_end = @total_count %>
+    <%= button_to "Next", recipes_path, method: :get, :params => {:search => params[:search], :from => next_start, :to => next_end }%>
+
 <% end %>
 
 </section>
