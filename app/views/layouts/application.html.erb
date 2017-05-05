@@ -13,13 +13,27 @@
 
   <body>
 
-    <header>
-      <%= render partial: "search" %>
+    <header class = "row">
+
+        <div class = "large-8 columns">
+          <h2>FIND YOUR TASTE</h2>
+        </div>
+        <div class = "large-4 columns">
+          <%= render partial: "search" %>
+        </div>
+
+
     </header>
 
-    <main>
+    <main class = "row">
       <%= yield %>
     </main>
+
+    <footer class = "row">
+      <p>
+        This work is based on Edamam's data (https://developer.edamam.com/)
+      </p>
+    </footer>
 
   </body>
 </html>
