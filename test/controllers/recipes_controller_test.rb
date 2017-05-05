@@ -13,7 +13,7 @@ describe RecipesController do
                     }
     end
 
-    it 'returns the index page/search results with results' do
+    it 'returns the index page/search results with good results' do
       VCR.use_cassette("search_results") do
         get recipes_path, params: @params
         must_respond_with :success
@@ -26,5 +26,26 @@ describe RecipesController do
         must_respond_with :success
       end
     end
+  end
+
+  describe 'show' do
+    before do
+      @good_id = "_6ffeacec6d0c6f8bc9aee1de19065537"
+      @bad_id = "_dfjakldjfakljd9080890akflja88908"
+    end
+
+    it 'returns the show page with wanted recipe' do
+      VCR.use_cassette("search_results") do
+        get recipe_path(@good_id)
+      end
+      must_respond_with :success
+    end
+
+    it 'returns 404 not found if given bad id' do
+      VCR.use_cassette("search_results") do
+        p get recipe_path(@bad_id)
+      end
+    end
+
   end
 end

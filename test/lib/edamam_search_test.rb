@@ -3,19 +3,10 @@ require 'test_helper'
 describe EdamamSearch do
 
   before do
-    @search_params = {
-                      search_text: "cookies",
-                      from: 0,
-                      to: 10
-                     }
-    @no_results = {
-                    search_text: "fadjkfaldjaflj",
-                    from: 0,
-                    to: 10
-                   }
-    @recipe = {
-                recipe_id: "_6ffeacec6d0c6f8bc9aee1de19065537"
-              }
+    @search_params = { search_text: "cookies", from: 0, to: 10 }
+    @no_results = { search_text: "fadjkfal", from: 0, to: 10 }
+    @recipe_id = { recipe_id: "_6ffeacec6d0c6f8bc9aee1de19065537" }
+    @fake_recipe_id = {recipe_id: "_6ffeacec6d0c6f8bc9aee1de19065abc"}
   end
 
   describe 'initialize' do
@@ -52,7 +43,7 @@ describe EdamamSearch do
 
     it 'returns one recipe if there is a r search paramater' do
       VCR.use_cassette("search_results") do
-        search_input = EdamamSearch.new(@recipe)
+        search_input = EdamamSearch.new(@recipe_id)
         response = search_input.search_results
         # p response
         response.must_include "label"
@@ -60,7 +51,11 @@ describe EdamamSearch do
 
     end
 
-    # it 'raises an error if something goes wrong ' do
-    # end
+    it 'raises an error if something goes wrong ' do
+      VCR.use_cassette("search_results") do
+        search_input = EdamamSearch.new(@fake_recipe_id)
+        proc { search_input.search_results }.must_raise EdamamSearch::EdamamException
+      end
+    end
   end
 end

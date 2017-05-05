@@ -33,13 +33,13 @@ class EdamamSearch
     # response = HTTParty.get("https://api.edamam.com/search?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&q=#{@search_text}")
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
-
-    if response.count == 1
+    # p response
+    if response.parsed_response.empty?
+      raise EdamamException.new("No results for that search")
+    elsif response.count == 1
       return response[0]
     elsif response["hits"]
       return response["hits"]
-    else
-      raise EdamamException.new(resposne)
     end
     #
     # if response.count == 1
