@@ -11,7 +11,6 @@ class RecipesController < ApplicationController
                         health: params[:health],
                         diet: params[:diet]
                       }
-      # raise
       results = get_api_search(search_params)
       @list_of_recipes = Recipe.list_of_recipes(results)
     end
@@ -19,14 +18,9 @@ class RecipesController < ApplicationController
 
   # will show results from search
   def show
-    # raise
-    search_params = {
-                      recipe_id: params[:id]
-                    }
-
+    search_params = { recipe_id: params[:id] }
     recipe_results = get_api_search(search_params)
     @recipe = Recipe.individual_recipe(recipe_results)
-    # raise
   end
 private
 

@@ -32,8 +32,9 @@
       <%= hidden_field_tag :health, params[:health] %>
       <%= hidden_field_tag :diet, params[:diet] %>
       <%= hidden_field_tag :from, (params[:from].to_i + 10 )  %>
-      <%= submit_tag "Next 10" %>
+      <%= submit_tag "Next 10", class: "button" %>
     <% end %>
+    <%= link_to 'Back', :back, class: "button"%>
   </nav>
   <% end %>
 </section>
