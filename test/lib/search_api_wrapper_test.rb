@@ -22,13 +22,13 @@ describe "SearchApiWrapper" do
 
     #Spend TOO MUCH TIME to make it pass but DAN told me to not worry about it
 
-    # it "Will return an empty array with invalid APP_ID and KEY_ID" do
-    #   VCR.use_cassette("recipe") do
-    #
-    #     recipes = SearchApiWrapper.listRecipes("chicken", "eee", "")
-    #     recipes.must_equal []
-    #    end
-    # end
+    it "Will return an empty array with invalid APP_ID and KEY_ID" do
+      VCR.use_cassette("bad_uri") do
+
+        recipes = SearchApiWrapper.listRecipes("chicken", "eee", "")
+        recipes.must_equal []
+       end
+    end
 
     it "Will return empty array when there is no user search input " do
 
@@ -47,13 +47,12 @@ describe "SearchApiWrapper" do
     it "Can show a recipe for a specific uri" do
         uri = "https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl%23recipe_637913ec61d9da69eb451818c3293df2"
         recipe = SearchApiWrapper.showRecipe(uri)
-
         recipe.must_be_instance_of Recipe
     end
 
     it "Requires a uri to show a recipe" do
-        proc {
-         SearchApiWrapper.showRecipe("")}.must_raise JSON::ParserError
+
+         SearchApiWrapper.showRecipe("").must_equal nil
     end
   end
 end

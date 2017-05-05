@@ -11,7 +11,7 @@ class SearchApiWrapper
     app_id ||= APP_ID
     app_key ||= APP_KEY
 
-    url = BASE_URL + "?q=#{user_search}" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&to=10"
+    url = BASE_URL + "?q=#{user_search}" + "&app_id=#{app_id}" + "&app_key=#{app_key}" + "&to=10"
 
     response = HTTParty.get(url).parsed_response
     hits = response["hits"]
@@ -47,8 +47,13 @@ class SearchApiWrapper
     # allergy_info =
     #  response[0]["healthLabels"]
     #  nutrients = response[0]["totalNutrients"]
+    if response
       recipe = Recipe.new(response[0])
       return recipe
+    else
+      return nil
     end
-
+  rescue JSON::ParserError => e
+    return nil
+  end
 end
