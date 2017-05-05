@@ -12,11 +12,13 @@ class Recipe
     result = []
     url = BASE_URL + "?app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&q=#{search_term}"
     data = HTTParty.get(url)
-    10.times do |i|
-      label = data["hits"][i]["recipe"]["label"]
-      image = data["hits"][i]["recipe"]["image"]
-      uri = data["hits"][i]["recipe"]["uri"]
-      result.push({:label => label, :image => image, :uri => uri})
+    if data["count"] != 0
+      10.times do |i|
+        label = data["hits"][i]["recipe"]["label"]
+        image = data["hits"][i]["recipe"]["image"]
+        uri = data["hits"][i]["recipe"]["uri"]
+        result.push({:label => label, :image => image, :uri => uri})
+      end
     end
     return result
   end
