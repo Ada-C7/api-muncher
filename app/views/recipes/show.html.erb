@@ -2,17 +2,36 @@
   <% if @recipe == nil %>
   <%= @message %>
   <% else %>
-  <%= @recipe.name %>
+  <h4 class="header"><%= @recipe.name %></h4>
+  <div class="small-6 large-6 columns">
+  <p>Ingredients</p>
   <ul>
     <% @recipe.ingredients.each do |ingredient| %>
     <li><%= ingredient %></li>
     <% end %>
   </ul>
-  <ul>
+</div>
+<img src=" <%= asset_path(@recipe.image) %>", alt="<%= @recipe.name %>" />
+<div class="small-6 large-6 columns">
+  <table>
+    <thead>
+  <tr>
+    <td>Health Labels</td>
+    </tr>
+</thead>
+<tbody>
     <% @recipe.health_labels.each do |label| %>
-    <li><%= label %></li>
+    <tr>
+      <td><%= label %></td>
+    </tr>
     <% end %>
-  </ul>
+</tbody>
+</table>
+</div>
+<div class="small-6 large-6 columns">
+  <p>Calories: <strong> <%= @recipe.calories %></strong></p>
+  <p>Source: <%= @recipe.source %></p>
   <%= button_to "Get the Recipe!", @recipe.original_recipe, target: :_blank %>
+</div>
   <% end %>
 </section>

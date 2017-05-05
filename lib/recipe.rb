@@ -1,5 +1,5 @@
 class Recipe
-  attr_accessor :name, :uri, :image, :original_recipe, :health_labels, :ingredients
+  attr_accessor :name, :uri, :image, :original_recipe, :health_labels, :ingredients, :calories, :source
   BASE_URL = "https://api.edamam.com/search?"
   def initialize(params)
     @name = params[:name]
@@ -8,6 +8,8 @@ class Recipe
     @ingredients = params[:ingredients]
     @health_labels = params[:health_labels]
     @uri = params[:uri]
+    @calories = params[:calories]
+    @source = params[:source]
   end
 
   def self.all_by_search_term(search, from, to)
@@ -15,7 +17,6 @@ class Recipe
       "q" => search,
       "app_id" => ENV["EDAMAM_ID"],
       "app_key" => ENV["EDAMAM_KEY"],
-      "Health" => "gluten-free",
       "from" => from,
       "to" => to
     }
@@ -53,7 +54,9 @@ class Recipe
       original_recipe: recipe["url"],
       ingredients: recipe["ingredientLines"],
       health_labels: recipe["healthLabels"],
-      uri: recipe["uri"]
+      uri: recipe["uri"],
+      calories: recipe["calories"],
+      source: recipe["source"]
     }
     return self.new(recipe_data)
   else

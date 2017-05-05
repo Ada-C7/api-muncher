@@ -14,21 +14,19 @@
   <body>
     <header>
       <nav>
-      <h4><%= link_to "Make Anna Dinner", root_path %></h4>
-      <div>
+      <h3><%= link_to "Make Anna Dinner", root_path %></h3>
       <% if current_user %>
-        Signed in as <strong><%= current_user.name %></strong>!
-        <%= button_to "Sign out", signout_path, id: "sign_out", method: :get, class: :button %>
+        <p class="text-right signed_in">Signed in as <strong><%= current_user.name %></strong></p>
+        <%= button_to "Sign out", signout_path, id: "sign_out", method: :get, class: "button sign_in" %>
       <% else %>
-        <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", method: :get, class: :button %>
+        <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", method: :get, class: "button float-right" %>
       <% end %>
-    </div>
     </nav>
     </header>
     <main>
     <%= yield %>
     </main>
-    <footer class="row">
+    <footer class="small-6 large-6 columns">
       <p>Powered by <%= link_to "Edamam", "https://www.edamam.com/", target: :_blank %>
     </footer>
   </body>

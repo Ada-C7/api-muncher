@@ -23,6 +23,18 @@
    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
  }
 
+ img {
+   display: block;
+ }
+
+ footer {
+   position: fixed;
+   padding-top: 50px;
+   bottom: 0px;
+   right: 0px;
+   clear: both;
+ }
+
  header {
    width: 100%;
    background-color: #C70039;
@@ -31,31 +43,43 @@
    /*height: 50px;*/
  }
 
-header h4 {
-  float: left;
+ nav a {
+   color: white;
+ }
+
+header h3 {
+  text-align: center;
   margin-left: 20px;
   padding-top: 0px;
   font-family: 'Muli', sans-serif;
-  /*margin-top: 10px;*/
+  margin-bottom: 0px
 }
+
 li {
   list-style: none;
 }
 
-main {
-  margin-top: 70px;
+.signed_in {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  margin-bottom: 0px;
+  display: inline;
+}
+.citation {
+  display: block;
 }
 
-.button {
+main {
+  margin-top: 80px;
+}
+
+.sign_in {
   float: right;
   background: rgba(54, 25, 25, .5);
   color: black;
   margin-right: 20px;
   padding: 7px;
   margin-top: 0px;
-}
-
-.search_form {
-  /*display: block;
-  margin: 15px auto;*/
+  margin-bottom: 5px;
 }

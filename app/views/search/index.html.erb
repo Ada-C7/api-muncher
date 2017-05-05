@@ -4,7 +4,7 @@
 </section>
 <section class="row">
   <div class="small-6 columns small-centered search_form">
-<%= form_tag(recipes_path_url(from: "0", to: "10"), method: "post") do%>
+<%= form_tag(recipes_path_url(from: "0", to: "11"), method: "post") do%>
 <%= text_field_tag :search_term, params[:search_term], placeholder: "Search by Food" %>
 <%= submit_tag "Search", class: :button %>
 <% end %>
