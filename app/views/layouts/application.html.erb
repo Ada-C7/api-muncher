@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Only Foods Anna Can Eat</title>
+    <title>Make Anna Dinner</title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -12,9 +12,16 @@
   </head>
 
   <body>
-
+    <header>
+      <nav>
+      <h4>Make Anna Dinner</h4>
+      <p><%= button_to "Search", root_path, method: :get, class: :button %></p>
+    </nav>
+    </header>
+    <main>
     <%= yield %>
-    <footer>
+    </main>
+    <footer class="row">
       <p>Powered by <%= link_to "Edamam", "https://www.edamam.com/", target: :_blank %>
     </footer>
   </body>

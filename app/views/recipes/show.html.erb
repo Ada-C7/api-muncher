@@ -2,17 +2,17 @@
   <% if @recipe == nil %>
   <%= @message %>
   <% else %>
-<%= @recipe.name %>
-<ul>
-  <% @recipe.ingredients.each do |ingredient| %>
-  <li><%= ingredient %></li>
+  <%= @recipe.name %>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient %></li>
+    <% end %>
+  </ul>
+  <ul>
+    <% @recipe.health_labels.each do |label| %>
+    <li><%= label %></li>
+    <% end %>
+  </ul>
+  <%= button_to "Get the Recipe!", @recipe.original_recipe, target: :_blank %>
   <% end %>
-</ul>
-<ul>
-  <% @recipe.health_labels.each do |label| %>
-  <li><%= label %></li>
-  <% end %>
-</ul>
-<%= link_to "Get the Recipe!", @recipe.original_recipe, target: :_blank %>
-<% end %>
 </section>

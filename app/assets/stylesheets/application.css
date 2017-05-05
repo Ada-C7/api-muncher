@@ -15,3 +15,47 @@
  *= require foundation_and_overrides
 
  */
+ @font-face {
+   font-family: 'Muli';
+   font-style: normal;
+   font-weight: 300;
+   src: local('Muli Light'), local('Muli-Light'), url(https://fonts.gstatic.com/s/muli/v10/mls_29xz6YyJHsylG8hcCgLUuEpTyoUstqEm5AMlJo4.woff2) format('woff2');
+   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+ }
+
+ header {
+   width: 100%;
+   background-color: #C70039;
+   position: fixed;
+   top: 0px;
+   /*height: 50px;*/
+ }
+
+header h4 {
+  float: left;
+  margin-left: 20px;
+  padding-top: 0px;
+  font-family: 'Muli', sans-serif;
+  /*margin-top: 10px;*/
+}
+li {
+  list-style: none;
+}
+
+main {
+  margin-top: 70px;
+}
+
+.button {
+  float: right;
+  background: rgba(54, 25, 25, .5);
+  color: black;
+  margin-right: 20px;
+  padding: 7px;
+  margin-top: 0px;
+}
+
+.search_form {
+  /*display: block;
+  margin: 15px auto;*/
+}
