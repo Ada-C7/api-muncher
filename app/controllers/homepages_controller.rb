@@ -4,7 +4,7 @@ require 'will_paginate/array'
 
 class HomepagesController < ApplicationController
   def index
-    orig_recipes = EdamamApiWrapper.listRecipes(params[:search_words])
+    orig_recipes = EdamamApiWrapper.listRecipes(params[:search_words], params[:health])
     if params[:search_words]
       @recipes = orig_recipes.paginate :per_page => 10, :page => params[:page]
       if @recipes.length < 1

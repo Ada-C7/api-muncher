@@ -8,11 +8,13 @@ describe Recipe do
      image: "www.url.com",
      uri: "www.recipe.com"
    }
-   
+
    proc {
      Recipe.new(options)
    }.must_raise ArgumentError
 
    end
+
+   it "raises error"
 
 end
