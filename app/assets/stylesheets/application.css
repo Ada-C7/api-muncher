@@ -22,11 +22,11 @@
  }
 
 
- body {
+ /*body {
    background: black;
-   margin: 0
- }
- 
+   margin: 0;
+ }*/
+
  #hitarea{
    position:absolute;
    left:50%;
