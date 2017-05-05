@@ -13,9 +13,7 @@ describe EdamamApiWrapper do
         recipes.first.name.must_equal "Carrots Braised in Beer and Carrot Juice"
       end
     end
-    # this method has no paramters, if it had, we could test what would happen
-    # it we gave it a broken parameter
-    # if we pass it token as a prameter, the only way for it to fail is to have invalid token
+
     it "Returns an empty array with a bad parameter" do
       VCR.use_cassette("recipe") do
         channels = EdamamApiWrapper.listRecipes("stupid", 0)
