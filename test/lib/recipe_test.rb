@@ -4,11 +4,11 @@ describe Recipe do
 
   before do
     recipe_info = {
-      label: "test",
-      image: "http://www.test.image",
-      source: "a food place",
-      ingredients: ["chicken", "more chicken"],
-      nurition: { test: "testnutrient" }
+      "label" => "test",
+      "image" => "http://www.test.image",
+      "source" => "a food place",
+      "ingredients" => ["chicken", "more chicken"],
+      "nutrition" => { test: "testnutrient" }
     }
 
     @recipe = Recipe.new(recipe_info)
