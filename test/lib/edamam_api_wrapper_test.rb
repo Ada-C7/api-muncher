@@ -25,28 +25,32 @@ describe EdamamApiWrapper do
       recipes.must_equal []
     end
 
-    # it "will return empty array with no query" do     ## this one takes a reeeeeeeally long time
-    #   recipes = EdamamApiWrapper.listRecipes("")
-    #
-    #   recipes.must_equal []
-    # end
+    it "will return empty array with no query" do
+      recipes = EdamamApiWrapper.listRecipes("")
+
+      recipes.must_equal []
+    end
   end
 
   describe "#getRecipe method" do
     it "can get a recipe given a valid uri" do
-      channel = SlackApiWrapper.getChannel("C557BP9QE")
+      recipe = EdamamApiWrapper.getRecipe("https://www.edamam.com/ontologies/edamam.owl%23recipe_9f599ab29949e1a7989a06c227f8ba70")
 
-      channel.must_be_instance_of Channel
-      channel.id.wont_be_nil
-
+      recipe.must_be_instance_of Recipe
+      recipe.uri.wont_be_nil
     end
 
-    it "returns false for an invalid channel id" do
-      VCR.use_cassette("slack") do
-        channel = SlackApiWrapper.getChannel("nope")
-        channel.wont_be_instance_of Channel
-        channel.must_be_nil
-      end
+    it "returns false for an invalid recipe uri" do
+      recipe = EdamamApiWrapper.getRecipe("https://www.nope.com")
+      recipe.wont_be_instance_of Recipe
+      recipe.must_be_nil
+    end
+
+    it "returns something for invalid input" do
+      recipe = EdamamApiWrapper.getRecipe("ksldkafj")
+      recipe.wont_be_instance_of Recipe
+      recipe.must_be_nil
     end
   end
+
 end

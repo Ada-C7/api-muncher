@@ -33,13 +33,20 @@ class EdamamApiWrapper
 
     response = HTTParty.get(url).parsed_response[0]
 
-    name = response["label"]
-    image = response["image"]
-    uri = response["uri"]
-    ingredients = response["ingredientLines"]
-    link = response["url"]
-    diet = response["totalNutrients"]
+    if response
+      name = response["label"]
+      image = response["image"]
+      uri = response["uri"]
+      ingredients = response["ingredientLines"]
+      link = response["url"]
+      diet = response["totalNutrients"]
 
-    recipe = Recipe.new(name, image, uri, ingredients: ingredients, link: link, diet: diet)
+      recipe = Recipe.new(name, image, uri, ingredients: ingredients, link: link, diet: diet)
+      return recipe
+    end
+
+  rescue JSON::ParserError # invalid, non-htttp inputs returns a "[", this is broken. Inputs without colon cannot be parsed
+    return nil
   end
+
 end
