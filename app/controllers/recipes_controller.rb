@@ -13,7 +13,7 @@ attr_reader :recipe_array, :recipe
 
 
   def show
-    @recipe = EdamameRecipes.find_recipe(params[:uri])
+    @recipe = EdamamRecipes.find_recipe(params[:uri])
   end
 
 

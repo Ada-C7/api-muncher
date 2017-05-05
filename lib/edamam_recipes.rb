@@ -1,22 +1,36 @@
 require 'httparty'
 require 'pry-rails'
+require 'uri'
 
 class EdamamRecipes
   class EdamamException < StandardError
   end
 
   BASE_URL = "https://api.edamam.com/search"
+  # https://api.edamam.com/search?
+  BASE_URI = "https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl#"
+  # https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl%23recipe_c9044642b3673039d454227917c51e11&app_key=b4133bf14265d1c28e3a38bb96909ca6&app_id=3c83c9fe
 
   attr_reader :uri, :label, :image
 
-  def initialize(auth_hash)
-    @uri = auth_hash[:uri]
-    @label = auth_hash[:label]
-    @image = auth_hash[:image]
+  def initialize(recipe_data)
+    @uri = recipe_data[:uri]
+    @label = recipe_data[:label]
+    @image = recipe_data[:image]
+
   end
 
   def self.get_recipes(search_request)
+    # query_params = {
+    #   "app_id" => ENV["EDAMAM_APP_ID"],
+    #   "app_key" => ENV["EDAMAM_APP_KEY"],
+    #   "q" => search_request
+    #   "from" => 0,
+    #   "to" => 10,
+    # }
+
     # url = "https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}"
+    # recipes = HTTParty.get("https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}")
     recipes = HTTParty.get("https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}")
     recipe_array = []
      recipes["hits"].each do |recipe|
@@ -25,33 +39,10 @@ class EdamamRecipes
     return recipe_array
   end
 
-  def self.find_recipe
-    uri = EdamamRecipes.uri
-    return uri
-
+  def self.find_recipe(uri)
+    url = URI.escape("#{BASE_URI}#{uri}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}")
+    recipe = HTTParty.get(url)
+    return recipe
   end
 
 end
-
-# recipes["hits"].each do |recipe|
-
-# response = HTTParty.get("https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}").parsed_response
-
-# else
-#   raise EdamamException.new("no hits found")
-# end
-
-# puts EdamamRecipes.get_recipes("chicken")
-
-# seven_wonders = ["Great Pyramind of Giza", "Hanging Gardens of Babylon", "Colossus of Rhodes", "Lighthouse of Alexandria", "Statue of Zeus at Olympia", "Temple of Artemis", "Mausoleum at Halicarnassus"]
-#
-# BASE_URL = "http://maps.google.com/maps/api/geocode/json?address="
-#
-# output = {}
-#
-# seven_wonders.each do |wonder|
-#   @response = HTTParty.get("#{BASE_URL}#{wonder}").parsed_response #don't seem to need the .parsed_response
-#     output[wonder] = @response["results"][0]["geometry"]["location"]
-# end
-#
-# puts output
