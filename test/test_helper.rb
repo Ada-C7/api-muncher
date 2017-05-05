@@ -3,6 +3,8 @@ require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
 require "minitest/rails"
 require "minitest/reporters"  # for Colorized output
+require "vcr"
+require "webmock/minitest"
 
 #  For colorful output!
 Minitest::Reporters.use!(
@@ -17,7 +19,20 @@ Minitest::Reporters.use!(
 # require "minitest/rails/capybara"
 
 # Uncomment for awesome colorful output
-# require "minitest/pride"
+ require "minitest/pride"
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'test/cassettes'
+  config.hook_into :webmock
+  config.default_cassette_options = {
+    :record => :new_episodes,
+    :match_requests_on => [:method, :uri, :body]
+  }
+  # Don't leave our Slack token lying around in a cassette file.
+  config.filter_sensitive_data("<EDMAM_TOKEN>") do
+    ENV['EDMAM_TOKEN']
+  end
+end
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
