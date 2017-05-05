@@ -1,5 +1,5 @@
 require_dependency '../../lib/edamam_recipes'
-require 'edamam_recipes'
+# require 'edamam_recipes'
 
 class RecipesController < ApplicationController
 
