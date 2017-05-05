@@ -50,13 +50,18 @@ class EdamamApiWrapper
   def self.getRecipe(uri)
     url = "https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl_" + uri
     response = HTTParty.get(url)
-    options = {
-    label: response[0]["label"],
-    image:  response[0]["image"],
-    url:  response[0]["url"],
-    ingredientlines: response[0]["ingredientLines"]
-   }
-    return Recipe.new(options)
+    if response[0] != nil
+      options = {
+        label: response[0]["label"],
+        image:  response[0]["image"],
+        url:  response[0]["url"],
+        ingredientlines: response[0]["ingredientLines"],
+        totalnutrients: response[0]["totalNutrients"]
+      }
+      return Recipe.new(options)
+    else
+      return nil
+    end
   end
 
 

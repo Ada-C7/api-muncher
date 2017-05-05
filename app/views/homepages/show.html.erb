@@ -9,9 +9,39 @@
     <%= line %>
   </li>
   <% end %>
-
 </ul>
-<p>
+
+<h4>Nutritional Info</h4>
+<table class="nutrients">
+  <thead>
+    <tr>
+
+    <th>
+      Nutrient
+    </th>
+    <th>
+      Quantity
+    </th>
+    <th>
+      Unit
+    </th>
+  </tr>
+  </thead>
+  <% @recipe.totalnutrients.each do |nutrient| %>
+  <tr>
+    <td>
+      <%=  nutrient[1]["label"] %>
+    <% %>
+    </td>
+    <td>
+      <%=  nutrient[1]["quantity"].round(0) %>
+    </td>
+    <td>
+      <%=  nutrient[1]["unit"] %>
+    </td>
+  </tr>
+  <% end %>
+</table>
 
 </p>
 <%= link_to @recipe.url, @recipe.url %>

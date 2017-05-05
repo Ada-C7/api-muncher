@@ -17,6 +17,14 @@ class HomepagesController < ApplicationController
   def show
     uri = params[:uri]
     @recipe = EdamamApiWrapper.getRecipe(uri)
+    if @recipe
+      return @recipe
+    else
+      flash.now[:status] = :failure
+      flash.now[:result_text] = "Recipe Not Found"
+      render "index"
+    end
+
   end
 
 
