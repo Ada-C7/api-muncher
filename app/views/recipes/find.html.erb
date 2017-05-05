@@ -1,6 +1,6 @@
-<%= form_tag recipe_find_path(@recipe), method: :post do %>
+<%= form_tag recipes_path, method: :get do %>
   <%= label_tag :search %>
   <%= text_field_tag :search %>
 
-  <%= submit_tag "Send it!" %>
+  <%= submit_tag "Find it!" %>
 <% end %>

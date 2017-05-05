@@ -1,27 +1,41 @@
-BASE_URL = "https://api.edamam.com/search"
-app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEYS"]}&health=vegan"
 
 class ApiRecipe
+  BASE_URL = "https://api.edamam.com/"
+  attr_reader :label, :uri, :image, :url, :source
+
   class ApiRecipeException < StandardError
+  end
+
+  def initialize(hash_params)
+    @label = hash_params[:label]
+    @uri = hash_params[:uri]
+    @image = hash_params[:image]
+    @url = hash_params[:url]
+    @source = hash_params[:source]
   end
 
   def self.find(query)
     query_params = {
+      "q" => query,
       "app_id" => ENV["EDAMAM_APP_ID"],
       "app_key" => ENV["EDAMAM_APP_KEYS"],
-      "q" => query,
-      "health" => "vegan"
+      "health" => "vegan",
+      "from" => 0,
+      "to" => 100
     }
 
-    url = "#{BASE_URL}?"
-    response = HTTParty.get(url, query: query_params)
-    if response["ok"]
-      puts "Everything went swell"
+    url = "#{BASE_URL}search?"
+    response = HTTParty.get(url, query: query_params).parsed_response
+    if response["hits"]
+      recipes = response["hits"].map do |recipe|
+        self.new(label: recipe["recipe"]["label"], uri: recipe["recipe"]["uri"], image: recipe["recipe"]["image"],
+        url: recipe["recipe"]["url"], source: recipe["recipe"]["source"])
+      end
+
+      return recipes
     else
-      puts "This is wrong"
-      # raise ApiRecipeException.new(response["error"])
+      raise ApiRecipeException.new(response["error"])
     end
-    # do something with the response
   end
 
   # def self.all

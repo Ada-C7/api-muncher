@@ -1,9 +1,7 @@
 class RecipesController < ApplicationController
+
   def index
-    @recipes =  ApiRecipe.all
+    @recipes = ApiRecipe.find(params[:search])
   end
 
-  def find
-    @recipe = ApiRecipe.find(params[:search])
-  end
 end
