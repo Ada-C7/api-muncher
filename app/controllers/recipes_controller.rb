@@ -1,21 +1,15 @@
 class RecipesController < ApplicationController
 
     def view_recipes
-      all =  RecipeApiWrapper.all(params[:search], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
-      @search_query = params[:search]
-      @optional_params = ""
-      @optional_params += "&vegan=vegan" if params[:vegan] != nil
-      @optional_params += "&kosher=kosher" if params[:kosher] != nil
-      @optional_params += "&vegetarian=vegetarian" if params[:vegetarian] != nil
-      @optional_params += "&paleo=paleo" if params[:paleo] != nil
+      all_without_from =  RecipeApiWrapper.all(params[:search], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
 
       @recipes = RecipeApiWrapper.search(params[:search], params[:from], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
 
-      if all  == nil || all== 0 || @recipes == nil || @recipes.length == 0
+      if all_without_from  == nil || all_without_from== 0 || @recipes == nil || @recipes.length == 0
         flash[:result_text] = "Could not find recipes. Try again"
         redirect_to root_path
       else
-        @recipes_number = all.length
+        @recipes_number = all_without_from.length
         @per_page = 12
         @number_of_pages = @recipes_number/@per_page
         @number_of_pages += 1 if @recipes_number % @per_page > 0
