@@ -1,5 +1,5 @@
 require 'httparty'
-require 'pry-rails'
+# require 'pry-rails'
 require 'uri'
 
 class EdamamRecipes
