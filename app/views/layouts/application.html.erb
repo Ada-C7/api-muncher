@@ -13,12 +13,12 @@
 
 <body class="row">
   <header class="row">
-    <h1 class="columns small-12 medium-6 large-6"><%= link_to "Aurora's Recipe Recs", root_path, method: :get %></h1>
+    <h1 class="columns small-12"><%= link_to "Aurora's Recipe Recs", root_path, method: :get %></h1>
     <section class="credits">
-      <p class="columns small-12 medium-3 large-3 personal-credit">
+      <p class="columns small-12 medium-6 large-6 personal-credit">
         a project by <%= link_to "Aurora Anderson", "http://github.com/auroralemieux" %>
       </p>
-      <p class="columns small-12 medium-3 large-3 api-credit">
+      <p class="columns small-12 medium-6 large-6 api-credit">
         recipe search powered by <%= link_to "Edamam", 'https://www.edamam.com' %>
       </p>
     </section>
@@ -26,9 +26,9 @@
 
       <ul class="columns small-12 ">
         <% if current_user %>
-        <li>
+        <p>
           logged in as <%= current_user.provider %>
-        </li>
+        </p>
         <li>
           <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
         </li>

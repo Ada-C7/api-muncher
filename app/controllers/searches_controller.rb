@@ -6,21 +6,26 @@ require_dependency '../../lib/recipe_result'
 class SearchesController < ApplicationController
   before_action :check_next_and_prev
 
-  # after_action :set_from_and_to, only: [:prev_ten, :next_ten]
   def index
     session[:search_count] = nil
     session[:search_terms] = nil
     session[:from] = 0
     session[:to] = 10
+    session[:health] = nil
   end
 
   def recipes
-    # check_next_and_prev
     session[:search_terms] ||= params[:search_terms]
-    @results = EdamamApiWrapper.querySearch(session[:search_terms], session[:from], session[:to])
+    if %w(vegetarian dairy-free kosher gluten-free).include?(params[:health])
+      session[:health] = params[:health]
+    end
+    if session[:health] != nil
+      @results = EdamamApiWrapper.querySearch(session[:search_terms], session[:from], session[:to], session[:health])
+    else
+      @results = EdamamApiWrapper.querySearch(session[:search_terms], session[:from], session[:to])
+    end
     session[:search_count] = @results.last
     @results = @results[0..-2]
-    # ADD BACK IN: params[:gluten], params[:dairy], params[:vegetarian], params[:kosher]
   end
 
   def recipe
@@ -82,7 +87,7 @@ class SearchesController < ApplicationController
   end
 
   def search_params
-    params.require(:search).permit(:search_terms, :gluten, :dairy, :vegetarian, :kosher)
+    params.require(:search).permit(:search_terms, :health)
   end
 
 end

@@ -1,12 +1,32 @@
 <section class="homepage row">
-  <section class="search-form">
+  <section class="search-form columns small-12 medium-12 large-6">
 
+    <h1>What sounds good?</h1>
     <%= form_tag recipes_path, method: "get" do %>
 
-    <%= label_tag :search_terms %>
-    <%= text_field_tag(:search_terms) %>
+    <p>
+      Please pick one of the following:
+    </p>
+    <li>
+      <%= radio_button_tag :health, "vegetarian" %>
+      <%= label_tag :vegetarian %>
+      <%= radio_button_tag :health, "dairy-free" %>
+      <%= label_tag :dairy, "Dairy-free" %>
+      <%= radio_button_tag :health, "kosher" %>
+      <%= label_tag :kosher %>
+      <%= radio_button_tag :health, "gluten-free" %>
+      <%= label_tag :gluten, "Gluten-free" %>
+      <%= radio_button_tag :health, "none" %>
+      <%= label_tag :none %>
+    </li>
 
-    <%= submit_tag("Search") %>
+    <li>
+      <%= label_tag :search_terms %>
+      <%= text_field_tag :search_terms %>
+    </li>
+
+
+    <%= submit_tag "Search", class: "button" %>
 
     <% end %>
   </section>

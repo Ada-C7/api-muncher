@@ -7,15 +7,18 @@ class EdamamApiWrapper
   EDAMAM_KEY = ENV["EDAMAM_KEY"]
 
 
-  def self.querySearch(search_terms, from, to)
-    # put BACK IN gluten = nil, dairy = nil, vegetarian = nil, kosher = nil
-    url = BASE_URL + "app_id=#{EDAMAM_ID}&" + "app_key=#{EDAMAM_KEY}&" + "q=#{search_terms}&" + "from=#{from}&" + "to=#{to}"
+  def self.querySearch(search_terms, from, to, health = nil)
+
+    if health
+      url = BASE_URL + "app_id=#{EDAMAM_ID}&" + "app_key=#{EDAMAM_KEY}&" + "q=#{search_terms}&" + "from=#{from}&" + "to=#{to}&" + "health=#{health}"
+    else
+      url = BASE_URL + "app_id=#{EDAMAM_ID}&" + "app_key=#{EDAMAM_KEY}&" + "q=#{search_terms}&" + "from=#{from}&" + "to=#{to}"
+    end
 
     response = HTTParty.get(url)
 
-    if response == nil
-
-      return nil
+    if response.include?("<title>Error")
+      return []
     else
       recipes = []
       list = response["hits"]
