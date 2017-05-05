@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module ApiMuncher
   class Application < Rails::Application
     # Force new test files to be generated in the minitest-spec style
-    config.autoload_paths << Rails.root.join('lib')
+    config.eager_load_paths << Rails.root.join('lib')
 
     config.generators do |g|
       g.test_framework :minitest, spec: true
