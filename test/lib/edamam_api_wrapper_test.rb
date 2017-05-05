@@ -16,8 +16,8 @@ describe EdamamApiWrapper do
 
     it "Returns an empty array with a bad parameter" do
       VCR.use_cassette("recipe") do
-        channels = EdamamApiWrapper.listRecipes("stupid", 0)
-        channels.must_equal []
+        recipes = EdamamApiWrapper.listRecipes("stupid", 0)
+        recipes.must_equal []
       end
     end
   end

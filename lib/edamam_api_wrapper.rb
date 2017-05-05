@@ -33,6 +33,6 @@ class EdamamApiWrapper
     if recipe
       recipe = Recipe.new(recipe["label"], recipe["image"], recipe["uri"].partition("recipe_").last, url: recipe["url"], ingredientLines: recipe["ingredientLines"], digest: recipe["digest"])
     end
-  return recipe
+    return recipe
   end
 end
