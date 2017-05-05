@@ -1,28 +1,32 @@
 
 
 
+
 <%= form_tag(homepages_index_path, method: "get") do %>
-  <%= label_tag(:search_words, "Search for:") %>
-  <%= text_field_tag(:search_words) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<%= label_tag(:search_words, "Search for:") %>
+<div class="input-group input-group-rounded">
+  <%= text_field_tag(:search_words, nil, :placeholder => "Ingredients", :class => "input-group-field", :type => "search") %>
+  <div class="input-group-button">
+    <%= submit_tag "Search", :class => "button secondary" %>
+    </div
+    <% end %>
+  </div>
 
-<div class="row">
-
-<%if params[:search_words] %>
-  <% if @recipes.length > 0 %>
+    <%if params[:search_words] %>
+    <% if @recipes.length > 0 %>
+    <div class="row">
     <% @recipes.each do |recipe| %>
-      <div class="small-12 columns medium-6 columns end large-4 columns end">
+    <div class="small-12 columns medium-6 columns end large-4 columns end">
       <%= link_to image_tag(recipe.image), homepages_show_path(recipe.uri) %>
-      <p>
+      <p class="recipe name">
         <%= link_to recipe.label, homepages_show_path(recipe.uri) %>
       </p>
     </div>
     <% end %>
   </div>
-    <%= will_paginate @recipes, class: "row" %>
+  <%= will_paginate @recipes, class: "row" %>
   <% else %>
   <%= "Looks like we didn't find any recipes with #{params[:search_words]}" %>
   <% end %>
 
-<% end %>
+  <% end %>
