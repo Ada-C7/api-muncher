@@ -18,7 +18,15 @@ class Recipe_Api_Wrapper
     recipes = []
     if response["hits"].length > 0
       response["hits"].each do |recipe|
-        info = Recipe.new(recipe["recipe"]["uri"], recipe["recipe"]["label"], recipe["recipe"]["image"], recipe["recipe"]["url"], recipe["recipe"]["dietLabels"], recipe["recipe"]["healthLabels"], recipe["recipe"]["ingredientLines"])
+        info = Recipe.new(
+        recipe["recipe"]["uri"],
+        recipe["recipe"]["label"], 
+        recipe["recipe"]["image"],
+        recipe["recipe"]["url"],
+        recipe["recipe"]["dietLabels"],
+        recipe["recipe"]["healthLabels"],
+        recipe["recipe"]["ingredientLines"],
+        recipe["recipe"]["calories"])
 
         recipes << info
       end
@@ -32,7 +40,7 @@ class Recipe_Api_Wrapper
     response = HTTParty.get(url)
     recipes = []
     response.parsed_response.each do |recipe|
-      info = Recipe.new(recipe["uri"], recipe["label"], recipe["image"], recipe["url"], recipe["dietLabels"], recipe["healthLabels"], recipe["ingredientLines"])
+      info = Recipe.new(recipe["uri"], recipe["label"], recipe["image"], recipe["url"], recipe["dietLabels"], recipe["healthLabels"], recipe["ingredientLines"], recipe["calories"])
 
       recipes << info
     end

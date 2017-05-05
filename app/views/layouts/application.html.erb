@@ -12,11 +12,19 @@
   </head>
 
   <body>
-    <%= yield %>
-    <footer>
+    <div id="wrapper">
+    <header id="header">
+      <article id="apple"><%= image_tag("apple.png", :size => "200x300", :alt => "apple header") %></article>
+      <h1 id="header-link"><%= link_to "MunchieMunch", root_path %></h1>
+    </header>
+    <section id="content">
+      <%= yield %>
+    </section>
+    <footer id="footer">
       <section>
         <article><%= image_tag "/assets/Attributionv2.png", :alt => "Edamam attribution" %> </article>
       </section>
     </footer>
   </body>
+  </div>
 </html>
