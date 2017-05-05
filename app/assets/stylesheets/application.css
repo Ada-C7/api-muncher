@@ -71,6 +71,9 @@ p {
   font-size: .7em;
 }
 
+.search {
+  margin-top: 20px;
+}
 
 .show {
   margin-top: 5%;
@@ -100,4 +103,18 @@ p {
 
 .main {
   margin: 0 15%;
+}
+
+.attribution {
+  width: 150px;
+}
+
+.footer * {
+  display: inline-block;;
+  margin: 10px auto;
+  padding: 0;
+}
+
+footer {
+  text-align: center;
 }
