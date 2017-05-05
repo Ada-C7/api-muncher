@@ -10,8 +10,18 @@
 
         <p><%=@recipe.label%></p>
         <p><%= image_tag(@recipe.image, :size => "600x700", :alt => "#{@recipe.label}") %></p>
-        <p><%=@recipe.ingredientLines%></p>
-        <p><%=@recipe.totalNutrients%></p>
+        <% @recipe.ingredientLines.each do | line | %>
+
+          <p><%=line%></p>
+        <% end %>
+
+        <% @recipe.totalNutrients.each do | k, v | %>
+
+        <p><%= v["label"] %> <%= v["quantity"].round(2) %><%= v["unit"] %></p>
+
+        <% end %>
+
+
         <p>Courtesy of: <%=link_to @recipe.source, "#{@recipe.url}" %></p>
         <!-- # add target="_blank" to open link in new tab -->
 
