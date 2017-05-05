@@ -5,33 +5,33 @@
     <%= text_field_tag :search_text %>
 
     <p> Dietary Options: </p>
-    <%= check_box_tag "health[]", "peanut-free" %>
-    <%= label_tag "health[]", "Peanut Free" %>
+    <%= radio_button_tag :health, "peanut-free" %>
+    <%= label_tag :health, "Peanut Free" %>
 
-    <%= check_box_tag "health[]", "tree-nut-free" %>
-    <%= label_tag "health[]", "Tree Nut Free" %>
+    <%= radio_button_tag :health, "tree-nut-free" %>
+    <%= label_tag :health, "Tree Nut Free" %>
 
-    <%= check_box_tag "health[]", "alcohol-free" %>
-    <%= label_tag "health[]", "Alcohol Free" %>
+    <%= radio_button_tag :health, "alcohol-free" %>
+    <%= label_tag :health, "Alcohol Free" %>
 
-    <%= check_box_tag "health[]", "vegan" %>
-    <%= label_tag "health[]", "Vegan" %>
+    <%= radio_button_tag :health, "vegan" %>
+    <%= label_tag :health, "Vegan" %>
 
-    <%= check_box_tag "health[]", "vegetarian" %>
-    <%= label_tag "health[]", "Vegetarian" %>
+    <%= radio_button_tag :health, "vegetarian" %>
+    <%= label_tag :health, "Vegetarian" %>
 
     <p>Macro Options: </p>
-    <%= check_box_tag "diet[]", "balanced" %>
-    <%= label_tag "diet[]", "Balanced" %>
+    <%= radio_button_tag :diet, "balanced" %>
+    <%= label_tag :diet, "Balanced" %>
 
-    <%= check_box_tag "diet[]", "high-protein" %>
-    <%= label_tag "diet[]", "High Protein" %>
+    <%= radio_button_tag :diet, "high-protein" %>
+    <%= label_tag :diet, "High Protein" %>
 
-    <%= check_box_tag "diet[]", "low-carb" %>
-    <%= label_tag "diet[]", "Low Carb" %>
+    <%= radio_button_tag :diet, "low-carb" %>
+    <%= label_tag :diet, "Low Carb" %>
 
-    <%= check_box_tag "diet[]", "low-fat" %>
-    <%= label_tag "diet[]", "Low Fat" %>
+    <%= radio_button_tag :diet, "low-fat" %>
+    <%= label_tag :diet, "Low Fat" %>
 
     <%= hidden_field_tag :from, 0 %>
     <div><%= submit_tag "Send" %></div>

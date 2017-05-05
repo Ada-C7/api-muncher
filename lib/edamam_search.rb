@@ -14,11 +14,8 @@ class EdamamSearch
     @to = search_params[:to]
     @from = search_params[:from]
     @recipe_id = search_params[:recipe_id]
-    @health = search_params[:health] if search_params[:health]
-    # @health = search_params[:health].join(", ") if search_params[:health]
-    # @diet = search_params[:diet].join(", ") if search_params[:diet]
-    @diet = search_params[:diet] if search_params[:diet]
-
+    @health = search_params[:health]
+    @diet = search_params[:diet]
     # diet = search_hash[:diet_options]
   end
 
@@ -35,21 +32,15 @@ class EdamamSearch
                     "r" => "http://www.edamam.com/ontologies/edamam.owl%23recipe#{@recipe_id}"
                    }
 
-    # if @health
-    #   @health.each { |label| query_params["health"] = label }
-    # elsif @diet
-    #   @diet.each { |label| query_params["diet"] = label }
-    # end
-
     query_params = query_params.delete_if { |key, value| value.nil? || value.empty? || ( key == "r" && @recipe_id.nil?) }
 
-    p query_params
+    # p query_params
 
     # response = HTTParty.get("https://api.edamam.com/search?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&q=#{@search_text}")
     url = "#{BASE_URL}"
     response = HTTParty.get(url, query: query_params)
     # raise
-    if response.parsed_response.empty?
+    if response.parsed_response.nil? || response.parsed_response.empty?
       raise EdamamException.new("No results for that search")
     elsif response.count == 1
       return response[0]

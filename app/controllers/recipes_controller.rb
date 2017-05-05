@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
 
   def index
     if params[:search_text]
-    
+
       search_params = {
                         search_text: params[:search_text],
                         from: params[:from].to_i,
@@ -12,8 +12,8 @@ class RecipesController < ApplicationController
                         diet: params[:diet]
                       }
       # raise
-      @new_search = EdamamSearch.new(search_params)
-      search_results = @new_search.search_results
+      new_search = EdamamSearch.new(search_params)
+      search_results = new_search.search_results
       @list_of_recipes = Recipe.list_of_recipes(search_results)
     end
   end

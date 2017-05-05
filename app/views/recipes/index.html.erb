@@ -27,12 +27,11 @@
   </article>
 
   <nav>
-    <% next_ten = @new_search.from + 10 %>
     <%= form_tag recipes_path, method: :get do %>
-      <%= hidden_field_tag :search_text, "#{@new_search.search_text}" %>
-      <%= hidden_field_tag "health[]", "#{@new_search.health}" %>
-      <%= hidden_field_tag "diet[]", "#{@new_search.diet}" %>
-      <%= hidden_field_tag :from, next_ten %>
+      <%= hidden_field_tag :search_text, params[:search_text] %>
+      <%= hidden_field_tag :health, params[:health] %>
+      <%= hidden_field_tag :diet, params[:diet] %>
+      <%= hidden_field_tag :from, (params[:from].to_i + 10 )  %>
       <%= submit_tag "Next 10" %>
     <% end %>
   </nav>
