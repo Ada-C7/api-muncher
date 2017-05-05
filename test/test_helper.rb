@@ -5,6 +5,8 @@ require "minitest/rails"
 require "minitest/reporters"  # for Colorized output
 require 'vcr'
 require 'webmock/minitest'
+require 'simplecov'
+SimpleCov.start 'rails'
 
 #  For colorful output!
 Minitest::Reporters.use!(
