@@ -72,4 +72,5 @@ gem 'awesome_print'
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
+  gem 'dotenv-rails'
 end
