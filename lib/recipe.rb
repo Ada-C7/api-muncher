@@ -9,8 +9,6 @@ class Recipe
 
     @url = options[:url]
     @ingredients = options[:ingredientLines]
-    @nutrients = options[:totalNutrients]
-    @daily_nutrients = options[:totalDaily]
     @calories = options[:digest]
   end
 end

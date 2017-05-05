@@ -32,7 +32,7 @@ class EdamamApiWrapper
     response = HTTParty.get(url)
     recipe = response.first
     if recipe
-      recipe = Recipe.new(recipe["label"], recipe["image"], recipe["uri"].partition("recipe_").last, url: recipe["url"], ingredientLines: recipe["ingredientLines"], totalNutrients: recipe["totalNutrients"], totalDaily: recipe["totalDaily"], digest: recipe["digest"])
+      recipe = Recipe.new(recipe["label"], recipe["image"], recipe["uri"].partition("recipe_").last, url: recipe["url"], ingredientLines: recipe["ingredientLines"], digest: recipe["digest"])
     end
   return recipe
   end

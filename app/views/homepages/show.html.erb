@@ -19,17 +19,17 @@
     </thead>
     <tbody>
       <% @recipe.calories.each do |nutrition| %>
-      <tr>
-        <td><%= nutrition["label"] %></td>
-        <td><%= nutrition["total"].round(2) %> <%= nutrition["unit"] %></td>
-        <td><%= nutrition["daily"].round(2) %></td>
-      </tr>
+        <tr>
+          <td><%= nutrition["label"] %></td>
+          <td><%= nutrition["total"].round(2) %> <%= nutrition["unit"] %></td>
+          <td><%= nutrition["daily"].round(2) %></td>
+        </tr>
         <% if nutrition["sub"] %>
           <% nutrition["sub"].each do |sub| %>
-          <tr>
-            <td><%= sub["label"] %></td>
-            <td><%= sub["total"].round(2)%> <%= sub["unit"] %></td>
-            <td><%= sub["daily"].round(2) %></td>
+            <tr>
+              <td><%= sub["label"] %></td>
+              <td><%= sub["total"].round(2)%> <%= sub["unit"] %></td>
+              <td><%= sub["daily"].round(2) %></td>
             </tr>
           <% end %>
         <% end %>
