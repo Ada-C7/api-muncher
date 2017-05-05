@@ -9,7 +9,7 @@ class EdamamApiWrapper
 
   def self.findRecipes(query)
 
-    url = BASE_URL + "q=#{query.gsub(" ", "+")}" #+ "&from=0&to=3" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}"
+    url = BASE_URL + "q=#{query.gsub(" ", "+")}" + "&from=0&to=3" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}"
 
     response = HTTParty.get(url)
 
@@ -19,21 +19,7 @@ class EdamamApiWrapper
         name = hit["recipe"]["label"]
         image = hit["recipe"]["image"]
         uri = hit["recipe"]["uri"].gsub("#", "%23")
-        # url = hit["recipe"]["url"]
-        # servings = hit["recipe"]["yield"]
-        # dietLabels = hit["recipe"]["dietLabels"]
-        # healthLabels = hit["recipe"]["healthLabels"]
-        # ingredients = hit["recipe"]["ingredientList"]
-
-        recipes << Recipe.new(name, image, uri#, options =
-        # {
-        #   url: url,
-        #   servings: servings,
-        #   diet: dietLabels,
-        #   healthLabels: healthLabels,
-        #   ingredients: ingredients
-        # }
-        )
+        recipes << Recipe.new(name, image, uri)
       end
     end
     #raise
@@ -41,10 +27,13 @@ class EdamamApiWrapper
   end
 
   def self.showRecipe(uri)
+    begin
+      url = BASE_URL + "r=#{uri}" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}"
 
-    url = BASE_URL + "r=#{uri}" #+ "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}"
-
-    response = HTTParty.get(url).first
+      response = HTTParty.get(url).first
+    rescue JSON::ParserError => e
+      puts "Whoops, That's embarrasing, but we couldn't find that recipe. #{e}"
+    end
     recipe = nil
 
     if response
@@ -66,7 +55,7 @@ class EdamamApiWrapper
         health: healthLabels,
         ingredients: ingredients,
         calories: calories
-      }
+        }
       )
     end
     # TODO parse through the find hash!

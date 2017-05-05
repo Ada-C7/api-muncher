@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -46,7 +47,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger consol
   gem 'byebug', platform: :mri
   #gem 'minitest-byebug'
-
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -65,7 +66,6 @@ group :development do
   gem 'better_errors'
   gem 'pry-rails'
   gem 'binding_of_caller'
-  gem 'dotenv-rails'
 end
 
 gem 'awesome_print'
