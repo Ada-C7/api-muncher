@@ -50,16 +50,16 @@ describe Recipe do
   describe 'self.search' do
     it 'search results returns an array' do
       VCR.use_cassette('recipes') do
-        recipe = Recipe.search('arugula')
-        recipe.class.must_equal Array
+        recipes = Recipe.search('arugula')
+        recipes.class.must_equal Array
       end
+    end
+    #NOTE: Fixed typo for next commit.
+
+    it 'search term without any results returns an empty array' do
+    end
+
+    it 'empty search term causes a redirect' do
     end
   end
 end
-
-# it 'can send a message to a real channel' do
-#   VCR.use_cassette('channels') do
-#     channel = SlackChannel.new('queues_api_testing')
-#     channel.send('I love you everything burrito.')
-#   end
-# end
