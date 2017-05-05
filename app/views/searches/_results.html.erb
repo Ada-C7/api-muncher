@@ -1,27 +1,4 @@
 <%= @count %> results for your search for "<%= params[:label] %>" "<%= params[:id] %>" recipes
-<h3 class="white center">Filter by diet </h3>
-<div class="center">
-
-<p class="label white">
-  <%= link_to "low-carb", diet_path(params[:q], "Low-Carb") %>
-</p>
-<p class="label white">
-  <%= link_to "high-protein", diet_path(params[:q], "High-Protein") %>
-</p>
-
-<p class="label white">
-  <%= link_to "high-fiber", diet_path(params[:q], "High-Fiber") %>
-</p>
-<p class="label white">
-  <%= link_to "low-fat", diet_path(params[:q], "Low-Fat") %>
-</p>
-<p class="label white">
-  <%= link_to "low-sodium ", diet_path(params[:q], "Low-Sodium") %>
-</p>
-</div>
-
-
-
 <div class="row white">
   <%  @recipes.each do |recipe| %>
   <div class="small-12 end medium-6 large-4 columns ">
