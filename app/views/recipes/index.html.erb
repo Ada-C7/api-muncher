@@ -1,3 +1,53 @@
-<p>
-  This is the index page
-</p>
+
+
+
+<section class = "row large-12 columns">
+  <h4>
+    It's all about <%= @text.upcase%>
+  </h4>
+</section>
+
+
+<section class = "row large-up-5 medium-up-3 small-up-1" data-equalizer>
+  <% @recipes.first.each do |recipe|%>
+  <section class="column" >
+
+    <section class = "my_box" data-equalizer-watch>
+      <div class = 'top'>
+        <%= link_to image_tag(recipe.image , alt: "Image not available", class: "recipe_image_index"), recipe_path(recipe.uri.partition('#').last)%>
+      </div>
+      <h6 class = 'top'> <%= recipe.label%></h6>
+    </section>
+
+  </section>
+  <% end %>
+</section>
+
+<section class = "row">
+
+  <%if @from.to_i >= 10%>
+  <section class = "large-2 columns" >
+    <% from = (@from.to_i-10).to_s %>
+    <% to = (@to.to_i-10).to_s %>
+    <div>
+      <%= link_to "<<<<<",  recipes_path(:search_text => @text, :from =>  from, :to => to, method: :post),   class: "button"%>
+    </div>
+  </section>
+  <% end %>
+
+  <div class = "large-8 columns">
+
+  </div>
+
+  <%if @to.to_i < @recipes.last%>
+  <section class = "large-2 columns">
+    <% from = (@from.to_i+10).to_s %>
+    <% to = (@to.to_i+10).to_s %>
+    <div>
+      <%= link_to ">>>>>",  recipes_path(:search_text => @text, :from =>  from, :to => to, method: :post),   class: "button"%>
+    </div>
+  </section>
+  <% end %>
+
+
+</section>
