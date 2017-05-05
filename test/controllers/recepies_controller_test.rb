@@ -37,7 +37,6 @@ describe RecipesController do
           user_id: user.id
         }
       }
-      print recipe_data
       post recipes_path, params: recipe_data
       must_redirect_to show_recipe_path(Recipe.last.recipe_uri)
       end_count = User.first.recipes.count

@@ -19,11 +19,7 @@
  .column.text-center.recipe-container{
    height: 400px;
  }
- @media only screen and (max-width: 700px){
-   .column.text-center.recipe-container{
-     height: 320px;
-   }
- }
+
 img:hover{
   opacity: 0.6;
 }
@@ -59,7 +55,23 @@ html {
   top: 30%;
   left: 36%;
   width: 400px;
+  background-color: white;
+  opacity: 0.8;
 }
+@media only screen and (max-width: 700px){
+  .column.text-center.recipe-container{
+    height: 320px;
+  }
+
+}
+@media only screen and (max-width: 1000px){
+  #search_form{
+    left: 20%;
+    top: 16%;
+  }
+}
+
+
 #search_form label{
   display: inline;
   padding-left: 16px;
@@ -67,7 +79,7 @@ html {
 }
 input#search-button{
   width: 150px;
-  margin-left: 23%;
+  margin-left: 30%;
   border-color: white;
   color: #1B512D;
   font-weight:bold;
