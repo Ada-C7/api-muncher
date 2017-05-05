@@ -5,7 +5,7 @@ class Recipe
 
   BASE_URL = "https://api.edamam.com/search"
 
-  attr_reader :name, :image, :id, :original_url, :ingredients, :health_labels
+  attr_reader :name, :image, :id, :original_url, :ingredients, :health_labels, :diet_labels, :calories, :yield, :calories_per_serving
 
   def initialize(recipe_params)
     @name = recipe_params[:name]
@@ -14,6 +14,11 @@ class Recipe
     @original_url = recipe_params[:original_url]
     @ingredients = recipe_params[:ingredients]
     @health_labels = recipe_params[:health_labels]
+    @diet_labels = recipe_params[:diet_labels]
+    @calories = recipe_params[:calories]
+    @yield = recipe_params[:yield]
+    @calories_per_serving = @calories/@yield
+
   end
 
   def self.search(item)
@@ -49,8 +54,14 @@ class Recipe
 
     id = recipe["recipe"]["uri"].split("_").last
 
-    recipe_params = {name: recipe["recipe"]["label"], image: recipe["recipe"]["image"], id: id,
-      original_url: recipe["recipe"]["url"], ingredients: recipe["recipe"]["ingredientLines"], health_labels: recipe["recipe"]["healthLabels"]}
+    recipe_params = {name: recipe["recipe"]["label"],
+      image: recipe["recipe"]["image"],
+      id: id,
+      original_url: recipe["recipe"]["url"],
+      ingredients: recipe["recipe"]["ingredientLines"], health_labels: recipe["recipe"]["healthLabels"], diet_labels: recipe["recipe"]["dietLabels"],
+      calories: recipe["recipe"]["calories"],
+      yield: recipe["recipe"]["yield"]
+      }
 
 
     return Recipe.new(recipe_params)

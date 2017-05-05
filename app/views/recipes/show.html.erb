@@ -15,8 +15,12 @@
 
 <section>
   <h4>Dietary Information:</h4>
-  <h5>Health Labels</h5>
+  <h6><%= "Calories: #{@recipe.calories_per_serving.to_i}"%></h6>
+  <h5>Health labels:</h5>
   <ul>
+    <% @recipe.diet_labels.each do |diet_label| %>
+      <li><%=diet_label%></li>
+    <% end %>
     <% @recipe.health_labels.each do |health_label| %>
       <li><%=health_label%></li>
     <% end %>
