@@ -50,5 +50,7 @@ describe EdamamApiWrapper do
         food_fun.must_be_empty
       end
     end
+
+    # special character or wildcards
   end
 end

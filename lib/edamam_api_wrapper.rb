@@ -3,8 +3,8 @@ class EdamamApiWrapper
 
   URL = "https://api.edamam.com/search"
   HEADERS = {
-    "app_key" => ENV["APP_KEY"],
-    "app_id" => ENV["APP_ID"]
+    "app_key" => 'dan',
+    "app_id" => 'isprettycool'
   }
 
   attr_reader :name, :image, :url, :ingredients, :diet_info

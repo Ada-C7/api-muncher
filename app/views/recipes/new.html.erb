@@ -1,5 +1,5 @@
 <%= form_tag(recipes_path, method: "get") do %>
   <%= label_tag(:q, "I'd like to eat:") %>
-  <%= text_field_tag(:q) %>
+  <%= text_field_tag(:q, placeholder: "I'm hungry") %>
   <%= submit_tag("Get Recipes") %>
 <% end %>
