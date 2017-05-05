@@ -63,11 +63,12 @@ group :development do
   gem 'pry-rails'
   gem 'binding_of_caller'
   gem 'dotenv-rails'
-  gem 'simplecov'
 end
 
 gem 'foundation-rails'
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
+  gem 'simplecov'
+  
 end

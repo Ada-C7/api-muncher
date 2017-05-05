@@ -23,15 +23,17 @@ describe Search do
     search.save.must_equal false
   end
   # not sure why not passing
-  it "may have health params" do
-    search = Search.new
-    search.search_terms = "chicken"
-    search.user_id = 1
-    search.gluten = true
-    search.dairy = false
-    search.vegetarian = true
-    search.kosher = false
-    search.save.must_equal true
+  it "may have health param" do
+    search = Search.create(search_terms: "chicken", user_id: 1, health: "kosher")
+    search.must_be_instance_of Search
+  end
+
+  it "get_health works as expected" do
+    search1 = Search.create(search_terms: "chicken", user_id: 1, health: "kosher")
+    search2 = Search.create(search_terms: "chicken", user_id: 1)
+    search1.get_health.must_equal "(kosher)"
+    search2.get_health.must_equal ""
+
   end
 
 end

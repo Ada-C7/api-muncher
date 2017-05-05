@@ -10,7 +10,7 @@
     <ul>
       <% @searches.each do |search| %>
       <li>
-        <%= link_to "#{search.search_terms} #{search.has_health?}", recipes_path(search_terms: search.search_terms, health: search.health), class: "search-link" %>
+        <%= link_to "#{search.search_terms} #{search.get_health}", recipes_path(search_terms: search.search_terms, health: search.health), class: "search-link" %>
         <%= link_to "delete", delete_search_path(search.id), method: :delete, class: "delete", data: { confirm: 'Really delete this saved search?' } %>
       </li>
       <% end %>
