@@ -31,7 +31,7 @@ body {
   background-repeat: repeat-y;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, a {
   font-family: 'Love Ya Like A Sister', cursive;
 }
 
@@ -114,5 +114,27 @@ label {
   padding-bottom: 20px;
 }
 
+.left a, .right a {
+  background-color: #0072BB;
+  padding: 2px;
+}
+
+.square {
+   position: relative;
+   width: 100%; /* for IE 6 */
+}
+
+.image-text {
+   position: relative;
+   top: -100px;
+   left: 0;
+   width: 100%;
+   padding: 0 10%;
+   background-color: #0072BB;
+}
+
+.image img {
+  width: 100%;
+}
 /*
 .articles*/
