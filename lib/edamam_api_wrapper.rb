@@ -43,7 +43,7 @@ class EdamamApiWrapper
     else
       info = result[0]
 
-      recipe = Recipe.new(info["label"], info["uri"], info["image"], info["url"], info["ingredientLines"], info["totalNutrients"], info["yield"])
+      recipe = Recipe.new(info["label"], info["uri"], info["image"], info["url"], info["ingredientLines"], info["totalNutrients"], info["yield"], info["totalDaily"])
       return recipe
     end
   end

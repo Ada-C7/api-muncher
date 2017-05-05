@@ -22,7 +22,7 @@
         <ul>
           <% @recipes.each do |recipe| %>
             <div class="square">
-              <li class="small-12 medium-6 large-4 columns image">
+              <li class="small-12 medium-6 columns image">
                 <%= link_to recipe_path(uri: recipe.uri) do %>
                   <%= image_tag recipe.image %>
                   <h4 class="image-text"> <%= recipe.name %> </h4>
