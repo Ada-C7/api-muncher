@@ -15,11 +15,11 @@
     <h1 id="home" class="row">
       <%= link_to "Feed. Yo. Self.", root_path %>
     </h1>
-    <%= form_tag recipes_path, method: 'get' do %>
-    <div class="search-form large-8 small-9 columns">
+    <%= form_tag recipes_path, method: 'get', class: "row search-bar" do %>
+    <div class="search-form large-9 small-12 columns">
       <%= text_field_tag :search_term, params[:search_term], placeholder: "Search Recipes", type: "search" %>
     </div>
-    <div class="search-button large-4 small-3 columns">
+    <div class="search-button large-3 small-12 columns">
       <%= submit_tag 'Search', :name => nil %>
     </div>
     <% end %>
