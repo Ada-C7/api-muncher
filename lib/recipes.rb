@@ -5,6 +5,9 @@ require 'dotenv-rails'
 BASE_URL = "https://api.edamam.com/search"
 
 class RecipesApiWrapper
+  class RecipesApiWrapperException < StandardError
+  end
+
   attr_accessor :name, :uri, :label
 
   def initialize(params)
@@ -23,8 +26,24 @@ class RecipesApiWrapper
 
     return HTTParty.get(BASE_URL, query: query_params)
 
-    # if logic: send back array of recipes if 'more' response
 
+    if response["hits"]
+      recipes_list = response["hits"].map do |hit|
+        recipe_data = {
+          uri: hit["recipe"]["label"]
+          label: hit["recipe"]["label"]
+          image: hit["recipe"]["label"]
+          url: hit["recipe"]["label"]
+          calories: hit["recipe"]["label"]
+          dietlabels: hit["recipe"]["label"]
+          healthlabels: hit["recipe"]["label"]
+          ingredients: hit["recipe"]["label"]
+        }
+        self.new(recipe_data)
+      end
+    else
+      raise RecipesApiWrapperException.new(response["error"])
+    end
   end
 end
 
