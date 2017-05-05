@@ -8,7 +8,7 @@ class EdamamApiWrapper
   def self.listRecipes(query, api_id = nil, api_key = nil)
     api_id ||= API_ID
     api_key ||= API_KEY
-    #check query and make sure it's only letters and spaces
+  
     url = BASE_URL + "q=" +
     query +
     "&app_id=" + api_id +
