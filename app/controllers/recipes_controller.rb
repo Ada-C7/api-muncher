@@ -10,6 +10,9 @@ class RecipesController < ApplicationController
   end
 
   def show
+    # @recipe =
+
+    # @recipe = Recipe.getRecipe(params[:recipe])
   end
 
   def homepage
