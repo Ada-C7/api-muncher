@@ -1,0 +1,12 @@
+<main class="row">
+
+  <h1>The Dish</h1>
+
+  <p><%=image_tag @show_recipe.image %></p>
+  <p><%= link_to @show_recipe.label, @show_recipe.recipe_source %></p>
+
+
+
+<p><%= @show_recipe.ingredientLines %></p>
+
+</main>

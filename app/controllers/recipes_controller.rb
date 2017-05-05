@@ -5,7 +5,7 @@ require 'will_paginate/array'
 class RecipesController < ApplicationController
 
   def show
-    @recipe = EdamamApiWrapper.search(params[:search_term])
+    @show_recipe = EdamamApiWrapper.show_recipe(params[:recipe])
   end
 
 end

@@ -1,5 +1,6 @@
 require 'httparty'
 
+
 class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/"
   APP_ID = ENV["EDAMAM_ID"]
@@ -14,27 +15,30 @@ class EdamamApiWrapper
     if response["hits"]
 
       response["hits"].each do |recipe|
-        label = recipe["recipe"]["label"]
-        uri = recipe["recipe"]["uri"]
-        image = recipe["recipe"]["image"]
-        recipes << Recipe.new(label, uri, image)
+        options = {
+          label: recipe["recipe"]["label"],
+          uri: recipe["recipe"]["uri"],
+          image: recipe["recipe"]["image"]
+        }
+        recipes << Recipe.new(options)
       end
       return recipes
     end
-
-    def self.show_recipe(uri)
-      url = "https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl_" + uri
-      response = HTTParty.get(url)
-      options = {
-        label: response[0]["label"],
-        image:  response[0]["image"],
-        uri:  response[0]["uri"],
-        ingredientlines: response[0]["ingredientLines"]
-      }
-      return Recipe.new(options)
-
-    end
-    return recipes
   end
 
+  def self.show_recipe(uri)
+    uri = URI.encode(uri)
+    url = "https://api.edamam.com/search?r=" + uri + "&app_id=#{APP_ID}&" + "app_key=#{APP_KEY}"
+    response = HTTParty.get(url)
+    options = {
+      label: response[0]["label"],
+      image:  response[0]["image"],
+      uri:  response[0]["uri"],
+      recipe_source: response[0]["source"],
+      totalNutrients: response[0]["totalNutrients"],
+      ingredientLines: response[0]["ingredientLines"]
+    }
+    return Recipe.new(options)
+
+  end
 end
