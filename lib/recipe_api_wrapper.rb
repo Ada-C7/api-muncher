@@ -1,5 +1,5 @@
 require 'httparty'
-# require 'uri'
+require 'uri'
 
 class Recipe_Api_Wrapper
   BASE_URL = "https://api.edamam.com/"
@@ -27,7 +27,7 @@ class Recipe_Api_Wrapper
   end
 
   def self.showRecipe(uri)
-    url = BASE_URL + "search?" + "app_id=#{ ID }" + "&app_key=#{ KEY }" + "&r=#{ uri }"
+    url = BASE_URL + "search?" + "app_id=#{ ID }" + "&app_key=#{ KEY }" + "&r=#{ URI.encode(uri) }"
 
     response = HTTParty.get(url)
     recipes = []
