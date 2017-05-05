@@ -14,14 +14,13 @@
   <body>
     <header>
       <nav>
-      <h4>Make Anna Dinner</h4>
-      <p><%= button_to "Search", root_path, method: :get, class: :button %></p>
+      <h4><%= link_to "Make Anna Dinner", root_path %></h4>
       <div>
       <% if current_user %>
         Signed in as <strong><%= current_user.name %></strong>!
-        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        <%= button_to "Sign out", signout_path, id: "sign_out", method: :get, class: :button %>
       <% else %>
-        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+        <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", method: :get, class: :button %>
       <% end %>
     </div>
     </nav>
