@@ -10,8 +10,8 @@
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
       non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-    <img src="http://msmarket.coop/files/recipe-header.jpg" alt="food">
-    <img src="https://www.maxinutrition.com/Images/Article/large/maxinutrition-recipes-detox-smoothie-header-desktop.jpg" alt="smoothies">
+    <!-- <img src="http://msmarket.coop/files/recipe-header.jpg" alt="food"> -->
+    <!-- <img src="https://www.maxinutrition.com/Images/Article/large/maxinutrition-recipes-detox-smoothie-header-desktop.jpg" alt="smoothies"> -->
 
     <%= render partial: "searchForm" %>
 
@@ -28,7 +28,6 @@
 
   <nav>
     <% next_ten = @new_search.from + 10 %>
-
     <%= form_tag recipes_path, method: :get do %>
       <%= hidden_field_tag :search_text, "#{@new_search.search_text}" %>
       <%= hidden_field_tag "health[]", "#{@new_search.health}" %>

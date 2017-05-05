@@ -14,8 +14,10 @@ class EdamamSearch
     @to = search_params[:to]
     @from = search_params[:from]
     @recipe_id = search_params[:recipe_id]
-    @health = search_params[:health].join(", ") if search_params[:health]
-    @diet = search_params[:diet].join(", ") if search_params[:diet]
+    @health = search_params[:health] if search_params[:health]
+    # @health = search_params[:health].join(", ") if search_params[:health]
+    # @diet = search_params[:diet].join(", ") if search_params[:diet]
+    @diet = search_params[:diet] if search_params[:diet]
 
     # diet = search_hash[:diet_options]
   end
@@ -32,6 +34,12 @@ class EdamamSearch
                     "diet" => "#{@diet}",
                     "r" => "http://www.edamam.com/ontologies/edamam.owl%23recipe#{@recipe_id}"
                    }
+
+    # if @health
+    #   @health.each { |label| query_params["health"] = label }
+    # elsif @diet
+    #   @diet.each { |label| query_params["diet"] = label }
+    # end
 
     query_params = query_params.delete_if { |key, value| value.nil? || value.empty? || ( key == "r" && @recipe_id.nil?) }
 

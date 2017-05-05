@@ -3,10 +3,28 @@
 <h1><%= @recipe.label %></h1>
   <div class= "large-5 columns">
     <img src="<%= @recipe.image_url %>"  alt="recipe picture">
-    <h2><%= link_to "Original Recipe", @recipe.original_recipe, target: :_blank %></h2>
+    <h2><%= link_to "Recipe", @recipe.original_recipe, target: :_blank %></h2>
   </div>
-  <article class="large-5 columns">
 
+  <article class="large-3 columns">
+    <h4>Diets</h4>
+    <ul>
+      <% if @recipe.diets %>
+        <% @recipe.diets.each do |diet| %>
+          <li><%= diet %></li>
+        <% end %>
+      <% end %>
+      <% if @recipe.health %>
+        <% @recipe.health.each do |health| %>
+          <li><%= health %></li>
+        <% end %>
+      <% else %>
+        <p>There is no diet information available for this recipe</p>
+      <% end %>
+    </ul>
+  </article>
+
+  <article class="large-5 columns">
       <h3>Ingredients</h3>
         <ul>
           <% @recipe.ingredients.each do |ingredient| %>

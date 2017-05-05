@@ -1,11 +1,14 @@
 class Recipe
-  attr_reader :id, :label, :image_url, :ingredients, :dietary_information, :original_recipe
+  attr_reader :id, :label, :image_url, :ingredients, :dietary_information,
+              :original_recipe, :diets, :health
 
   def initialize(info)
     @id = info[:id]
     @label = info[:label]
     @image_url = info[:image_url]
     @ingredients = info[:ingredients]
+    @diets = info[:diets]
+    @health = info[:health]
     @dietary_information = info[:dietary_information]
     @original_recipe = info[:original_recipe]
   end
@@ -28,6 +31,8 @@ class Recipe
     info[:original_recipe] = response["url"]
     # you want ingredientLines
     info[:ingredients] = response["ingredientLines"]
+    info[:diets] = response["dietLabels"]
+    info[:health] = response["healthLabels"]
     info[:dietary_information] = response["totalNutrients"]
     return Recipe.new(info)
   end
