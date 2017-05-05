@@ -71,9 +71,14 @@ ul.index {
 }
 
 li.index_recipe {
-  display: inline-block;
+  /*display: inline-block;*/
   margin: 0.5rem 0;
 }
+
+ul.float-index-left, ul.float-index-right{
+    list-style-type: none;
+}
+
 
 .index-picture {
   width: 200px;
