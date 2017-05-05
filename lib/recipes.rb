@@ -24,23 +24,24 @@ class RecipesApiWrapper
     }
 
 
-    return HTTParty.get(BASE_URL, query: query_params)
+    response = HTTParty.get(BASE_URL, query: query_params)
 
 
     if response["hits"]
       recipes_list = response["hits"].map do |hit|
         recipe_data = {
-          uri: hit["recipe"]["label"],
+          uri: hit["recipe"]["uri"],
           label: hit["recipe"]["label"],
-          image: hit["recipe"]["label"],
-          url: hit["recipe"]["label"],
-          calories: hit["recipe"]["label"],
-          dietlabels: hit["recipe"]["label"],
-          healthlabels: hit["recipe"]["label"],
-          ingredients: hit["recipe"]["label"]
+          image: hit["recipe"]["image"],
+          url: hit["recipe"]["url"],
+          calories: hit["recipe"]["calories"],
+          dietlabels: hit["recipe"]["dietlabels"],
+          healthlabels: hit["recipe"]["healthlabels"],
+          ingredients: hit["recipe"]["ingredients"]
         }
         self.new(recipe_data)
       end
+      return recipes_list
     else
       raise RecipesApiWrapperException.new(response["error"])
     end
