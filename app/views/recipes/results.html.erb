@@ -2,14 +2,19 @@
 
 <%= render partial: "search_bar" %>
 
-<section>
-  <ul>
-  <% @recipes.each do |recipe| %>
-  <%# raise %>
-    <li>
-    <%= image_tag recipe.image %>
-    <%= link_to recipe.name, recipe_path(name: recipe.name, uri: recipe.uri) %>
-    </li>
-  <% end %>
-  </ul>
+<section class="results">
+  <div class="row">
+    <ul>
+      <% @recipes.each do |recipe| %>
+      <%# raise %>
+      <div class="small-6 columns">
+        <li >
+          <%= image_tag recipe.image %>
+          <%= link_to recipe.name, recipe_path(name: recipe.name, uri: recipe.uri) %>
+        </li>
+
+      </div>
+      <% end %>
+    </ul>
+  </div>
 </section>
