@@ -41,6 +41,5 @@ describe HomepagesController do
         must_redirect_to search_recipes_path
       end
     end
-
   end
 end

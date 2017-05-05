@@ -24,9 +24,9 @@ class HomepagesController < ApplicationController
     if @recipe == nil
       redirect_to search_recipes_path
       flash[:warning] = "Could not find recipe"
+    else
+      @n_info = @recipe.parse_nutritional
     end
-
-    @n_info = @recipe.parse_nutritional
   end
 
 end
