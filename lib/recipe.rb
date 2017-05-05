@@ -28,7 +28,8 @@ class Recipe
       "app_key" => ENV["EDAMAM_API_APP_KEY"],
       "q" => item,
       "from" => from,
-      "to" => to
+      "to" => to,
+      "calories" => "gte20,lte28"
     }
 
     recipes = HTTParty.get(BASE_URL, query: query_params).parsed_response

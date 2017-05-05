@@ -1,6 +1,5 @@
 <h2 id="index-title"><%= "Here are some delectable #{params[:search]} recipes..." %></h2>
 
-<h2> <%= @total_count  %> </h2>
 
 <ul class ="index">
   <% @recipes.each_with_index do |recipe, index| %>
@@ -24,20 +23,20 @@
 
 <section>
 
-  <% if params[:from] != "0" %>
+  <% if params[:from].to_i != 0 %>
         <% current_start = params[:from].to_i  %>
         <% previous_start = current_start - 10  %>
         <% previous_end = current_start %>
 <%= button_to "Previous", recipes_path, method: :get, :params =>{:search => params[:search], :from => previous_start, :to => previous_end }%>
 <% end %>
 
-<%= "~ you are viewing #{params[:search]} recipes #{params[:from]} to #{params[:to]} ~"%>
+<%= "~ you are viewing ##{params[:from]} to #{params[:to]} of #{@total_count} #{params[:search]} recipes~"%>
 
-<% if params[:from] != "0" %>
-      <% current_start = params[:from].to_i  %>
-      <% previous_start = current_start - 10  %>
-      <% previous_end = current_start %>
-<%= button_to "Previous", recipes_path, method: :get, :params =>{:search => params[:search], :from => previous_start, :to => previous_end }%>
+<% if params[:to].to_i < @total_count %>
+      <% current_end = params[:to].to_i  %>
+      <% next_start = current_end  %>
+      <% next_end = next_start + 10 %>
+<%= button_to "Next", recipes_path, method: :get, :params => {:search => params[:search], :from => next_start, :to => next_end }%>
 <% end %>
 
 </section>
