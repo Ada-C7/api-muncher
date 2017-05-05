@@ -16,7 +16,7 @@
     <%(0...@number_of_pages).each do |i|%>
       <%from = where_to_start(i)%>
       <%if params[:from] == from.to_s%>
-        <li><%= link_to i+1, {controller: 'recipes', action: 'view_recipes', :from => from, :search => params[:search], :vegan => params[:vegan],:kosher => params[:kosher], :vegetarian => params[:vegetarian], :paleo => params[:paleo] } , class: "current"%>  </li>
+        <li><%= link_to i+1, {controller: 'recipes', action: 'view_recipes', :from => from, :search => params[:search], :vegan => params[:vegan],:kosher => params[:kosher], :vegetarian => params[:vegetarian], :paleo => params[:paleo] } , class: "current-page"%>  </li>
       <%else%>
         <li><%= link_to i+1, {controller: 'recipes', action: 'view_recipes', :from => from, :search => params[:search], :vegan => params[:vegan],:kosher => params[:kosher], :vegetarian => params[:vegetarian], :paleo => params[:paleo] } %></li>
       <%end%>

@@ -100,3 +100,7 @@ input.button.hollow.topbar-responsive-button.medium.login-logout-button:hover,
 a.button.hollow.topbar-responsive-button.medium.home-button:hover{
   background-color: #A9CC49;
 }
+
+.current-page{
+  background-color: #DBDD52;
+}
