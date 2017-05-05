@@ -1,10 +1,11 @@
-require 'will_paginate/array'
+ # require 'will_paginate/array'
 
 class RecipesController < ApplicationController
 
   def index
     if params[:q]
-      @recipes = EdamamApiWrapper.search(params[:q]).paginate(:page => params[:page], :per_page => 10)
+      @recipes = EdamamApiWrapper.search(params[:q])
+      @recipes_pages = @recipes.paginate(:page => params[:page], :per_page => 10)
 
     end
   end

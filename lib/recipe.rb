@@ -4,6 +4,8 @@ class Recipe
 
 
   def initialize(name, uri, image, url=nil, r_yield=nil, diet_labels=nil, health_labels=nil, ingredients=nil, calories=nil)
+    raise ArgumentError if name == nil || name == "" || uri == nil || uri == ""
+    
     @name = name
     @uri = uri.gsub('#','%23')
     @image = image

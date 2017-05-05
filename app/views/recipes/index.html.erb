@@ -6,14 +6,20 @@
 <%= submit_tag("Search") %>
 <% end %>
 
+<section>
 <ul>
 
   <% if @recipes %>
-  <%= will_paginate @recipes %>
-  <% @recipes.each do |recipe| %>
+
+  <% @recipes_pages.each do |recipe| %>
   <li><%= link_to recipe.name, recipes_show_path(recipe.uri) %></li>
   <!-- <li><%# link_to 'recipe', recipe.uri %></li> -->
-  <li><%= image_tag recipe.image %>/></li>
+  <li><%= image_tag recipe.image %></li>
   <% end %>
+<%= will_paginate @recipes_pages, page_links: false %>
   <% end %>
+
+
 </ul>
+
+</section>
