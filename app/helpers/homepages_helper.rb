@@ -19,7 +19,7 @@ module HomepagesHelper
     else
       page = params[:page].to_i
     end
-    
+
     if @recipes.length < 10
       @next_link = ""
     else
