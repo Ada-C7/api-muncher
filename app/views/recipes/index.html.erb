@@ -4,11 +4,11 @@
 </header>
 
 <div class="row" >
-  <div class=column >
+  <div class="column small-12 search-form" >
     <%= form_tag(recipes_path, method: :get) do %>
-      <%= label_tag(:q, "Search for:") %>
-      <%= text_field_tag(:q) %>
-      <%= submit_tag("Search") %>
+      <%= label_tag :q %>
+      <%= text_field_tag :q%>
+      <%= submit_tag "Search"%>
     <% end %>
   </div>
 </div>
@@ -26,6 +26,6 @@
 
 </ul>
 </div>
-<%= will_paginate @recipes_pages, class: "row"%>
+<%= will_paginate @recipes_pages%>
 
 <!-- </section> -->

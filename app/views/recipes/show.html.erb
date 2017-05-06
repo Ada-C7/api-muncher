@@ -28,7 +28,7 @@
 </div>
 
 <div class="row">
-  <!-- <div class="column"> -->
+  <div class="column">
     <h3>Ingredients </h3>
         <ul><% @recipe.ingredients.each do |item| %>
             <li>
@@ -36,22 +36,23 @@
             </li>
             <% end %>
         </ul>
-  <!-- </div> -->
+  </div>
 </div>
 
 <div class="row">
     <h3>Dietery information</h3>
-      <table class="diet-table">
-        <% (@recipe.nutrients.keys).each do |key| %>
+    <% @recipe.nutrients.keys.in_groups(2,false).each do |group| %>
+      <table class="small-12 medium-6 column">
+        <% group.each do |key| %>
         <tr>
           <!-- <li class="small-up-1 medium-up-3 columns"> -->
-            <td class="small-12 medium-4 column">
+            <td>
               <%= @recipe.nutrients[key]["label"] %></td>
-             <td class="small-12 medium-4 column">
-               <%= @recipe.nutrients[key]["quantity"].round(2) %></td>
-             <td class="small-12 medium-4 column" >
-               <%= @recipe.nutrients[key]["unit"] %><td>
+             <td>
+               <%= @recipe.nutrients[key]["quantity"].round(2) %>
+               <%= @recipe.nutrients[key]["unit"] %></td>
         </tr>
         <% end %>
+      <% end %>
       </table>
 </div>
