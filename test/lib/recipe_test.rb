@@ -17,10 +17,22 @@ describe Recipe do
     end
     # Think about arrays vs. strings
 
-    it 'recipe can have an empty string attribute' do
+    it 'recipe can be missing an image' do
       recipe.instance_variable_set(:@image, '')
 
       recipe.image.must_equal ''
+    end
+
+    it 'recipe can be missing a name' do
+      recipe.instance_variable_set(:@label, '')
+
+      recipe.label.must_equal ''
+    end
+
+    it 'recipe can be missing a uri' do
+      recipe.instance_variable_set(:@uri, '')
+
+      recipe.uri.must_equal ''
     end
 
     it 'recipe can not be made without all attributes' do
