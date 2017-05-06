@@ -30,19 +30,19 @@
   </p>
 
   <table>
-  <thead>
-    <tr>
-      <th width="200">Ingredients</th>
-    </tr>
-  </thead>
-  <tbody>
+    <thead>
+      <tr>
+        <th width="200">Ingredients</th>
+      </tr>
+    </thead>
+    <tbody>
       <% for ingredient in @recipe.options[:ingredients] %>
-    <tr>
-      <td><%= ingredient %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tr>
+        <td><%= ingredient %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </section>
 
 <button class="button radius">
@@ -50,6 +50,6 @@
 </button>
 
 <section>
-      <p class="badge primary">D</p>
-      <p class="badge secondary">A</p>
+  <p class="badge primary">D</p>
+  <p class="badge secondary">A</p>
 </section>

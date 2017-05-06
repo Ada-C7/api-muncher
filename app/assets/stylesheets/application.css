@@ -25,28 +25,62 @@
 
 /*-------------- :: GENERAL :: ------------------*/
 
-
+.main {
+  padding: 80px 0;
+  background-image: url("homepage-background.jpg");
+  background-size: auto;
+  /*height: 100%*/
+}
 
 
 /*-------------- :: NAV :: ------------------*/
 
 .top-bar, li {
-  background-color: #070201;
+  /*background-color: #070201;*/
   color: #56656F;
-
 }
 
+.nav-desktop {
+  background-color: #070201;
+  padding: 0;
+}
+
+.site-logo {
+  color: white;
+  line-height: 80px;
+}
+/*-------------- :: FOOTER :: ------------------*/
+
+footer {
+  background-color: #070201;
+  padding: 80px 0;
+}
+
+footer a {
+  display: block;
+}
+
+footer img {
+  height: 4em;
+  /*width: 20%;*/
+}
 /*-------------- :: HOME :: ------------------*/
-.homepage {
+/*.homepage {
     background-image: url("homepage-background.jpg");
-    height: 800px
-}
+    background-size:cover;
+    height: 100%
+}*/
 
 .homepage, form {
   padding-top: 4em
 }
+
+section.main {
+  /*padding: 80 0;*/
+  height: 600px
+}
 /*-------------- :: SEARCH :: ------------------*/
-label {
+/*label {
   font-size: 30px;
   font-weight: bold;
   color: white;
@@ -55,7 +89,37 @@ label {
   padding-bottom: 0;
   width: 0;
   height: 0
+}*/
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
 }
 
+.input-group-rounded .input-group-button .button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 0.8rem;
+  background-color: #070201;
+}
+
+.homepage, form {
+  padding-bottom: 4em;
+}
 /*-------------- :: RESULTS :: ------------------*/
+
+.column-block {
+  margin: auto;
+  border: 3px solid #070201;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  vertical-align: top;
+  width: 50%; }
+
+}
+
+.column-block a {
+  display: block;
+  text-align: center;
+}
+
 /*-------------- :: SHOW :: ------------------*/

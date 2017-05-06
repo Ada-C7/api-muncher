@@ -1,9 +1,9 @@
-<!-- <section class="input-group"> -->
-    <%= form_tag results_path, method: :get, class: "input-group" do  %>
-      <%= label_tag(:search, "What's in yo fridge?") %>
-      <%= text_field_tag(:search, nil, class: "input-group-field") %>
-    <div class="input-group-button">
-      <%= submit_tag("Send", class: "button radius") %>
-    </div>
-    <% end  %>
-<!-- </section> -->
+
+<%= form_tag(results_path, method: "get") do %>
+<div class="input-group input-group-rounded">
+  <%= text_field_tag(:search, nil, :placeholder => "What's in yo fridge?", :class => "input-group-field", :type => "search") %>
+  <div class="input-group-button">
+    <%= submit_tag "Search", :class => "button secondary" %>
+    </div
+    <% end %>
+  </div>
