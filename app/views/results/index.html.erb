@@ -16,16 +16,16 @@
 
   <% end %>
 
-  <div class="page-numbers">
-    <div class="xs-1 xs-centered rows">
+  <ul class="pagination" role="navigation" aria-label="Pagination">
     <% (@recipe_response.recipe_count / 10).times do | page | %>
       <%if page > 0 %>
-        <% from = ((page - 1) * 10) + 1 %>
-        <% to = (from + 10) %>
-        <h4 class="pages"><%= link_to page, results_path + "?q=#{params["q"]}&from=#{from}&to=#{to}" %></h4>
-        <% end %>
+      <% from = ((page - 1) * 10) + 1 %>
+      <% to = (from + 10) %>
+    <li><a><%= link_to page, results_path + "?q=#{params["q"]}&from=#{from}&to=#{to}" %></li>
+      <% end %>
     <% end %>
-    </div>
-  </div>
+</ul>
+
+
 
 </section>
