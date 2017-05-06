@@ -5,7 +5,14 @@ require_dependency "./lib/recipe"
 class ResultsController < ApplicationController
 
   def index
-    @recipes = EdmamApiWrapper.listRecipes(params["q"])
+    from = 1
+    to = 11
+
+    if params["from"] && params["to"] # if this is in the url
+      from = params["from"]
+      to = params["to"]
+    end
+    @recipe_response = EdmamApiWrapper.listRecipes(params["q"], from, to)
   end
 
   def show

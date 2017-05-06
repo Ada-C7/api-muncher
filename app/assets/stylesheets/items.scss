@@ -67,24 +67,19 @@ h3.recipe-title {
 
 div.recipe-transbox {
   margin: 30px;
-  border-radius: 20px;
+  border-radius: 25px;
   background-color: #ffffff;
   opacity: 0.8;
   filter: alpha(opacity=80);
   color: #4A3450;
   display: inline-block;
   line-height: 1.42857143;
-  border-radius: 2px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 div.recipe-transbox:hover {
   opacity: 0.9;
   filter: alpha(opaacity=90);
-}
-
-image {
-  padding-bottom: 20px;
 }
 
 div.nutrition {

@@ -3,11 +3,11 @@
 
   <h2 class="recipe-list">Results for your search!</h2>
 
-  <% @recipes.each do | recipe | %>
+  <% @recipe_response.recipe.each do | recipe | %>
   <div class="recipe-transbox">
     <div class="large-6 large-centered columns">
 
-      <h3 class = "recipe-title"><%=link_to recipe.label, recipe_path + "?recipe=#{URI.encode(recipe.uri)}"%></h3>
+      <h3 class="recipe-title"><%=link_to recipe.label, recipe_path + "?recipe=#{URI.encode(recipe.uri)}"%></h3>
       <image class="recipe-image"><%= link_to image_tag(recipe.image, :size => "800x900",
       :alt => "recipe photo #{recipe.label}"), recipe_path + "?recipe=#{URI.encode(recipe.uri)}" %></image>
 
@@ -17,14 +17,15 @@
   <% end %>
 
   <div class="page-numbers">
-    <%= page_count = 0 %>
-    <% (@recipe_count / 100).times do | page | %>
-      <% if count > 0 %>
-        <%= link_to "#{count}"%>
-        <%= page_count += 1 %>
-      <% end %>
+    <div class="xs-1 xs-centered rows">
+    <% (@recipe_response.recipe_count / 10).times do | page | %>
+      <%if page > 0 %>
+        <% from = ((page - 1) * 10) + 1 %>
+        <% to = (from + 10) %>
+        <h4 class="pages"><%= link_to page, results_path + "?q=#{params["q"]}&from=#{from}&to=#{to}" %></h4>
+        <% end %>
     <% end %>
+    </div>
   </div>
-
 
 </section>
