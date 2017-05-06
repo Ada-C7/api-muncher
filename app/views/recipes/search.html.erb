@@ -2,5 +2,6 @@
 <%= form_tag recipes_path, method: :get do %>
   <%= label_tag :query %>
   <%= text_field_tag :query %>
+  <%= hidden_field_tag :from, "0" %>
   <%= submit_tag "Send It!" %>
 <% end %>

@@ -2,15 +2,21 @@
 <h1>Recipes#index</h1>
 <p>Find me in app/views/recipes/index.html.erb</p>
 
-  <% @recipes.each do |recipe| %>
-  <%= image_tag("#{recipe.image}", :alt => "recipe image") %>
-  <br>
-  <br>
-  <ul>
-    <li><%= link_to "#{recipe.label}", recipe.uri %></li>
-    <li>Calories: <%= ((recipe.calories)/4).round %></li>
-    <li>Ingredients: <%= (recipe.ingredient_lines).length %></li>
-    <li><%= link_to "#{recipe.recipe_source_label}", recipe.recipe_source_url %></li>
-    <li><%= recipe.health_label %></li>
-  </ul>
+<% @recipes.each do |recipe| %>
+<%= image_tag("#{recipe.image}", :alt => "recipe image") %>
+<br>
+<br>
+<ul>
+  <li><%= link_to "#{recipe.label}", recipe_path(recipe.uri.partition("#").last) %></li>
+  <li>Calories: <%= ((recipe.calories)/4).round %></li>
+  <li>Ingredients: <%= (recipe.ingredient_lines).length %></li>
+  <li><%= link_to "#{recipe.recipe_source_label}", recipe.recipe_source_url %></li>
+  <li><%= recipe.health_label %></li>
+</ul>
+<% end %>
+
+  <%= form_tag recipes_path, method: :get do %>
+    <%= hidden_field_tag :query, params[:query] %>
+    <%= hidden_field_tag :from, (@from.to_i + 10) %>
+  <%= submit_tag "Next" %>
   <% end %>

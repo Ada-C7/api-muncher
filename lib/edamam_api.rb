@@ -8,6 +8,8 @@ class EdamamApi
   attr_reader :label, :image, :uri, :url, :source, :health_label, :calories, :ingredient_lines, :recipe_source_url, :recipe_source_label
 
   BASE_URL = "https://api.edamam.com/search"
+  RECIPE_URI = "https://api.edamam.com/search?http://www.edamam.com/ontologies/edamam.owl#"
+
 
   def initialize(hash_params)
     @image = hash_params[:image]
@@ -20,12 +22,15 @@ class EdamamApi
     @calories = hash_params[:calories]
   end
 
-  def self.list_recipes(query)
+  def self.list_recipes(query, from)
     query_params = {
       "app_id" => ENV["APP_ID_SENSITIVE"],
       "app_key" => ENV["API_KEY_SENSITIVE"],
       "q" => query,
+      "from" => from,
+      "to" => (from.to_i + 10)
     }
+
     url = "#{BASE_URL}?"
     response = HTTParty.get(url, query: query_params)
     recipe_array = []
@@ -40,19 +45,15 @@ class EdamamApi
     return recipe_array
   end
 
-  # def self.find_recipe(url)
-  #   query_params  = {
-  #     "app_id" => ENV["APP_ID_SENSITIVE"],
-  #     "app_key" => ENV["API_KEY_SENSITIVE"],
-  #     "q" => query,
-  #   }
-  #   url = "#{BASE_URL}?"
-  #   response = HTTParty.get(url, query: query_params)
-  #
-  #
-  #
-  #
-  # end
+  def self.find_recipe(recipe_uri)
+    query_params = {
+      "app_id" => ENV["APP_ID_SENSITIVE"],
+      "app_key" => ENV["API_KEY_SENSITIVE"]
+    }
+    uri = "#{RECIPE_URI}#{recipe_uri}"
+    recipe = HTTParty.get(uri, query: query_params)
+    return recipe
+  end
 
 
 end
