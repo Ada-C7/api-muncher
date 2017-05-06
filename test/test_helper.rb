@@ -5,6 +5,7 @@ require "minitest/rails"
 require "minitest/reporters"  # for Colorized output
 require "vcr"
 require "webmock/minitest"
+require "minitest/pride"
 
 #  For colorful output!
 Minitest::Reporters.use!(
@@ -13,13 +14,9 @@ Minitest::Reporters.use!(
   Minitest.backtrace_filter
 )
 
-
 # To add Capybara feature tests add `gem "minitest-rails-capybara"`
 # to the test group in the Gemfile and uncomment the following:
 # require "minitest/rails/capybara"
-
-# Uncomment for awesome colorful output
- require "minitest/pride"
 
 VCR.configure do |config|
   config.cassette_library_dir = 'test/cassettes'
@@ -28,7 +25,7 @@ VCR.configure do |config|
     :record => :new_episodes,
     :match_requests_on => [:method, :uri, :body]
   }
-  # Don't leave our Slack token lying around in a cassette file.
+
   config.filter_sensitive_data("<EDMAM_TOKEN>") do
     ENV['EDMAM_TOKEN']
   end
