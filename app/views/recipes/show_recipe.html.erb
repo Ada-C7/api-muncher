@@ -1,0 +1,13 @@
+<p>
+  <%= @recipe[:label] %>
+</p>
+<p>
+  <% @recipe[:ingredients].each do |ingredient| %>
+  <ul>
+    <%= ingredient %>
+  </ul>
+  <% end %>
+</p>
+<p>
+  <%= link_to @recipe[:url], "#{@recipe[:url]}" %>
+</p>
