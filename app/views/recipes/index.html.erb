@@ -1,6 +1,10 @@
-
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<h1> What's for dinner?! </h1>
+<%= form_tag recipes_path, method: :get do %>
+  <%= label_tag :query %>
+  <%= text_field_tag :query %>
+  <%= hidden_field_tag :from, "0" %>
+  <%= submit_tag "Send It!" %>
+<% end %>
 
 <% @recipes.each do |recipe| %>
 <%= image_tag("#{recipe.image}", :alt => "recipe image") %>
