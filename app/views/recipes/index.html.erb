@@ -1,8 +1,8 @@
 <h2>Things to Cook</h2>
 
 <% @search_results[:recipes].each do |recipe| %>
-  <div class="columns large-3 medium-6 small-12 all_products" >
-    <%= link_to image_tag(recipe.image, alt: "mouthwatering #{recipe.name}"), recipe_path(recipe) %>
-    <%= recipe.name %>
+<div class="columns large-3 medium-6 small-12 all_products" >
+  <%= link_to image_tag(recipe.image, alt: "mouthwatering #{recipe.name}"), recipe_path(:name => recipe.name, :uri => recipe.uri) %>
+  <%= recipe.name %>
 </div>
 <% end %>

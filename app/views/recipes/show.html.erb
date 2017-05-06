@@ -1,5 +1,12 @@
-<h2> <%= %></h2>
-<div class="columns large-3 medium-6 small-12 all_products" >
-    <%= link_to image_tag(recipe.image, alt: "mouthwatering #{recipe.name}"), recipes_path %>
-    <%= recipe.name %>
-</div>
+<h2><%= @recipe.name %></h2>
+
+<%= link_to image_tag(@recipe.image, alt: "mouthwatering #{@recipe.name}"), @recipe.url%>
+<%= @recipe.name %>
+
+<% @recipe.ingredients.each do |ingredient| %>
+<ul>
+  <li><%= ingredient %> </li>
+</ul>
+<% end %>
+
+<%= 
