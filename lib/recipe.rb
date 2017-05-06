@@ -46,6 +46,7 @@ class Recipe
     recipe_components[:label] = response[0]['label']
     recipe_components[:url] = response[0]['url']
     recipe_components[:ingredients] = response[0]['ingredientLines']
+    recipe_components[:diet] = response[0]['dietLabels']
 
     return recipe_components
 
