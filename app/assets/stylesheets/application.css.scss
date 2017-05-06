@@ -44,7 +44,6 @@ index header
 header {
   background-image: image_url("cloth.png");
   border-width: 6px 0;
-  /*border-top-style: solid;*/
   border-style: solid;
   border-color: #2c8993;
   margin-bottom: 5px;
@@ -53,6 +52,12 @@ header {
 
 #searchbox {
   width: 70%;
+}
+
+.search {
+  border-radius: 10px;
+  margin-left: 5px;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 /*=====================
