@@ -11,12 +11,11 @@ class HomepagesController < ApplicationController
   def list
     q = params[:q]
     page = params[:page].to_i
-    if page == 1
-      from = 0
-    else
-      from = 10 * ( page - 1 )
-    end
-    @recipes = EdamamApiWrapper.searchRecipes(q, from)
+    from = 10 * ( page - 1 )
+
+    response  = EdamamApiWrapper.searchRecipes(q, from)
+    @recipes = response[0]
+    @info = response[1]
   end
 
   # search form in the root page
