@@ -19,31 +19,27 @@ class RecipeApiWrapper
     @ingredients = recipe_hash["ingredients"]
   end
 
-  def self.all(keywords,  vegan=nil, kosher=nil, vegetarian=nil, paleo=nil)
-    health_options = RecipeApiWrapper.health_options(vegan, kosher, vegetarian, paleo)
-    url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=0&to=300#{health_options}"
-    result = HTTParty.get(url).parsed_response["hits"]
-    return result
-  end
-
-  def self.search(keywords, from,  vegan=nil, kosher=nil, vegetarian=nil, paleo=nil)
+  def self.search( keywords, from,  vegan=nil, kosher=nil, vegetarian=nil, paleo=nil, count=false)
     health_options = RecipeApiWrapper.health_options(vegan, kosher, vegetarian, paleo)
     url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=#{from}&to=#{from.to_i+12}#{health_options}"
+
     response = HTTParty.get(url)
+    if count == true
+      return response["count"]
+    else
+      list_of_recipes_object = []
+      if response["hits"]
+        recipes = response.parsed_response["hits"]
+        recipes.each do |hit|
+          recipe = hit["recipe"]
+          recipe_object = RecipeApiWrapper.new(recipe)
 
-    list_of_recipes_object = []
-    if response["hits"]
-      recipes = response.parsed_response["hits"]
-      recipes.each do |hit|
-        recipe = hit["recipe"]
-        recipe_object = RecipeApiWrapper.new(recipe)
-
-        list_of_recipes_object << recipe_object
+          list_of_recipes_object << recipe_object
+        end
+        return list_of_recipes_object
       end
-      return list_of_recipes_object
-    # else
-    #   raise RecipeException.new(response) # for some
     end
+
   end
 
   def self.find_recipe(uri)

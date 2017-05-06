@@ -3,17 +3,25 @@ require_dependency '../../lib/recipe_api_wrapper'
 class RecipesController < ApplicationController
 
     def view_recipes
-      all_without_from =  RecipeApiWrapper.all(params[:search], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
-      @recipes = RecipeApiWrapper.search(params[:search], params[:from], params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
+      # @@total_number  #total number of recepies with search term (I need it to calculate number of pages to display in a view )
+      if params[:from].to_i == 0
+        @@total_number =  RecipeApiWrapper.search(params[:search],params[:from], params[:vegan], params[:kosher],
+         params[:vegetarian], params[:paleo], count = true)
+        if @@total_number != nil
+          @@total_number = 300 if @@total_number > 300 #api gives max 300 results
+        end
+      end
+      @recipes = RecipeApiWrapper.search(params[:search], params[:from], params[:vegan], params[:kosher],
+       params[:vegetarian], params[:paleo], count = false)
 
-      if all_without_from  == nil || all_without_from == 0 || @recipes == nil || @recipes.length == 0
+      if @@total_number  == nil || @@total_number == 0 || @recipes == nil || @recipes.length == 0
         flash[:result_text] = "Could not find recipes. Try again"
         redirect_to root_path
       else
-        @recipes_number = all_without_from.length
+        @recipes_number = @@total_number
         @per_page = 12
-        @number_of_pages = @recipes_number/@per_page
-        @number_of_pages += 1 if @recipes_number % @per_page > 0
+        @number_of_pages = @@total_number/@per_page
+        @number_of_pages += 1 if @@total_number % @per_page > 0
 
         @from_previous = params[:from].to_i - @per_page
         @from_next = params[:from].to_i + @per_page
@@ -55,15 +63,6 @@ class RecipesController < ApplicationController
         flash[:result_text] = "You removed recipe from your favorite"
         redirect_to user_path(favorite_recipe.user.id)
       end
-    end
-
-    private
-    def favorite_recipe_params
-      params.require(:favorite_recipe).permit(:name, :recipe_uri, :user_id)
-    end
-
-    def search_params
-      params.require(:search).permit(:search, :from, :vegan, :kosher, :vegetarian, :paleo)
     end
 
   end
