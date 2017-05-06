@@ -36,7 +36,8 @@ a {
   font-size: 1.1em;
 }
 a:hover {
-  color: #aab468;
+  // color: #aab468;
+  color: #989c7a;
 }
 /*=====================
 index header
@@ -70,4 +71,19 @@ footer
 footer {
   padding-top: 5px;
   border-top: 3px solid #2c8993;
+}
+/*=====================
+show page
+=======================*/
+#source {
+  background-color: #b2d4d7;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+.container {
+  display: inline-block;
+  margin-top: 10px;
+}
+.ingredients, .labels {
+  margin-top: 10px;
 }

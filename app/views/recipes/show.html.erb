@@ -21,7 +21,7 @@
       <div class="recipe_image">
         <img src="<%=@recipe.image%>">
       </div>
-      <%= link_to "Full recipe at #{@recipe.source}", @recipe.url, target: :_blank %>
+
     </div>
 
     <div class="column column-block">
@@ -33,6 +33,9 @@
         <% end %>
         </ul>
       </section>
+        <div class="container">
+          <%= link_to "Full recipe at #{@recipe.source}", @recipe.url, target: :_blank, id: "source"%>
+        </div>
     </div>
 
 
