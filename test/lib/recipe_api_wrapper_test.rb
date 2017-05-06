@@ -40,6 +40,13 @@ describe "RecipeApiWrapper" do
         result.length.must_equal 12
       end
     end
+    it "result array is array of Recipe objects" do
+      VCR.use_cassette("recipes") do
+        result = RecipeApiWrapper.search("apple", 0)
+        result.must_be_kind_of Array
+        result[0].must_be_instance_of RecipeApiWrapper
+      end
+    end
   end
 
   describe "self.all" do
