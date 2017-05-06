@@ -28,6 +28,7 @@
   list-style: none;
   padding: 0px;
   margin: 0px;
+  // background-color: blue;
 }
 
 // header
@@ -48,6 +49,11 @@ form label {
   display: block;
 
   // text-align: center;
+}
+
+.search-form {
+  padding-left: 50px;
+  padding-top: 20px;
 }
 
 .nav li {
@@ -133,10 +139,14 @@ footer a {
   text-align: left;
 }
 
-// account
-.opaque-wrapper {
-  background: rgba(white, 0.75);
+.index-header {
+  // padding-top: 20px;
 }
+
+.opaque {
+  // background: rgba(white, .6);
+}
+
 
 .saved-searches a, .saved-recipes a, .recipe-link a {
   font-family: "Molengo";
@@ -149,4 +159,40 @@ footer a {
 
 a {
   color: black;
+}
+
+.search-form {
+  height: 100%;
+}
+
+a:hover {
+  color: #A0823A;
+}
+
+.homepage {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  // background-color: green;
+  // background: url("back1.jpg") no-repeat center center fixed;
+  // background-size: cover;
+
+}
+.homepage::after {
+  content: "";
+  background: url(back1.jpg) no-repeat center center fixed;
+  background-size: cover;
+  opacity: .5;
+  display: block;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+footer {
+  padding-top: 20px;
 }

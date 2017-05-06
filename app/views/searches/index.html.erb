@@ -1,60 +1,60 @@
-<section class="homepage row">
-<style type="text/css">
-.homepage {
-  background: url(<%= randomized_background_image %>) no-repeat center center fixed;
-  background-size: cover;
-}
-</style>
-<section class="opaque-wrapper">
-  <section class="search-form columns small-12 medium-8">
+<section class="row homepage">
 
-    <h2 class="index-header-left">What sounds good?</h2>
-    <%= form_tag recipes_path, method: "get" do %>
+  <section class="wrapper row">
 
-    <p>
-      Please pick one of the following:
-    </p>
-    <%= radio_button_tag :health, "vegetarian" %>
-    <%= label_tag :vegetarian %>
+    <section class="opaque search-form columns small-12 medium-8">
 
-    <%= radio_button_tag :health, "balanced" %>
-    <%= label_tag :balanced, "Balanced" %>
+      <h2 class="index-header-left">What sounds good?</h2>
+      <%= form_tag recipes_path, method: "get" do %>
 
-    <%= radio_button_tag :health, "peanut-free" %>
-    <%= label_tag :peanut, "Peanut-free" %>
+      <p>
+        Please pick one of the following:
+      </p>
+      <%= radio_button_tag :health, "vegetarian" %>
+      <%= label_tag :vegetarian %>
 
-    <%= radio_button_tag :health, "high-protein" %>
-    <%= label_tag :protein, "High-protein" %>
+      <%= radio_button_tag :health, "balanced" %>
+      <%= label_tag :balanced, "Balanced" %>
 
-    <%= radio_button_tag :health, "none" %>
-    <%= label_tag :none %>
+      <%= radio_button_tag :health, "peanut-free" %>
+      <%= label_tag :peanut, "Peanut-free" %>
 
-    <%= label_tag :search_terms %>
-    <%= text_field_tag :search_terms %>
+      <%= radio_button_tag :health, "high-protein" %>
+      <%= label_tag :protein, "High-protein" %>
+
+      <%= radio_button_tag :health, "none" %>
+      <%= label_tag :none %>
+
+      <%= label_tag :search_terms %>
+      <%= text_field_tag :search_terms %>
 
 
-    <%= submit_tag "Search", class: "search-btn" %>
+      <%= submit_tag "Search", class: "search-btn" %>
 
-    <% end %>
-  </section>
-  <section class="columns small-12 medium-4 recent-searches">
-    <h2 class="index-header">Recent Searches</h2>
-    <% if @recent_searches.empty? %>
-    <p>
-      No searches yet.
-    </p>
-    <% else %>
-    <ul>
-      <% @recent_searches.each do |search| %>
-      <li class="recent-search-line">
-        <%= link_to "#{search['search_terms']} #{search['health']}", recipes_path(search_terms: search["search_terms"], health: search["health"]), method: :get, class: "recent-search-line" %>
-        <%# search["search_terms"] %>
-      </li>
       <% end %>
-    </ul>
-    <% end %>
+    </section>
+
+
+    <section class="opaque columns small-12 medium-4 recent-searches">
+      <h2 class="index-header">Recent Searches</h2>
+      <% if @recent_searches.empty? %>
+      <p>
+        No searches yet.
+      </p>
+      <% else %>
+      <ul>
+        <% @recent_searches.each do |search| %>
+        <li class="recent-search-line">
+          <%= link_to "#{search['search_terms']} #{search['health']}", recipes_path(search_terms: search["search_terms"], health: search["health"]), method: :get, class: "recent-search-line" %>
+          <%# search["search_terms"] %>
+        </li>
+        <% end %>
+      </ul>
+      <% end %>
+    </section>
+
   </section>
-</section>
+
 
 
 
