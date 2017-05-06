@@ -1,4 +1,3 @@
-<h4> Hey you made it! </h4>
 
 <%= render partial: "search_bar" %>
 
@@ -8,41 +7,49 @@
 
   <%= image_tag @recipe.image %>
 
-  <%= link_to "Original Recipe", @recipe.options[:url] %>
+
+  <ul>
+    <% @recipe.options[:diet].each do |label| %>
+
+    <li class="label primary">
+      <%= label %>
+    </li>
+    <% end %>
+    <% for label in  @recipe.options[:health] %>
+    <li class="label secondary ">
+      <%= label %>
+    </li>
+    <% end %>
+  </ul>
 
   <p>
     <%= @recipe.options[:servings] %> Servings
   </p>
   <p>
-    <%= @recipe.options[:calories] %> Calories
+    <%= calories_per_serving %> Calories
   </p>
 
-  <ul> Diet
-    <% @recipe.options[:diet].each do |label| %>
-
-    <li>
-      <%= label %>
-    </li>
+  <table>
+  <thead>
+    <tr>
+      <th width="200">Ingredients</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% for ingredient in @recipe.options[:ingredients] %>
+    <tr>
+      <td><%= ingredient %></td>
+    </tr>
     <% end %>
-  </ul>
-
-  <ul> Health Labels
-    <% for label in  @recipe.options[:health] %>
-    <li>
-      <%= label %>
-    </li>
-    <% end %>
-  </ul>
-
-  <ul> Ingredients
-    <% for label in @recipe.options[:ingredients] %>
-    <li>
-      <%= label %>
-    </li>
-    <% end %>
-  </ul>
+  </tbody>
+</table>
 </section>
 
-<div class="button">
-  <%= link_to "Back", results_path(:search) %>
-</div>
+<button class="button radius">
+  <%= link_to "Original Recipe", @recipe.options[:url] %>
+</button>
+
+<section>
+      <p class="badge primary">D</p>
+      <p class="badge secondary">A</p>
+</section>

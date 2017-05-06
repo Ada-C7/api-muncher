@@ -9,7 +9,7 @@ class EdamamApiWrapper
 
   def self.findRecipes(query)
 
-    url = BASE_URL + "q=#{query.gsub(" ", "+")}" + "&from=0&to=10" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}"
+    url = BASE_URL + "q=#{query.gsub(" ", "+")}" + "&to=100" + "&app_id=#{APP_ID}" + "&app_key=#{APP_KEY}"
 
     response = HTTParty.get(url)
 

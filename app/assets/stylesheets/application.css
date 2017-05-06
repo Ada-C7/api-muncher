@@ -15,3 +15,47 @@
  *= require foundation_and_overrides
 
  */
+
+
+/*-------------- :: HELPERS :: ------------------*/
+/*section {
+  border: 1px solid
+}*/
+
+
+/*-------------- :: GENERAL :: ------------------*/
+
+
+
+
+/*-------------- :: NAV :: ------------------*/
+
+.top-bar, li {
+  background-color: #070201;
+  color: #56656F;
+
+}
+
+/*-------------- :: HOME :: ------------------*/
+.homepage {
+    background-image: url("homepage-background.jpg");
+    height: 800px
+}
+
+.homepage, form {
+  padding-top: 4em
+}
+/*-------------- :: SEARCH :: ------------------*/
+label {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+.input-group-button {
+  padding-bottom: 0;
+  width: 0;
+  height: 0
+}
+
+/*-------------- :: RESULTS :: ------------------*/
+/*-------------- :: SHOW :: ------------------*/
