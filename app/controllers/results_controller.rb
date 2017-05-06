@@ -1,6 +1,7 @@
 require_dependency "./lib/edmam_api_wrapper"
 require_dependency "./lib/ingredient"
 require_dependency "./lib/recipe"
+require_dependency "./lib/recipe_response"
 
 class ResultsController < ApplicationController
 
