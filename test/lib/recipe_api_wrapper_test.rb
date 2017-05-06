@@ -49,21 +49,6 @@ describe "RecipeApiWrapper" do
     end
   end
 
-  describe "self.all" do
-    it "failed to search without arguments" do
-      VCR.use_cassette("recipes_all") do
-        proc {  RecipeApiWrapper.all()
-        }.must_raise ArgumentError
-      end
-    end
-    it "return max 300 recepies" do
-      VCR.use_cassette("recipes_all") do
-        result = RecipeApiWrapper.all("apple")
-        result.length.must_equal 300
-      end
-    end
-  end
-
   describe "self.find_recipe(uri)" do
     it "find one recipe" do
       VCR.use_cassette("recipe") do
