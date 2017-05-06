@@ -32,9 +32,9 @@ describe RecipesController do
 
       recipe_data = {
         recipe: {
-          name: "chicken salad",
-          recipe_uri: "d611b46c76dfb67266d7560e7b199c51",
-          user_id: user.id
+          "name" => "chicken salad",
+          "recipe_uri" => "d611b46c76dfb67266d7560e7b199c51",
+          "user_id" => user.id
         }
       }
       post recipes_path, params: recipe_data
@@ -43,7 +43,8 @@ describe RecipesController do
       # end_count.must_equal start_count + 1
       # recipe = Recipe.last
       # recipe.name.must_equal recipe_data[:recipe][:name]
-      # Cant fixed it as well!
+
+      # Cant fixed this one as well!
     end
 
   end
