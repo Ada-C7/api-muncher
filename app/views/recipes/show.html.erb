@@ -1,33 +1,37 @@
-<h1>Recipe Details</h1>
 
-<%= image_tag @recipe.image, class: "fullsize" %>
-<h3>
-  <%= @recipe.label %>
-</h3>
+<section class="row">
+  <article class="show small-6 large-centered columns">
+    <%= image_tag @recipe.image %>
+    <h3>
+      <%= @recipe.label %>
+    </h3>
 
-<h5> Dietary Info </h5>
-<ul>
-  <% @recipe.dietLabels.each do |label| %>
-  <li>
-    <%= label %>
-  </li>
-  <% end %>
-  <% @recipe.healthLabels.each do |label| %>
-  <li>
-    <%= label %>
-  </li>
-  <% end %>
-</ul>
+    <ul id="left-list">
+      <h5> Dietary Info </h5>
+      <% @recipe.dietLabels.each do |label| %>
+      <li>
+        <%= label %>
+      </li>
+      <% end %>
+      <% @recipe.healthLabels.each do |label| %>
+      <li>
+        <%= label %>
+      </li>
+      <% end %>
+    </ul>
 
-<h5> Ingredients </h5>
-<ul>
-  <% @recipe.ingredientLines.each do |ingredient| %>
-  <li>
-    <%= ingredient %>
-  </li>
-  <% end %>
-</ul>
-
-<h5>
-  <%= link_to "Link to Full Recipe", @recipe.url, target: "_blank" %>
-</h5>
+    <ul id="right-list">
+      <h5> Ingredients </h5>
+      <% @recipe.ingredientLines.each do |ingredient| %>
+      <li>
+        <%= ingredient %>
+      </li>
+      <% end %>
+      <li>
+        <h5>
+          <%= link_to "Link to Full Recipe", @recipe.url, target: "_blank" %>
+        </h5>
+      </li>
+    </ul>
+  </article>
+</section>

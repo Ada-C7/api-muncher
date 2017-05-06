@@ -3,7 +3,7 @@
   <section class="row small-up-1 medium-up-3 large-up-4 recipes-list">
     <% @recipes.each do |recipe| %>
     <article class="small-centered column">
-      <%= link_to image_tag(recipe.image, class: "preview"), recipe_path(:label => recipe.label, :recipe_id => recipe.id) %>
+      <%= link_to image_tag(recipe.image), recipe_path(:label => recipe.label, :recipe_id => recipe.id) %>
       <h5>
         <%= link_to recipe.label, recipe_path(:label => recipe.label, :recipe_id => recipe.id) %>
       </h5>

@@ -97,6 +97,28 @@ nav.pagination {
   text-align: center;
 }
 
+.show {
+  text-align: center;
+}
+
+img {
+  margin-bottom: 2em;
+}
+
+#left-list {
+  float: left;
+  padding: 1em 2em;
+}
+
+#right-list {
+  float: left;
+  padding: 1em 2em;
+}
+
+#left-list, #right-list {
+  text-align: justify;
+}
+
 /*footer*/
 
 footer {
