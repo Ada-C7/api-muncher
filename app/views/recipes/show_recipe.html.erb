@@ -2,21 +2,21 @@
   <%= @recipe[:label] %>
 </p>
 <h3>Ingredients</h3>
-<p>
+  <ul>
   <% @recipe[:ingredients].each do |ingredient| %>
-  <ul>
+  <li>
     <%= ingredient %>
-  </ul>
+  </li>
   <% end %>
-</p>
-<p>
+</ul>
   <h3>Dietary Information</h3>
-  <% @recipe[:diet].each do |type| %>
   <ul>
-    <%= type %>
-  </ul>
+  <% @recipe[:diet].each do |type| %>
+<li>
+  <%= type %>
+</li>
   <% end %>
-</p>
+  </ul>
 <p>
   <%= link_to @recipe[:url], "#{@recipe[:url]}" %>
 </p>
