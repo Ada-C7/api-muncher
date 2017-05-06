@@ -1,6 +1,7 @@
 require 'json'
 
 class Recipe
+
   attr_reader :label, :image, :uri
 
   def initialize(label, image, uri)
@@ -28,7 +29,6 @@ class Recipe
         recipes_list << Recipe.new(label, image, uri)
       end
     end
-
     return recipes_list
   end
 
@@ -36,4 +36,19 @@ class Recipe
     ##LOGIC FOR LIST DISPLAY
   end
 
+  def self.show_recipe(uri)
+    url = "https://api.edamam.com/search?app_key=#{ENV['APP_KEY']}&app_id=#{ENV['APP_ID']}&r=http://www.edamam.com/ontologies/edamam.owl%23#{uri[1..-1]}"
+
+    response = HTTParty.get(url).parsed_response
+
+    recipe_components = {}
+
+    recipe_components[:label] = response[0]['label']
+    recipe_components[:url] = response[0]['url']
+    recipe_components[:ingredients] = response[0]['ingredientLines']
+    recipe_components[:diet] = response[0]['dietLabels']
+
+    return recipe_components
+
+  end
 end

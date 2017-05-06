@@ -1,6 +1,3 @@
-<h1>Working?</h1>
-
-
 <table>
   <thead>
     <tr>
@@ -16,7 +13,7 @@
       </td>
 
       <td>
-        <%= recipe.label %>
+        <%= link_to recipe.label, show_recipe_path(recipe.uri[43..-1]) %>
       </td>
       <% end %>
     </tr>

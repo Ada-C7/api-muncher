@@ -1,0 +1,22 @@
+<p>
+  <%= @recipe[:label] %>
+</p>
+<h3>Ingredients</h3>
+  <ul>
+  <% @recipe[:ingredients].each do |ingredient| %>
+  <li>
+    <%= ingredient %>
+  </li>
+  <% end %>
+</ul>
+  <h3>Dietary Information</h3>
+  <ul>
+  <% @recipe[:diet].each do |type| %>
+<li>
+  <%= type %>
+</li>
+  <% end %>
+  </ul>
+<p>
+  <%= link_to @recipe[:url], "#{@recipe[:url]}" %>
+</p>
