@@ -3,16 +3,28 @@
 
   <h2 class="recipe-list">Results for your search!</h2>
 
-    <% @recipes.each do | recipe | %>
-      <div class="recipe-transbox">
-      <div class="large-6 large-centered columns">
+  <% @recipes.each do | recipe | %>
+  <div class="recipe-transbox">
+    <div class="large-6 large-centered columns">
 
       <h3 class = "recipe-title"><%=link_to recipe.label, recipe_path + "?recipe=#{URI.encode(recipe.uri)}"%></h3>
       <image class="recipe-image"><%= link_to image_tag(recipe.image, :size => "800x900",
       :alt => "recipe photo #{recipe.label}"), recipe_path + "?recipe=#{URI.encode(recipe.uri)}" %></image>
 
-        </div>
-        </div>
+    </div>
+  </div>
 
-        <% end %>
+  <% end %>
+
+  <div class="page-numbers">
+    <%= page_count = 0 %>
+    <% (@recipe_count / 100).times do | page | %>
+      <% if count > 0 %>
+        <%= link_to "#{count}"%>
+        <%= page_count += 1 %>
+      <% end %>
+    <% end %>
+  </div>
+
+
 </section>
