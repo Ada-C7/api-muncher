@@ -1,4 +1,4 @@
-<main>
+<main class="row">
 
   <h1 class="centering"> DISH BISH</h1>
 
@@ -10,14 +10,15 @@
   </section>
   <% end %>
   <div class="row small-up-2 medium-up-3 large-up-5">
+
       <% if @search_recipes != nil %>
+      <p><%= will_paginate @search_recipes, class: "row" %></p>
       <% @search_recipes.each do |recipe| %>
       <section class="columns">
           <%= link_to recipe.label, recipe_path(:recipe => recipe.uri) %></br>
           <%= link_to image_tag(recipe.image), recipe_path(:recipe => recipe.uri) %></br>
       </section>
       <% end %>
-      <%= will_paginate @search_recipes, class: "row" %>
     </div>
   <% else %>
   <p>
