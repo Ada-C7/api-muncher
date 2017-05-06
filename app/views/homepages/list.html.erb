@@ -1,18 +1,39 @@
 <div class="main row">
-  <% 2.times do |n| %>
-    <div class="small-12 medium-6 column">
-      <% if n == 0 %>
-        <% half = @recipes[0..4]%>
-      <% else %>
-        <% half = @recipes[5..9]%>
-      <% end %>
-
-      <% half.each do | recipe | %>
-      <div class="result-recipe">
-        <h5><%= link_to recipe.label, recipe_details_path(uri: recipe.uri), method: :get, class: "title" %></h5>
-        <%= link_to image_tag(recipe.image), recipe_details_path(uri: recipe.uri), method: :get, class:"image" %>
-      </div>
-      <% end %>
+  <% if @recipes.length < 1 %>
+  <h5>Oops! We couldn't find any recipes for "<%= params[:q] %>"</h5>
+  <h5>Please try searching another recipe!</h5>
+  <% elsif @recipes.length == 1 %>
+  <div class="small-12 medium-12 column">
+    <div class="result-recipe">
+      <h5><%= link_to @recipes[0].label, recipe_details_path(uri: @recipes[0].uri), method: :get, class: "title" %></h5>
+      <%= link_to image_tag(@recipes[0].image), recipe_details_path(uri: @recipes[0].uri), method: :get, class:"image" %>
     </div>
+  </div>
+  <% else %>
+  <% 2.times do |n| %>
+  <div class="small-12 medium-6 column">
+    <% if n == 0  %>
+    <% half = @recipes[0...(@recipes.length/2)]%>
+    <% else %>
+    <% half = @recipes[(@recipes.length/2)..(@recipes.length)]%>
+    <% end %>
+
+    <% half.each do | recipe | %>
+    <div class="result-recipe">
+      <h5><%= link_to recipe.label, recipe_details_path(uri: recipe.uri), method: :get, class: "title" %></h5>
+      <%= link_to image_tag(recipe.image), recipe_details_path(uri: recipe.uri), method: :get, class:"image" %>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+
+<div class="pagination">
+  <% if params[:page].to_i > 1 %>
+    <%= link_to "Previous", result_list_path(:page => (params[:page].to_i - 1).to_s, :q => params[:q]), method: :get, class:"button" %>
+  <% end %>
+  <% if @info["to"] < @info["count"] %>
+    <%= link_to "Next", result_list_path(:page => (params[:page].to_i + 1).to_s, :q => params[:q]), method: :get, class:"button" %>
   <% end %>
 </div>

@@ -21,12 +21,8 @@
       </table>
     </section>
     <div class="links">
-      <div class="link">
-        <%= link_to "Get Instructions", @recipe.url %>
-      </div>
-      <div class="link">
-        <%= link_to "Back to Search Results", :back %>
-      </div>
+        <%= link_to "Get Instructions", @recipe.url, target:'_blank', class:"button" %>
+        <%= link_to "Back to Results", :back, class:"button" %>
     </div>
   </div>
   <div class="small-12 medium-6 column">

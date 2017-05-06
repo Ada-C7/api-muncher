@@ -1,10 +1,10 @@
-<div class="search row">
-  <div class=" small-12 columns">
+<section class="search-band">
+  <div class="search">
+    <h2>What are we cooking today?</h2>
     <%= form_tag result_list_path, method: "get" do %>
-    <%= label_tag "What are we cooking today?" %>
     <%= text_field_tag :q %>
     <%= hidden_field_tag :page, 1 %>
-      <%= submit_tag("Search Now")%>
+    <%= submit_tag("Search Now", class:"button")%>
     <% end %>
   </div>
-</div>
+</section>
