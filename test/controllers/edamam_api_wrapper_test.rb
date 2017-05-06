@@ -1,53 +1,34 @@
 require 'test_helper'
 
-describe SlackApiWrapper do
-  describe "Testing self.listChannels()"
-  it "Can get a list of channels" do
-    VCR.use_cassette("slack") do
+describe EdamamApiWrapper do
+  describe "Testing self.search(search_term)" do
+    it "Can get a response of search results" do
+      VCR.use_cassette("edamam") do
 
-      channels =
-      SlackApiWrapper.listChannel()
+        recipes = EdamamApiWrapper.search(params[:search_term])
 
-      channels.must_be_instance_of Array
-      #channels.class.must_equal array
-      channels.each do |channel|
-        channel.must_be_instance_of Channel
+        recipes.must_be_instance_of Array
+        #recipes.class.must_equal array
+        recipes.each do |recipe|
+          recipe.must_be_instance_of Recipe
+        end
+      end
+    end
+  end
+
+    it "returns an empty array with a bad token" do
+      VCR.use_cassette("edamam") do
+
+        recipes = EdamamApiWrapper.search("Bad token")
+        recipes.must_equal []
       end
     end
 
-  end
+    describe "Get a recipe do" do
+      it "Can get a recipe given a valid recipe label" do
+      end
 
-  it "returns an empty array with a bad token" do
-    VCR.use_cassette("slack") do
-
-      channels = SlackApiWrapper.listChannels("Bad token")
-      channels.must_equal []
-
+      it "returns false for an invalid recipe" do
+      end
     end
   end
-
-
-  describe "Get a channel do"
-  it "Can get a channel given a valid channel id" do
-
-  end
-
-  it "returns false for an invalid channel" do
-
-  end
-end
-
-describe "Send message" do
-
-  it "Can send a message to a valid channel" do
-
-  end
-
-  it "Returns false when sending a message fails" do
-
-  end
-
-  it "requires a channel and a message" do
-
-  end
-end
