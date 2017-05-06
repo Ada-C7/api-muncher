@@ -1,2 +1,17 @@
 <h1>is this page working?</h1>
-<%= @recipe %>
+<%= @recipe[0]["label"] %><br>
+<%= image_tag("#{@recipe[0]["image"]}") %><br>
+<%= link_to @recipe[0]["source"], @recipe[0]["url"], :target => "blank" %><br>
+Ingredients:
+<ul>
+  <% @recipe[0]["ingredientLines"].each do |ingredient| %><br>
+  <li><%= ingredient %></li>
+  <% end %>
+</ul>
+
+Dietary Information:
+<ul>
+  <% @recipe[0]["healthLabels"].each do |label| %>
+  <li> <%= label %> </li>
+  <% end %>
+</ul>
