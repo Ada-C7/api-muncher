@@ -40,17 +40,15 @@ a:hover {
   color: #989c7a;
 }
 /*=====================
-index header
+header
 =======================*/
 header {
   background-image: image_url("cloth.png");
   border-width: 6px 0;
   border-style: solid;
   border-color: #2c8993;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
-
-
 #searchbox {
   width: 70%;
 }
@@ -83,7 +81,9 @@ show page
 .container {
   display: inline-block;
   margin-top: 10px;
+  margin-left: 10px;
 }
 .ingredients, .labels {
   margin-top: 10px;
+  margin-left: 10px;
 }
