@@ -8,13 +8,13 @@ describe Recipe do
     }.must_raise ArgumentError
 
     proc {
-      Recipe.new 
+      Recipe.new
     }.must_raise ArgumentError
 
   end
 
   it "Can create a Recipe instance" do
-    recipe_response = Recipe.new "recipe", "recipe_count"
+    recipe_response = Recipe.new "data"
 
     recipe_response.class.must_equal Recipe
   end

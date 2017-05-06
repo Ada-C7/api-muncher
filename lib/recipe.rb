@@ -4,14 +4,14 @@ class Recipe
   def initialize(data)
 
     @uri = data["uri"]
-    @label = data.fetch("label")
-    @image = data.fetch("image")
-    @source = data.fetch("source")
-    @url = data.fetch("url")
+    @label = data["label"]
+    @image = data["image"]
+    @source = data["source"]
+    @url = data["url"]
 
 
-    @ingredientLines = data.fetch("ingredientLines")
-    @totalNutrients = data.fetch("totalNutrients")
+    @ingredientLines = data["ingredientLines"]
+    @totalNutrients = data["totalNutrients"]
   end
 
 end
