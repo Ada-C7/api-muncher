@@ -1,6 +1,6 @@
-require "./lib/edmam_api_wrapper"
-require "recipe"
-require "ingredient"
+require_dependency "./lib/edmam_api_wrapper"
+require_dependency "./lib/ingredient"
+require_dependency "./lib/recipe"
 
 class ResultsController < ApplicationController
 
