@@ -1,6 +1,4 @@
 require 'httparty'
-# require 'awesome_print'
-# require 'pry'
 
 class Recipe
   class RecipeException < StandardError
@@ -31,18 +29,44 @@ class Recipe
     response = HTTParty.get(BASE_URL, query: query_params).parsed_response
 
     if response['hits']
-      list_of_recipes = response["hits"].map do |hit|
-                        recipe_data = {
-                          label: hit["recipe"]["label"],
-                          image:hit["recipe"]["image"],
-                          uri: hit["recipe"]["url"],
-                          calories: hit["recipe"]["calories"],
-                          dietLabels: hit["recipe"]["dietLabels"],
-                          healthLabels: hit["recipe"]["healthLabels"],
-                          ingredients: hit["recipe"]["ingredients"]
-                        }
+    response["hits"].map do |hit|
+      recipe_data = {
+        label: hit["recipe"]["label"],
+        image:hit["recipe"]["image"],
+        uri: hit["recipe"]["uri"],
+        calories: hit["recipe"]["calories"],
+        dietLabels: hit["recipe"]["dietLabels"],
+        healthLabels: hit["recipe"]["healthLabels"],
+        ingredients: hit["recipe"]["ingredients"]
+      }
       self.new(recipe_data)
       end
+    else
+      raise RecipeException.new(response["error"])
+    end
+  end
+
+  def self.search1(uri)
+    query_params = {
+      "app_id" => ENV["APP_ID"],
+      "app_key" => ENV["APP_KEY"],
+      "r" => uri
+    }
+    response = HTTParty.get(BASE_URL, query: query_params)
+
+    if response != nil
+     response.map do |recipe|
+      recipe_data = {
+        label: recipe["label"],
+        image:recipe["image"],
+        uri: recipe["uri"],
+        calories: recipe["calories"],
+        dietLabels: recipe["dietLabels"],
+        healthLabels: recipe["healthLabels"],
+        ingredients: recipe["ingredients"]
+      }
+      self.new(recipe_data)
+     end
     else
       raise RecipeException.new(response["error"])
     end

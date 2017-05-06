@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root to: "recipes#homePage"
   # resources :recipes
   post '/recipes', to: 'recipes#index', as: 'recipes'
+  get '/recipe', to: 'recipes#show', as: 'recipe'
+
 end
