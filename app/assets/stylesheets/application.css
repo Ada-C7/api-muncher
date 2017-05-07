@@ -16,6 +16,37 @@
 
  */
 
+h1 {
+  border-bottom: solid;
+}
+
+.recipe_result {
+   margin-bottom: 2%;
+   padding: 1%;
+   text-align: center;
+ }
+
+ .recipe_result h5 {
+   margin: 0;
+   padding: 0;
+ }
+
+.header_banner {
+  vertical-align: bottom;
+  background-color: pink;
+}
+
+p.header_nav {
+  text-align: left;
+  border: solid;
+}
+
+h1.head-title {
+  border: solid;
+  margin-bottom: 0%;
+  text-align: left;
+}
+
 form {
   text-align: center;
   width: 100%;
@@ -23,13 +54,15 @@ form {
 
 header {
   border: solid;
+  /*vertical-align: bottom;*/
   /*text-align: center;*/
 }
 
 /*this is the submit button for searh*/
 [type='submit'], [type='button'] {
-  margin: 0.5em;
-  padding: 0.25em;
+  /*display: inline-block;*/
+  /*margin: 0.5em;*/
+  /*padding: 0.25em;*/
 }
 
 .search_label label {
@@ -52,4 +85,18 @@ nav {
 
 li {
   font-size: 1.25em;
+}
+
+
+.search_buttons {
+  margin: 1%;
+  text-align: center;
+  /*border: solid;*/
+}
+
+.button {
+  border-radius: 1.25em;
+  margin-bottom: 0;
+  margin-top: 0.25em;
+  /*background-color: green;*/
 }
