@@ -1,1 +1,23 @@
 <h2><%= @recipe.title %></h2>
+
+<%= image_tag(@recipe.image_url) %>
+<p>
+  <%= link_to "Click here", @recipe.url, target: "_blank" %> for the full recipe.
+</p>
+
+<h3>Ingredients</h3>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient %></li>
+  <% end %>
+</ul>
+
+<h3>Dietary Information</h3>
+<table>
+  <% @recipe.nutrition_facts.each do |nutrition_fact| %>
+    <tr>
+      <td><strong><%= nutrition_fact["label"] %></strong></td>
+      <td><%= nutrition_fact["quantity"].round(0) %><%= nutrition_fact["unit"] %></td>
+    </tr>
+  <% end %>
+</table>
