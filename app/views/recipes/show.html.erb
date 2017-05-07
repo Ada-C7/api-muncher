@@ -1,21 +1,36 @@
-</main>
-<h2><%= link_to @recipe.name, @recipe.url, target: :_blank %> </li></h2>
-
-<section>
-  <h3> Ingredients: </h3>
+<section class="column small-12 text-center">
+  <h3><%= link_to @recipe.name, @recipe.url, target: :_blank %> </li></h3>
+  <%= image_tag(@recipe.img_url, alt: "Delicious Food", target: :_blank) %>
+</section>
+<section class="column small-12" id="ingredients">
+  <h4> Ingredients</h4>
   <ul>
-  <% @recipe.ingredients.each do |ingredient| %>
-  <li><%= ingredient %></li>
-  <% end %>
-</ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient %></li>
+    <% end %>
+  </ul>
 </section>
 
-<section>
-  <h3> Nutritional Information: </h3>
-  <% @recipe.total_nutrients.each do |nutrient, value| %>
-  <li><%= nutrient %>: <%= value %></li>
+<table class="column small-12 medium-10 large-8">
+  <thead>
+    <tr>
+      <th width="20">Nutritional Information</th>
+      <th width="30">Amount per Serving</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @recipe.total_nutrients.each do |nutrient, value| %>
+    <tr>
+      <td><%= nutrient %></td>
+      <td><%= value %></td>
+    </tr>
+  </tbody>
   <% end %>
-</section>
-<footer class="">
-  <p>Recipe taken from<%= @recipe.url %> </p>
+</table>
+
+
+
+
+<footer class="column small-12 text-center">
+  <h6><%= link_to @recipe.url %> </h6>
 </footer>
