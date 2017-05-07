@@ -1,9 +1,13 @@
 <h1>Recipes</h1>
 
-<% @recipes.each do |recipe| %>
-  <ul>
-    <%= image_tag(recipe.image_url) %>
-    <p><%= recipe.title %></p>
-  </ul>
 
-<% end %>
+<ul>
+  <% @recipes.each do |recipe| %>
+    <li>
+      <%= link_to recipe_path(uri: recipe.uri) do %>
+        <%= image_tag(recipe.image_url, class: "small-img") %>
+        <span><%= recipe.title %></span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

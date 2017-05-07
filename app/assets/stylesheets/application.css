@@ -15,3 +15,12 @@
  *= require foundation_and_overrides
 
  */
+
+img.small-img {
+  width: 60px;
+  margin-right: 5px;
+}
+
+li {
+  list-style-type: none;
+}
