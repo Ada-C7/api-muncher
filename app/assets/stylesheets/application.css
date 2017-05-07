@@ -19,13 +19,42 @@
 
   /*font-family: Georgia,serif;*/
 
+  .main-h{
+    height: 150px;
+    background-color: white;
+  }
+  .main-h h1 {
+    margin-top: 35px;
+  }
+
+  .list{
+    text-align: center;
+  }
+
+  .footer{
+    position:relative;
+    height:300px;
+    height: 150px;
+    background-color: white;
+    text-align: center;
+    padding-top: 50px;
+  }
+
   body {
    /*text-align: center;*/
    background-image: url("image1.jpg");
    background-size: cover;
   }
+
+  .input-group-round{
+
+  }
  .pagination a {
    display: inline-block;
+ }
+ .page {
+   text-align: center;
+   padding-right: 20px;
  }
 
 
@@ -45,9 +74,24 @@
    margin-bottom: 15px;
  }
 
-
-
  .diet-table {
    font-size: .9em;
    width: 37em;
  }
+
+.input-group{
+  margin-top: 50px;
+
+}
+
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+}
+
+.input-group-button .button-secondary{
+  border-radius: 0 5000px 5000px 0;
+  padding-right: 1rem;
+  background: salmon;
+  font-family:'Courgette', cursive;
+}
