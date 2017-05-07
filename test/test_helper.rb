@@ -30,6 +30,9 @@ class ActiveSupport::TestCase
     config.filter_sensitive_data("<EDAMAM_TOKEN>") do
       ENV["EDAMAM_TOKEN"]
     end
+    config.filter_sensitive_data("<APP_TOKEN>") do
+      ENV["APP_TOKEN"]
+    end
   end
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all

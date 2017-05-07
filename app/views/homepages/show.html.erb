@@ -1,7 +1,11 @@
 <h1>Recipe Details</h1>
 
 <h3><%= @recipe.name %></h3>
-<%= link_to "Full recipe can be found here", @recipe.url %>
+<%= link_to @recipe.url do %>
+  <i class="fa fa-external-link" aria-hidden="true"></i>
+  Click here for directions
+<% end %>
+
 <p>Ingredients:
   <% @recipe.ingredients.each do |ingredient| %>
   <li><%= ingredient %></li>
