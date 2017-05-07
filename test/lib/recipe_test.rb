@@ -58,5 +58,14 @@ describe Recipe do
         steamed_salmon.id.must_equal id
       end
     end
+
+    it "Returns nil if given a bad recipe id" do
+      VCR.use_cassette("recipes") do
+        id = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+        response = Recipe.getRecipe(id)
+        response.must_equal nil
+      end
+    end
    end
+   
  end

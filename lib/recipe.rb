@@ -1,4 +1,4 @@
- class Recipe
+class Recipe
 
   class RecipeException < StandardError
   end
@@ -43,8 +43,8 @@
 
       recipe_params = {name: recipe["recipe"]["label"], image: recipe["recipe"]["image"], id: id }
 
-        recipe_array << Recipe.new(recipe_params)
-      end
+      recipe_array << Recipe.new(recipe_params)
+    end
     return recipe_array, total_count
   end
 
@@ -58,6 +58,9 @@
 
     recipe = HTTParty.get(BASE_URL, query: query_params).parsed_response["hits"][0]
 
+
+    return nil if recipe.nil?
+
     id = recipe["recipe"]["uri"].split("_").last
 
     recipe_params = {name: recipe["recipe"]["label"],
@@ -67,19 +70,10 @@
       ingredients: recipe["recipe"]["ingredientLines"], health_labels: recipe["recipe"]["healthLabels"], diet_labels: recipe["recipe"]["dietLabels"],
       calories: recipe["recipe"]["calories"],
       yield: recipe["recipe"]["yield"]
-      }
-
+    }
 
     return Recipe.new(recipe_params)
-
-
-        # if response["channel"]
-        #   return Channel.new(response["channel"]["name"], response["channel"]["id"])
-        # else
-        #   return nil
-        # end
   end
-
 
 end
 
@@ -91,5 +85,5 @@ end
 
 
 
-    #return recipe_name = response.parsed_response["hits"][0]["recipe"]["label"]
-    #recipe_image = response.parsed_response["hits"][0]["recipe"]["image"]
+#return recipe_name = response.parsed_response["hits"][0]["recipe"]["label"]
+#recipe_image = response.parsed_response["hits"][0]["recipe"]["image"]
