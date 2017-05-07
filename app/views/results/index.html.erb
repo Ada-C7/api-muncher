@@ -10,7 +10,7 @@
       <h3 class="recipe-title"><%=link_to recipe.label, recipe_path + "?recipe=#{URI.encode(recipe.uri)}"%></h3>
       <image class="recipe-image"><%= link_to image_tag(recipe.image, :size => "800x900",
       :alt => "recipe photo #{recipe.label}"), recipe_path + "?recipe=#{URI.encode(recipe.uri)}" %></image>
-
+      
     </div>
   </div>
 
@@ -18,14 +18,14 @@
 
   <ul class="pagination" role="navigation" aria-label="Pagination">
     <% (@recipe_response.recipe_count / 10).times do | page | %>
-      <%if page > 0 %>
-      <% from = ((page - 1) * 10) + 1 %>
-      <% to = (from + 10) %>
+    <%if page > 0 %>
+    <% from = ((page - 1) * 10) + 1 %>
+    <% to = (from + 10) %>
     <li><a><%= link_to page, results_path + "?q=#{params["q"]}&from=#{from}&to=#{to}" %></li>
       <% end %>
-    <% end %>
-</ul>
+      <% end %>
+    </ul>
 
 
 
-</section>
+  </section>

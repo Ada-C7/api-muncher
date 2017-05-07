@@ -7,41 +7,41 @@
     <div class="large-12 large-centered columns">
       <div class="transbox">
         <div class="ingredients">
-        <p><%=@recipe.label%></p>
-        <p><%= image_tag(@recipe.image, :size => "600x700", :alt => "#{@recipe.label}") %></p>
-
-        <h4><strong>Ingredients:</strong></h4>
-        <% @recipe.ingredientLines.each do | line | %>
+          <p><%=@recipe.label%></p>
+          <p><%= image_tag(@recipe.image, :size => "600x700", :alt => "#{@recipe.label}") %></p>
+          
+          <h4><strong>Ingredients:</strong></h4>
+          <% @recipe.ingredientLines.each do | line | %>
 
           <p><%=line%></p>
-        <% end %>
-        </div>
-
-      <h4><strong>Nutritional Information:</strong></h4>
-
-      <div class="nutrition">
-        <table style="width:100%">
-          <tr>
-            <th>Label</th>
-            <th>Quantity</th>
-            <th>Unit</th>
-          </tr>
-          <% @recipe.totalNutrients.each do | k, v | %>
-          <tr>
-
-            <td><%= v["label"] %></td>
-            <td><%= v["quantity"].round %></td>
-            <td><%= v["unit"] %></td>
-          </tr>
-
           <% end %>
         </div>
+
+        <h4><strong>Nutritional Information:</strong></h4>
+
+        <div class="nutrition">
+          <table style="width:100%">
+            <tr>
+              <th>Label</th>
+              <th>Quantity</th>
+              <th>Unit</th>
+            </tr>
+            <% @recipe.totalNutrients.each do | k, v | %>
+            <tr>
+
+              <td><%= v["label"] %></td>
+              <td><%= v["quantity"].round %></td>
+              <td><%= v["unit"] %></td>
+            </tr>
+
+            <% end %>
+          </div>
         </table>
 
-      <div class="source">
-        <p>Courtesy of: <%=link_to @recipe.source, "#{@recipe.url}", target: :_blank %></p>
+        <div class="source">
+          <p>Courtesy of: <%=link_to @recipe.source, "#{@recipe.url}", target: :_blank %></p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </section>
