@@ -2,12 +2,14 @@
 
 <section class="recipe-list">
   <h1>Recipes for <%= @search_term %></h1>
-  <ul>
-    <% @recipes.each do |recipe| %>
-      <li>
-        <%= link_to recipe.name, show_recipe_path(recipe.id) %>
-      </li>
-    <% end %>
+    <div class="masonry-css">
+      <% @recipes.each do |recipe| %>
+        <div class="masonry-css-item">
+          <%= link_to image_tag(recipe.image_url), show_recipe_path(recipe.id) %>
+          <div class="callout"><%= link_to recipe.name, show_recipe_path(recipe.id) %></div>
+      </div>
+      <% end %>
+    </div>
   </ul>
 
 
@@ -17,7 +19,6 @@
 </ul>
 
 
-  </div>
 
 </section>
 <%= link_to "Home", root_path, class: "hollow button" %>
