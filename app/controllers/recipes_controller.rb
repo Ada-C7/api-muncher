@@ -1,5 +1,4 @@
 require 'recipe'
-require '../assets/images/music_plate.jpeg'
 
 class RecipesController < ApplicationController
 
