@@ -33,6 +33,7 @@ class Recipe
     protein = @nutritional_info["PROCNT"]
     protein_percentage = @daily["PROCNT"]
 
+    #could make hash instead in case order changes?
     properties = [calories, total_fat, total_fat_percentage, saturdated_fat, saturated_fat_percentage, trans_fat, sodium, sodium_percentage, carbohydrates, carbohydrates_percentage, fiber, fiber_percentage, sugar, protein, protein_percentage]
 
     quantities = properties.map do |property|
