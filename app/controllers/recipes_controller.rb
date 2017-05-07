@@ -2,7 +2,8 @@ class RecipesController < ApplicationController
   def search; end
 
   def index
-    @recipes = EdamamApiWrapper.get_recipes(params[:q])
+    page = params[:page].nil? ? 1 : params[:page]
+    @recipes = EdamamApiWrapper.get_recipes(params[:q], page)
   end
 
   def show
