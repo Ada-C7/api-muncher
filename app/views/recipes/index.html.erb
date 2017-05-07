@@ -1,45 +1,44 @@
 
-<main class="row">
-  <section class="large-12 columns">
-    <% if @list_of_recipes.nil? %>
-      <article class="large-4 columns small-3 columns">
-        <p>Our search finds recipies from all over the web.
-          Search by any topic and filter by common dietary needs</p>
-      </article>
 
-      <article class="large-8 columns small-6 columns">
-        <%= render partial: "searchForm" %>
-      </article>
-  </section>
+<section class="large-12 columns">
+  <% if @list_of_recipes.nil? %>
+    <article class="large-4 columns small-3 columns">
+      <p>Our search finds recipies from all over the web.
+        Search by any topic and filter by common dietary needs</p>
+    </article>
 
-    <% else %>
-  <section class="large-12 columns">
-    <h1>Search Results</h1>
-      <nav>
-        <%= form_tag recipes_path, method: :get do %>
-          <%= hidden_field_tag :search_text, params[:search_text] %>
-          <%= hidden_field_tag :health, params[:health] %>
-          <%= hidden_field_tag :diet, params[:diet] %>
-          <%= hidden_field_tag :from, (params[:from].to_i + 10 )  %>
-        <div class="search_buttons"><%= link_to 'Back', :back, class: "button"%>
-          <%= submit_tag "Next", class: "button" %>
-        <% end %></div>
-      </nav>
+    <article class="large-8 small-10 columns">
+      <%= render partial: "searchForm" %>
+    </article>
+</section>
 
-      <article class="row">
-        <%= render partial: "searchResults" %>
-      </article>
+  <% else %>
+<section class="large-12 columns">
+  <h1>Search Results</h1>
+    <nav>
+      <%= form_tag recipes_path, method: :get do %>
+        <%= hidden_field_tag :search_text, params[:search_text] %>
+        <%= hidden_field_tag :health, params[:health] %>
+        <%= hidden_field_tag :diet, params[:diet] %>
+        <%= hidden_field_tag :from, (params[:from].to_i + 10 )  %>
+      <div class="search_buttons"><%= link_to 'Back', :back, class: "button"%>
+        <%= submit_tag "Next", class: "button" %>
+      <% end %></div>
+    </nav>
 
-      <nav>
-        <%= form_tag recipes_path, method: :get do %>
-          <%= hidden_field_tag :search_text, params[:search_text] %>
-          <%= hidden_field_tag :health, params[:health] %>
-          <%= hidden_field_tag :diet, params[:diet] %>
-          <%= hidden_field_tag :from, (params[:from].to_i + 10 )  %>
-        <div class="search_buttons"><%= link_to 'Back', :back, class: "button"%>
-          <%= submit_tag "Next", class: "button" %>
-        <% end %></div>
-      </nav>
-    <% end %>
-  </section>
-</main>
+    <article class"large-8 small-10 columns">
+      <%= render partial: "searchResults" %>
+    </article>
+
+    <nav>
+      <%= form_tag recipes_path, method: :get do %>
+        <%= hidden_field_tag :search_text, params[:search_text] %>
+        <%= hidden_field_tag :health, params[:health] %>
+        <%= hidden_field_tag :diet, params[:diet] %>
+        <%= hidden_field_tag :from, (params[:from].to_i + 10 )  %>
+      <div class="search_buttons"><%= link_to 'Back', :back, class: "button"%>
+        <%= submit_tag "Next", class: "button" %>
+      <% end %></div>
+    </nav>
+  <% end %>
+</section>

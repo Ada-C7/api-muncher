@@ -16,23 +16,38 @@
 
  */
 
+p.edamam{
+  font-style: italic;
+  position: fixed;
+  bottom: 0;
+ }
+
+article {
+  margin-top: 2%;
+}
 h1 {
   border-bottom: solid;
 }
 
 .recipe_result {
-   margin-bottom: 2%;
-   padding: 1%;
+   /*margin-bottom: 2%;*/
+   /*padding: 1%;*/
    text-align: center;
  }
 
- .recipe_result h5 {
-   margin: 0;
+ .recipe_result a {
+   font-size: 0.9em;
+   margin-top: 1%;
+   margin-bottom: 0;
    padding: 0;
  }
 
+ .recipe_result a {
+   width: 100%;
+ }
+
 .header_banner {
-  vertical-align: bottom;
+  /*vertical-align: bottom;*/
   background-color: pink;
 }
 
@@ -86,7 +101,6 @@ nav {
 li {
   font-size: 1.25em;
 }
-
 
 .search_buttons {
   margin: 1%;
