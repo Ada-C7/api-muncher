@@ -3,10 +3,15 @@
 <%= form_tag(recipes_path, method: :get, id: "search-form") do %>
   <%= label_tag :search, "Search: " %>
   <%= text_field_tag :search, params[:search] %>
-  <%= hidden_field_tag :page, params[:page].to_i + 1 %>
+  <%= hidden_field_tag :page, 1 %>
   <%= submit_tag "Search" %>
 <% end %>
 
+<% if params[:search] && @recipes.empty? %>
+  <p>
+    No results found.
+  </p>
+<% end %>
 <ul>
   <% @recipes.each do |recipe| %>
     <li>
