@@ -10,7 +10,12 @@ require_dependency "../../lib/recipe"
   def results
     #raise
     recipes = EdamamApiWrapper.findRecipes(params[:search])
-    @recipes = recipes.paginate(:page => params[:page], :per_page => 10)
+    if recipes.present?
+      @recipes = recipes.paginate(:page => params[:page], :per_page => 10)
+    else
+      flash[:error] = "Couldn't find recipes for #{params[:search]}."
+      redirect_to root_path
+    end
   end
 
   def show

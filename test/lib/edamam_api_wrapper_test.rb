@@ -11,7 +11,6 @@ describe EdamamApiWrapper do
         recipes = EdamamApiWrapper.findRecipes("chicken")
 
         recipes.must_be_instance_of Array
-        recipes.class.must_equal Array
         recipes.wont_be_nil
         recipes.length.must_be :>, 1
 
@@ -66,13 +65,13 @@ describe EdamamApiWrapper do
       end
     end
 
-    it "should return nil for invalid uri" do
+    it "should raise error for invalid uri" do
       #TODO: Not sure how to test this test case, as theres no way for a user to pass a bad uri.
       # QUESTION: how to handle JSON::ParserError: 409
 
       VCR.use_cassette("Recipe") do
-        recipe = proc {EdamamApiWrapper.showRecipe("0000000")
-        recipe}.must_raise JSON::ParserError
+        recipe = EdamamApiWrapper.showRecipe("0000000")
+        recipe.must_be_nil
       end
     end
   end
