@@ -53,7 +53,6 @@ class EdamamApi
     uri = "#{RECIPE_URI}#{recipe_uri}"
     response = HTTParty.get(uri, query: query_params).parsed_response
     return response
-
   end
 
 
