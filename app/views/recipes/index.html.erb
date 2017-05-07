@@ -11,7 +11,7 @@
       <%= hidden_field_tag :search_term, params[:search_term] %>
       <%= hidden_field_tag :page_num, 1 %>
 
-      <ul class="row small-up-2 medium-2 large-3">
+      <ul class="row small-up-2 medium-2 large-4">
         <% @diet_labels.each do |label| %>
             <li class='column'>
               <%= check_box_tag "dietary_labels[]", label -%>
@@ -20,7 +20,7 @@
         <% end %>
       </ul>
 
-      <ul class="row small-up-2 medium-2 large-3">
+      <ul class="row small-up-2 medium-2 large-4">
         <% @health_labels.each do |label| %>
             <li class='column'>
               <%= check_box_tag "dietary_labels[]", label -%>

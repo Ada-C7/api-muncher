@@ -254,3 +254,10 @@ img.pageicon{
   width: 2%;
   margin-bottom: 11px;
 }
+
+.flash{
+  font-family: 'Sigmar One';
+  color: #cfd8dc;
+  text-align: center;
+  background-color: #f44336;
+}

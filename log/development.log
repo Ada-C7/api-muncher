@@ -13963,3 +13963,403 @@ puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
   Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
   Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (99.2ms)
+Started GET "/" for ::1 at 2017-05-07 12:47:15 -0700
+Processing by HomepagesController#root as HTML
+  Rendering homepages/root.html.erb within layouts/homeapplication
+  Rendered homepages/root.html.erb within layouts/homeapplication (7.6ms)
+Completed 200 OK in 229ms (Views: 220.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/homepages.scss" for ::1 at 2017-05-07 12:47:15 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/stylesheets/homepages.scss"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered collection of /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [3 times] (5.6ms)
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.4ms)
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (142.8ms)
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=fries" for ::1 at 2017-05-07 12:47:18 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"fries", "page_num"=>"1"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 1054ms (Views: 102.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=fries" for ::1 at 2017-05-07 12:48:43 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"fries", "page_num"=>"1"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 1042ms (Views: 332.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/show?uri=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_f5e708d2d599fac91d1c6f8c0c13fd35" for ::1 at 2017-05-07 12:49:42 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"uri"=>"http://www.edamam.com/ontologies/edamam.owl#recipe_f5e708d2d599fac91d1c6f8c0c13fd35"}
+  Rendering recipes/show.html.erb within layouts/application
+  Rendered recipes/show.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 762ms (Views: 278.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-07 12:49:53 -0700
+Processing by HomepagesController#root as HTML
+  Rendering homepages/root.html.erb within layouts/homeapplication
+  Rendered homepages/root.html.erb within layouts/homeapplication (8.2ms)
+Completed 200 OK in 146ms (Views: 143.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/homepages.scss" for ::1 at 2017-05-07 12:49:54 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/stylesheets/homepages.scss"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered collection of /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [3 times] (7.5ms)
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (125.1ms)
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=hat" for ::1 at 2017-05-07 12:49:57 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"hat", "page_num"=>"1"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 869ms (Views: 130.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=hat&page_num=1&dietary_labels%5B%5D=vegan&commit=Filter" for ::1 at 2017-05-07 12:50:02 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"hat", "page_num"=>"1", "dietary_labels"=>["vegan"], "commit"=>"Filter"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 1039ms (Views: 171.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=hat&page_num=1&dietary_labels%5B%5D=high-protein&dietary_labels%5B%5D=low-carb&commit=Filter" for ::1 at 2017-05-07 12:50:14 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"hat", "page_num"=>"1", "dietary_labels"=>["high-protein", "low-carb"], "commit"=>"Filter"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 1025ms (Views: 93.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=hat&page_num=1&dietary_labels%5B%5D=low-fat&commit=Filter" for ::1 at 2017-05-07 12:51:29 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"hat", "page_num"=>"1", "dietary_labels"=>["low-fat"], "commit"=>"Filter"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 1335ms (Views: 433.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/show?uri=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_3dd0becae3e66b329fb9239d3e018f0f" for ::1 at 2017-05-07 12:52:04 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"uri"=>"http://www.edamam.com/ontologies/edamam.owl#recipe_3dd0becae3e66b329fb9239d3e018f0f"}
+  Rendering recipes/show.html.erb within layouts/application
+  Rendered recipes/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 564ms (Views: 126.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=hat&page_num=1&dietary_labels%5B%5D=low-fat&commit=Filter" for ::1 at 2017-05-07 12:52:28 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"hat", "page_num"=>"1", "dietary_labels"=>["low-fat"], "commit"=>"Filter"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 1261ms (Views: 279.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=hat&page_num=1&dietary_labels%5B%5D=peanut-free&commit=Filter" for ::1 at 2017-05-07 12:52:33 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"hat", "page_num"=>"1", "dietary_labels"=>["peanut-free"], "commit"=>"Filter"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 989ms (Views: 129.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=nut" for ::1 at 2017-05-07 12:52:40 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"nut", "page_num"=>"1"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 640ms (Views: 98.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=nut&page_num=1&dietary_labels%5B%5D=peanut-free&dietary_labels%5B%5D=tree-nut-free&commit=Filter" for ::1 at 2017-05-07 12:52:45 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"nut", "page_num"=>"1", "dietary_labels"=>["peanut-free", "tree-nut-free"], "commit"=>"Filter"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 1055ms (Views: 76.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/show?uri=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_473eba449d9634f1338c0e9d04734ebf" for ::1 at 2017-05-07 12:52:57 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"uri"=>"http://www.edamam.com/ontologies/edamam.owl#recipe_473eba449d9634f1338c0e9d04734ebf"}
+  Rendering recipes/show.html.erb within layouts/application
+  Rendered recipes/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 502ms (Views: 109.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/show?uri=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_a91a05082ddf5a1fc19d73a7e87bcf1d" for ::1 at 2017-05-07 12:53:21 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"uri"=>"http://www.edamam.com/ontologies/edamam.owl#recipe_a91a05082ddf5a1fc19d73a7e87bcf1d"}
+  Rendering recipes/show.html.erb within layouts/application
+  Rendered recipes/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 566ms (Views: 104.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=nut&page_num=1&dietary_labels%5B%5D=high-protein&dietary_labels%5B%5D=low-carb&dietary_labels%5B%5D=peanut-free&dietary_labels%5B%5D=tree-nut-free&commit=Filter" for ::1 at 2017-05-07 12:53:45 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"nut", "page_num"=>"1", "dietary_labels"=>["high-protein", "low-carb", "peanut-free", "tree-nut-free"], "commit"=>"Filter"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 1144ms (Views: 108.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=nut&page_num=1&dietary_labels%5B%5D=balanced&dietary_labels%5B%5D=high-protein&dietary_labels%5B%5D=low-fat&dietary_labels%5B%5D=low-carb&dietary_labels%5B%5D=vegan&dietary_labels%5B%5D=vegetarian&dietary_labels%5B%5D=sugar-conscious&dietary_labels%5B%5D=alcohol-free&dietary_labels%5B%5D=peanut-free&dietary_labels%5B%5D=tree-nut-free&commit=Filter" for ::1 at 2017-05-07 12:54:02 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"nut", "page_num"=>"1", "dietary_labels"=>["balanced", "high-protein", "low-fat", "low-carb", "vegan", "vegetarian", "sugar-conscious", "alcohol-free", "peanut-free", "tree-nut-free"], "commit"=>"Filter"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 1070ms (Views: 120.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=nut&page_num=1&dietary_labels%5B%5D=balanced&dietary_labels%5B%5D=high-protein&dietary_labels%5B%5D=low-fat&dietary_labels%5B%5D=low-carb&dietary_labels%5B%5D=vegan&dietary_labels%5B%5D=vegetarian&dietary_labels%5B%5D=sugar-conscious&dietary_labels%5B%5D=alcohol-free&dietary_labels%5B%5D=peanut-free&dietary_labels%5B%5D=tree-nut-free&commit=Filter" for ::1 at 2017-05-07 12:54:44 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"nut", "page_num"=>"1", "dietary_labels"=>["balanced", "high-protein", "low-fat", "low-carb", "vegan", "vegetarian", "sugar-conscious", "alcohol-free", "peanut-free", "tree-nut-free"], "commit"=>"Filter"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 1011ms (Views: 126.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=nut&page_num=1&dietary_labels%5B%5D=balanced&dietary_labels%5B%5D=high-protein&dietary_labels%5B%5D=low-fat&dietary_labels%5B%5D=low-carb&dietary_labels%5B%5D=vegan&dietary_labels%5B%5D=vegetarian&dietary_labels%5B%5D=sugar-conscious&dietary_labels%5B%5D=alcohol-free&dietary_labels%5B%5D=peanut-free&dietary_labels%5B%5D=tree-nut-free&commit=Filter" for ::1 at 2017-05-07 12:55:19 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"nut", "page_num"=>"1", "dietary_labels"=>["balanced", "high-protein", "low-fat", "low-carb", "vegan", "vegetarian", "sugar-conscious", "alcohol-free", "peanut-free", "tree-nut-free"], "commit"=>"Filter"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 1140ms (Views: 195.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=nut&page_num=1&dietary_labels%5B%5D=balanced&dietary_labels%5B%5D=high-protein&dietary_labels%5B%5D=low-fat&dietary_labels%5B%5D=low-carb&dietary_labels%5B%5D=vegan&dietary_labels%5B%5D=vegetarian&dietary_labels%5B%5D=sugar-conscious&dietary_labels%5B%5D=alcohol-free&dietary_labels%5B%5D=peanut-free&dietary_labels%5B%5D=tree-nut-free&commit=Filter" for ::1 at 2017-05-07 12:55:59 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"nut", "page_num"=>"1", "dietary_labels"=>["balanced", "high-protein", "low-fat", "low-carb", "vegan", "vegetarian", "sugar-conscious", "alcohol-free", "peanut-free", "tree-nut-free"], "commit"=>"Filter"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 1097ms (Views: 164.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-07 12:56:04 -0700
+Processing by HomepagesController#root as HTML
+  Rendering homepages/root.html.erb within layouts/homeapplication
+  Rendered homepages/root.html.erb within layouts/homeapplication (1.1ms)
+Completed 200 OK in 96ms (Views: 89.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/homepages.scss" for ::1 at 2017-05-07 12:56:04 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/stylesheets/homepages.scss"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered collection of /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [3 times] (4.5ms)
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (24.0ms)
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (134.7ms)
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=flies" for ::1 at 2017-05-07 12:56:17 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"flies", "page_num"=>"1"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 555ms (Views: 133.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=flies&page_num=1&dietary_labels%5B%5D=sugar-conscious&commit=Filter" for ::1 at 2017-05-07 12:56:23 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"flies", "page_num"=>"1", "dietary_labels"=>["sugar-conscious"], "commit"=>"Filter"}
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 884ms (Views: 77.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-07 12:56:26 -0700
+Processing by HomepagesController#root as HTML
+  Rendering homepages/root.html.erb within layouts/homeapplication
+  Rendered homepages/root.html.erb within layouts/homeapplication (1.2ms)
+Completed 200 OK in 92ms (Views: 87.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/homepages.scss" for ::1 at 2017-05-07 12:56:26 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/stylesheets/homepages.scss"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered collection of /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [3 times] (2.1ms)
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (129.4ms)
+Started GET "/recipes/1/index?utf8=%E2%9C%93&search_term=%23UDWKLS" for ::1 at 2017-05-07 12:56:34 -0700
+Processing by RecipesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"#UDWKLS", "page_num"=>"1"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 501ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-07 12:56:35 -0700
+Processing by HomepagesController#root as HTML
+  Rendering homepages/root.html.erb within layouts/homeapplication
+  Rendered homepages/root.html.erb within layouts/homeapplication (1.4ms)
+Completed 200 OK in 91ms (Views: 89.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/homepages.scss" for ::1 at 2017-05-07 12:56:35 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/stylesheets/homepages.scss"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered collection of /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [3 times] (4.4ms)
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.9ms)
+  Rendering /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (40.1ms)
+  Rendered /Users/daniellebirbal/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (195.2ms)
