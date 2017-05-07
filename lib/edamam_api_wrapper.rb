@@ -23,7 +23,7 @@ class EdamamApiWrapper
 
   private
   def self.page_to_pages(page)
-    to = page * 10
+    to = (page * 10) - 1
     from = to - 9
 
     [to, from]

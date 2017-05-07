@@ -10,3 +10,9 @@
     </li>
   <% end %>
 </ul>
+
+<% unless @page == 1 %>
+  <%= link_to "Previous", recipes_path(q: @search_term, page: @page - 1) %>
+<% end %>
+
+<%= link_to "Next", recipes_path(q: @search_term, page: @page + 1) %>
