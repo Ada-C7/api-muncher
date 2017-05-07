@@ -4,25 +4,10 @@ class RecipesController < ApplicationController
     recipe = Recipe.new
   end
 
-  # def search
-    # recipe = Recipe.new
-    # recipe.send_search(params[:search_term])
-    # redirect_to recipes_path(key_word: params[:search_term])
-  # end
-
   def list
-    # session[:search_word] = nil
     recipe = Recipe.new
     @search_word = params[:search_term] if @search_word == nil
     @recipes = recipe.send_search(params[:search_term], params[:from], params[:to], params[:health])
-
-    # @health = params[:health]
-
-    #  b["hits"][0]["recipe"]["uri"]
-    #  b["hits"][0]["recipe"]["ingredientLines"]
-    #  b["hits"][0]["recipe"]["ingredients"]
-    #   b["hits"][0]["recipe"]["totalNutrients"]
-
   end
 
   def show
