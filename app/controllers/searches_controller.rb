@@ -28,10 +28,12 @@ class SearchesController < ApplicationController
     else
       @results = EdamamApiWrapper.querySearch(session[:search_terms], session[:from], session[:to])
     end
-    session[:search_count] = @results.last # get the count for the session
-    @results = @results[0..-2]
-    session[:recent_searches] << @results.last #shovel the search into the list
-    @results = @results[0..-2]
+    if !@results.empty?
+      session[:search_count] = @results.last # get the count for the session
+      @results = @results[0..-2]
+      session[:recent_searches] << @results.last #shovel the search into the list
+      @results = @results[0..-2]
+    end
 
   end
 
