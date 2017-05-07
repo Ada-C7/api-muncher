@@ -5,4 +5,8 @@ class RecipesController < ApplicationController
     @recipes = ApiRecipe.find(params[:search], @from)
   end
 
+  def show
+    @recipe = ApiRecipe.find_recipe(params[:uri])
+  end
+
 end

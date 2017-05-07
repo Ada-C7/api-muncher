@@ -1,6 +1,8 @@
 
 class ApiRecipe
   BASE_URL = "https://api.edamam.com/"
+  RECIPE_URI = "https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl%23"
+  # RECIPE_URL = "https://api.edamam.com/search?http://www.edamam.com/ontologies/edamam.owl#"
   attr_reader :label, :uri, :image, :url, :source
 
   class ApiRecipeException < StandardError
@@ -38,18 +40,15 @@ class ApiRecipe
     end
   end
 
-  # def self.all
-  #   url = "#{BASE_URL}?app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEYS"]}&health=vegan"
-  #   response = HTTParty.get(url).parsed_response
-  #   if response["ok"]
-  #     recipe_list = response.map do |recipe|
-  #       self.new(recipe)
-  #     end
-  #
-  #     return recipe_list
-  #   else
-  #     raise ApiRecipeException.new(response["error"])
-  #   end
-  # end
+  def self.find_recipe(param)
+    query_params = {
+      "app_id" => ENV["EDAMAM_APP_ID"],
+      "app_key" => ENV["EDAMAM_APP_KEYS"]
+    }
+
+    url = "#{RECIPE_URI}#{param}"
+    recipe = HTTParty.get(url, query: query_params)
+    return recipe
+  end
 
 end

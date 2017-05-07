@@ -1,0 +1,21 @@
+<h1><%= @recipe[0]["label"] %></h1>
+<%= image_tag @recipe[0]["image"] %><br>
+<h2>Diet Labels: </h2>
+<ul>
+  <% @recipe[0]["dietLabels"].each do |label| %>
+    <li><%= label %></li>
+  <% end %>
+</ul>
+<h2>Health Labels: </h2>
+<ul>
+  <% @recipe[0]["healthLabels"].each do |label| %>
+    <li><%= label %></li>
+  <% end %>
+</ul>
+<h2>Ingredients: </h2>
+<ul>
+  <% @recipe[0]["ingredientLines"].each do |label| %>
+    <li><%= label %></li>
+  <% end %>
+</ul>
+<%= link_to "View recipe", @recipe[0]["url"], target: :_blank %><br>

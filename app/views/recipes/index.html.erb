@@ -1,6 +1,7 @@
-
+<h1> You are searching for <%= params[:search] %></h1>
 <% @recipes.each do |recipe| %>
-  <%= recipe.uri %>
+  <%= image_tag recipe.image %>
+  <%= link_to "#{recipe.label}", recipe_path(recipe.uri.partition("#").last) %>
 <% end %>
 
 <%= form_tag recipes_path, method: :get do %>
