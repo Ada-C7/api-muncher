@@ -1,7 +1,7 @@
 <section class="account-page row">
   <h1><%= current_user.username %></h1>
   <section class="columns small-12 medium-6">
-    <h3>My Saved Searches</h3>
+    <h3 class="account-searches">My Saved Searches</h3>
     <% if @searches.empty? %>
     <p>
       No saved searches yet.
@@ -18,7 +18,7 @@
     <% end %>
   </section>
   <section class="columns small-12 medium-6">
-    <h3>My Favorite Recipes</h3>
+    <h3 class="account-recipes">My Favorite Recipes</h3>
     <% if @recipes.empty? %>
     <p>
       No saved recipes yet.
