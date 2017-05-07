@@ -36,7 +36,11 @@ describe RecipesController do
        must_respond_with :success
       end
 
-
+      it "succeds and gives an appropriate message when an empty search was given" do
+         get recipes_path, params: {search: "", from:0, to:12}
+         flash[:message].must_equal  "Gimmie something to work with if you want some recipes."
+        must_respond_with :success
+       end
 
   end
   #   it "succeeds with no users" do
