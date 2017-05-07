@@ -1,8 +1,14 @@
-<h1> You are searching for <%= params[:search] %></h1>
-<% @recipes.each do |recipe| %>
-  <%= image_tag recipe.image %>
-  <%= link_to "#{recipe.label}", recipe_path(recipe.uri.partition("#").last) %>
-<% end %>
+<h1><%= params[:search] %>...</h1>
+<section class="recipes">
+  <div class="row">
+    <% @recipes.each do |recipe| %>
+    <section class="small-6 medium-4 columns">
+      <div class="name"><%= link_to recipe.label, recipe_path(recipe.uri.partition("#").last) %></div>
+      <%= link_to (image_tag recipe.image), recipe_path(recipe.uri.partition("#").last) %>
+    </section>
+    <% end %>
+  </div>
+</section>
 
 <%= form_tag recipes_path, method: :get do %>
   <%= hidden_field_tag :search, params[:search] %>
