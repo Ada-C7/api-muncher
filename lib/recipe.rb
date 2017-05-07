@@ -61,7 +61,6 @@ class Recipe
       url: response[0]["url"],
       total_nutrients: nutrient_list,
       ingredients: response[0]["ingredientLines"]
-
     }
     Recipe.new(recipe_params)
   end

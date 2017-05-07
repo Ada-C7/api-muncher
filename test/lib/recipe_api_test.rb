@@ -51,22 +51,117 @@ describe Recipe do
     end
   end
 
-  describe "send" do
-      it "Can send a message to a real channel" do
-        VCR.use_cassette("channels") do
-          channel = SlackChannel.new("queues_api_testing")
-          channel.send("test message")
-
-        end
+  describe "search" do
+    it "Can send a search for an ingredient term and return an array of recipes" do
+      VCR.use_cassette("recipes") do
+        cod_recipes = Recipe.search("cod")
+        cod_recipes.must_be_instance_of Array
+        cod_recipes[0].must_be_kind_of Recipe
       end
+    end
 
-      it "Fails to send to a bogus channel" do
-        VCR.use_cassette("channels") do
-          channel = SlackChannel.new("this_channel_doesnt_exit")
-          proc {
-            channel.send("test message")
-          }.must_raise SlackChannel::SlackException
-        end
+    it "The individual recipe must contain a name" do
+      VCR.use_cassette("recipes") do
+        cod_recipes = Recipe.search("cod")
+        cod_recipes.first.name.wont_be_nil
       end
+    end
+
+    it "The individual recipe must contain an img url" do
+      VCR.use_cassette("recipes") do
+        cod_recipes = Recipe.search("cod")
+        cod_recipes.first.img_url.wont_be_nil
+      end
+    end
+
+    it "The individual recipe must contain an uri" do
+      VCR.use_cassette("recipes") do
+        cod_recipes = Recipe.search("cod")
+        cod_recipes.first.uri.wont_be_nil
+      end
+    end
+
+    it "The individual recipe must contain an id" do
+      VCR.use_cassette("recipes") do
+        cod_recipes = Recipe.search("cod")
+        cod_recipes.first.id.wont_be_nil
+      end
+    end
+  end
+
+  describe "single_search" do
+    it "Can send a search for a recipe ID and return a recipe object" do
+      VCR.use_cassette("recipes") do
+        cod_recipes = Recipe.search("cod")
+        first_cod_recipe_id = cod_recipes.first.id.to_s
+        first_cod_recipe = Recipe.single_search(first_cod_recipe_id)
+        first_cod_recipe.must_be_kind_of Recipe
+      end
+    end
+
+    it "The Recipe object must contain a name" do
+      VCR.use_cassette("recipes") do
+        cod_recipes = Recipe.search("cod")
+        first_cod_recipe_id = cod_recipes.first.id
+        first_cod_recipe = Recipe.single_search(first_cod_recipe_id)
+        first_cod_recipe.name.wont_be_nil
+      end
+    end
+
+    it "The Recipe object must contain an img url" do
+      VCR.use_cassette("recipes") do
+        cod_recipes = Recipe.search("cod")
+        first_cod_recipe_id = cod_recipes.first.id
+        first_cod_recipe = Recipe.single_search(first_cod_recipe_id)
+        first_cod_recipe.img_url.wont_be_nil
+      end
+    end
+
+    it "The Recipe object must contain an uri" do
+      VCR.use_cassette("recipes") do
+        cod_recipes = Recipe.search("cod")
+        first_cod_recipe_id = cod_recipes.first.id
+        first_cod_recipe = Recipe.single_search(first_cod_recipe_id)
+        first_cod_recipe.uri.wont_be_nil
+      end
+    end
+
+    it "The Recipe object must contain an id" do
+      VCR.use_cassette("recipes") do
+        cod_recipes = Recipe.search("cod")
+        first_cod_recipe_id = cod_recipes.first.id
+        first_cod_recipe = Recipe.single_search(first_cod_recipe_id)
+        first_cod_recipe.id.wont_be_nil
+      end
+    end
+
+    it "The Recipe object must contain an url" do
+      VCR.use_cassette("recipes") do
+        cod_recipes = Recipe.search("cod")
+        first_cod_recipe_id = cod_recipes.first.id
+        first_cod_recipe = Recipe.single_search(first_cod_recipe_id)
+        first_cod_recipe.url.wont_be_nil
+      end
+    end
+
+    it "The Recipe object must contain a hash of total nutrients" do
+      VCR.use_cassette("recipes") do
+        cod_recipes = Recipe.search("cod")
+        first_cod_recipe_id = cod_recipes.first.id
+        first_cod_recipe = Recipe.single_search(first_cod_recipe_id)
+        first_cod_recipe.total_nutrients.wont_be_nil
+        first_cod_recipe.total_nutrients.must_be_instance_of Hash
+      end
+    end
+
+    it "The Recipe object must contain an array of ingredients" do
+      VCR.use_cassette("recipes") do
+        cod_recipes = Recipe.search("cod")
+        first_cod_recipe_id = cod_recipes.first.id
+        first_cod_recipe = Recipe.single_search(first_cod_recipe_id)
+        first_cod_recipe.ingredients.wont_be_nil
+        first_cod_recipe.ingredients.must_be_instance_of Array
+      end
+    end
   end
 end
