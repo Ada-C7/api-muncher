@@ -21,7 +21,7 @@ describe RecipesController do
   end
 
   it "should show flash message when there is no match of search item " do
-      get recipes_path("123")
+      get recipes_path(q: " ")
       flash[:error].must_equal "Sorry, there is no match"
   end
 

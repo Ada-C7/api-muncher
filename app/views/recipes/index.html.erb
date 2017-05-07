@@ -15,16 +15,19 @@
 
 <!-- <section class="row"> -->
 <div class="row small-up-1 medium-up-2 large-up-3">
-<% @recipes.each do |recipe| %>
-    <!-- <%#= link_to recipe.label, recipe_path(:label => recipe.label, :uri =>recipe.uri) %> -->
-    <div class="column column-block">
-    <%= link_to image_tag(recipe.image), recipe_path(:label => recipe.label, :uri =>recipe.uri), :title => recipe.label %>
-  </br><span class="title" ><%= link_to recipe.label, recipe_path(:label => recipe.label, :uri =>recipe.uri) %></span>
-  </div>
-<% end  %>
-
+<% if @recipes %>
+  <% @recipes.each do |recipe| %>
+      <!-- <%#= link_to recipe.label, recipe_path(:label => recipe.label, :uri =>recipe.uri) %> -->
+      <div class="column column-block">
+      <%= link_to image_tag(recipe.image), recipe_path(:label => recipe.label, :uri =>recipe.uri), :title => recipe.label %>
+    </br><span class="title" ><%= link_to recipe.label, recipe_path(:label => recipe.label, :uri =>recipe.uri) %></span>
+    </div>
+  <% end  %>
+<% end %>
 </ul>
 </div>
-<%= will_paginate @recipes_pages%>
+<% if @recipes_pages %>
+  <%= will_paginate @recipes_pages%>
+<% end %>
 
 <!-- </section> -->
