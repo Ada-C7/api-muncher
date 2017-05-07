@@ -65,6 +65,7 @@ form label {
   padding-right: 30px;
   display: inline-block;
 }
+
 // index
 .recent-search-line {
   text-align: center;
@@ -102,6 +103,8 @@ header h1 a {
   //  font-size: 4em;
 }
 
+// recipes
+
 .recipe-title {
   font-family: "Homemade Apple";
   font-size: 1em;
@@ -118,21 +121,13 @@ header h1 a {
 
 }
 
-// footer
-
-footer .credits {
-  display: block;
+.search-results {
+  min-height: 350px;
 }
 
-footer a {
-  font-family: "Molengo";
-  font-size: 1em;
-}
-
-.credits p {
-  display: inline-block;
+.nothing-found {
   text-align: center;
-  font-size: .5em;
+  padding-top: 70px;
 }
 
 .index-header-left {
@@ -191,6 +186,24 @@ a:hover {
   right: 0;
   position: absolute;
   z-index: -1;
+}
+
+
+// footer
+
+footer .credits {
+  display: block;
+}
+
+footer a {
+  font-family: "Molengo";
+  font-size: 1em;
+}
+
+.credits p {
+  display: inline-block;
+  text-align: center;
+  font-size: .5em;
 }
 
 footer {

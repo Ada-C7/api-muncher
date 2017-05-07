@@ -3,8 +3,8 @@
   <h2>results for "<%= session[:search_terms] %><% if session[:health] %> (<%= session[:health] %>)<% end %>"</h2>
 
   <% if @results.empty? %>
-  <p>
-    Nothing found for that search
+  <p class="nothing-found">
+    Nothing found. Try choosing 'none' or using fewer search terms.
   </p>
   <% else %>
   <% if current_user %>
