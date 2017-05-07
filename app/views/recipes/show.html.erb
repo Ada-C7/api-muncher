@@ -1,29 +1,33 @@
-<h3><%= @recipe.name %></h3>
-<h5><%= link_to "Link to original recipe", @recipe.original_url, target: :_blank %></h5>
-<%= image_tag @recipe.image, alt:"picture of #{@recipe.name}"%>
+<body class="show">
+  <h2><%= @recipe.name %></h2>
 
-<section>
-  <h4>Ingredients:</h4>
+  <section>
+  <h4><%= link_to "Link to original recipe", @recipe.original_url, target: :_blank %></h4>
+  <%= image_tag @recipe.image, alt:"picture of #{@recipe.name}"%>
+  </section>
 
-  <ul>
-    <% @recipe.ingredients.each do |ingredient| %>
+  <section>
+    <h4>Ingredients:</h4>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
       <li><%=ingredient%></li>
-    <% end %>
-  </ul>
+      <% end %>
+    </ul>
+  </section>
 
-</section>
 
-
-<section>
-  <h4>Dietary Information:</h4>
-  <h6><%= "Calories: #{@recipe.calories_per_serving.to_i}"%></h6>
-  <h5>Health labels:</h5>
-  <ul>
-    <% @recipe.diet_labels.each do |diet_label| %>
+  <section>
+    <h4>Dietary Information:</h4>
+    <h5><%= "Calories: #{@recipe.calories_per_serving.to_i}"%></h5>
+    <h5>Health labels:</h5>
+    <ul>
+      <% @recipe.diet_labels.each do |diet_label| %>
       <li><%=diet_label%></li>
-    <% end %>
-    <% @recipe.health_labels.each do |health_label| %>
+      <% end %>
+      <% @recipe.health_labels.each do |health_label| %>
       <li><%=health_label%></li>
-    <% end %>
-  </ul>
-</section>
+      <% end %>
+    </ul>
+  </section>
+
+</body>

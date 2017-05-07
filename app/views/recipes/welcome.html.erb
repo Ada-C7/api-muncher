@@ -1,11 +1,31 @@
-<h2>What's your pleasure?</h2>
 
-<section>
-  <%= form_tag recipes_path, method: :get do %>
+<body class="welcome">
+
+  <main>
+
+
+
+  <h1 class="main-title1"> Recipe Requiem </h1>
+  <h2 class="main-title2">Find the recipes that will make your taste buds sing...</h2>
+
+
+
+  <%=image_tag "music_plate.jpeg", alt:"plate with musical notes", class:"main-title-image"%>
+
+
+
+  <section class="search">
+    <h2 class="main-title3">What sounds good?</h2>
+
+
+    <%= form_tag recipes_path, method: :get do %>
     <%= text_field_tag :search%>
     <%= hidden_field_tag 'from', 0 %>
     <%= hidden_field_tag 'to', 10 %>
 
     <%= submit_tag "Search" %>
-  <% end %>
-</section>
+    <% end %>
+  </section>
+  </main>
+
+</body>

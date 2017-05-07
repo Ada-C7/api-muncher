@@ -13,15 +13,21 @@
 
 <body>
 
-      <%= yield %>
-  <footer>
-    <section class="text-center">
-
-      <p class = "attribution"> All recipe information courtesy of </p>
-      <p class = "attribution"><%= link_to (image_tag "edamam_logo1.png", alt:"Edamam logo", class: "logo"), "https://www.edamam.com/", target: :_blank%> </p>
-    </section>
-  </footer>
+  <%= yield %>
 
 
-    </body>
-    </html>
+
+</body>
+
+
+<footer>
+  <section class="text-center">
+
+    <p class = "attribution"> All recipe information courtesy of </p>
+    <p class = "attribution"><%= link_to (image_tag "edamam_logo1.png", alt:"Edamam logo", class: "logo"), "https://www.edamam.com/", target: :_blank%> </p>
+  </section>
+</footer>
+
+
+
+</html>

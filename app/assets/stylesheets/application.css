@@ -18,6 +18,45 @@
 */
 
 
+.main-title1, .main-title2, .main-title3{
+  color: darkgreen;
+}
+.main-title1 {
+  margin-left: 10%;
+}
+
+.main-title2 {
+  margin-left: 20%;
+}
+.main-title3 {
+  margin: auto;
+  padding-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.main-title-image {
+  display: block;
+  margin: auto;
+  border-radius: 15px;
+}
+.search{
+  width: 60%;
+  margin: auto;
+  padding-left: 30%;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.welcome {
+  font-family: Lobster;
+}
+
+body.welcome{
+  /*background-image: url("bon_appetite.jpeg")*/
+background-image: url("http://www.mycutegraphics.com/backgrounds/yellow/yellow3.html");
+background-size: cover;
+background-repeat: no-repeat;
+}
 
 body {
   background-color: #d6f8b9;
@@ -37,10 +76,13 @@ a:hover {
   color: orange;
 }
 
-
+body.list{
+  color: darkgreen;
+}
 #index-title{
   width: 70%;
-  margin-left: 15%;
+  margin-left: 10%;
+
 }
 ul.floa
 t-index-left{
@@ -86,7 +128,7 @@ ul.float-index-left, ul.float-index-right{
 }
 
 footer{
-  border-top: 1.5px solid green;
+  border-top: 1.5px solid green;width:100%;
 }
 .text-center{
   margin-top: 0.5rem;

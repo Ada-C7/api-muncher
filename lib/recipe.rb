@@ -1,4 +1,4 @@
-class Recipe
+ class Recipe
 
   class RecipeException < StandardError
   end

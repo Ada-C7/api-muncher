@@ -1,4 +1,5 @@
-<h2 id="index-title"><%= "Here are some delectable #{params[:search]} recipes..." %></h2>
+<body class="list">
+  <h1 id="index-title"><%= "Here are some delectable #{params[:search]} recipes..." %></h1>
 
 
 <ul class ="index">
@@ -7,7 +8,7 @@
     <% if index%2 == 0 %>
       <ul class="float-index-left">
         <li class="index_recipe"> <%= link_to recipe.name, recipe_path(recipe.id), method: :get %></li>
-        <li class="index_recipe">  <%= link_to (image_tag recipe.image, alt:"picture of #{recipe.name}", class:"index-picture"), recipe_path(recipe.id), method: :get %></li>
+        <li class="index_recipe">  <%= link_to (image_tag recipe.image, alt:"picture of #{recipe.name}", class:"index-picture"), recipe_path(recipe.id), method: :get %></li
       </ul>
     <% else %>
       <ul class="float-index-right">
@@ -49,3 +50,6 @@
 <% end %>
 
 </section>
+
+
+</body>
