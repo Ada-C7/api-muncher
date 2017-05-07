@@ -14,12 +14,13 @@ class EdamamApiWrapper
     recipes = []
     response = HTTParty.get(url)
 
-    if response["count"] > 0
+    if response["hits"].length > 0
       response["hits"].each do |recipe_hash|
         recipes << Recipe.new(recipe_hash["recipe"])
       end
+      return [recipes, {"count" => response["count"], "to" => response["to"].to_i}]
     end
-    return [recipes, {"count" => response["count"], "to" => response["to"].to_i}]
+    return [recipes, {"count" => 0, "to" => 0 }]
   end
 
   # method that takes an uri of a specific recipe
@@ -27,7 +28,10 @@ class EdamamApiWrapper
   def self.getRecipe(uri)
     url = BASE_URL + "?r=#{uri.gsub("#","%23")}"+ "&app_id=#{EDAMAM_ID}" + "&app_key=#{EDAMAM_KEY}"
     response = HTTParty.get(url)
-    recipe = Recipe.new(response[0])
-    return recipe
+    if response.length > 0
+      return  Recipe.new(response[0])
+    else
+      return []
+    end
   end
 end
