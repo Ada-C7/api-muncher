@@ -1,5 +1,5 @@
 require 'recipe'
-require_dependency '../assets/images/music_plate.jpeg'
+#require_dependency '../assets/images/music_plate.jpeg'
 
 class RecipesController < ApplicationController
 
