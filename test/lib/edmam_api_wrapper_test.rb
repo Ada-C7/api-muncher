@@ -4,46 +4,39 @@ describe EdmamApiWrapper do
 
   describe "List Recipes" do
 
-    it "Can get a list of recipes" do
+    it "Can get a recipe reponse" do
       VCR.use_cassette("edmam") do
 
-        recipes = EdmamApiWrapper.listRecipes()
+        recipe_response = EdmamApiWrapper.listRecipes("beans", 1, 11)
 
-        recipes.must_be_instance_of Array
+        recipe_response.must_be_instance_of RecipeResponse
 
-        recipes.each do | recipe |
-          recipe.must_be_instance_of Recipe
+        recipe_response.recipe.each do | rec |
+          rec.must_be_instance_of Recipe
         end
-      end
-    end
 
-    it "Will return an empty array with a bad token" do
-      VCR.use_cassette("edmam") do
-
-        recipes = EdmamApiWrapper.listRecipes("Bad token")
-
-        recipes.must_equal []
+        recipe_response.recipe_count.must_be_instance_of Integer
       end
     end
   end
 
   describe "Get Recipe" do
 
-    it "Can get a recipe given a valid recipe id" do
+    it "Can get a recipe given a valid recipe uri" do
       VCR.use_cassette("edmam") do
 
-        recipe = SlackApiWrapper.getRecipe("??????????????????????")
+        recipe = EdmamApiWrapper.getRecipe("http://www.edamam.com/ontologies/edamam.owl#recipe_41a36a2437f0a95f19657d022be728ec")
 
         recipe.must_be_instance_of Recipe
       end
     end
 
-    it "Returns false for an invalid id" do
+    it "Returns error for an invalid uri" do
       VCR.use_cassette("edmam") do
 
-        recipe = SlackApiWrapper.getRecipe("?????????")
-
-        recipe.must_equal false
+        assert_raises(JSON::ParserError) {
+          EdmamApiWrapper.getRecipe("?????????")
+        }
       end
     end
   end

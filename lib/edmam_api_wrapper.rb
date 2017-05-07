@@ -34,7 +34,6 @@ class EdmamApiWrapper
     url = "#{BASE_URL}?r=" + uri + "&app_id=#{APP_ID}&app_key=#{TOKEN}"
 
     response = HTTParty.get(url)
-
     if response[0]
       return Recipe.new(response[0])
     end
