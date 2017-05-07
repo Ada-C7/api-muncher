@@ -38,8 +38,23 @@ class EdamamRecipe
             end
         end
 
-        response = HTTParty.get(url, query: query_params)
+        begin
+            response = HTTParty.get(url, query: query_params)
+        rescue
+            response = {}
+            response['hits'] = []
+        end
 
         response['hits']
+    end
+
+    def self.show(uri)
+        query_params = {
+            'app_id' => ID,
+            'app_key' => TOKEN,
+            'r' => uri
+        }
+
+        response = HTTParty.get(BASE_URL, query: query_params)
     end
 end

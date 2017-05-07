@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
 
         @recipes = EdamamRecipe.new(params[:search_term]).find(params[:page_num].to_i)
 
-        if @recipes.nil?
+        if @recipes.empty?
             flash[:result_text] = 'Wrong Hunch. Nothing was found!'
             redirect_to root_path
         elsif params[:dietary_labels]
@@ -28,11 +28,6 @@ class RecipesController < ApplicationController
     end
 
     def show
-        @recipes = if params[:dietary_labels]
-                       EdamamRecipe.new(params[:search_term]).find(params[:page_num].to_i, params[:dietary_labels])
-                   else
-                       EdamamRecipe.new(params[:search_term]).find(params[:page_num].to_i)
-                    end
-        @recipe = @recipes.select { |recipe| recipe['recipe']['uri'].tr('http://www.edamam.com/ontologies/edamam.owl#recipe_', '') == params[:uri] }
+        @recipe = EdamamRecipe.show(params[:uri])
     end
 end

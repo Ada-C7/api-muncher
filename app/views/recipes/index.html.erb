@@ -43,9 +43,9 @@
 <div class="cardContainer">
 <% @recipes.each do |recipe| %>
   <div class="card">
-    <%= link_to image_tag(recipe["recipe"]["image"], onerror: 'this.error=null;this.src="https://uos.edu.pk/assets/backend/images/staff/imagenotfound.svg"', :alt => "Picture related to recipe") , recipe_path(:uri => recipe["recipe"]["uri"].tr('http://www.edamam.com/ontologies/edamam.owl#recipe_', ''), :search_term => params[:search_term], :page_num => params[:page_num], :dietary_labels => params[:dietary_labels]) %>
+    <%= link_to image_tag(recipe["recipe"]["image"], onerror: 'this.error=null;this.src="https://uos.edu.pk/assets/backend/images/staff/imagenotfound.svg"', :alt => "Picture related to recipe") , recipe_path(:uri => recipe["recipe"]["uri"]), :action => :show %>
     <div class="card-section">
-    <%= link_to recipe["recipe"]["label"], recipe_path(:uri => recipe["recipe"]["uri"].tr('http://www.edamam.com/ontologies/edamam.owl#recipe_', ''), :search_term => params[:search_term], :page_num => params[:page_num], :dietary_labels => params[:dietary_labels])%>
+    <%= link_to recipe["recipe"]["label"], recipe_path(:uri => recipe["recipe"]["uri"])%>
   </div>
 </div>
   <%end%>
