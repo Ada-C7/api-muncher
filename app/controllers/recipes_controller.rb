@@ -15,7 +15,6 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.single_search(params[:id])
-    raise
     if @recipe.nil?
       head :not_found
     end

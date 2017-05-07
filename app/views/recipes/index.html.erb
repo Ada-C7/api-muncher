@@ -1,6 +1,10 @@
-<h3> Recipe List </h3>
 
-<%= form_for :recipe do |f| %>
-<%= f.text_field :term, placeholder: "Enter ingredient here" %>
-<%= f.submit "Search Recipes" %>
-<% end %>
+<div class="row align-center">
+  <section class="column small-12 text-center">
+    <h3> Search Recipes </h3>
+    <%= form_for :recipe do |f| %>
+    <%= f.text_field :term, placeholder: "Enter ingredient here" %>
+    <%= f.submit "Search" %>
+    <% end %>
+  </section>
+</div>

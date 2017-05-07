@@ -1,1 +1,21 @@
-<%= @recipe.name %>
+</main>
+<h2><%= link_to @recipe.name, @recipe.url, target: :_blank %> </li></h2>
+
+<section>
+  <h3> Ingredients: </h3>
+  <ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+  <li><%= ingredient %></li>
+  <% end %>
+</ul>
+</section>
+
+<section>
+  <h3> Nutritional Information: </h3>
+  <% @recipe.total_nutrients.each do |nutrient, value| %>
+  <li><%= nutrient %>: <%= value %></li>
+  <% end %>
+</section>
+<footer class="">
+  <p>Recipe taken from<%= @recipe.url %> </p>
+</footer>

@@ -15,3 +15,19 @@
  *= require foundation_and_overrides
 
  */
+
+ h3 {
+   margin-top: 1em;
+ }
+
+ h4 {
+   margin-top: 1em;
+   margin-bottom: 1em;
+ }
+
+ ul {}
+
+input#recipe_term {
+  width: 30%;
+  margin-left: 35%;
+}
