@@ -3,5 +3,7 @@
 <%= form_tag(list_recipes_path, method: "get") do %>
   <%= label_tag("Search for:") %>
   <%= text_field_tag(:search_term, value = nil, options = { placeholder: "What would you like to munch on today?", class: "search-field" }) %>
-  <%= submit_tag("Search", class: "hollow button") %>
+  <%= button_tag(class: "button") do %>
+    <i class="fa fa-search"></i>
+  <% end %>
 <% end %>
