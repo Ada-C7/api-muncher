@@ -6,7 +6,7 @@ class Recipe
   APP_KEY = ENV["APP_KEY"]
 
   BASE_URL = "https://api.edamam.com/search"
-  MAX_HITS = 200
+  MAX_HITS = 500
 
   def self.get_recipes(search_term, from)
     result = []

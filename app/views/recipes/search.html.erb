@@ -1,13 +1,13 @@
 <body>
-<main class="home">
-  <article class="search-form">
-    <h1>Find your lovely recipes!!</h1>
-    <%= form_tag("/recipes/index", method: "get") do %>
-    <%= label_tag(:q, "Search for:") %>
-    <%= text_field_tag(:q) %>
-    <%= hidden_field_tag :from, params[:from], value: 0%>
-    <%= submit_tag("Search") %>
-    <% end %>
-  </article>
-</main>
+  <main class="home">
+    <article class="search-form">
+      <h1>Find your lovely recipes!!</h1>
+      <%= form_tag("/recipes/index", method: "get") do %>
+      <%= label_tag(:q, "Search for:") %>
+      <%= text_field_tag(:q) %>
+      <%= hidden_field_tag :from, params[:from], value: 0%>
+      <%= submit_tag("Search") %>
+      <% end %>
+    </article>
+  </main>
 </body>

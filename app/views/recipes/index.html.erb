@@ -8,12 +8,12 @@
 
   <% end %>
 </section>
-<footer>
+<article class="next-and-before">
   <% a = params[:from].to_i + 10%>
   <% b = params[:from].to_i - 10%>
 
-  <h3><%= link_to ">> NEXT", {controller: "recipes", action: "index", :from => a, :q => params[:q]} %></h3>
+  <h3><%= link_to "NEXT >>", {controller: "recipes", action: "index", :from => a, :q => params[:q]} %></h3>
   <% if b >= 0 %>
   <h3><%= link_to "<< BEFORE", {controller: "recipes", action: "index", :from => b, :q => params[:q]} %></h3>
   <% end %>
-</footer>
+</article>
