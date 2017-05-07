@@ -1,55 +1,60 @@
 <body class="list">
+
+  <% if flash[:message] %>
+  <h2><%=flash[:message]%></h2>
+
+  <%else %>
+
   <h1 id="index-title"><%= "Here are some delectable #{params[:search]} recipes..." %></h1>
 
-
-<ul class ="index">
-  <% @recipes.each_with_index do |recipe, index| %>
-  <li>
-    <% if index%2 == 0 %>
+  <ul class ="index">
+    <% @recipes.each_with_index do |recipe, index| %>
+    <li>
+      <% if index%2 == 0 %>
       <ul class="float-index-left">
         <li class="index_recipe"> <%= link_to recipe.name, recipe_path(recipe.id), method: :get %></li>
         <li class="index_recipe">  <%= link_to (image_tag recipe.image, alt:"picture of #{recipe.name}", class:"index-picture"), recipe_path(recipe.id), method: :get %></li
-      </ul>
-    <% else %>
-      <ul class="float-index-right">
-        <li class="index_recipe"> <%= link_to recipe.name, recipe_path(recipe.id), method: :get %></li>
-        <li class="index_recipe">  <%= link_to (image_tag recipe.image, alt:"picture of #{recipe.name}", class:"index-picture"), recipe_path(recipe.id), method: :get %></li>
-      </ul>
-    <%end%>
-    <section class="clearfix"> </section>
-  </li>
-  <% end %>
-</ul>
+        </ul>
+        <% else %>
+        <ul class="float-index-right">
+          <li class="index_recipe"> <%= link_to recipe.name, recipe_path(recipe.id), method: :get %></li>
+          <li class="index_recipe">  <%= link_to (image_tag recipe.image, alt:"picture of #{recipe.name}", class:"index-picture"), recipe_path(recipe.id), method: :get %></li>
+        </ul>
+        <%end%>
+        <section class="clearfix"> </section>
+      </li>
+      <% end %>
+    </ul>
+
+    <section class="pager">
+
+      <% if params[:from].to_i != 0 %>
+      <% current_start = params[:from].to_i  %>
+      <% previous_start = current_start - 10  %>
+      <% previous_end = current_start %>
+      <%= button_to "Previous", recipes_path, method: :get, :params =>{:search => params[:search], :from => previous_start, :to => previous_end }, class:"nav_link"%>
+      <% end %>
+
+      <p class="view_count">
+        <%= "~ you are viewing ##{params[:from]} to #{params[:to]} of #{@total_count} #{params[:search]} recipes~"%>
+      </p>
+
+      <% if params[:to].to_i <= (@total_count-20) %>
+      <% current_end = params[:to].to_i  %>
+      <% next_start = current_end  %>
+      <% next_end = next_start + 10 %>
+      <%= button_to "Next", recipes_path, method: :get, :params => {:search => params[:search], :from => next_start, :to => next_end }, class:"nav_link"%>
+
+      <% else %>
+      <% current_end = params[:to].to_i  %>
+      <% next_start = current_end  %>
+      <% next_end = @total_count %>
+      <%= button_to "Next", recipes_path, method: :get, :params => {:search => params[:search], :from => next_start, :to => next_end }, class:"nav_link"%>
+      <% end %>
+    </section>
 
 
-<section class="pager">
+    <% end %>
+    <%= button_to "Return to search page", welcome_path, method: :get %>
 
-  <% if params[:from].to_i != 0 %>
-        <% current_start = params[:from].to_i  %>
-        <% previous_start = current_start - 10  %>
-        <% previous_end = current_start %>
-<%= button_to "Previous", recipes_path, method: :get, :params =>{:search => params[:search], :from => previous_start, :to => previous_end }, class:"nav_link"%>
-<% end %>
-
-<p class="view_count">
-<%= "~ you are viewing ##{params[:from]} to #{params[:to]} of #{@total_count} #{params[:search]} recipes~"%>
-</p>
-
-<% if params[:to].to_i <= (@total_count-20) %>
-    <% current_end = params[:to].to_i  %>
-    <% next_start = current_end  %>
-    <% next_end = next_start + 10 %>
-    <%= button_to "Next", recipes_path, method: :get, :params => {:search => params[:search], :from => next_start, :to => next_end }, class:"nav_link"%>
-
-<% else %>
-    <% current_end = params[:to].to_i  %>
-    <% next_start = current_end  %>
-    <% next_end = @total_count %>
-    <%= button_to "Next", recipes_path, method: :get, :params => {:search => params[:search], :from => next_start, :to => next_end }, class:"nav_link"%>
-
-<% end %>
-
-</section>
-
-
-</body>
+  </body>

@@ -29,7 +29,6 @@ class Recipe
       "q" => item,
       "from" => from,
       "to" => to
-      # "calories" => "gte20,lte28"
     }
 
     recipes = HTTParty.get(BASE_URL, query: query_params).parsed_response
@@ -76,14 +75,3 @@ class Recipe
   end
 
 end
-
-
-
-
-
-
-
-
-
-#return recipe_name = response.parsed_response["hits"][0]["recipe"]["label"]
-#recipe_image = response.parsed_response["hits"][0]["recipe"]["image"]
