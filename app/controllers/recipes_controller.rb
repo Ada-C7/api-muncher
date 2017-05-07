@@ -5,8 +5,8 @@ class RecipesController < ApplicationController
   def index
 
       if params[:q]
-        @recipes = SearchApiWrapper.listRecipes(params[:q])
-        @recipes_pages = @recipes.paginate(:page => params[:page], :per_page => 10)
+        recipes = SearchApiWrapper.listRecipes(params[:q])
+        @recipes = recipes.paginate(:page => params[:page], :per_page => 12)
 
         if @recipes == []
           flash[:error] = "Sorry, there is no match"
