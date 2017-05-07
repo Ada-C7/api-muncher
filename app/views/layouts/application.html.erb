@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title>Foodster</title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -13,10 +13,10 @@
 
   <body>
     <header class="page-header row">
-      <h1 class="columns large-10 small-12">
-        <%= link_to "Snack Central", root_path %>
-      </h1>
-      <div class="columns large-2 small-12">
+      <h3 class="columns large-10 small-10">
+        <%= link_to "Foodster", root_path %>
+      </h3>
+      <div class="columns large-2 small-2">
         <i class="fa fa-home fa-2x fa-pull-right fa-border" aria-hidden="true"></i>
       </div>
     </header>
@@ -36,7 +36,7 @@
         <% end %>
       </section>
       <% end %>
-      <footer>
+      <footer class="footer">
        <p>&copy; 2017 | Powered by <a href="https://www.edamam.com/">Edamam</a></p>
      </footer>
   </body>

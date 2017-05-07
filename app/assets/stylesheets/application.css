@@ -16,6 +16,8 @@
  *= require font-awesome
 
  */
+@import url('https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day|Great+Vibes|Open+Sans|Raleway|Ruthie');
+
 li {
   list-style: none;
 }
@@ -24,19 +26,59 @@ li {
   color: #ffae00;
 }
 
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Raleway';
+}
+
+.footer {
+  text-align: center;
+}
+
 /*home page*/
 
-.input-group-rounded .input-group-field {
-  border-radius: 5000px 0 0 5000px;
+.background {
+  background: url("food.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.9;
+  height: 600px;
+}
+
+.tagline {
+  text-align: center;
+  height: 350px;
+  padding-top: 130px;
+}
+
+h3 {
+  font-family: 'Ruthie';
+}
+
+.input-field {
+  border-radius: 50px;
   padding-left: 1rem;
+  margin-bottom: 0;
+  font-family: 'Ruthie';
+  font-size: 1.5rem;
 }
 
-.input-group-rounded .input-group-button .button {
-  border-radius: 0 5000px 5000px 0;
+.input-button .button {
+  border-radius: 50px;
   font-size: 0.8rem;
+  color: black;
 }
 
+#moustache {
+  padding-top: 1rem;
+  width: 300px;
+}
 
+#hipster {
+  width: 200px;
+}
 
 
 /*list recipes page layout*/
