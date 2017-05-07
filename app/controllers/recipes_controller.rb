@@ -1,3 +1,5 @@
+require dependency '../../lib/api_recipe'
+
 class RecipesController < ApplicationController
 
   def index
