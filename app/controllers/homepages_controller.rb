@@ -11,7 +11,7 @@ class HomepagesController < ApplicationController
   def list
     q = params[:q]
     page = params[:page].to_i
-    from = 10 * ( page - 1 )
+    from = 10 * ( page - 1 ).abs
 
     response  = EdamamApiWrapper.searchRecipes(q, from)
     @recipes = response[0]
