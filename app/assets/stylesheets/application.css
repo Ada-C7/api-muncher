@@ -16,12 +16,11 @@
 
  */
 
-
-
  header {
    padding: 0.5rem;
+   color: white;
    /*border: 0.3rem solid #ffbb00;*/
-   background-color: #ffbb00;
+   background-color: #0C3FFC;
    min-height: 3rem;
    margin: 0;
  }
@@ -29,7 +28,8 @@
  main {
    /*background: linear-gradient(to bottom right, #ffbb00, white);*/
    padding: 2.5rem;
-   background: linear-gradient(155deg, #ffbb00, white);
+   /*background: linear-gradient(155deg, #ffbb00, white);*/
+   background-image: url("blue_cloth3.png");
    min-height: 30rem;
  }
 

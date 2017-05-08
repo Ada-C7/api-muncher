@@ -11,13 +11,26 @@
   border: 0.05rem solid grey;
   border-radius: 0.3rem;
   background-color: #ffff00;
-  position: relative;
+  color: #0C3FFC;
+  box-shadow: 0.3rem 0.3rem 0.15rem  #0C3FFC;
+}
+
+.index_text {
+  text-align: center;
+}
+
+.source {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.image_show {
+  padding-top: 3rem;
 }
 
 .bottom {
-  position: absolute;
   bottom: 0;
-    width: 100%;
+  width: 100%;
 }
 
 .recipe_image_index {
@@ -28,9 +41,6 @@
   border-radius: 0.3rem;
 }
 
-.description {
-
-}
 
 .button {
   background-color: #dae8da;
@@ -41,10 +51,15 @@
 
 .cta_button{
   vertical-align: bottom;
-
 }
 
 .ingredients p {
   margin: 0;
   padding: 0;
+}
+
+tbody td {
+  padding: 0;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
 }
