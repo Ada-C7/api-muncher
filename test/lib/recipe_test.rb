@@ -68,11 +68,5 @@ describe Recipe do
         recipe.must_equal []
       end
     end
-
-    # Only point from a look at your test code is that to do better
-    # with the recipe tests, you should verify the attributes of the
-    #  recipe retrieved from Recipe.show_recipe, instead of just
-    #checking that you get back a Hash.
-
   end
 end
