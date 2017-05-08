@@ -7,15 +7,13 @@ class EdamamApiWrapper < ApplicationController
     "app_id" => ENV["APP_ID"]
   }
 
+attr_reader :name, :image, :uri
 
-  attr_reader :name, :image, :url, :ingredients, :diet_info, :uri
   def initialize(recipe)
     @uri = recipe["uri"]
     @name = recipe["label"]
     @image = recipe["image"]
   end
-
-  # "ENERC_KCAL" "FAT" "FASAT" "FAMS" "FAPU" "CHOCDF""Carbs",  , "FIBTG", "SUGAR""Sugars",  "PROCNT" "NA" "CA" "Calcium",  , "MG""Magnesium",  , "K""Potassium",  "VITA_RAE""VITC""THIA""VITBA""Vitamin B",  , ""Vitamin E",  , "VITK" "FE"
 
   def self.all(search_terms)
     recipe_array = []
@@ -23,7 +21,7 @@ class EdamamApiWrapper < ApplicationController
 
     if recipes["hits"]
       recipes["hits"].each do |recipe|
-        recipe_array << new( {recipe: recipe["recipe"]})
+        recipe_array << new(recipe["recipe"])
       end
     end
     return recipe_array
