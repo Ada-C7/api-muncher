@@ -100,7 +100,7 @@ h3, h1 {
   width: 200px;
 }
 
-/*list recipes page layout*/
+/*list recipes page*/
 
 .frame {
   background: url("hipster_frame_white.png");
@@ -150,4 +150,18 @@ a img {
 .pagination-next a:hover, .pagination-previous a:hover {
   font-weight: bold;
   background: black;
+}
+
+/*show page*/
+.nutrition-table {
+  color: black;
+}
+
+.external-link {
+  color: white;
+}
+
+.external-link:hover {
+  color: white;
+  font-weight: bold;
 }
