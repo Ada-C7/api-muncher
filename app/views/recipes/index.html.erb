@@ -8,9 +8,7 @@
 <% end %>
 
 <% if params[:search] && @recipes.empty? %>
-  <p>
-    No results found.
-  </p>
+  <p>No results found.</p>
 <% end %>
 <ul>
   <% @recipes.each do |recipe| %>
@@ -22,9 +20,11 @@
 </ul>
 
 <% if params[:search] %>
-  <% page = params[:page].to_i %>
+  <% page = params[:page] ? params[:page].to_i : 1 %>
   <% if page > 1 %>
     <%= link_to "prev", params.permit(:search).merge(page: page - 1) %>
   <% end %>
-  <%= link_to "next", params.permit(:search).merge(page: page + 1) %>
+  <% if !(@recipes.length < 10) && !@recipes.empty? %>
+    <%= link_to "next", params.permit(:search).merge(page: page + 1) %>
+  <% end %>
 <% end %>

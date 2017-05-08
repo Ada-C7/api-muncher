@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = EdamamApiWrapper.list_recipes(params[:search], params[:page].to_i)
+    page = params[:page] ? params[:page].to_i : 1
+    @recipes = EdamamApiWrapper.list_recipes(params[:search], page)
   end
 
   def show
