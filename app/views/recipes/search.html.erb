@@ -1,3 +1,11 @@
+<% unless params[:page] == '1' %>
+<p>
+  <%= link_to "Previous Recipes", recipes_path(:utf8 => params[:utf8], :search => params[:search], :page => (params[:page].to_i - 1), :commit => params[:commit]) %>
+</p>
+<% end %>
+<p>
+  <%= link_to "More Recipes", recipes_path(:utf8 => params[:utf8], :search => params[:search], :page => (params[:page].to_i + 1), :commit => params[:commit]) %>
+</p>
 <table>
   <thead>
     <tr>
