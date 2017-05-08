@@ -6,6 +6,5 @@ root 'recipes#root'
 get '/recipes', to: 'recipes#index', as: 'recipes'
 post '/recipes', to: 'recipes#index'
 get '/recipes/:uri', to: 'recipes#show', as: 'recipe'
-# get '/recipes/show', to: 'recipes#show', as: 'recipe'
 
 end

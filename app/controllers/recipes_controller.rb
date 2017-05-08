@@ -9,11 +9,6 @@ class RecipesController < ApplicationController
     @text = params[:search_text]
     @from = params[:from]
     @to = params[:to]
-    # if @recipes.nil?
-    #   flash.now[:text_message] = "Please try again."
-    # elsif @recipes[0] == []
-    #   flash.now[:text_message] = "There were no hits for this search. Try something else :)."
-    # end
     if @recipes[0] == []
       flash.now[:text_message] = "There were no hits for this search. Try something else :)"
     end
@@ -26,9 +21,4 @@ class RecipesController < ApplicationController
     end
   end
 
-
 end # END of class RecipesController
-
-
-
-# @recipe = EdamamRecipe.show("http://www.edamam.com/ontologies/edamam.owl#recipe_f1c853a77986214680bbdd424883499a")
