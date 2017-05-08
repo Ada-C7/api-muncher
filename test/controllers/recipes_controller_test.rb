@@ -13,6 +13,7 @@ describe RecipesController do
       VCR.use_cassette('recipes') do
         post recipes_path, params: { search: 'fdsferfgghfjgbn'}
         assert_response :redirect
+        assert_redirected_to root_path
         flash[:messages].must_equal 'Search did not yield any results.'
       end
     end
@@ -21,6 +22,7 @@ describe RecipesController do
       VCR.use_cassette('recipes') do
         post recipes_path, params: { search: '' }
         assert_response :redirect
+        assert_redirected_to root_path
         flash[:messages].must_equal 'Search did not yield any results.'
       end
     end

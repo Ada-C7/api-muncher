@@ -1,6 +1,14 @@
 {
   "MiniTest": {
     "coverage": {
+      "/Users/totoro/13Ada/api-muncher/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/totoro/13Ada/api-muncher/app/helpers/recipes_helper.rb": [
+        1,
+        null
+      ],
       "/Users/totoro/13Ada/api-muncher/app/controllers/recipes_controller.rb": [
         1,
         null,
@@ -9,23 +17,23 @@
         1,
         null,
         1,
-        0,
+        3,
         null,
-        0,
-        0,
-        0,
+        3,
+        2,
+        2,
         null,
         null,
         null,
         1,
         null,
-        0,
+        2,
         null,
-        0,
-        0,
-        0,
+        2,
+        1,
+        1,
         null,
-        0,
+        1,
         null,
         null,
         null
@@ -36,50 +44,50 @@
         1,
         null,
         1,
-        0,
-        0,
-        0,
+        21,
+        21,
+        21,
         null,
         null,
         1,
         null,
-        0,
+        5,
         null,
-        0,
+        5,
         null,
-        0,
+        5,
         null,
-        0,
-        0,
+        5,
+        3,
         null,
-        0,
-        0,
-        0,
-        0,
+        2,
+        20,
+        20,
+        20,
         null,
-        0,
+        20,
         null,
         null,
-        0,
+        2,
         null,
         null,
         1,
-        0,
+        4,
         null,
-        0,
+        4,
         null,
-        0,
+        4,
         null,
-        0,
-        0,
+        4,
+        2,
         null,
         null,
-        0,
-        0,
-        0,
-        0,
+        2,
+        2,
+        2,
+        2,
         null,
-        0,
+        2,
         null,
         null,
         null
@@ -102,14 +110,6 @@
         0,
         0
       ],
-      "/Users/totoro/13Ada/api-muncher/app/helpers/application_helper.rb": [
-        0,
-        0
-      ],
-      "/Users/totoro/13Ada/api-muncher/app/helpers/recipes_helper.rb": [
-        0,
-        0
-      ],
       "/Users/totoro/13Ada/api-muncher/app/jobs/application_job.rb": [
         0,
         0
@@ -126,7 +126,7 @@
         0
       ]
     },
-    "timestamp": 1494202587
+    "timestamp": 1494212667
   },
   "Unit Tests": {
     "coverage": {
@@ -255,6 +255,6 @@
         0
       ]
     },
-    "timestamp": 1494206883
+    "timestamp": 1494209436
   }
 }
