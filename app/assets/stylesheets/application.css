@@ -79,8 +79,11 @@
 
    height: 300px;
   }
-  .allergy h3{
+
+  .allergy
+  {
     float:right;
+    margin: 0 0 10px 10px;
 
   }
 
@@ -124,6 +127,6 @@
 .input-group-button .button-secondary{
   border-radius: 0 5000px 5000px 0;
   padding-right: 1rem;
-  /*background: salmon;*/
+  background: salmon;
   font-family:'Courgette', cursive;
 }
