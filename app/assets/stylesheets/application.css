@@ -16,6 +16,10 @@
 
  */
 
+h1 {
+  text-align: center;
+}
+
 img.small-img {
   width: 60px;
   margin-right: 5px;
@@ -23,4 +27,26 @@ img.small-img {
 
 li {
   list-style-type: none;
+}
+
+input#q {
+  max-width: 500px;
+  margin: 0 auto;
+  float: left;
+}
+
+input[type="submit"] {
+  text-align: center;
+  height: 39px;
+  width: 90px;
+}
+
+footer {
+  clear: both;
+  background-color: gray;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  padding-top: 20px;
 }
