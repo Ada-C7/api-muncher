@@ -1,24 +1,21 @@
-<h1>List of recipes</h1>
+<section >
+  <article class="recipe-list row small-up-1 medium-up-2 large-up-3">
+    <article class="title">
+        <h1>Recipes for <strong><%= @search_term %></strong></h1>
+    </article>
+    <% @recipes.each do |recipe| %>
+        <div class="frame column">
+          <%= link_to image_tag(recipe.image_url, class: "food-image"), show_recipe_path(recipe.id) %>
+          <h5 class="name"><%= link_to recipe.name, show_recipe_path(recipe.id) %></h5>
+        </div>
 
-<section class="recipe-list">
-  <h1>Recipes for <%= @search_term %></h1>
-    <div class="masonry-css">
-      <% @recipes.each do |recipe| %>
-        <div class="masonry-css-item">
-          <%= link_to image_tag(recipe.image_url), show_recipe_path(recipe.id) %>
-          <div class="callout"><%= link_to recipe.name, show_recipe_path(recipe.id) %></div>
-      </div>
-      <% end %>
-    </div>
-  </ul>
+    <% end %>
+  </article>
 
-
-<ul class="pagination text-center" role="navigation" aria-label="Pagination">
-<%= previous_link.html_safe %>
- <%= next_link.html_safe %>
-</ul>
-
-
-
+  <article>
+    <ul class="pagination text-center" role="navigation" aria-label="Pagination">
+    <%= previous_link.html_safe %>
+     <%= next_link.html_safe %>
+    </ul>
+  </article>
 </section>
-<%= link_to "Home", root_path, class: "hollow button" %>
