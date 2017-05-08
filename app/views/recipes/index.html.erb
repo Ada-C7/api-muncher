@@ -1,28 +1,33 @@
-
-
-
-<section class = "row large-12 columns">
-  <h4>
-    It's all about <%= @text.upcase%>
-  </h4>
+<% if !@recipes.nil? %>
+  <% if  @recipes[0] != []  %>
+<!-- Top banner -->
+<section class = "row large-up-12">
+  <div class="column">
+    <h4 class="my_box">
+      It's all about <%= @text.upcase%> ( <%= @recipes.last%>)
+    </h4>
+  </div>
 </section>
 
 
-<section class = "row large-up-5 medium-up-3 small-up-1" data-equalizer>
+<!-- Cards -->
+<section class = "row large-up-5 medium-up-2 small-up-1 index_text" data-equalizer>
   <% @recipes.first.each do |recipe|%>
-  <section class="column" >
+  <section class="column">
 
     <section class = "my_box" data-equalizer-watch>
-      <div class = 'top'>
+      <div>
         <%= link_to image_tag(recipe.image , alt: "Image not available", class: "recipe_image_index"), recipe_path(recipe.uri.partition('#').last)%>
       </div>
-      <h6 class = 'top'> <%= recipe.label%></h6>
+      <h6> <%= recipe.label%></h6>
     </section>
 
   </section>
   <% end %>
 </section>
 
+
+<!-- Next and previous buttons  -->
 <section class = "row">
 
   <%if @from.to_i >= 10%>
@@ -36,7 +41,6 @@
   <% end %>
 
   <div class = "large-8 columns">
-
   </div>
 
   <%if @to.to_i < @recipes.last%>
@@ -49,5 +53,6 @@
   </section>
   <% end %>
 
-
 </section>
+<% end %>
+<% end %>
