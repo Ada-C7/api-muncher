@@ -1,7 +1,9 @@
-<h1>Search for recipes</h1>
+<main class="row small-up-2 medium-up-3 large-up-6">
+  <h2>Search recipes</h2>
 
-<%= form_tag recipes_path, method: "get" do %>
-  <%= label_tag(:query, "Searchy-search") %>
-  <%= text_field_tag(:query) %>
-  <%= submit_tag("Send") %>
-<% end %>
+  <%= form_tag recipes_path, method: "get" do %>
+    <%= label_tag(:query, "Searchy-search") %>
+    <%= text_field_tag(:query) %>
+    <%= submit_tag "Find", class: "round button"%>
+  <% end %>
+</main>
