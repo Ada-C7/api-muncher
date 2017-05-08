@@ -1,3 +1,5 @@
+require 'test_helper'
+
 describe EdamamApiWrapper do
 
   describe "self.get_recipes" do
@@ -9,6 +11,15 @@ describe EdamamApiWrapper do
         recipes.count.must_equal 10
         recipes.must_be_instance_of Array
         recipes.each { |recipe| recipe.must_be_instance_of Recipe }
+      end
+    end
+
+    it "will return an empty array if given an empty string search term" do
+      VCR.use_cassette("recipes") do
+        search_term = ""
+        recipes = EdamamApiWrapper.get_recipes(search_term, 1)
+
+        recipes.must_equal []
       end
     end
   end

@@ -6,6 +6,7 @@ class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search?app_id=#{APP_ID}&app_key=#{APP_KEY}"
 
   def self.get_recipes(search_term, page)
+    return [] if search_term.blank?
     from, to = page_to_pages(page)
 
     url = "#{BASE_URL}&q=#{search_term}&from=#{from}&to=#{to}"
