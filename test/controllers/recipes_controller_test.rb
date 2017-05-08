@@ -5,7 +5,8 @@ describe RecipesController do
   describe "index" do
     it "gets recipes path" do
       VCR.use_cassette("recipes") do
-        get recipes_path("chicken", "0")
+        @from = 0
+        get recipes_path("chicken", @from)
         must_respond_with :success
       end
     end

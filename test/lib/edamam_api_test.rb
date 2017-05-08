@@ -30,9 +30,9 @@ describe EdamamApi do
       query = EdamamApi.new(hash_params)
       query.must_be_instance_of EdamamApi
     end
-    it "takes a hash" do skip
+    it "takes a hash" do
       query = EdamamApi.new(hash)
-      query.label.must_equal :label
+      query.label.must_equal "label"
     end
     it "requires a hash" do
       proc {
