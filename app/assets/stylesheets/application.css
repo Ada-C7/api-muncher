@@ -62,6 +62,7 @@ header a:hover {
 }
 .name a {
 color: white;
+font-size: 1.1em;
 }
 
 .nutrients {
@@ -72,9 +73,12 @@ h3 {
   color: white;
 }
 .name {
-  min-height: 4em;
+  min-height: 5em;
 }
 
 .dietary_needs label {
   color: white;
+}
+.search {
+  display: block;
 }
