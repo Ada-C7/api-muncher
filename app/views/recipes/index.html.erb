@@ -13,10 +13,10 @@
 
 <nav class="row paginator">
 <% if @page > 1 %>
-  <%= link_to "<<", recipes_path("recipe" => { "q" => @search_term, "from" => (@page - 2) * 12, "to" => (@page - 1) * 12 })%>
+  <%= link_to "<<", recipes_path("recipe" => { "q" => @search_term, "from" => (@page - 2) * 12, "to" => (@page - 1) * 12 }), class: "button"%>
 <% end %>
 
 <% if (@count > @page * 12) # 12 recipes displayed per page %>
-  <%= link_to ">>", recipes_path("recipe" => { "q" => @search_term, "from" => @page * 12, "to" => (@page + 1) * 12})%>
+  <%= link_to ">>", recipes_path("recipe" => { "q" => @search_term, "from" => @page * 12, "to" => (@page + 1) * 12}), class: "button"%>
 <% end %>
 </nav>

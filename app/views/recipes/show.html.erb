@@ -6,7 +6,6 @@
       <% @recipe.labels.each do |label| %>
         <%= label%><%= ", " if label != @recipe.labels.last %>
       <% end %>
-
     </p>
     <p>
       Yields <%= (@recipe.servings).to_i %> servings,

@@ -16,10 +16,24 @@
 
  */
 
+ @import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
+
+ *, header, h1, h2, .button, h4 {
+   font-family: "Love Ya Like A Sister", sans-serif;
+ }
+
 header {
-  /*background-image: url('cooking.png');*/
   background-position: right;
   background-repeat: no-repeat;
-  height: 25vh;
+  height: 150px;
   background-color: lavender;
+  margin-bottom: 5vh;
+}
+
+.edamom {
+  font-style: italic;
+}
+
+h1 {
+  margin: 0;
 }

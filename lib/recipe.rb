@@ -14,7 +14,6 @@ class Recipe
     @id = data["uri"].match(/#recipe\_(.*)/)[1]
     @name = data["label"]
     @image = data["image"]
-    # @source = data["source"]
     @servings = data["yield"]
     @calories = data["calories"]
     @source_url = data["url"]
@@ -42,7 +41,6 @@ class Recipe
     query_params = generate_query_hash(recipe_params)
 
     response = HTTParty.get(URL, query: query_params)
-    # response.code == 200 ? response["count"] : RecipeError.new(response.code)
     if response.code == 200
       return response["count"]
     else

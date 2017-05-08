@@ -3,7 +3,6 @@ require_dependency '../../lib/recipe'
 class RecipesController < ApplicationController
 
   def search
-    # @recipe = Recipe.new
   end
 
   def index
@@ -18,10 +17,8 @@ class RecipesController < ApplicationController
   def show
     @search_term = params["q"]
     @recipe = Recipe.search("q" => params["id"]).first
-    #full recipe
   end
 
-  #add strong params
   private
 
   def recipe_params
