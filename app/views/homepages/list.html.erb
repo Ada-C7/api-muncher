@@ -1,16 +1,21 @@
-<h1>List of recipes</h1>
-
-<section class="recipe-list">
-  <h1>Recipes for <%= @search_term %></h1>
-  <ul>
+<section >
+  <article class="recipe-list row small-up-1 medium-up-2 large-up-3">
+    <article class="title">
+        <h1>Recipes for <strong><%= @search_term %></strong></h1>
+    </article>
     <% @recipes.each do |recipe| %>
-      <li>
-        <%= link_to recipe.name, show_recipe_path(recipe.id) %>
-      </li>
-    <% end %>
-  </ul>
+        <div class="frame column">
+          <%= link_to image_tag(recipe.image_url, class: "food-image"), show_recipe_path(recipe.id) %>
+          <h5 class="name"><%= link_to recipe.name, show_recipe_path(recipe.id) %></h5>
+        </div>
 
-<%= previous_link.html_safe %>
-<%= next_link.html_safe %>
+    <% end %>
+  </article>
+
+  <article>
+    <ul class="pagination text-center" role="navigation" aria-label="Pagination">
+    <%= previous_link.html_safe %>
+     <%= next_link.html_safe %>
+    </ul>
+  </article>
 </section>
-<%= link_to "Home", root_path, class: "button" %>

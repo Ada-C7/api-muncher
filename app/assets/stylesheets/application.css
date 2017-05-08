@@ -13,5 +13,155 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
+ *= require font-awesome
 
  */
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Dawning+of+a+New+Day|Great+Vibes|Open+Sans|Raleway|Ruthie');
+
+li {
+  list-style: none;
+}
+
+.status.warning {
+  color: #ffae00;
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-family: 'Raleway';
+}
+
+main {
+  background-color: black;
+  color: white;
+}
+
+.footer {
+  text-align: center;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  font-weight: bold;
+  color: black;
+}
+
+.logo {
+  font-family: "Amatic SC"
+}
+
+/*home page*/
+
+.background {
+  background: url("food.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.9;
+  height: 600px;
+}
+
+.tagline {
+  text-align: center;
+  height: 350px;
+  padding-top: 130px;
+  color: white;
+}
+
+h3, h1 {
+  font-family: 'Ruthie';
+}
+
+.input-field {
+  border-radius: 50px;
+  padding-left: 1rem;
+  margin-bottom: 0;
+  font-family: 'Ruthie';
+  font-size: 1.5rem;
+}
+
+.input-button .button {
+  border-radius: 50px;
+  font-size: 0.8rem;
+  color: black;
+}
+
+
+#moustache {
+  padding-top: 1rem;
+  width: 300px;
+}
+
+#hipster {
+  width: 200px;
+}
+
+/*list recipes page*/
+
+.frame {
+  background: url("hipster_frame_white.png");
+  background-size: 400px;
+  background-repeat: no-repeat;
+  display: block;
+  margin: 0 auto
+  opacity: 0.9;
+  height: 450px;
+}
+
+a img {
+  border: white solid 1px;
+}
+
+.food-image {
+  width: 220px;
+  margin-top: 3.4em;
+  margin-left: 4.7em;
+}
+
+.name {
+  text-align: center;
+  display: block;
+  padding-top: 3em;
+}
+
+.name a {
+  font-family:'Ruthie';
+  color: white;
+  font-size: 1.7em;
+}
+
+.name a:hover {
+  font-weight: bold;
+}
+
+.title {
+  margin: 1em 0 3em;
+  border-bottom: dashed ghostwhite 1px;
+}
+
+.pagination-next a, .pagination-previous a {
+  color: white;
+}
+
+.pagination-next a:hover, .pagination-previous a:hover {
+  font-weight: bold;
+  background: black;
+}
+
+/*show page*/
+.nutrition-table {
+  color: black;
+}
+
+.external-link {
+  color: white;
+}
+
+.external-link:hover {
+  color: white;
+  font-weight: bold;
+}

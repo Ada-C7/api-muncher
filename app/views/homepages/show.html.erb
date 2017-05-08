@@ -1,42 +1,55 @@
-<h1>Recipe Details</h1>
+<section class="row">
+  <div class="title large-12 columns">
+    <h1><%= @recipe.name %></h1>
+  </div>
 
-<h3><%= @recipe.name %></h3>
-<%= link_to "Full recipe can be found here", @recipe.url %>
-<p>Ingredients:
-  <% @recipe.ingredients.each do |ingredient| %>
-  <li><%= ingredient %></li>
-  <% end %>
-</p>
-<p>Dietary Information: </p>
-<section class="nutrition-table">
-  <table>
-    <thead>
-      <tr>
-        <th>label</th>
-        <th>total</th>
-        <th>daily %</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @recipe.nutritions.each do |nutrition| %>
-        <tr>
-          <td><%= nutrition["label"] %></td>
-          <td><%= nutrition["total"].round(2) %> <%= nutrition["unit"] %></td>
-          <td><%= nutrition["daily"].round(2) %></td>
-        </tr>
-        <% if nutrition["sub"] %>
-          <% nutrition["sub"].each do |sub| %>
-            <tr>
-              <td><%= sub["label"] %></td>
-              <td><%= sub["total"].round(2)%> <%= sub["unit"] %></td>
-              <td><%= sub["daily"].round(2) %></td>
-            </tr>
-          <% end %>
-        <% end %>
+  <article class="small-12 medium-6 large-3 large-offset-3 columns">
+      <%= image_tag(@recipe.image_url) %>
+  </article>
+  <article class="small-12 medium-6 large-6 columns">
+    <p>Ingredients:
+      <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient %></li>
       <% end %>
-    </tbody>
-  </table>
+    </p>
+    <p>
+      <%= link_to @recipe.url, class: "external-link" do %>
+      <i class="fa fa-external-link" aria-hidden="true"></i>
+      Click here for directions
+      <% end %>
+    </p>
+  </article>
 </section>
 
-<%= link_to "Home", root_path, class: "button" %>
-<%= link_to "Back to Recipe List", :back, class: "button" %>
+<section class="small-12 large-6 large-centered columns">
+  <p>Dietary Information: </p>
+  <article class="nutrition-table">
+    <table>
+      <thead>
+        <tr>
+          <th>label</th>
+          <th>total</th>
+          <th>daily %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe.nutritions.each do |nutrition| %>
+          <tr>
+            <td><%= nutrition["label"] %></td>
+            <td><%= nutrition["total"].round(2) %> <%= nutrition["unit"] %></td>
+            <td><%= nutrition["daily"].round(2) %></td>
+          </tr>
+          <% if nutrition["sub"] %>
+            <% nutrition["sub"].each do |sub| %>
+              <tr>
+                <td><%= sub["label"] %></td>
+                <td><%= sub["total"].round(2)%> <%= sub["unit"] %></td>
+                <td><%= sub["daily"].round(2) %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </article>
+</section>

@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# font awesome
+gem 'font-awesome-rails'
 # API GEMS
 gem 'httparty'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

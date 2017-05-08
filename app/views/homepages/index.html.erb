@@ -1,8 +1,26 @@
-<h1>Welcome to the snack central!</h1>
-<h2>What would you like to munch on today?</h2>
 
-<%= form_tag(list_recipes_path, method: "get") do %>
-  <%= label_tag("Search for:") %>
-  <%= text_field_tag(:search_term) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<section class="background">
+  <article class="tagline">
+    <div class="large-3 large-centered columns">
+      <%= image_tag("hipster_food_white.png", id: "hipster") %>
+    </div>
+    <h3>Because even hipsters need to eat...</h3>
+  </article>
+
+  <article class="search-form">
+      <%= form_tag(list_recipes_path, method: "get", class: "row") do %>
+       <div class="small-10 large-4 large-offset-4 columns">
+         <%= text_field_tag(:search_term, value = nil, options = { placeholder: "Find your food mate", class: "input-field" }) %>
+       </div>
+        <div class="input-button small-2 large-4 columns">
+          <%= button_tag(class: "button") do %>
+          <i class="fa fa-search"></i>
+          <% end %>
+        </div>
+      <% end %>
+  </article>
+
+  <div class="large-3 large-centered columns">
+      <%= image_tag("white_moustache_cropped.png", id: "moustache") %>
+  </div>
+</section>
