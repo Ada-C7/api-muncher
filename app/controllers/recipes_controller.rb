@@ -10,14 +10,9 @@ class RecipesController < ApplicationController
     params = recipe_params
     @search_term = params["q"]
     @recipes = Recipe.search(params)
-    count = Recipe.count_results(params)
+    @count = Recipe.count_results(params)
+    @page = (params["to"] ||= 12).to_i / 12
 
-    
-    @to = (params["to"] ||= 10).to_i
-    @to += 10 if count > @to
-
-    # if more pages 'more' = true
-    # page count = 1 => 1 to 10, page count = 2 => 11 to 20
   end
 
   def show
@@ -33,7 +28,4 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:q, :to, :from)
   end
 
-  # def params_hash
-  #   { "q" => params["q"], "from" => params["from"] ||= 0, "to" => params["to"] ||= 10 }
-  # end
 end
