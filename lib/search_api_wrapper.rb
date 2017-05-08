@@ -21,14 +21,6 @@ class SearchApiWrapper
         hits.each do |hit|
         recipe_details = hit["recipe"]
 
-        # label = recipe_details["label"]
-        # url = recipe_details["url"]
-        # uri = recipe_details["uri"]
-        # image = recipe_details["image"]
-        # ingredients = recipe_details["ingredientLines"]
-        # allergy_info = recipe_details["healthLabels"]
-        # nutrients = recipe_details["totalNutrients"]
-
         recipes << Recipe.new(recipe_details)
       end
     end

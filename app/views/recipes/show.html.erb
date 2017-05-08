@@ -6,7 +6,6 @@
   </div >
 
   <div class="small-12 medium-6 column" >
-
   <p class="allergy">
    <h3 class="text-left" >Allergy information</h3>
      <ul class="text-left allergy_list">
@@ -20,15 +19,13 @@
            <%= item %>
           </li>
         <% end %>
-        <% end %>
-      </ul>
-    </p>
+      <% end %>
+    </ul>
+  </p>
 
     <p class="text-left">
-      <!-- <%#= link_to "Click for original recipe", @recipe.url, target: :_blank %> -->
       <strong>Click image to view the original recipe.</strong>
     </p>
-
   </div>
 </div>
 
@@ -36,10 +33,10 @@
   <div class="column" >
     <h3 class="text-left">Ingredients </h3>
         <ul class="text-left"><% @recipe.ingredients.each do |item| %>
-            <li>
-              <%= item %>
-            </li>
-            <% end %>
+          <li>
+            <%= item %>
+          </li>
+        <% end %>
         </ul>
   </div>
 </div>
@@ -50,7 +47,6 @@
       <table class="small-12 medium-6 column">
         <% group.each do |key| %>
         <tr>
-          <!-- <li class="small-up-1 medium-up-3 columns"> -->
             <td>
               <%= @recipe.nutrients[key]["label"] %></td>
              <td>

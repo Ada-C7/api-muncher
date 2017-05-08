@@ -2,7 +2,6 @@ class Recipe
 
   attr_reader :label, :url, :image, :ingredients, :allergy_info, :uri, :nutrients
 
-  # def initialize(label, url,image, ingredients, allergy_info,uri, nutrients)
   def initialize(raw_recipe_data)
 
     @label = raw_recipe_data['label']
