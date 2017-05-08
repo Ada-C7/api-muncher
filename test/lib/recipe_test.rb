@@ -3,7 +3,7 @@ require 'recipe'
 
 describe Recipe do
   describe 'initialize' do
-    let(:recipe) { Recipe.new(
+    let(:recipe1) { Recipe.new(
       'Rotten Strawberry Stew',
       'https://www.rottenstrawberries.com/image.jpg',
       'http://www.edamam.com/uri_stuff',
@@ -11,9 +11,9 @@ describe Recipe do
     }
 
     it 'recipe must have all attributes' do
-      recipe.label.must_equal 'Rotten Strawberry Stew'
-      recipe.image.must_equal 'https://www.rottenstrawberries.com/image.jpg'
-      recipe.uri.must_equal 'http://www.edamam.com/uri_stuff'
+      recipe1.label.must_equal 'Rotten Strawberry Stew'
+      recipe1.image.must_equal 'https://www.rottenstrawberries.com/image.jpg'
+      recipe1.uri.must_equal 'http://www.edamam.com/uri_stuff'
     end
 
     it 'recipe can not be made without all attributes' do
@@ -48,7 +48,7 @@ describe Recipe do
     it 'invalid uri returns an empty hash' do
       VCR.use_cassette('recipes') do
         recipe = Recipe.show_recipe('recipe_gfljkhfsgjlhksfgkjhdsfgfghf')
-        recipe.must_equal {}
+        recipe.must_equal []
       end
     end
   end
