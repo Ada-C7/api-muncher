@@ -1,46 +1,51 @@
-<%if not @recipe.nil? == true %>
-<h1>Your <%=@recipe[0]["label"]%> Recipe</h2>
+<body>
+  <header>
+    <li><%= link_to "Home", search_path %></li>
+  </header>
+  <%if not @recipe.nil? == true %>
+  <h1>Your <%=@recipe[0]["label"]%> Recipe</h2>
 
-  <h2><%= link_to @recipe[0]["label"], @recipe[0]["shareAs"], target: :_blank %> Calories: <%= @recipe[0]["calories"].round(0) %></h2>
-  <div class = "img">
-    <%= link_to(image_tag(@recipe[0]["image"]),@recipe[0]["shareAs"], target: :_blank) %>
-    <br >
-  </div>
-  <div class="row">
-    <table><th>ingredients</th><th>weight</th>
-      <% @recipe[0]["ingredients"].each do |ingredient|%>
-      <tr><td><%= ingredient["text"] %></td><td><%= ingredient["weight"].round(0) %></td></tr>
-      <% end %>
-    </table>
-    <table>
-      <th>nutrients</th><th>quantity</th><th>g/mg</th>
-      <tr>
-        <td><%= @recipe[0]["totalNutrients"]["FAT"]["label"]%></td>
-        <td><%= @recipe[0]["totalNutrients"]["FAT"]["quantity"].round(2)%></td>
-        <td><%= @recipe[0]["totalNutrients"]["FAT"]["unit"]%></td>
-      </tr>
-      <tr>
-        <td><%= @recipe[0]["totalNutrients"]["SUGAR"]["label"]%></td>
-        <td><%= @recipe[0]["totalNutrients"]["SUGAR"]["quantity"].round(2)%></td>
-        <td><%= @recipe[0]["totalNutrients"]["SUGAR"]["unit"]%></td>
-      </tr>
-      <tr>
-        <td><%= @recipe[0]["totalNutrients"]["CA"]["label"]%></td>
-        <td><%= @recipe[0]["totalNutrients"]["CA"]["quantity"].round(2)%></td>
-        <td><%= @recipe[0]["totalNutrients"]["CA"]["unit"]%></td>
-      </tr>
-      <tr>
-        <td><%= @recipe[0]["totalNutrients"]["NA"]["label"]%></td>
-        <td><%= @recipe[0]["totalNutrients"]["NA"]["quantity"].round(2)%></td>
-        <td><%= @recipe[0]["totalNutrients"]["NA"]["unit"]%></td>
-      </tr>
-      <tr>
-        <td><%= @recipe[0]["totalNutrients"]["K"]["label"]%></td>
-        <td><%= @recipe[0]["totalNutrients"]["K"]["quantity"].round(2)%></td>
-        <td><%= @recipe[0]["totalNutrients"]["K"]["unit"]%></td>
-      </tr>
-    </table>
-  </div>
-  <%else%>
-  <h2></h2>
-  <% end %>
+    <h2><%= link_to @recipe[0]["label"], @recipe[0]["shareAs"], target: :_blank %> Calories: <%= @recipe[0]["calories"].round(0) %></h2>
+    <div class = "img">
+      <%= link_to(image_tag(@recipe[0]["image"]),@recipe[0]["shareAs"], target: :_blank) %>
+      <br >
+    </div>
+    <div class="row">
+      <table><th>ingredients</th><th>weight</th>
+        <% @recipe[0]["ingredients"].each do |ingredient|%>
+        <tr><td><%= ingredient["text"] %></td><td><%= ingredient["weight"].round(0) %></td></tr>
+        <% end %>
+      </table>
+      <table>
+        <th>nutrients</th><th>quantity</th><th>g/mg</th>
+        <tr>
+          <td><%= @recipe[0]["totalNutrients"]["FAT"]["label"]%></td>
+          <td><%= @recipe[0]["totalNutrients"]["FAT"]["quantity"].round(2)%></td>
+          <td><%= @recipe[0]["totalNutrients"]["FAT"]["unit"]%></td>
+        </tr>
+        <tr>
+          <td><%= @recipe[0]["totalNutrients"]["SUGAR"]["label"]%></td>
+          <td><%= @recipe[0]["totalNutrients"]["SUGAR"]["quantity"].round(2)%></td>
+          <td><%= @recipe[0]["totalNutrients"]["SUGAR"]["unit"]%></td>
+        </tr>
+        <tr>
+          <td><%= @recipe[0]["totalNutrients"]["CA"]["label"]%></td>
+          <td><%= @recipe[0]["totalNutrients"]["CA"]["quantity"].round(2)%></td>
+          <td><%= @recipe[0]["totalNutrients"]["CA"]["unit"]%></td>
+        </tr>
+        <tr>
+          <td><%= @recipe[0]["totalNutrients"]["NA"]["label"]%></td>
+          <td><%= @recipe[0]["totalNutrients"]["NA"]["quantity"].round(2)%></td>
+          <td><%= @recipe[0]["totalNutrients"]["NA"]["unit"]%></td>
+        </tr>
+        <tr>
+          <td><%= @recipe[0]["totalNutrients"]["K"]["label"]%></td>
+          <td><%= @recipe[0]["totalNutrients"]["K"]["quantity"].round(2)%></td>
+          <td><%= @recipe[0]["totalNutrients"]["K"]["unit"]%></td>
+        </tr>
+      </table>
+    </div>
+    <%else%>
+    <h2></h2>
+    <% end %>
+  </body>
