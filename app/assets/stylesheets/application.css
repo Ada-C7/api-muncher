@@ -79,6 +79,7 @@ h3 {
 .dietary_needs label {
   color: white;
 }
-.search {
-  display: block;
+
+.checkbox {
+  display: inline-block;
 }

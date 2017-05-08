@@ -1,14 +1,22 @@
 <div class="search">
-  <%= form_tag(homepages_index_path, method: "get") do %>
-  <div class="dietary_needs">
+    <%= form_tag(homepages_index_path, method: "get") do %>
+  <div class="dietary_needs small-6 columns medium-8 columns end large-9 columns">
+    <div class="dietary checkbox">
     <%= check_box_tag(:health, "peanut-free") %>
     <%= label_tag(:dietary_needs, "peanut-free") %>
+    </div>
+    <div class="dietary checkbox">
     <%= check_box_tag(:health, "tree-nut-free") %>
     <%= label_tag(:dietary_needs, "tree-nut-free") %>
+    </div>
+    <div class="dietary checkbox">
     <%= check_box_tag(:health, "vegan") %>
     <%= label_tag(:dietary_needs, "vegan") %>
+    </div>
+    <div class="dietary checkbox">
     <%= check_box_tag(:health, "vegetarian") %>
     <%= label_tag(:dietary_needs, "vegetarian") %>
+    </div>
   </div>
   <div class="input-group input-group-rounded">
     <%= text_field_tag(:search_words, nil, :placeholder => "Ingredients", :class => "input-group-field", :type => "search") %>
