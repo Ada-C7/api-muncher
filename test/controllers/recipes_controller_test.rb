@@ -4,14 +4,14 @@ describe RecipesController do
   describe 'search' do
     it 'successful search term returns index page' do
       VCR.use_cassette('recipes') do
-        post recipes_path, params: { search: 'arugula'}
+        post recipes_path, params: { search: 'arugula', page: 1 }
         assert_response :success
       end
     end
 
     it 'unsuccessful search term redirects to root page' do
       VCR.use_cassette('recipes') do
-        post recipes_path, params: { search: 'fdsferfgghfjgbn'}
+        post recipes_path, params: { search: 'fdsferfgghfjgbn', page: 1 }
         assert_response :redirect
         assert_redirected_to root_path
         flash[:messages].must_equal 'Search did not yield any results.'
