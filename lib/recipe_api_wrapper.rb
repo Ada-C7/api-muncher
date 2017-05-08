@@ -20,7 +20,7 @@ class Recipe_Api_Wrapper
       response["hits"].each do |recipe|
         info = Recipe.new(
         recipe["recipe"]["uri"],
-        recipe["recipe"]["label"], 
+        recipe["recipe"]["label"],
         recipe["recipe"]["image"],
         recipe["recipe"]["url"],
         recipe["recipe"]["dietLabels"],
