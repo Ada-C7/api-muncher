@@ -1,4 +1,6 @@
-<% content_for :title { "Eat Your Veggies" } %>
+<% content_for :title do %>
+  Eat Your Veggies
+<% end %>
 
 <section class="small-12 columns">
   <%= form_tag(recipes_path, method: :get, id: "search-form") do %>
