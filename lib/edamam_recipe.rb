@@ -1,4 +1,4 @@
-# require 'httparty'
+
 
 class EdamamRecipe
 
@@ -11,32 +11,28 @@ class EdamamRecipe
   attr_reader :uri, :label, :image
 
   def initialize(info_hash)
+    unless info_hash.include? :uri
+      raise ArgumentError.new("Missing parameter")
+    end
     @uri = info_hash[:uri]
     @label = info_hash[:label]
     @image = info_hash[:image]
   end
-  
-  def self.find(obj)
-    found_obj = self.all.select { |object| object == obj}
-    return found_obj.first # returns nil if for empty array
-  end
 
-  def self.all
-    ObjectSpace.each_object(self).to_a
-  end
-
-  def self.search(search_text, from = "0", to = "10")
+  def self.search(search_text = "recipe", from = "0", to = "10")
     url = "#{BASE_URL_SEARCH}?q=#{search_text}&from=#{from}&to=#{to}&api_id=#{ENV["EDAMAM_APP_ID"]}&api_key=#{ENV["EDAMAM_APP_KEY"]}"
     response = HTTParty.get(url)
     recipes_array = []
-    response["hits"].each do |recipe|
-      if self.find(recipe["recipe"]["uri"]) == nil
+    # if response["hits"] == nil
+    #   return nil
+    if response["count"] == nil || response["count"] == 0
+      return [[], 0]
+    else
+      response["hits"].each do |recipe|
         recipes_array << self.new({ uri:  recipe["recipe"]["uri"],  label:  recipe["recipe"]["label"] ,  image:  recipe["recipe"]["image"] })
-      else
-        recipes_array << self.find(recipe["recipe"]["uri"])
       end
+      return [recipes_array, response["count"]]
     end
-    return [recipes_array, response["count"]]
   end
 
   def self.show(uri)
@@ -66,4 +62,19 @@ end # END of class EdamamRecipe
 
 # def self.all
 #   ObjectSpace.each_object(self).to_a
+# end
+
+
+# def self.search(search_text, from = "0", to = "10")
+#   url = "#{BASE_URL_SEARCH}?q=#{search_text}&from=#{from}&to=#{to}&api_id=#{ENV["EDAMAM_APP_ID"]}&api_key=#{ENV["EDAMAM_APP_KEY"]}"
+#   response = HTTParty.get(url)
+#   recipes_array = []
+#   response["hits"].each do |recipe|
+#     if self.find(recipe["recipe"]["uri"]) == nil
+#       recipes_array << self.new({ uri:  recipe["recipe"]["uri"],  label:  recipe["recipe"]["label"] ,  image:  recipe["recipe"]["image"] })
+#     else
+#       recipes_array << self.find(recipe["recipe"]["uri"])
+#     end
+#   end
+#   return [recipes_array, response["count"]]
 # end
