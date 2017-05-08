@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Untitled</title>
+
+    <link rel="stylesheet" media="screen" href="/assets/_settings.self-57e733f298b960ddc86b8c29b52bba1ba199a1adfe4898a59494e0a796240995.css?body=1" />
+<link rel="stylesheet" media="screen" href="/assets/foundation_and_overrides.self-8ef620c21bea5f56547e81a64ab2dadebab14c586fde3fbf50b66424b78ae901.css?body=1" />
+<link rel="stylesheet" media="screen" href="/assets/recipes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" />
+<link rel="stylesheet" media="screen" href="/assets/application.self-e3554097c785029df829e076544dfc3833b44120b48732b4ae0aa3d0f9369487.css?body=1" />
+    <script src="/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.core.self-4f457971ba9c2597b09f6a22a24331c38e7279daa591bd61b5bbf28876aa8fc3.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.abide.self-679179bf3ee1902bc3fe7da64bbb2b731fa4df4a75901538ba55e7d25286313e.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.accordion.self-8d244ceae0d451fcc15789a5e9e36ebed60650c8a9abbf5f9a126b6f327b6154.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.accordionMenu.self-d9a7c97eb11b52fe305e71d2becbdfaf772722f9da6bd56ad24121919d5e43ca.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.drilldown.self-1197ab1398f5a6e188d25902ca65cb079c5c769583801244c456e39aeb484876.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.dropdown.self-c0e613ea4f5cf333f28aa6e97d54dcf6f739b7b95beed9175870525fbb190200.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.dropdownMenu.self-386455a3346e601e0a524f9de7e5146e73ef63055ba5394290f5f9a3a2cb74d7.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.equalizer.self-7221ea2a8fba1b3495851e00b58ade3f76ce11a8230ab5cf9ca81a39e7eadd4e.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.interchange.self-be09943d6d46443136cd84ffda8b5b8a008db8355c144097949fcaf7d5289a56.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.magellan.self-789eaceb55bd54bd0ed8fea6adf2b18c21464581b0e95eaa8a5aff1130208b2d.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.offcanvas.self-9ce0609e0e4404d19bde3425bf63955c74836aa9f0772d9b7e26ab731c1f2e8c.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.orbit.self-a127e190c8224d789844ee10a7c4123fe5aef28bc5bf75e9e185b3e098651078.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.responsiveMenu.self-c16f1dc4c3fa8e4881e116d1072642a8f0d53db8725994fd5a32f5cab1a30991.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.responsiveToggle.self-e997867128d1cc2b0268d6d8a0b3d1d4acdd8b18481dbcc50e8c41b06dea77d1.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.reveal.self-958c10cf13f0fa316d5753a6c03b7e1c6c76819b5978cefa85df960856744a98.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.slider.self-130c3657134bb131ceec80b3553bfe98731d170c5b6b89506f7aeca0934bf3ab.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.sticky.self-6132d9675d96d8eb9d6426a329ba49a9c70756620079fcf1e9dc0509d710ff3b.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.tabs.self-76b83dbeb1a526b713949431c11539c4f15ea95620a32b357452afb4e969778d.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.toggler.self-32c8ba5ef7c4612d3cf417a6fb5ff296ee2fc8a1778995f4571c5ca3aed7c1a5.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.tooltip.self-34253627e75f9473117d9e2f269e29eb8871e50679a25ee82736fb52acf0f65a.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.box.self-29f7cbc36d64afedbf3295384f579c067ee4a6107059d25041cf9c2ffbdac287.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.keyboard.self-4a273ab1fd2edf1b86d3e772465bff74a28c721021c719eb48de76cf9a220d9c.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.mediaQuery.self-f587619a109ff8be49d8eacb95b733d75cbdcc9819a19ce8c2af1be48e65524b.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.motion.self-65f3e3cc6f7990ae5a0d964eb90d626e0a5486508a11487145ba14aa4b2a2e78.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.nest.self-10050c8cffe586f45b7cb4570a5aa0d498e566ac981f4e494bd42246b4daafc7.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.timerAndImageLoader.self-0cb4d35725065a9a79f69d241210298190b5f1e134522d565a872f984e1e26b8.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.touch.self-95e098450fe69653246bdfa7f1e7fe7dba15348524771d7b2c54c7c4298fccb5.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.util.triggers.self-4fef1a2bcee50931073341abc76d0747ace3559d818342a079c07c54e27f8add.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.zf.responsiveAccordionTabs.self-1cd003cd23ec70291aa4b3ee3c46097d1fddb74afe524d057af1339b0251bdc9.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/turbolinks.self-f5a54f6ce56076ac3133ce547c9672851e1f1d3fdb0a05963bf7ef31bd482ce6.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/action_cable.self-5454023407ffec0d29137c7110917e1e745525ae9afbc05f52104c4cd6597429.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/recipes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="true"></script>
+<script src="/assets/application.self-e293d57cf5087c4738519fe0e331888ef50ee9b420e70eff120422d6e640ff4f.js?body=1" data-turbolinks-track="true"></script>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="jrV9QkapOZvc200TQdsUb21dCJjvKNiDQOrpgxfG2c1McDT+HckIC6vruzvxGiltEEowNWiB8loPQzuPXOWEZA==" />
+  </head>
+
+
+  <header class="main-h"  >
+  <div class="row" >
+    <div class="small-6 medium 3 column">
+
+    <h1> <a href="/recipes">BON APPETIT</a></h1>
+    </div>
+      <div class="small-6 medium 8 column" >
+
+        <form action="/recipes" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <div class="input-group input-group-rounded">
+          <input type="search" name="q" id="q" placeholder="Please Enter Your Selection Here.." class="input-group-field" />
+          <div class="input-group-button">
+            <input type="submit" name="commit" value="Search" class="button-secondary" data-disable-with="Search" />
+            </div
+</form>      </div>
+  </div>
+
+
+  </header>
+
+  <body>
+
+    <h1><a target="_blank" href="http://www.finecooking.com/recipes/mustard-crusted-roast-chickens.aspx">Mustard-Crusted Roast Chickens</a></h1>
+
+<div class="row">
+  <div class="small-12 medium-6 column">
+    <a target="_blank" href="http://www.finecooking.com/recipes/mustard-crusted-roast-chickens.aspx"><img src="https://www.edamam.com/web-img/e5e/e5e970a474f571622f5f2eb233a801b0.jpg" alt="E5e970a474f571622f5f2eb233a801b0" /></a>
+  </div >
+
+  <div class="small-12 medium-6 column">
+
+  <p >
+   <h3 class="text-left">Allergy information</h3>
+     <ul class="text-left allergy_list">
+          <li>
+           Paleo
+          </li>
+          <li>
+           Dairy-Free
+          </li>
+          <li>
+           Gluten-Free
+          </li>
+          <li>
+           Egg-Free
+          </li>
+          <li>
+           Peanut-Free
+          </li>
+          <li>
+           Tree-Nut-Free
+          </li>
+          <li>
+           Soy-Free
+          </li>
+          <li>
+           Fish-Free
+          </li>
+          <li>
+           Shellfish-Free
+          </li>
+      </ul>
+    </p>
+
+  </div>
+</div>
+
+<div class="row" >
+  <div class="column" >
+    <h3 class="text-left">Ingredients </h3>
+        <ul class="text-left">
+            <li>
+              2 tbs. chopped fresh thyme
+            </li>
+
+            <li>
+              1 cup dijon mustard
+            </li>
+
+            <li>
+              Kosher salt and freshly ground black pepper
+            </li>
+
+            <li>
+              1/4 cup minced garlic (12 to 16 cloves)
+            </li>
+
+            <li>
+              1/2 cup minced shallots (about 2 large)
+            </li>
+
+            <li>
+              2 whole chickens, about 3-1/2 lb. each
+            </li>
+
+            <li>
+              5 tbs. extra-virgin olive oil for drizzling
+            </li>
+        </ul>
+  </div>
+</div>
+
+<div class="row">
+    <h3>Dietery information</h3>
+      <table class="small-12 medium-6 column">
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Energy</td>
+             <td>
+               7712.13
+               kcal</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Fat</td>
+             <td>
+               554.68
+               g</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Saturated</td>
+             <td>
+               146.92
+               g</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Trans</td>
+             <td>
+               3.1
+               g</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Monounsaturated</td>
+             <td>
+               252.91
+               g</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Polyunsaturated</td>
+             <td>
+               111.84
+               g</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Carbs</td>
+             <td>
+               47.1
+               g</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Fiber</td>
+             <td>
+               16.61
+               g</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Sugars</td>
+             <td>
+               8.91
+               g</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Protein</td>
+             <td>
+               605.42
+               g</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Cholesterol</td>
+             <td>
+               2381.36
+               mg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Sodium</td>
+             <td>
+               4990.75
+               mg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Calcium</td>
+             <td>
+               664.94
+               mg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Magnesium</td>
+             <td>
+               805.81
+               mg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Potassium</td>
+             <td>
+               6953.06
+               mg</td>
+        </tr>
+      <table class="small-12 medium-6 column">
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Iron</td>
+             <td>
+               36.38
+               mg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Zinc</td>
+             <td>
+               44.11
+               mg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Phosphorus</td>
+             <td>
+               5057.92
+               mg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Vitamin A</td>
+             <td>
+               1328.61
+               µg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Vitamin C</td>
+             <td>
+               76.15
+               mg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Thiamin (B1)</td>
+             <td>
+               2.48
+               mg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Riboflavin (B2)</td>
+             <td>
+               4.08
+               mg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Niacin (B3)</td>
+             <td>
+               217.96
+               mg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Vitamin B6</td>
+             <td>
+               12.03
+               mg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Folate (Equivalent)</td>
+             <td>
+               239.77
+               µg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Vitamin B12</td>
+             <td>
+               9.84
+               µg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Vitamin D</td>
+             <td>
+               6.35
+               µg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Vitamin E</td>
+             <td>
+               20.28
+               mg</td>
+        </tr>
+        <tr>
+          <!-- <li class="small-up-1 medium-up-3 columns"> -->
+            <td>
+              Vitamin K</td>
+             <td>
+               110.68
+               µg</td>
+        </tr>
+      </table>
+</div>
+
+    <footer class="footer">
+      <div class="row">
+    <div class="column">
+    &copy; 2017 | Powered by
+      <a href="http://developer.edamam.com"><img width="150" height="50" src="/Edamam_logo_full_RGB.png" alt="Edamam logo full rgb" /></a>
+    </div>
+  </div>
+    </footer>
+  </body>
+</html>
