@@ -1,7 +1,8 @@
 class Recipe < EdamamApiWrapper
 
+  NUTRIENTS = ["ENERC_KCAL", "FAT", "FASAT", "CHOCDF", "FIBTG", "SUGAR", "PROCNT", "VITA_RAE", "VITC", "CA", "FE"]
 
-  attr_reader :name, :uri, :image, :ingredients, :diet_info, :url, :RDA,  :yield, :serving_size
+  attr_reader :url, :name, :uri, :image, :ingredients, :diet_info,  :RDA,  :yield, :serving_size
 
   def initialize(recipe)
     super
@@ -9,20 +10,17 @@ class Recipe < EdamamApiWrapper
     @yield = recipe["yield"]
     @serving_size = recipe["totalWeight"]
     @ingredients = recipe["ingredientLines"]
-    @diet_info =  nutrition_info({n: recipe["totalNutrients"], RDA: recipe["totalDaily"]})
+    @diet_info =  nutrition_info( { n: recipe["totalNutrients"], rda: recipe["totalDaily"] })
   end
 
   def nutrition_info (h)
     # list of nutrients to display
-    nutrients = ["ENERC_KCAL", "FAT", "FASAT", "CHOCDF", "FIBTG", "SUGAR", "PROCNT", "VITA_RAE", "VITC", "CA", "FE"]
-
-    # combine quantity and RDA%
-
-    nutrients.map! do |nutrient|
+    nutrients = NUTRIENTS.map do |nutrient|
       n = h[:n].fetch(nutrient)
-      n["RDA"] = h[:RDA].fetch(nutrient,"")["quantity"]
+      n["RDA"] = h[:rda].fetch(nutrient,"")["quantity"]
+      n
     end
-    return nutrients
+
   end
 
   def self.one(search_terms)

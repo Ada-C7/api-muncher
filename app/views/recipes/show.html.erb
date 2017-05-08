@@ -1,9 +1,6 @@
 <h2><%= @recipe.name %></h2>
 
-<% raise %>
-
 <%= link_to image_tag(@recipe.image, alt: "mouthwatering #{@recipe.name}"), @recipe.url%>
-<%= @recipe.name %>
 
 <% @recipe.ingredients.each do |ingredient| %>
 <ul>
@@ -11,10 +8,17 @@
 </ul>
 <% end %>
 
-Servings : <%= @recipe.yield %>
-Serving size: <%= sprintf "%.1f", @recipe.serving_size %> grams
+Servings : <%= @recipe.yield %>;slider
+Serving size: <%= sprintf "%.0f", @recipe.serving_size %> grams
 
-<%@recipe %>
+<% @recipe.diet_info.each do |nutrient| %>
+  <%=   nutrient["label"]%>:
+  <%=sprintf "%.0f", nutrient["quantity"]%><%=nutrient["unit"] %>
+  <% unless nutrient["RDA"].nil? %>
+  <%=sprintf "%.0f",nutrient["RDA"]%>%;
+  <% end %>
+<% end %>
+
 
 
 
