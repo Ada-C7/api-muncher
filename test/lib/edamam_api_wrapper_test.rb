@@ -24,6 +24,18 @@ describe EdamamApiWrapper do
     end
   end
 
+  describe "self.find_by_uri" do
+    it "can retrieve a recipe by URI" do
+      VCR.use_cassette("recipes") do
+        recipe_uri = "http://www.edamam.com/ontologies/edamam.owl%23recipe_f1c853a77986214680bbdd424883499a"
+        found_recipe = EdamamApiWrapper.find_by_uri(recipe_uri)
+
+        found_recipe.must_be_instance_of Recipe
+        found_recipe.title.must_equal "Herbes de Provence Rotisserie Chickens"
+      end
+    end
+  end
+
   describe "self.page_to_pages" do
     it "returns indices [0,10] for page 1" do
       from, to = EdamamApiWrapper.page_to_pages(1)
