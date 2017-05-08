@@ -1,8 +1,8 @@
 <h1>The recipe</h1>
 
   <% @recipe.each do |info| %>
-    <%= link_to info.label, info.uri %>
+    <%= link_to info.label, info.url %>
     <div>
-    <%= image_tag(info.image) %>
+    <%= link_to image_tag(info.image), info.url %>
   </div>
   <% end %>

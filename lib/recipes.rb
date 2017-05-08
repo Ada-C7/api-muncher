@@ -6,13 +6,14 @@ class Recipe
 
   BASE_URL = "https://api.edamam.com/search?"
 
-  attr_accessor :label, :image, :uri, :calories, :dietLabels, :healthLabels, :ingredients
+  attr_accessor :label, :image, :uri, :url, :calories, :dietLabels, :healthLabels, :ingredients
 
   def initialize(params)
     raise ArgumentError if params == nil
     @label = params[:label]
     @image = params[:image]
     @uri = params[:uri]
+    @url = params[:url]
     @calories = params[:calories]
     @dietLabels = params[:dietLabels]
     @healthLabels = params[:healthLabels]
@@ -34,6 +35,7 @@ class Recipe
         label: hit["recipe"]["label"],
         image:hit["recipe"]["image"],
         uri: hit["recipe"]["uri"],
+        url: hit["recipe"]["url"],
         calories: hit["recipe"]["calories"],
         dietLabels: hit["recipe"]["dietLabels"],
         healthLabels: hit["recipe"]["healthLabels"],
@@ -60,6 +62,7 @@ class Recipe
         label: recipe["label"],
         image:recipe["image"],
         uri: recipe["uri"],
+        url: recipe["url"],
         calories: recipe["calories"],
         dietLabels: recipe["dietLabels"],
         healthLabels: recipe["healthLabels"],
