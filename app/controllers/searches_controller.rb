@@ -31,7 +31,9 @@ class SearchesController < ApplicationController
     if !@results.empty?
       session[:search_count] = @results.last # get the count for the session
       @results = @results[0..-2]
-      session[:recent_searches] << @results.last #shovel the search into the list
+      if session[:recent_searches].last != @results.last
+        session[:recent_searches] << @results.last #shovel the search into the list
+      end
       @results = @results[0..-2]
     end
 

@@ -177,11 +177,26 @@ header h1 a {
   font-size: 1em;
 }
 
-.saved-searches, .saved-recipes, .recipe-link {
+.saved-searches, .saved-recipes {
   text-align: center;
 }
 
+.recipes-links, .searches-links{
+  text-align: left;
+  padding-left: 100px;
+}
 
+.delete {
+  padding-left: 15px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+li:hover a.hidden {
+  visibility: visible;
+}
 
 // recipe
 
