@@ -12,6 +12,9 @@ class RecipesController < ApplicationController
     count = Recipe.count_results(params["q"])
     @to = (params["to"] ||= 10).to_i
     @to += 10 if count > @to
+
+    # if more pages 'more' = true
+    # page count = 1 => 1 to 10, page count = 2 => 11 to 20
   end
 
   def show

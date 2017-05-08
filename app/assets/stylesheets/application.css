@@ -17,9 +17,9 @@
  */
 
 header {
-  background-image: url('logo2.png');
+  /*background-image: url('cooking.png');*/
   background-position: right;
   background-repeat: no-repeat;
   height: 25vh;
-  background-color: lightgray;
+  background-color: lavender;
 }

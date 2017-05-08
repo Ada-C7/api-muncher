@@ -1,9 +1,15 @@
-<h1>All the recipes</h1>
+<h1>Results for <%= @search_term %></h1>
 
+<div class="row">
 <% @recipes.each do |recipe| %>
-  <%= link_to image_tag(recipe.image, alt: "Recipe img"), recipe_path(recipe.id, "q" => @search_term) %>
-  <h4><%= recipe.name %></h4>
+  <div class="small-10 medium-6 large-4 columns">
+    <div class="recipe-link">
+    <p><%= link_to image_tag(recipe.image, alt: "Recipe img"), recipe_path(recipe.id, "q" => @search_term) %></p>
+    <h7 class="recipe_link"><%= recipe.name %></h7>
+    </div>
+  </div>
 <% end %>
+</div>
 
 <% if (@to - 10) > 10 %>
   <%= link_to "<<", recipes_path("q" => @search_term, "to" => @to - 10, "from" => @to - 20), class: "button" %>
