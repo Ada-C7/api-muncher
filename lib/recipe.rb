@@ -8,9 +8,11 @@ class Recipe
     @uri = uri
   end
 
-  def self.search(search_term)
-    ##NOTE: HARD CODE NUM OF RETURNS ON END (TO=)
-    url = "https://api.edamam.com/search?app_key=#{ENV['APP_KEY']}&app_id=#{ENV['APP_ID']}&q=#{search_term}&to=10"
+  def self.search(search_term, page_params)
+    to_recipe = page_params.to_i * 10
+    from_recipe = to_recipe - 10
+
+    url = "https://api.edamam.com/search?app_key=#{ENV['APP_KEY']}&app_id=#{ENV['APP_ID']}&q=#{search_term}&from=#{from_recipe}&to=#{to_recipe}"
 
     response = HTTParty.get(url).parsed_response
 

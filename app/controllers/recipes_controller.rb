@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   def root; end
 
   def search
-    @recipes_list = Recipe.search(params[:search])
+    @recipes_list = Recipe.search(params[:search], params[:page])
 
     if @recipes_list.empty?
       redirect_to root_path

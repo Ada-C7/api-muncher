@@ -24,14 +24,14 @@ describe Recipe do
   describe 'self.search' do
     it 'valid search results returns an array' do
       VCR.use_cassette('recipes') do
-        recipes = Recipe.search('arugula')
+        recipes = Recipe.search('arugula', 1)
         recipes.class.must_equal Array
       end
     end
 
     it 'invalid search term returns empty array' do
       VCR.use_cassette('recipes') do
-        recipes = Recipe.search('mksdjfhgskdghlsjdffs')
+        recipes = Recipe.search('mksdjfhgskdghlsjdffs', 1)
         recipes.must_equal []
       end
     end
