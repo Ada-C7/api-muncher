@@ -8,14 +8,18 @@ class Recipe
   ID = ENV["EDAMOM_ID"]
   KEY = ENV["EDAMOM_KEY"]
 
-  attr_reader :id, :name, :image, :source_url, :ingredients\
+  attr_reader :id, :name, :image, :source_url, :ingredients, :servings, :calories, :labels
 
   def initialize(data)
     @id = data["uri"].match(/#recipe\_(.*)/)[1]
     @name = data["label"]
     @image = data["image"]
+    # @source = data["source"]
+    @servings = data["yield"]
+    @calories = data["calories"]
     @source_url = data["url"]
     @ingredients = data["ingredientLines"]
+    @labels = data["healthLabels"]
   end
 
   # returns a collection of recipe objects that match the search conditions

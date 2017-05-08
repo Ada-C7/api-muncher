@@ -1,7 +1,11 @@
-<h1>May your recipe quest begin.</h1>
+<h1 class="row">May your recipe quest begin.</h1>
 
+<section clas="row">
 <%= form_tag recipes_path, method: :get do %>
-  <%= text_field_tag "recipe[q]" %>
+  <div class="large-11 medium-9 small-12 columns">
+    <%= text_field_tag "recipe[q]" %>
+  </div>
 
-  <%= submit_tag "Search", class: "button" %>
+  <%= submit_tag "Search", class: "button"%>
 <% end %>
+</section>

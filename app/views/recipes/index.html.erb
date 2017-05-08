@@ -2,7 +2,7 @@
 
 <section class="row">
 <% @recipes.each do |recipe| %>
-  <article class="small-10 medium-6 large-4 columns">
+  <article class="small-12 medium-4 large-3 columns">
     <div class="recipe-link">
     <p><%= link_to image_tag(recipe.image, alt: "Recipe img"), recipe_path(recipe.id, "q" => @search_term) %></p>
     <h7 class="recipe-title"><%= recipe.name[0..32] %><%= "..." if recipe.name.length > 32 %></h7>
@@ -11,12 +11,12 @@
 <% end %>
 </section>
 
-<nav class="paginator">
+<nav class="row paginator">
 <% if @page > 1 %>
-  <%= link_to "<<", recipes_path("recipe" => { "q" => @search_term, "from" => (@page - 2) * 12, "to" => (@page - 1) * 12 }), class: "button" %>
+  <%= link_to "<<", recipes_path("recipe" => { "q" => @search_term, "from" => (@page - 2) * 12, "to" => (@page - 1) * 12 })%>
 <% end %>
 
 <% if (@count > @page * 12) # 12 recipes displayed per page %>
-  <%= link_to ">>", recipes_path("recipe" => { "q" => @search_term, "from" => @page * 12, "to" => (@page + 1) * 12}), class: "button" %>
+  <%= link_to ">>", recipes_path("recipe" => { "q" => @search_term, "from" => @page * 12, "to" => (@page + 1) * 12})%>
 <% end %>
 </nav>
