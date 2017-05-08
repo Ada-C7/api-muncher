@@ -1,7 +1,7 @@
-<h1>Search for recipes here...</h1>
+<h1>Start your recipe quest.</h1>
 
 <%= form_tag recipes_path, method: :get do %>
-  <%= text_field_tag :q %>
+  <%= text_field_tag "recipe[q]" %>
 
-  <%= submit_tag "Enter", class: "button" %>
+  <%= submit_tag "Search", class: "button" %>
 <% end %>

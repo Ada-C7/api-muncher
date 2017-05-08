@@ -23,7 +23,7 @@ describe Recipe do
     it "Raises an error when given invalid search parameters" do
       VCR.use_cassette("recipes") do
         proc {
-          Recipe.search("from" => nil, "to" => nil, "q" => nil)
+          Recipe.search("from" => 0, "to" => 0, "q" => nil)
         }.must_raise Recipe::RecipeError
       end
     end

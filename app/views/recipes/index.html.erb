@@ -12,9 +12,9 @@
 </div>
 
 <% if (@to - 10) > 10 %>
-  <%= link_to "<<", recipes_path("q" => @search_term, "to" => @to - 10, "from" => @to - 20), class: "button" %>
+  <%= link_to "<<", recipes_path("recipe" => {"q" => @search_term, "to" => @to - 10, "from" => @to - 20}), class: "button" %>
 <% end %>
 
 <% if @to > 10 %>
-  <%= link_to ">>", recipes_path("q" => @search_term, "to" => @to, "from" => @to - 10), class: "button" %>
+  <%= link_to ">>", recipes_path("recipe" => {"q" => @search_term, "to" => @to, "from" => @to - 10}), class: "button" %>
 <% end %>
