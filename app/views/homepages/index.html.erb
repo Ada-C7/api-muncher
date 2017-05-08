@@ -26,7 +26,6 @@
     </div>
   </div>
 
-<div class="small-12 columns medium-12 columns end large-9 columns end">
   <%if params[:search_words] %>
   <% if @recipes.length > 0 %>
   <div class="row">
@@ -42,7 +41,3 @@
   <%= will_paginate @recipes, class: "row" %>
   <% end %>
   <% end %>
-</div>
-<p>
-  SIDEBAR HERE
-</p>
