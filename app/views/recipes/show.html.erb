@@ -23,7 +23,7 @@
   </thead>
   <tbody>
 
-    <% @nurients.each do |nutrient| %>
+    <% @nutrients.each do |nutrient| %>
       <tr>
         <td><%= nutrient["label"] %></td>
         <td><%= number_with_delimiter(nutrient["quantity"].round(0)) %></td>

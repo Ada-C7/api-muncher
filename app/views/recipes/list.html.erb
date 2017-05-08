@@ -17,6 +17,7 @@
 <% from = (params[:from].to_i + 10).to_s %>
 <% to = (params[:to].to_i + 10).to_s %>
 <% if counter == 10 %>
-<div><%= link_to "More recipes", list_path(from, to, "health" => @health, "search_term" => @search_word), method: :get, class: "button"  %></div>
+<div><%= link_to "More recipes", list_path("from" => from, "to" => to, "health" => @health, "search_term" => @search_word), method: :get, class: "button"  %></div>
+
 <% end %>
 </body>

@@ -1,6 +1,8 @@
-<%= form_tag list_path( 0, 10), method: :get do %>
+<%= form_tag list_path, method: :get do %>
   <%= label_tag :search_term %>
   <%= text_field_tag :search_term %>
+  <%= hidden_field_tag :from, 0 %>
+  <%= hidden_field_tag :to, 10 %>
   <p>
   <div><%= label_tag "Vegetarian"%>
   <%= check_box_tag "health[]", "vegetarian"%></div>
