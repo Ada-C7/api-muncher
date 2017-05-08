@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.4.0'
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -47,7 +49,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
-  gem 'dotenv-rails'
 end
 
 group :development do
