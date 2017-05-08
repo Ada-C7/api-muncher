@@ -57,7 +57,7 @@ a:hover {
 /*home page*/
 
 .background {
-  background: url("food.jpg");
+  background: url("/assets/food.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -103,7 +103,7 @@ h3, h1 {
 /*list recipes page*/
 
 .frame {
-  background: url("hipster_frame_white.png");
+  background: url("/assets/hipster_frame_white.png");
   background-size: 400px;
   background-repeat: no-repeat;
   display: block;
