@@ -1,27 +1,21 @@
-
-
-
-
 <%= form_tag(homepages_index_path, method: "get") do %>
-<div class="input-group input-group-rounded">
+  <div class="dietary_needs">
+    <%= check_box_tag(:health, "peanut-free") %>
+    <%= label_tag(:dietary_needs, "peanut-free") %>
+    <%= check_box_tag(:health, "tree-nut-free") %>
+    <%= label_tag(:dietary_needs, "tree-nut-free") %>
+    <%= check_box_tag(:health, "vegan") %>
+    <%= label_tag(:dietary_needs, "vegan") %>
+    <%= check_box_tag(:health, "vegetarian") %>
+    <%= label_tag(:dietary_needs, "vegetarian") %>
+  </div>
+  <div class="input-group input-group-rounded">
   <%= text_field_tag(:search_words, nil, :placeholder => "Ingredients", :class => "input-group-field", :type => "search") %>
   <div class="input-group-button">
     <%= submit_tag "Search", :class => "button secondary" %>
-    </div
     <% end %>
   </div>
-  <div class="dietary_needs">
-
-  <%= check_box_tag(:health, "peanut_free") %>
-  <%= label_tag(:dietary_needs, "peanut-free") %>
-  <%= check_box_tag(:health, "tree_nut_free") %>
-  <%= label_tag(:dietary_needs, "tree-nut-free") %>
-  <%= check_box_tag(:health, "vegan") %>
-  <%= label_tag(:dietary_needs, "vegan") %>
-  <!-- label -->
-  <%= check_box_tag(:health, "vegetarian") %>
-  <%= label_tag(:dietary_needs, "vegetarian") %>
-  </div>
+</div>
 
   <div class="small-12 columns medium-12 columns end large-9 columns end">
     <%if params[:search_words] %>
