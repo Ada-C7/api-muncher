@@ -1,11 +1,11 @@
-<p>
+<p class='intro'>
   Avoid asking yourself the question everyone secretly wants
   to know.
 </p>
-<p>
+<p class='intro'>
   "How many days can I eat this without dying?"
 </p>
-<p>
+<p class='intro'>
   Find recipes, inspiration, and eat something that doesn't come
   out of a crinkly, brightly colored bag.
 </p>
@@ -17,11 +17,18 @@
     <%= link_to "My Github", "https://github.com/moonpastry" %>
   </div>
 </span>
+<div class='row'>
 
-<%= form_tag recipes_path do %>
-<p>
-  <%= text_field_tag :search, params[:search], :method => 'post' %>
-  <%= hidden_field_tag :page, 1 %>
-  <%= submit_tag "Search" %>
-</p>
+  <!-- <div class="row collapse"> -->
+  <%= form_tag recipes_path do %>
+
+    <div class='large-4 columns text-center' >
+      <%= text_field_tag :search, params[:search], :method => 'post' %>
+      <%= hidden_field_tag :page, 1 %>
+    <!-- <div class='large-4 columns' class='search-bar'> -->
+      <%= submit_tag "Search" %>
+    </div>
+  </button>
 <% end %>
+
+</div>
