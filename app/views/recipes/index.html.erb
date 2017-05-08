@@ -1,5 +1,5 @@
 <section class='recipes-list'>
-  <h1>Search Results</h1>
+  <h1>Search Results for: <%= (params["query"]) %> </h1>
     <ul class="row small-up-2 medium-up-3 large-up-5">
       <% @results_page.each do |recipe| %>
         <li class="column">
