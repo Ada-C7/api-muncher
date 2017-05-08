@@ -7,7 +7,7 @@ class EdamamApiWrapper
   APP_ID = ENV["APP_ID"]
   APP_KEY = ENV["APP_KEY"]
 
-  def self.listRecipes(search_words, health)
+  def self.listRecipes(search_words, health = nil)
    url = BASE_URL + "?q=#{ search_words }" + "&app_id=#{ APP_ID }" + "&app_key=#{ APP_KEY }" + "&to=100"
    if health
      url = url + "&health=#{ health }"
