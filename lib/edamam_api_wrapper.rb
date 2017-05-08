@@ -5,12 +5,13 @@ class EdamamApiWrapper
   BASE_URL = "#{base}app_id=#{app_id}&app_key=#{app_key}&health=vegan&"
 
   def self.list_recipes(search, page = 1)
+    return [] if search == "" || search == nil
     page_start = (page - 1) * 10
     page_end = page_start + 10
     url = BASE_URL + "q=#{search}&from=#{page_start}&to=#{page_end}"
     response =  HTTParty.get(url)
 
-    if response["hits"]
+    if !response["hits"].empty?
       return response["hits"].map do |recipe|
         Recipe.new(recipe["recipe"]["label"], recipe["recipe"]["uri"].partition("recipe_").last, recipe["recipe"]["image"])
       end
