@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1>Recipe </h1>
+
+<div>
+
+  <%= @recipe.title %>
+  <%= image_tag(@recipe.image) %>
+
+  <% @recipe.ingredients.each do |i| %>
+    <p><%= i %></p>
+  <% end %>
+
+  <% @recipe.dietary.each do |d| %>
+    <p><%= d %></p>
+  <% end %>
+
+</div>
+
+
+
+
+
+<%= link_to 'Back', recipes_path(:query => params[:query], :p => params[:p] || 0) %>
