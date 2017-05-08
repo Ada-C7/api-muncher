@@ -6,9 +6,9 @@ class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search?app_id=#{APP_ID}&app_key=#{APP_KEY}"
 
   def self.get_recipes(search_term, page)
-    to, from = page_to_pages(page)
+    from, to = page_to_pages(page)
 
-    url = "#{BASE_URL}&q=#{search_term}&to=#{to}&from=#{from}"
+    url = "#{BASE_URL}&q=#{search_term}&from=#{from}&to=#{to}"
     results = HTTParty.get(url)
 
     Recipe.create_multiple_from_edamam(results["hits"])
@@ -23,9 +23,9 @@ class EdamamApiWrapper
 
   private
   def self.page_to_pages(page)
-    to = (page * 10) - 1
-    from = to - 9
+    to = (page * 10)
+    from = to - 10
 
-    [to, from]
+    [from, to]
   end
 end
