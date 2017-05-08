@@ -1,5 +1,3 @@
-require 'json'
-
 class Recipe
 
   attr_reader :label, :image, :uri
@@ -19,7 +17,7 @@ class Recipe
     recipes_list = []
 
     if response['count'] == 0
-      return recipes_list
+      return []
     else
       10.times do |count|
         label = response['hits'][count]['recipe']['label']
@@ -32,16 +30,16 @@ class Recipe
     return recipes_list
   end
 
-  def list_display
-    ##LOGIC FOR LIST DISPLAY
-  end
-
   def self.show_recipe(uri)
     url = "https://api.edamam.com/search?app_key=#{ENV['APP_KEY']}&app_id=#{ENV['APP_ID']}&r=http://www.edamam.com/ontologies/edamam.owl%23#{uri[1..-1]}"
 
     response = HTTParty.get(url).parsed_response
 
     recipe_components = {}
+
+    if response.empty?
+      return response
+    end
 
     recipe_components[:label] = response[0]['label']
     recipe_components[:url] = response[0]['url']
