@@ -1,22 +1,19 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>ApiMuncher</title>
-  <%= csrf_meta_tags %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
-<div>
-  <% if flash[:messages] %>
-  <p><%= flash[:messages] %></p>
-  <% end %>
-</div>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-<body>
-  <header>
-    <h1>Beyond Ramen</h1>
-  </header>
-  <%= yield %>
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+<h1>Beyond Ramen</h1>
+    <%= yield %>
+
+  </body>
 </html>
