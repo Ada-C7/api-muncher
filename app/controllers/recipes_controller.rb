@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
     @health = params[:health]
   end
 
-  def show
+  def recipe
     recipe = Recipe.new
     @uri = params[:uri]
     @recipe = recipe.find_this_recipe(@uri)[0]

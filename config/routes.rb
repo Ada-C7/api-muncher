@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 # get 'sessions/create'
 # get 'sessions/destroy'
 # get 'home/show'
-get 'auth/:provider/callback', to: 'sessions#create'
+get 'auth/:provider/callback', to: 'sessions#create', as: 'signin'
 get 'auth/failure', to: redirect('/')
 get 'signout', to: 'sessions#destroy', as: 'signout'
 
@@ -14,7 +14,7 @@ root to: 'recipes#search'
 
 # get 'recipes/:key_word', to: 'recipes#index', as: 'recipes'
 get 'recipes/list', to: 'recipes#list', as: 'list'
-get 'recipes/:uri', to: 'recipes#show', as: 'recipe'
+get 'recipes/:uri', to: 'recipes#recipe', as: 'recipe'
 get 'recipes/', to: 'recipes#search', as: 'search'
 
 end

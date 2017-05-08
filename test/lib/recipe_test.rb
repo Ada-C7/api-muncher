@@ -40,6 +40,8 @@ describe Recipe do
         recipe = Recipe.new
         result = recipe.send_search("pasta", 0, 10, ["vegetarian", "vegan"])
         result["hits"][0]["recipe"]["healthLabels"].must_include "Vegetarian"
+        result["hits"][0]["recipe"]["healthLabels"].must_include "Vegan"
+
       end
     end
 
@@ -73,7 +75,7 @@ describe Recipe do
     it "returns one recipe" do
       VCR.use_cassette("recipes") do
         recipe = Recipe.new
-        uri = "http://www.edamam.com/ontologies/edamam.owl#recipe_1e43fbf22e7a7254d65d0ca58d0618b2"
+        uri = "recipe_1e43fbf22e7a7254d65d0ca58d0618b2"
         result = recipe.find_this_recipe(uri)
         result.length.must_equal 1
       end

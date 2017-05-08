@@ -7,8 +7,6 @@ class Recipe
   RECIPE_URL = "http://www.edamam.com/ontologies/edamam.owl%23"
 
 
-  # attr_reader :search_term, :health, :diet
-
   def initialize
   end
 
