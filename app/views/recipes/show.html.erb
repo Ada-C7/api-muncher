@@ -1,12 +1,10 @@
 <h2><%= @recipe.title %></h2>
 
 <section id="recipe-details" class="row">
-  <section id="feature-image">
-    <%= image_tag(@recipe.image_url) %>
-    <p>
-      <%= link_to "Click here", @recipe.url, target: "_blank" %> for the full recipe.
-    </p>
-  </section>
+  <%= image_tag(@recipe.image_url) %>
+  <p>
+    <%= link_to "Click here", @recipe.url, target: "_blank" %> for the full recipe.
+  </p>
 
   <h3>Ingredients</h3>
   <ul>
