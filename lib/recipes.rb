@@ -8,12 +8,17 @@ class RecipesApiWrapper
   class RecipesApiWrapperException < StandardError
   end
 
-  attr_accessor :name, :uri, :label
+  attr_accessor :name, :uri, :label, :image
 
   def initialize(params)
     @uri = params[:uri]
     @label = params[:label]
+    @raw_data = params
+    @image = params[:image]
+  end
 
+  def [](key)
+    return @raw_data[key]
   end
 
   def self.search(query)
