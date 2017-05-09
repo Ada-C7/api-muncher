@@ -2,7 +2,8 @@
 
   <ul>
     <% if params[:page] == '1' %>
-    <li></li> <!-- These logic is here to keep the spacing in the page correct. -->
+    <li><p></p>
+    </li> <!-- These logic is here to keep the spacing in the page correct. -->
     <% else %>
     <li class='small-6 columns' id='left-nav'>
       <%= link_to "Previous Recipes", recipes_path(:utf8 => params[:utf8], :search => params[:search], :page => (params[:page].to_i - 1), :commit => params[:commit]) %>
