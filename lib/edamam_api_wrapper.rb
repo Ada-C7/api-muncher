@@ -25,12 +25,22 @@ class EdamamApiWrapper
     response = HTTParty.get(url)[0]
 
     if response
+      nutrients = []
+
+      response["digest"].each do |nutrient|
+        nutrients << nutrient
+        if nutrient["sub"]
+          nutrient["sub"].each { |sub| nutrients << sub }
+        end
+      end
+
       options = {
         recipe_link: response["url"],
         ingredients: response["ingredientLines"],
         diet_labels: response["dietLabels"],
         health_labels: response["healthLabels"],
-        calories: response["calories"]
+        calories: response["calories"],
+        nutrients: nutrients
       }
       return Recipe.new(response["label"], id, response["image"], options )
     else

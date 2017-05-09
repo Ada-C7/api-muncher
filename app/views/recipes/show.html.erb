@@ -23,9 +23,18 @@
   <section class="small-12 columns">
     <h4>Nutrition Information:</h4>
     <table>
-      <th>
-        
-      </th>
+      <tr>
+        <th>Label</th>
+        <th>Total</th>
+        <th>% Daily Value</th>
+      </tr>
+      <% @recipe.nutrients.each do |nutrient| %>
+        <tr>
+          <td><%= nutrient["label"] %></td>
+          <td><%= nutrient["total"].round(2) %><%= nutrient["unit"] %></td>
+          <td><%= nutrient["daily"].round(2) %>%</td>
+        </tr>
+      <% end %>
     </table>
   </section>
 </section>
