@@ -18,6 +18,13 @@
 
  */
 
+ @import url('https://fonts.googleapis.com/css?family=Inknut+Antiqua');
+
+
+* {
+ font-family: 'Inknut Antiqua', serif;
+}
+
  h1, h3, footer {
    text-align: center;
  }

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'recipes#search'
+  root 'recipes#search', as: 'root'
 
   get '/recipes', to: 'recipes#index', as: 'recipes'
 #alias for that route 'recipes'

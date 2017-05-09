@@ -1,20 +1,28 @@
+<% from = (params[:from].to_i + 10).to_s %>
+<% to = (params[:to].to_i + 10).to_s %>
+<% if @recipe_array.length >= 9 %>
+  <%= link_to "Next Recipes", recipes_path("from" => from, "to" => to, "search_request" => params[:search_request]), method: :get, class: "button" %>
+<% end %>
+
+<% if from.to_i > 10 %>
+<% from = (params[:from].to_i - 10).to_s %>
+<% to = (params[:to].to_i - 10).to_s %>
+<%= link_to "Previous Recipes", recipes_path("from" => from, "to" => to, "search_request" => params[:search_request]), method: :get, class: "button" %>
+<% end %>
+
+<%= link_to "back to previous page", :back, class: "button" %>
 
 <h3>You have good taste! Here are some recipe ideas:</h3>
 
 <main>
   <div class="row">
     <% @recipe_array.each do |recipe| %>
-          <div class="small-3 columns" class="helper">
+          <div class="small-4 columns" class="helper">
             <h5><%= recipe.label %></h5>
             <p><%= link_to image_tag(recipe.image), recipe_path(recipe.uri.partition("#").last) %></p>
           </div>
       <% end %>
   </div>
 
-<% link_to "Previous 10", << { q: from: to: }, class: "button" %>
-recipe_array << self.new({ uri: recipe["recipe"]["uri"], label: recipe["recipe"]["label"], image: recipe["recipe"]["image"] })
-
-
-<% link_to "Next 10", class: "button" %>
 
 </main>

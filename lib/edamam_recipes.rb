@@ -6,9 +6,7 @@ class EdamamRecipes
   end
 
   BASE_URL = "https://api.edamam.com/search"
-  # https://api.edamam.com/search?
   BASE_URI = "https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl#"
-  # https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl%23recipe_c9044642b3673039d454227917c51e11&app_key=b4133bf14265d1c28e3a38bb96909ca6&app_id=3c83c9fe
 
   attr_reader :uri, :label, :image
 
@@ -16,7 +14,6 @@ class EdamamRecipes
     @uri = recipe_data[:uri]
     @label = recipe_data[:label]
     @image = recipe_data[:image]
-
   end
 
   def self.get_recipes(search_request, from, to)
@@ -25,17 +22,21 @@ class EdamamRecipes
     #   "app_key" => ENV["EDAMAM_APP_KEY"],
     #   "q" => search_request
     #   "from" => "from",
-    #   "to" => "to",
+    #   "to" => "to"
     # }
 
-    # url = "https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}"
-    # recipes = HTTParty.get("https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}")
-    recipes = HTTParty.get("https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}&from=#{from_point}&to=#{to_point}
+    recipes = HTTParty.get("https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}&from=#{from}&to=#{to}")
     recipe_array = []
+    # if recipes["hits"] == "nil"
+    #   flash[:status] = :failure
+    #   flash[:result_text] = "Sorry, no results were found for your search. \n Would you like to search for something else?"
+    #   redirect_to root_path
+    # else
      recipes["hits"].each do |recipe|
        recipe_array << self.new({ uri: recipe["recipe"]["uri"], label: recipe["recipe"]["label"], image: recipe["recipe"]["image"] })
      end
     return recipe_array
+    # end
   end
 
   def self.find_recipe(uri)

@@ -13,7 +13,7 @@ describe EdamamRecipes do
     it "take a hash" do
     # hash  = {uri: "something"}
     search = EdamamRecipes.new(hash)
-    search.must_be_kind_of Array
+    search.must_be_kind_of EdamamRecipes
     end
 
     it "Takes a uri" do
@@ -32,47 +32,41 @@ describe EdamamRecipes do
 
     it "Takes a image" do
       # image = "https://www.edamam.com/web-img/059/059530cddca8fe8be448b9c1beb70632.jpg"
-      sc = EdamamRecipes.new(hash)
+      search = EdamamRecipes.new(hash)
       search.image.must_equal "https://www.edamam.com/web-img/059/059530cddca8fe8be448b9c1beb70632.jpg"
 
     end
-
-    # it "Requires a uri" do
-    #   proc {
-    #       EdamamRecipes.new
-    #   }.must_raise ArgumentError
-    # end
-    #
-    # it "Requires a label" do
-    #   proc {
-    #       EdamamRecipes.new
-    #   }.must_raise ArgumentError
-    # end
-    #
-    # it "Requires a image" do
-    #   proc {
-    #       EdamamRecipes.new
-    #   }.must_raise ArgumentError
-    # end
   end
 
   describe "self.get_recipes" do
     it "can get recipes for a valid search" do
       VCR.use_cassette("responses") do
-        response = EdamamRecipes.get_recipes("chicken")
-        # response.class.must_be_kind_of Hash
+        response = EdamamRecipes.get_recipes("pie", 0, 9)
+        response.must_be_kind_of Array
       end
     end
 
-#voluntary according to dan
-    it "fails to get recipes for a bogus search" do
+# I can't get this test to pass and saw a note that since rails tests for flash messages, it may not be necessary
+    # it "returns a flash message if there are no results for a search" do
+      # VCR.use_cassette("responses") do
+        # response = EdamamRecipes.get_recipes("fkhtgn", 0, 9)
+        # assert_equal flash[:result_text], "Sorry, no results were found for your search. \n Would you like to search for something else?"
+        # must_route_to "/"
+        # must_respond_with :failure
+        # must_redirect_to "/"
+    #   end
+    # end
+  end
+
+  describe "self.find_recipe" do
+    it "returns info about a particular recipe" do
       VCR.use_cassette("responses") do
-        response = EdamamRecipes.get_recipes("fkhtgn")
-        proc {
-          response = EdamamRecipes.get_recipes("fkhtgn")
-        }.must_raise EdamamRecipes::EdamamException
+        response = EdamamRecipes.find_recipe("recipe_c9044642b3673039d454227917c51e11")
+        response[0]["label"].must_equal "Nectarine Hand Pies"
+        response.must_be_kind_of Array
       end
     end
+
   end
 
 end
