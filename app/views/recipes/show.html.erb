@@ -16,24 +16,24 @@
   </article>
 
   <article class="recipe_results large-3 columns">
-    <h4>Diets</h4>
+    <h3>Diets</h3>
 
-    <ul>
+    <!-- <ul> -->
       <% if @recipe.diets %>
         <% @recipe.diets.each do |diet| %>
-          <li><%= diet %></li>
+          <p><%= diet %></p>
         <% end %>
       <% end %>
 
       <% if @recipe.health %>
         <% @recipe.health.each do |health| %>
-          <li><%= health %></li>
+          <p><%= health %></p>
         <% end %>
 
       <% else %>
         <p>There is no diet information available for this recipe</p>
       <% end %>
-    </ul>
+    <!-- </ul> -->
   </article>
 
   <article class="large-12 columns">
