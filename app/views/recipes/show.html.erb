@@ -1,12 +1,21 @@
 <section class="row">
 
-<h1><%= @recipe.label %></h1>
-  <div class= "large-5 columns">
+<h1 class="large-12 columns"><%= @recipe.label %></h1>
+  <h2><%= link_to "Recipe", @recipe.original_recipe, target: :_blank %></h2>
+  <div class= "large-3 columns">
     <img src="<%= @recipe.image_url %>"  alt="recipe picture">
-    <h2><%= link_to "Recipe", @recipe.original_recipe, target: :_blank %></h2>
   </div>
 
-  <article class="large-3 columns">
+  <article class="recipe_results large-5 columns">
+      <h3>Ingredients</h3>
+        <ul>
+          <% @recipe.ingredients.each do |ingredient| %>
+            <li><%= ingredient %></li>
+          <% end %>
+        </ul>
+  </article>
+
+  <article class="recipe_results large-3 columns">
     <h4>Diets</h4>
 
     <ul>
@@ -27,21 +36,10 @@
     </ul>
   </article>
 
-  <article class="large-5 columns">
-      <h3>Ingredients</h3>
-        <ul>
-          <% @recipe.ingredients.each do |ingredient| %>
-            <li><%= ingredient %></li>
-          <% end %>
-        </ul>
-  </article>
-
   <article class="large-12 columns">
-    <h3>Nutrition Facts</h3>
-      <ul>
-        <% @recipe.dietary_information.each do |info| %>
-          <li><%= info %></li>
-        <% end %>
-      </ul>
+    <h3>Nutritional Facts</h3>
+        <p><% @recipe.dietary_information.each do |info| %>
+          <%= info[1]["label"] %>: <%= Float(info[1]["quantity"]).round(2) %> <%= info[1]["unit"] %>,
+        <% end %></p>
   </article>
 </section>

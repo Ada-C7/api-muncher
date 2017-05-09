@@ -30,14 +30,9 @@ header.header_banner {
   background-image: url("http://morethanfood.co.za/wp-content/uploads/2015/04/Craig-Cormack-Recipe-Header.jpg");
   background-repeat: no-repeat;
   background-size: auto;
-  /*background-position: center;*/
+  /*border-bottom: solid;*/
   height: 250px;
   max-width: 100%;
-  /*background-size: contain;*/
-  vertical-align: bottom;
-   /*border: solid;*/
-   /*vertical-align: bottom;*/
-   /*text-align: center;*/
  }
 
 .header_nav {
@@ -46,39 +41,40 @@ header.header_banner {
   font-size: 1.5em;
   margin-top: 14%;
   text-align: right;
+  /*text-decoration: underline;*/
   /*vertical-align: text-bottom;*/
 }
 
 h1.head-title {
-  margin-top: 10%;
-  margin-left: 45%;
   border: none;
-  /*bottom: 0;*/
-  /*vertical-align: text-bottom;*/
-  /*text-align: center;*/
   font-family: 'Inconsolata';
   font-size: 5em;
-  /*margin-bottom: 0%;*/
-  /*text-align: left;*/
-  /*background-color: grey;*/
+  margin-top: 10%;
+  margin-left: 45%;
+  text-align: right;
 }
 
 article {
   font-family: 'Lato';
   font-size: 1.2em;
   margin-top: 2%;
+  /*text-align: left;*/
 }
 
-/*article p {
-  text-align: left;
-}*/
+article.recipe_results {
+  margin: 0;
+  border: solid;
+}
+p {
+  margin: 0.5%;
+}
 
 h1 {
+  text-align: left;
   border-bottom: solid;
 }
 
 .recipe_result {
-
    text-align: center;
  }
 
