@@ -1,0 +1,67 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require foundation_and_overrides
+
+*/
+
+@import url('foundation');
+@import url('https://fonts.googleapis.com/css?family=Inknut+Antiqua|Love+Ya+Like+A+Sister');
+
+body {
+  background-image: url('/circles.png');
+  font-family: 'Inknut Antiqua', serif;
+}
+
+body h1, h2 {
+  font-family: 'Love Ya Like A Sister', cursive;
+}
+
+header h1 {
+  font-size: 6.5vw;
+}
+
+footer p img {
+  height: 3.5vw;
+  width: 9vw;
+}
+
+footer p {
+  text-align: center;
+}
+
+header {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.pagination {
+  display: -webkit-inline-box;
+}
+
+section h1 {
+  padding-left: 2rem;
+}
+
+
+table {
+  display: inline-block;
+}
+
+main.specific_recipe {
+  padding-left: 2rem;
+}

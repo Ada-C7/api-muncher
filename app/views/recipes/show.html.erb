@@ -1,0 +1,28 @@
+<main class="specific_recipe">
+  <h1> <%= @recipe.name %> </h1>
+
+  <%= image_tag @recipe.image %>
+
+  <%= link_to "Find more here", @recipe.link %>
+
+  <h3>Ingredients</h3>
+
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient %></li>
+    <% end %>
+  </ul>
+
+  <table>
+    <caption>Dietary Information</caption>
+      <tr>
+        <th> Nutrient </th>
+        <th> Amount </th>
+      </tr>
+      <% @recipe.diet.each do |info| %>
+        <td><%= info[1]["label"] %></td>
+        <td><%= info[1]["quantity"] %> <%= info[1]["unit"] %></td>
+      </tr>
+        <% end %>
+  </table>
+</main>
