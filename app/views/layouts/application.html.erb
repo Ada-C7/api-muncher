@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <header class='headerpage'>
+    <div>
+      <h1 id="logoandname"><%= image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD4e1wVfP7BNkNl-6str7f-Trtl1xdHxsnPmTZ36RzBD-Pn7RTaw", width: "150px", alt: "logo")%><%= link_to "Claire's Nutrition List ", root_path%> <small>For the health conscious foodies.</small> <span>Powered by</span><%= link_to image_tag("http://media.prleap.com/image/5419/full/_logo_edamam.jpg", width: "70px", alt: "logo"), "https://www.edamam.com/" %></h1></div>
+  </header>
+
+  <main class="row">
+    <%= yield %>
+  </main>
+
+</body>
+</html>

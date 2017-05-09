@@ -1,0 +1,82 @@
+// Place all the styles related to the Recipes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+  font-family: 'Alegreya', serif;
+}
+
+span {
+  font-size: 12px;
+}
+
+footer {
+  height: 66px;
+}
+#footerlogo{
+  background-color: white;
+}
+#welcomepage {
+  background-image: url(https://s-media-cache-ak0.pinimg.com/736x/ae/33/d2/ae33d2b76f62f13024a8d703e886bb8f.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.headerpage{
+  background-color: white;
+}
+
+.searchbar {
+margin: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+width: 400px;
+margin-right: -50%;
+transform: translate(-50%, -50%);
+height: 10
+}
+
+.page {
+  text-align: center;
+  padding: 3%;
+}
+
+.item {
+
+  border-radius: 20px;
+  height: 400px;
+  width: 400px;
+  margin: 10%;
+  padding-top: 10%;
+}
+
+li {
+  list-style-type: none;
+}
+h6{
+font-weight: bold;
+}
+h6 :hover{
+  color: mediumaquamarine;
+}
+
+.image{
+  box-shadow: 5px 5px 5px #888888;
+
+}
+
+.link:hover {
+  color: mediumaquamarine;
+}
+
+.link {
+  font-weight: bold;
+}
+
+.edamamlogo{
+  float: right;
+}
+
+#recipepage{
+  background-color: white;
+}
