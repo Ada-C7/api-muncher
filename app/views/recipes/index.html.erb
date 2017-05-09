@@ -1,16 +1,14 @@
-<h1>All recipes for ...</h1>
+<h1>These are some options for you:</h1>
 
-<% if @list_of_recipes.length > 0 %>
-<!-- # <%= @list_of_recipes.length %> -->
-<ul>
+<section class="row">
   <% @list_of_recipes.each do |recipe| %>
-  <li>
-    <%= link_to recipe.label, recipe_path(uri: recipe.uri) %>
-    <div>
-    <%= link_to image_tag(recipe.image), recipe_path(uri: recipe.uri) %>
+  <div class="large-4 columns">
+    <ul>
+      <li class="reci">
+        <h4><%= link_to recipe.label, recipe_path(uri: recipe.uri) %></h4>
+        <p class="reci_image"><%= link_to image_tag(recipe.image), recipe_path(uri: recipe.uri) %></p>
+      </li>
+    </ul>
   </div>
-
-  </li>
   <% end %>
-</ul>
-<% end %>
+</section>

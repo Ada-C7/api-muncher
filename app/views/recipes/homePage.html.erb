@@ -1,8 +1,12 @@
-<h1>All recipes for ...</h1>
-<h1>Please type a key word for recipes</h1>
+<p class="absolute-text">
+<h2 align="center"> Welcome! Feeling hungry? Type any word to find fun recipes</h2>
+  <%= form_tag(recipes_path, method: "post") do %>
+    <%= label_tag(:name, "Recipe for:") %>
+    <%= text_field_tag :name, params[:name] %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</p>
 
-<%= form_tag(recipes_path, method: "post") do %>
-  <%= label_tag(:name, "Search for:") %>
-  <%= text_field_tag :name, params[:name] %>
-  <%= submit_tag("Search") %>
-<% end %>
+<div class="relative" align="center" class= "columns large-12 medium-12 small-12">
+  <img src="https://static.pexels.com/photos/375760/pexels-photo-375760.jpeg" alt="backgroung_image">
+</div>
