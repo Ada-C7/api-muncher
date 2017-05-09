@@ -6,9 +6,9 @@
   <%= hidden_field_tag :to, 12 %>
   <!-- shows 7 previously searched terms. -->
   Previously searched: <%# search_terms = session[:search_terms][-7..-1]%>
-  <%# search_terms.each do |search| %>
-  <%#= link_to " #{search}, ", search_path(search_term: "#{search}") %>
-  <%# end %>
+  <% search_terms.each do |search| %>
+  <%= link_to " #{search}, ", search_path(search_term: "#{search}") %>
+  <% end %>
   <p>
     <ul>
       <li class="checkbox_inline"><%= label_tag "Vegetarian"%></li>
