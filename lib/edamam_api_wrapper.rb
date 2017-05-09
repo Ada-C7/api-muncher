@@ -29,8 +29,6 @@ attr_reader :name, :image, :uri
 
   private
   def self.api_call(search_terms)
-    url = "https://api.edamam.com/search"
-    recipes = HTTParty.get(URL, headers: HEADERS, query: search_terms).parsed_response
-    return recipes
+    HTTParty.get(URL, headers: HEADERS, query: search_terms).parsed_response
   end
 end

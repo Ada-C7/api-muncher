@@ -12,19 +12,9 @@ Servings : <%= @recipe.yield %>;slider
 Serving size: <%= sprintf "%.0f", @recipe.serving_size %> grams
 
 <% @recipe.diet_info.each do |nutrient| %>
-  <%=   nutrient["label"]%>:
+  <%= nutrient["label"]%>:
   <%=sprintf "%.0f", nutrient["quantity"]%><%=nutrient["unit"] %>
   <% unless nutrient["RDA"].nil? %>
   <%=sprintf "%.0f",nutrient["RDA"]%>%;
   <% end %>
 <% end %>
-
-
-
-
-
-<!-- @diet_info = recipe["totalNutrients"]
-@RDA = recipe["totalDaily"]
-@url = recipe["url"]
-@yield = recipe["yield"]
-@serving_size = recipe["totalWeight"] -->

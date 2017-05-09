@@ -10,6 +10,7 @@ class Recipe < EdamamApiWrapper
     @yield = recipe["yield"]
     @serving_size = recipe["totalWeight"]
     @ingredients = recipe["ingredientLines"]
+    @from = recipe["from"]
     @diet_info =  nutrition_info( { n: recipe["totalNutrients"], rda: recipe["totalDaily"] })
   end
 
@@ -20,7 +21,6 @@ class Recipe < EdamamApiWrapper
       n["RDA"] = h[:rda].fetch(nutrient,"")["quantity"]
       n
     end
-
   end
 
   def self.one(search_terms)
