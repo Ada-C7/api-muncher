@@ -1,0 +1,23 @@
+<main>
+
+  <header class="header row">
+    <section class= "columns large-12 small-12 head">
+      <h1><%= link_to "DISH BISH", root_path %></h1>
+      <small>When your hungry hurts.</small>
+    </section>
+  </header>
+
+  <!-- search results -->
+  <div class="row small-up-3 medium-up-4 large-up-5">
+    <% if @search_recipes != nil %>
+    <p> <%= will_paginate @search_recipes, class: "page" %></p>
+    <% @search_recipes.each do |recipe| %>
+    <section class="columns">
+      <%= link_to recipe.label, recipe_path(:recipe => recipe.uri) %></br>
+      <%= link_to image_tag(recipe.image), recipe_path(:recipe => recipe.uri) %></br>
+    </section>
+    <% end %>
+    <% end %>
+  </div>
+
+</main>

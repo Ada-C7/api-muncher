@@ -1,0 +1,31 @@
+<main>
+
+<section class="ingredients">
+  <h5 class "link back"><%= link_to "back to DISH BISH", root_path %></h5>
+    <h4><%= link_to @show_recipe.label, @show_recipe.url %></h4>
+    <p><%=image_tag @show_recipe.image %></p>
+    <p><%= link_to @show_recipe.label, @show_recipe.url %></p>
+
+    <% @show_recipe.ingredientLines.each do |line| %>
+    <p><%= line %></p>
+    <% end %>
+  </section>
+  <table>
+    <thead>
+      <tr class="nutrient_columns">
+        <th width="200">Nutrient</th>
+        <th width="150">Quantity</th>
+        <th width="150">Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @show_recipe.totalNutrients.first(3).each do |totalNutrient| %>
+      <tr>
+        <td><%= totalNutrient[1]["label"] %></td>
+        <td><%= totalNutrient[1]["quantity"].round(0) %></td>
+        <td><%= totalNutrient[1]["unit"] %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</main>
