@@ -18,22 +18,48 @@
 
 @import url('https://fonts.googleapis.com/css?family=Inknut+Antiqua');
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background-image: url('<%= asset_path("Colored-vegetables-seamless-pattern-vector-01.jpg") %>');
   /*image from http://freedesignfile.com/217308-colored-vegetables-seamless-pattern-vector-01/*/
   background-attachment: fixed;
+  display: block;
+  margin-bottom: 2em;
+}
+
+html, body {
+  height: auto;
 }
 
 header h1 {
+  font-size: 3em;
   text-align: center;
   text-shadow: -2px 0 #91758E, 0 2px #91758E, 2px 0 #91758E, 0 -2px #91758E;
 }
 
-footer p {
-  background-color: #fff;
-  border-radius: 5%;
-  text-align: right;
+h2 {
+  text-align: center;
+}
+
+footer {
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
   margin-top: 2%;
+  position: absolute;
+  bottom: 10px;
+  height: 2em;
+  width: 400px;
+  margin: auto;
+}
+
+footer p {
+  margin: 0;
+  line-height: 1.8em;
 }
 
 .recipe-list {
@@ -45,7 +71,7 @@ footer p {
   margin: 0;
 }
 
-img {
+img, a img {
   border-radius: 10%;
   border: solid #91758E 3px;
 }
@@ -84,6 +110,19 @@ img {
   color: #91758E;
 }
 
-input {
-  border: solid 1px #91758E;
+form {
+  text-align: center;
+}
+
+.search-button {
+  width: 400px;
+  max-width: 90%;
+  border-radius: 5px;
+  margin: auto;
+}
+
+input[type='text'] {
+  border: solid 2px #91758E;
+  border-radius: 5px;
+  height: 3em;
 }
