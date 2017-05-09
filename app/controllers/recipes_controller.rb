@@ -3,7 +3,7 @@ require_dependency '../../lib/recipe_api_wrapper'
 class RecipesController < ApplicationController
 
     def view_recipes
-      # @@total_number  #total number of recepies with search term (I need it to calculate number of pages to display in a view )
+      # @@total_number - total number of recepies with search term (I need it to calculate number of pages to display in a view )
       if params[:from].to_i == 0
         @@total_number =  RecipeApiWrapper.search(params[:search],params[:from], params[:vegan], params[:kosher],
          params[:vegetarian], params[:paleo], count = true)
@@ -29,11 +29,7 @@ class RecipesController < ApplicationController
 
       if @login_user
         @search = Search.new(user_id: @login_user.id, keyword: params[:search])
-
-        params[:vegan] == nil ? @search.vegan = false : @search.vegan = true
-        params[:kosher] == nil ? @search.kosher = false : @search.kosher = true
-        params[:vegetarian] == nil ? @search.vegetarian = false : @search.vegetarian = true
-        params[:paleo] == nil ? @search.paleo = false : @search.paleo = true
+        @search.set_up_search(params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
 
         @user_search = Search.find_by(user_id: @login_user.id, keyword: params[:search],
                                   vegan: @search.vegan, kosher: @search.kosher,
@@ -64,5 +60,6 @@ class RecipesController < ApplicationController
         redirect_to user_path(favorite_recipe.user.id)
       end
     end
+
 
   end
