@@ -1,0 +1,147 @@
+{
+  "MiniTest": {
+    "coverage": {
+      "/Users/arrozconcurry/Documents/ada_assignments/13week/api-muncher/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/arrozconcurry/Documents/ada_assignments/13week/api-muncher/app/helpers/searches_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/arrozconcurry/Documents/ada_assignments/13week/api-muncher/app/controllers/searches_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/arrozconcurry/Documents/ada_assignments/13week/api-muncher/lib/edamam.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        3,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        3,
+        null,
+        null,
+        null,
+        null,
+        null,
+        3,
+        3,
+        3,
+        200,
+        200,
+        200,
+        200,
+        null,
+        null,
+        3,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/arrozconcurry/Documents/ada_assignments/13week/api-muncher/lib/result.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        201,
+        201,
+        201,
+        null,
+        null,
+        null
+      ],
+      "/Users/arrozconcurry/Documents/ada_assignments/13week/api-muncher/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/arrozconcurry/Documents/ada_assignments/13week/api-muncher/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/arrozconcurry/Documents/ada_assignments/13week/api-muncher/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/arrozconcurry/Documents/ada_assignments/13week/api-muncher/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/Users/arrozconcurry/Documents/ada_assignments/13week/api-muncher/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/arrozconcurry/Documents/ada_assignments/13week/api-muncher/app/models/application_record.rb": [
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1494318575
+  }
+}

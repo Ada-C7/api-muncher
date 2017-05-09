@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start 'rails'
+
 ENV["RAILS_ENV"] = "test"
 require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
@@ -21,8 +24,12 @@ VCR.configure do |config|
     :match_requests_on => [:method, :uri, :body] # The http method, URI and body of a request all need to match
   }
   # Don't leave our Slack token lying around in a cassette file.
-  config.filter_sensitive_data("<SLACK_TOKEN>") do
-    ENV['SLACK_API_TOKEN']
+  config.filter_sensitive_data("<edamam_id>") do
+    ENV["edamam_id"]
+  end
+
+  config.filter_sensitive_data("<edamam_key>") do
+    ENV["edamam_key"]
   end
 end
 
