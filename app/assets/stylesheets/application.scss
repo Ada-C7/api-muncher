@@ -92,8 +92,15 @@ li#right-nav {
   text-align: right;
 }
 
-ul#list {
-  margin: 0;
+div.nav-bar {
+  background-color: #ffd97a;
+  // margin-left: 165px;
+  // margin-right: 165px;
+
+}
+
+div.ing-list{
+padding: 0;
 }
 
 body {
@@ -113,9 +120,22 @@ h1.header {
   background-color: #ffd97a;
 }
 
+div.search-box {
+  background-color: #ffd97a;
+  text-align: center;
+  padding-bottom: 10px;
+}
 
-div.search {
-  background-color: #a17ccf;
+div.search-button {
+  background-color: #ffd97a;
+  // padding: 0px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 40px;
+}
+
+div.text {
+
 }
 
 span.hidden { display:none; }
