@@ -22,8 +22,8 @@ class SearchApiWrapper
         recipe_details = hit["recipe"]
 
         recipes << Recipe.new(recipe_details)
+        end
       end
-    end
     return recipes
   end
 
@@ -31,14 +31,6 @@ class SearchApiWrapper
 
     uri = BASE_URL + "?r=#{URI.encode(uri)}"
     response = HTTParty.get(uri).parsed_response
-    # label = response[0]["label"]
-    # url = response[0]["url"]
-    # uri = response[0]["uri"]
-    # image = response[0]["image"]
-    # ingredients = response[0]["ingredientLines"]
-    # allergy_info =
-    #  response[0]["healthLabels"]
-    #  nutrients = response[0]["totalNutrients"]
     if response
       recipe = Recipe.new(response[0])
       return recipe

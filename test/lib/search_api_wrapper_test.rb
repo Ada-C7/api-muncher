@@ -34,7 +34,7 @@ describe "SearchApiWrapper" do
 
         recipes = SearchApiWrapper.listRecipes("")
         recipes.must_be_kind_of Array
-      end
+    end
   end
 
   describe "self.showRecipe" do
