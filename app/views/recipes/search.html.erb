@@ -1,19 +1,15 @@
-<% unless params[:page] == '1' %>
-<p>
-  <%= link_to "Previous Recipes", recipes_path(:utf8 => params[:utf8], :search => params[:search], :page => (params[:page].to_i - 1), :commit => params[:commit]) %>
-</p>
-<% end %>
-<p>
-  <%= link_to "More Recipes", recipes_path(:utf8 => params[:utf8], :search => params[:search], :page => (params[:page].to_i + 1), :commit => params[:commit]) %>
-</p>
-<ul>
+<div class='row'>
+<%= render partial: "navigation" %>
+
+<ul class="inline-list">
   <% @recipes_list.each do |recipe| %>
-  <li>
+  <li class="small-6 columns">
     <%= image_tag recipe.image  %>
 
     <%= link_to recipe.label, show_recipe_path(recipe.uri[43..-1]) %>
   </li>
   <% end %>
 </ul>
-</tr>
-</tbody>
+
+<%= render partial: "navigation" %>
+</div>

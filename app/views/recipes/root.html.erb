@@ -1,34 +1,38 @@
-<p class='intro'>
-  Avoid asking yourself the question everyone secretly wants
-  to know.
-</p>
-<p class='intro'>
-  "How many days can I eat this without dying?"
-</p>
-<p class='intro'>
-  Find recipes, inspiration, and eat something that doesn't come
-  out of a crinkly, brightly colored bag.
-</p>
-<span class="hidden">
-  Hey, you! Yes, you, the one poking around my site. Are you sneaking around
-  because you're interested in hiring me? Perhaps it's time to check out
-  the div below.
-  <div>
-    <%= link_to "My Github", "https://github.com/moonpastry" %>
-  </div>
-</span>
-<div class='row'>
-
-  <!-- <div class="row collapse"> -->
-  <%= form_tag recipes_path do %>
-
-    <div class='large-4 columns text-center' >
-      <%= text_field_tag :search, params[:search], :method => 'post' %>
-      <%= hidden_field_tag :page, 1 %>
-    <!-- <div class='large-4 columns' class='search-bar'> -->
-      <%= submit_tag "Search" %>
+<body class='row'>
+  <p class='small-9 large-centered columns, intro'>
+    Avoid asking yourself the question everyone secretly wants
+    to know.
+  </p>
+  <p class='small-9 large-centered columns, intro'>
+    "How many days can I eat this without dying?"
+  </p>
+  <p class='small-9 large-centered columns, intro' id='last-p'>
+    Find recipes, inspiration, and eat something that doesn't come
+    out of a crinkly, brightly colored bag.
+  </p>
+  <span class='hidden'>
+    Hey, you! Yes, you, the one poking around my site. Are you sneaking around
+    because you're interested in hiring me? Perhaps it's time to check out
+    the div below.
+    <div>
+      <%= link_to "My Github", "https://github.com/moonpastry" %>
     </div>
-  </button>
-<% end %>
+  </span>
+  <div class='form'>
 
+  </div>
+  <%= form_tag recipes_path do %>
+  <div class='small-9 large-centered columns, search' >
+    <%= text_field_tag :search, params[:search], :method => 'post' %>
+    <%= hidden_field_tag :page, 1 %>
+    <div class='small-1 large-centered columns' >
+    <%= submit_tag "Search" %>
+  </div>
 </div>
+<% end %>
+<!-- <div class='small-5 large-centered columns'> -->
+
+<!-- <img src='instant_noodle_block.png', alt='Beautiful, but Deadly, Chicken Top Ramen' /> -->
+</div>
+</div>
+</body>

@@ -18,16 +18,60 @@
 // @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 @import url('https://fonts.googleapis.com/css?family=Walter+Turncoat');
 
-* { font-family: 'Walter Turncoat' }
+* {
+  font-family: 'Walter Turncoat';
+  // background-repeat: no-repeat;
+  padding: 0;
+
+}
+* ul {
+  list-style-type: none;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #e6a0ff;//rgb(137, 193, 133);
+}
+
+* li {
+  background-color: #e6a0ff;//rgb(137, 193, 133);
+  // font-color: black;
+}
+
+li#right-nav {
+  border: 40px;
+
+}
+
+body {
+  background: url("../instant_noodle_block.png") repeat center center;
+  background-size: 40%;
+  background-color: #e6a0ff;
+  margin: 0;
+  padding: 0;
+}
 
 h1.header {
   font-family: 'Walter Turncoat';
+  text-align: center;
   font-weight: bold;
+  margin-top: 120px;
+  margin-bottom: 0px;
+  background-color: #e6a0ff;//rgb(137, 193, 133);
 }
 
-p.intro, h1.header { text-align: center }
+div.search{
+  background-color: #e6a0ff;
+}
+
+p.intro {
+  background-color: #e6a0ff;//rgb(137, 193, 133);
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 1.5em;
+}
+
+p#last-p {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
 span.hidden { display:none; }
-
-div.search-bar {
-}
