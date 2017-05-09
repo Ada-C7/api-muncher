@@ -23,6 +23,11 @@
       </div>
     </header>
 
+  <section class="row flash">
+    <h3><%= flash[:error_message] %></h3>
+  </section>
+
+
     <main>
       <%= yield %>
     </main>

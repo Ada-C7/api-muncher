@@ -18,7 +18,7 @@
 
  @import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
 
- *, header, h1, h2, .button, h4 {
+ *, header, h1, h2, .button, h4, h3 {
    font-family: "Love Ya Like A Sister", sans-serif;
  }
 
@@ -36,4 +36,8 @@ header {
 
 h1 {
   margin: 0;
+}
+
+.flash {
+  color: #5C246E;
 }
