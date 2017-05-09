@@ -8,7 +8,7 @@ body {
  {
         float: left;
         padding-left: 7%;
-        padding-top: 5%;
+        padding-top: 2%;
         clear: both;
 
 }
@@ -26,7 +26,8 @@ body {
 .search {
   float: left;
   clear: both;
-  padding-top: 5px;
+  padding-top: 0rem;
+  margin-left: 5%;
 }
 
 .header-row {
@@ -35,6 +36,8 @@ body {
 
 h5 {
   margin-left: 2rem;
+  padding-bottom: .5rem;
+  text-align: center;
 }
 
 .ingredients {
@@ -54,12 +57,14 @@ header {
        font-family: Raleway;
        font-size: 6.0em;
        margin-left: 5%;
+       margin-bottom: 5%;
+       margin-top: 1%;
       }
       text-align: left;
       a {
         color:#b7573c;
         &:hover {
-        color:lighten(#b7573c, 10%);
+        color:lighten(#b7573c, 20%);
         }
       }
     }
@@ -100,9 +105,11 @@ ul {
   margin-left: 2rem;
 }
 
+h6 {
+  margin-left: 1rem;
+  margin-bottom: 4rem;
+}
+
 .input-group .input-group-rounded {
     width: 100%;
-    // padding: 12px 20px;
-    // margin: 8px 0;
-    // box-sizing: border-box;
 }

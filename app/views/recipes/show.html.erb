@@ -2,6 +2,7 @@
 
 <section class="ingredients">
   <h5 class "link back"><%= link_to "back to DISH BISH", root_path %></h5>
+    <h4><%= link_to @show_recipe.label, @show_recipe.url %></h4>
     <p><%=image_tag @show_recipe.image %></p>
     <p><%= link_to @show_recipe.label, @show_recipe.url %></p>
 
