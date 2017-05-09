@@ -2,6 +2,12 @@
 <%= @one_result[0]['label'] %>
 <%= link_to @one_result[0]['source'], @one_result[0]['url'], target: :_blank %>
 
-Diet Categories: <%= @one_result[0]['dietLabels'] %>
-Diet Restrictions: <%= @one_result[0]['healthLabels'] %>
-Ingredients: <%= @one_result[0]['ingredientLines'] %>
+Diet Categories: <% @one_result[0]['dietLabels'].each do |diet| %>
+<%= diet %>
+<% end %>
+Diet Restrictions: <% @one_result[0]['healthLabels'].each do |health| %>
+<%= health %>
+<% end %>
+Ingredients: <% @one_result[0]['ingredientLines'].each do |ingredient| %>
+<%= ingredient %>
+<% end %>

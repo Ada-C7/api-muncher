@@ -14,7 +14,7 @@ class Edamam
     query_params = {
       "q" => search_item,
       "id" => ENV["edamam_id"],
-      "key" => ENV["edamam_key"]
+      "key" => ENV["edamam_key"],
     }
     response = HTTParty.get(BASE_URL, query: query_params).parsed_response
     return response["hits"]

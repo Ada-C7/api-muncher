@@ -67,6 +67,8 @@ end
 
 gem 'awesome_print'
 gem 'foundation-rails'
+gem 'will_paginate-foundation'
+
 
 group :test do
   gem 'minitest-rails'
