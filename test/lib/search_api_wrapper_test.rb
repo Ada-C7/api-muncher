@@ -9,7 +9,6 @@ describe "SearchApiWrapper" do
     VCR.eject_cassette("recipe")
   end
 
-
   describe "Testing self.listRecipes" do
 
     it "Can get a list of recipes" do

@@ -46,14 +46,16 @@
     <% @recipe.nutrients.keys.in_groups(2,false).each do |group| %>
       <table class="small-12 medium-6 column">
         <% group.each do |key| %>
-        <tr>
-            <td>
-              <%= @recipe.nutrients[key]["label"] %></td>
-             <td>
-               <%= @recipe.nutrients[key]["quantity"].round(2) %>
-               <%= @recipe.nutrients[key]["unit"] %></td>
-        </tr>
+          <tr>
+              <td>
+                <%= @recipe.nutrients[key]["label"] %>
+              </td>
+              <td>
+                 <%= @recipe.nutrients[key]["quantity"].round(2) %>
+                 <%= @recipe.nutrients[key]["unit"] %>
+              </td>
+          </tr>
         <% end %>
-      <% end %>
       </table>
+    <% end %>
 </div>
