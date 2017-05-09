@@ -67,7 +67,8 @@ end
 
 gem 'awesome_print'
 gem 'foundation-rails'
-gem 'will_paginate-foundation'
+gem 'will_paginate', '~> 3.1', '>= 3.1.5'
+gem 'will_paginate-foundation', '~> 6.2'
 
 
 group :test do
