@@ -1,0 +1,10 @@
+<section class="row">
+  <section class="columns small-10 small-centered medium-9 medium-centered large-6">
+    <h1>Search for a recipe!</h1>
+
+    <%= form_tag(list_recipes_path, :method => "get", id: "search-form") do %>
+      <%= search_field_tag(:query, nil, :placeholder => "Search", :required => true) %>
+      <%= submit_tag "Find Recipe!", class: 'button' %>
+    <% end %>
+  </section>
+</section>

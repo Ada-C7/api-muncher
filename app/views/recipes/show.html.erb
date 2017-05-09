@@ -1,0 +1,48 @@
+<%# raise %>
+<section class="row">
+
+<% @recipe.each do |info| %>
+  <article class="column small-12 medium-5 large-5">
+    <%= image_tag(info.image, :alt => "recipe photo #{info.label}") %>
+  </article>
+
+  <article class="column small-12 medium-7 large-7">
+  <h3><%= info.label %></h3>
+
+  <% if info.url != nil %>
+    <h4><%= link_to "Link to original recipe", info.url, alt: "External link to original recipe", target: "_blank" %></h4>
+  <% else %>
+    <h4>No external link available for this recipe</h4>
+  <% end %>
+
+  <h4>Ingredients</h4>
+  <ul>
+  <% info.ingredientLines.each do |ingredient| %>
+    <li>
+    <%= ingredient %>
+    </li>
+  <% end %>
+  </ul>
+
+  <article id="dietary-info">
+    <h4>Dietary Info</h4>
+    <h5>Diet Labels:</h5>
+    <% if info.dietLabels != [] %>
+      <% info.dietLabels.each do |item| %>
+        <%= item %></br>
+      <% end %>
+    <% else %>
+      <p>Dietary labels have not been discoved for this recipe at this time.</p>
+    <% end %>
+
+    </br><h5>Health Labels:</h5>
+    <% info.healthLabels.each do |item| %>
+      <%= item %></br>
+    <% end %>
+
+    </br><h5>Calories - <%= info.calories %></h5>
+
+  </article>
+  </article>
+<% end %>
+</section>
