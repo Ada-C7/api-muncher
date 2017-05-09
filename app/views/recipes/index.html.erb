@@ -7,19 +7,20 @@
 <% end %>
 
 <section>
-<ul>
 
   <% if @recipes %>
-
+<div class="row">
+  <ul class="large-block-grid-6 medium-block-grid-3 small-block-grid-2 no-bullet">
   <% @recipes_pages.each do |recipe| %>
   <li><%= link_to recipe.name, recipes_show_path(recipe.uri) %></li>
   <!-- <li><%# link_to 'recipe', recipe.uri %></li> -->
-  <li><%= image_tag recipe.image %></li>
+  <li><%= image_tag recipe.image, class: 'th' %></li>
   <% end %>
 <%= will_paginate @recipes_pages, page_links: false %>
   <% end %>
 
 
 </ul>
+</div>
 
 </section>
