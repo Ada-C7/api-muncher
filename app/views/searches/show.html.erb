@@ -1,0 +1,36 @@
+<section class="row">
+  <div class="text-center">
+    <%= image_tag @one_result[0]['image'] %>
+    <h4><%= @one_result[0]['label'] %></h4>
+    <h4>By: <%= link_to @one_result[0]['source'], @one_result[0]['url'], target: :_blank %></h4>
+  </div>
+
+    <div class="medium-uncollapse large-uncollapse">
+      <div class="small-5 large-left columns">
+        Diet Categories: <% @one_result[0]['dietLabels'].each do |diet| %>
+        <ul>
+          <li>
+            <%= diet %>
+          </li>
+        </ul>
+        <% end %>
+        Diet Restrictions: <% @one_result[0]['healthLabels'].each do |health| %>
+        <ul>
+          <li>
+            <%= health %>
+          </li>
+        </ul>
+        <% end %>
+      </div>
+      <div class="small-5 large-right columns">
+        Ingredients: <% @one_result[0]['ingredientLines'].each do |ingredient| %>
+        <ul>
+          <li>
+            <%= ingredient %>
+          </li>
+        </ul>
+        <% end %>
+        Don't feel like cooking anymore? Checkout <%= link_to "NomNomazon", "http://nomnomazon.herokuapp.com/", target: :_blank %>
+      </div>
+    </div>
+</section>
