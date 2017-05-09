@@ -27,14 +27,14 @@
             <%if search.vegan%>
               <span>vegan </span>
             <%end%>
-            <% if search.kosher%>
-              <span>kosher </span>
+            <% if search.treenutfree%>
+              <span>tree-nut-free </span>
             <%end%>
             <% if search.vegetarian%>
               <span>vegetarian </span>
             <%end%>
-            <% if search.paleo%>
-              <span>paleo </span>
+            <% if search.peanutfree%>
+              <span>peanut-free </span>
             <%end%>
           </td>
           <td> <%=search.created_at.month%>/<%=search.created_at.day%>/<%=search.created_at.year%>  </td>
@@ -43,16 +43,16 @@
               <%= hidden_field_tag :search, search.keyword %>
               <%= hidden_field_tag :from, params[:from], value: 0%>
               <%if search.vegan %>
-                <%=hidden_field_tag :vegan, "vegan"%>
+                <%=hidden_field_tag "health[]", "vegan"%>
               <%end%>
-              <%if search.kosher%>
-                <%=hidden_field_tag :kosher, "kosher"%>
+              <%if search.treenutfree%>
+                <%=hidden_field_tag  "health[]", "tree-nut-free"%>
               <%end%>
               <%if search.vegetarian %>
-                <%=hidden_field_tag :vegetarian, "vegetarian"%>
+                <%=hidden_field_tag  "health[]", "vegetarian"%>
               <%end%>
-              <%if search.paleo %>
-                <%=hidden_field_tag :paleo, "paleo"%>
+              <%if search.peanutfree %>
+                <%=hidden_field_tag  "health[]", "peanut-free"%>
               <%end%>
               <%= submit_tag "Search again", :name => nil , class: "button hollow topbar-responsive-button "%>
           <% end %>

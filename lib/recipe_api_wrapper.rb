@@ -19,10 +19,14 @@ class RecipeApiWrapper
     @ingredients = recipe_hash["ingredients"]
   end
 
-  def self.search( keywords, from,  vegan=nil, kosher=nil, vegetarian=nil, paleo=nil, count=false)
-    health_options = RecipeApiWrapper.health_options(vegan, kosher, vegetarian, paleo)
+  def self.search( keywords, from,  health=nil, count=false)
+  health_options = ""
+   if health != nil
+     health.each do |h|
+       health_options << "&health=#{h}"
+     end
+   end
     url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=#{from}&to=#{from.to_i+12}#{health_options}"
-
     response = HTTParty.get(url)
     if count == true
       return response["count"]
@@ -49,13 +53,4 @@ class RecipeApiWrapper
     return recipe
   end
 
-  private
-  def self.health_options(vegan, kosher, vegetarian, paleo)
-    health_options = ""
-    health_options += "&health=" + vegan if vegan != nil
-    health_options += "&health=" + kosher if kosher != nil
-    health_options += "&health=" + vegetarian if vegetarian != nil
-    health_options += "&health=" + paleo if paleo != nil
-    return health_options
-  end
 end

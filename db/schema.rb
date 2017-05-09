@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505192006) do
+ActiveRecord::Schema.define(version: 20170509140313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 20170505192006) do
     t.integer  "user_id"
     t.string   "keyword"
     t.boolean  "vegan"
-    t.boolean  "kosher"
+    t.boolean  "treenutfree"
     t.boolean  "vegetarian"
-    t.boolean  "paleo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "peanutfree"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_searches_on_user_id", using: :btree
   end
 

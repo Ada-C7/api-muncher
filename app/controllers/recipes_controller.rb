@@ -5,14 +5,12 @@ class RecipesController < ApplicationController
     def view_recipes
       # @@total_number - total number of recepies with search term (I need it to calculate number of pages to display in a view )
       if params[:from].to_i == 0
-        @@total_number =  RecipeApiWrapper.search(params[:search],params[:from], params[:vegan], params[:kosher],
-         params[:vegetarian], params[:paleo], count = true)
+        @@total_number =  RecipeApiWrapper.search(params[:search],params[:from],params[:health], count = true)
         if @@total_number != nil
           @@total_number = 300 if @@total_number > 300 #api gives max 300 results
         end
       end
-      @recipes = RecipeApiWrapper.search(params[:search], params[:from], params[:vegan], params[:kosher],
-       params[:vegetarian], params[:paleo], count = false)
+      @recipes = RecipeApiWrapper.search(params[:search], params[:from],params[:health], count = false)
 
       if @@total_number  == nil || @@total_number == 0 || @recipes == nil || @recipes.length == 0
         flash[:result_text] = "Could not find recipes. Try again"
@@ -29,11 +27,12 @@ class RecipesController < ApplicationController
 
       if @login_user
         @search = Search.new(user_id: @login_user.id, keyword: params[:search])
-        @search.set_up_search(params[:vegan], params[:kosher], params[:vegetarian], params[:paleo])
-
+        if params[:health] != nil
+          @search.set_up_search(params[:health])
+        end
         @user_search = Search.find_by(user_id: @login_user.id, keyword: params[:search],
-                                  vegan: @search.vegan, kosher: @search.kosher,
-                                  vegetarian: @search.vegetarian, paleo: @search.paleo )
+                                  vegan: @search.vegan, treenutfree: @search.treenutfree,
+                                  vegetarian: @search.vegetarian, peanutfree: @search.peanutfree)
         if @user_search == nil
           @search.save
         end

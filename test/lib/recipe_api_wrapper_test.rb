@@ -65,14 +65,4 @@ describe "RecipeApiWrapper" do
       end
     end
 
-    describe "self.health_options" do
-      it "return string if at least one options are given" do
-        vegan,kosher, vegetarian, paleo = "vegan","kosher", "vegetarian", "paleo"
-        RecipeApiWrapper.health_options(vegan, kosher, vegetarian, paleo).must_be_kind_of String
-      end
-      it "return empty string if all arguments are nil" do
-        vegan,kosher, vegetarian, paleo = nil,nil,nil,nil
-        RecipeApiWrapper.health_options(vegan, kosher, vegetarian, paleo).must_equal ""
-      end
-    end
   end

@@ -5,17 +5,14 @@
     <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
     <li class="is-active orbit-slide">
       <img class="orbit-image" src="http://i.huffpost.com/gen/2745340/images/o-ORGANIC-facebook.jpg" width ="1200px" height = "700px"  alt="Space" />
-
       <figcaption class="orbit-caption">Search for recipes</figcaption>
     </li>
     <li class="orbit-slide">
       <img class="orbit-image" src="http://ichef.bbci.co.uk/wwfeatures/wm/live/1280_640/images/live/p0/4t/x3/p04tx3m6.jpg"  alt="Space">
-
       <figcaption class="orbit-caption">We have a lot of recipes for everybody   </figcaption>
     </li>
     <li class="orbit-slide">
       <img class="orbit-image" src="http://ti-art.kiev.ua/wp-content/uploads/2017/01/dostavka-edy-iz-restoranov-kieva.jpg" width ="1200px" height = "700px"  alt="Space">
-
       <figcaption class="orbit-caption"> Find your favorite recipes </figcaption>
     </li>
   </ul>
@@ -30,14 +27,14 @@
   <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Recipes", id: "search-field"%>
     <%= hidden_field_tag :from, params[:from], value: 0%>
-      <%= label_tag "vegan" %>
-      <%=check_box_tag :vegan,"vegan"%>
-      <%= label_tag "kosher" %>
-      <%=check_box_tag :kosher,"kosher"%>
-      <%= label_tag "vegetarian" %>
-      <%=check_box_tag :vegetarian,"vegetarian"%>
-      <%= label_tag "paleo" %>
-      <%=check_box_tag :paleo,"paleo"%>
+    <%= label_tag "Tree-nut-free"%>
+    <%= check_box_tag "health[]", "tree-nut-free"%>
+    <%= label_tag "Vegetarian"%></li>
+    <%= check_box_tag "health[]", "vegetarian"%>
+    <%= label_tag "Vegan"%></li>
+    <%= check_box_tag "health[]", "vegan"%>
+    <%= label_tag "Peanut-free"%>
+    <%= check_box_tag "health[]", "peanut-free"%>
     <%= submit_tag "Search", :name => nil , class: "button hollow topbar-responsive-button", id: "search-button"%>
   <% end %>
 </section>

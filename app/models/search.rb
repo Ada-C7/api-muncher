@@ -1,11 +1,18 @@
 class Search < ApplicationRecord
   belongs_to :user
 
-  def set_up_search(vegan, kosher, vegetarian, paleo)
-    vegan== nil ? self.vegan = false : self.vegan = true
-    kosher == nil ? self.kosher = false : self.kosher = true
-    vegetarian == nil ? self.vegetarian = false : self.vegetarian = true
-    paleo == nil ? self.paleo = false : self.paleo = true
+  def set_up_search(health)
+    health.each do |option|
+      if option == "vegan"
+        self.vegan = true
+      elsif  option == "tree-nut-free"
+        self.treenutfree = true
+      elsif  option == "peanut-free"
+        self.peanutfree = true
+      elsif  option == "vegetarian"
+        self.vegetarian = true
+      end
+    end
   end
 
 end
