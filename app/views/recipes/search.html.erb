@@ -1,15 +1,28 @@
+
+    <%= render partial: "navigation" %>
+
 <div class='row'>
-<%= render partial: "navigation" %>
-
-<ul class="inline-list">
-  <% @recipes_list.each do |recipe| %>
-  <li class="small-6 columns">
-    <%= image_tag recipe.image  %>
-
-    <%= link_to recipe.label, show_recipe_path(recipe.uri[43..-1]) %>
-  </li>
-  <% end %>
-</ul>
-
-<%= render partial: "navigation" %>
+  <div class='small-9 large-centered columns, recipe-list'>
+    <ul>
+      <% @recipes_list.each do |recipe| %>
+      <li>
+        <div class='row'>
+          <div class='small-9 large-centered columns'>
+            <%= image_tag recipe.image  %>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='small-9 large-centered columns'>
+            <%= link_to recipe.label, show_recipe_path(recipe.uri[43..-1]) %>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
+<!-- <div class='row'>
+<div class='small-9 large-centered columns'> -->
+<%= render partial: "navigation" %>
+<!-- </div>
+</div> -->
