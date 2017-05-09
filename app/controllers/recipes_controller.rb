@@ -7,7 +7,9 @@ class RecipesController < ApplicationController
 
   def list
     recipe = Recipe.new
-    session[:search_terms] << params[:search_term]
+    if session[:search_terms].last != params[:search_term]
+      session[:search_terms] << params[:search_term]
+    end
     @search_word = params[:search_term] if @search_word == nil
     @recipes = recipe.send_search(params[:search_term], params[:from], params[:to], params[:health])
     @health = params[:health]

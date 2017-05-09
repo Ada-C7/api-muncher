@@ -6,7 +6,12 @@
   <%= hidden_field_tag :to, 12 %>
   <!-- shows 7 previously searched terms. -->
   <% if session[:search_terms] != [] %>
-    <% num = session[:search_terms].length %>
+    <% if 7 > session[:search_terms].length %>
+      <% num = session[:search_terms].length %>
+    <% else %>
+      <% num = 7 %>
+    <% end %>
+
   Previously searched: <% search_terms = session[:search_terms][-num..-1]%>
     <% search_terms.each do |search| %>
     <%= link_to " #{search}. ", search_path(search_term: "#{search}") %>
