@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require foundation_and_overrides
+
+*/
+
+article {
+  display: inline-block;
+}
+
+
+.recipe-link {
+  border: 0.5px solid #f8ac8b;
+  border-radius: 15px;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+}
+
+ .recipe-link p {
+   margin: 0px;
+ }
+
+
+ .index-picture {
+   width: 200px;
+   height: 200px;
+   border-radius: 15px;
+ }
+
+
+
+
+.main-title1, .main-title2, .main-title3, .show{
+  color: darkgreen;
+}
+.main-title1 {
+  margin-left: 10%;
+}
+
+.main-title2 {
+  margin-left: 20%;
+}
+.main-title3 {
+  margin: auto;
+  padding-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.main-title-image {
+  display: block;
+  margin: auto;
+  border-radius: 15px;
+  max-width: 28%;
+}
+.search{
+  width: 60%;
+  margin: auto;
+  padding-left: 30%;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.welcome {
+  font-family: Lobster;
+}
+
+
+body {
+  background-color: #d6f8b9;
+}
+
+
+a:link {
+  color: darkgreen;
+}
+
+a:visited{
+  color: #841306;
+}
+
+a:hover {
+  color: orange;
+}
+
+body.list{
+  color: darkgreen;
+}
+
+
+footer{
+  border-top: 1.5px solid green;width:100%;
+}
+.text-center{
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+
+.attribution{
+  /*display: inline-block;*/
+  color: darkgreen;
+  align-text: center;
+  margin-bottom: 0;
+}
+
+.logo {
+  /*display: inline-block;*/
+  height: 3rem;
+  width: 9rem;
+  /*margin-left: 2rem;*/
+  /*align-content: center;*/
+  margin: auto;
+}
+
+/*form.button_tov_link.na {
+max-width: 20%;
+margin: 0;
+}
+
+form.button_to.nav_link, p.view_count {
+display: inline-block;
+margin: auto;
+margin-bottom: 0.5em;
+}*/
+/*
+.pager {
+max-width: 60%;
+margin-left: 28%;
+}*/
