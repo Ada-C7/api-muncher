@@ -12,15 +12,27 @@ class RecipesController < ApplicationController
                         diet: params[:diet]
                       }
       results = get_api_search(search_params)
-      @list_of_recipes = Recipe.list_of_recipes(results)
+      # raise
+      if results.nil? || results.empty?
+        flash[:failure] = "Sorry - there are no results for that search"
+        redirect_to recipes_path
+      else
+        @list_of_recipes = Recipe.list_of_recipes(results)
+      end
     end
   end
 
-  # will show results from search
+  # will show individual recipe result
   def show
     search_params = { recipe_id: params[:id] }
-    recipe_results = get_api_search(search_params)
-    @recipe = Recipe.individual_recipe(recipe_results)
+    results = get_api_search(search_params)
+
+    if results.nil?
+      flash[:failure] = "Recipe Not Found"
+      redirect_to recipes_path
+    else
+      return @recipe = Recipe.individual_recipe(results)
+    end
   end
 
 private

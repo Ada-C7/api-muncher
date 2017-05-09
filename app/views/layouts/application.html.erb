@@ -19,6 +19,12 @@
       <div class="header_nav large-2 small-2 columns"><%= link_to "New Search", recipes_path %></div>
     </header>
 
+    <section class="flash row">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
+
     <main class="row">
       <%= yield %>
     </main>

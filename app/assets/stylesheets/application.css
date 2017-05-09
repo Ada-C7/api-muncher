@@ -46,6 +46,11 @@ h1.head-title {
   text-align: right;
 }
 
+.flash {
+  text-align: center;
+  font-size: 1.75em;
+  color: blue;
+}
 
 /*main body styling*/
 

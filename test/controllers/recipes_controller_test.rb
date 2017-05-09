@@ -41,10 +41,11 @@ describe RecipesController do
       must_respond_with :success
     end
 
-    it 'returns 404 not found if given bad id' do
+    it 'returns not found if given bad id' do
       VCR.use_cassette("search_results") do
-        p get recipe_path(@bad_id)
+         get recipe_path(@bad_id)
       end
+      must_respond_with :success
     end
   end
 end

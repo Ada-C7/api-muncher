@@ -41,7 +41,8 @@ class EdamamSearch
     response = HTTParty.get(url, query: query_params)
     # raise
     if response.parsed_response.nil? || response.parsed_response.empty? || response.include?("<!DOCTYPE html>")
-      raise EdamamException.new("No results for that search")
+      # raise EdamamException.new("No results for that search")
+      return nil
     elsif response.count == 1
       return response[0]
     elsif response["hits"]

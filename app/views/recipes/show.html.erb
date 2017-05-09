@@ -19,7 +19,6 @@
   <article class="recipe_results large-3 columns">
     <h3>Diets</h3>
 
-    <!-- <ul> -->
       <% if @recipe.diets %>
         <% @recipe.diets.each do |diet| %>
           <p><%= diet %></p>
@@ -34,7 +33,6 @@
       <% else %>
         <p>There is no diet information available for this recipe</p>
       <% end %>
-    <!-- </ul> -->
   </article>
 
   <article class="large-12 columns">
