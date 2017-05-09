@@ -1,18 +1,26 @@
 <h2><%= @search_term.capitalize %> Recipes</h2>
 
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li>
-      <%= link_to recipe_path(uri: recipe.uri) do %>
-        <%= image_tag(recipe.image_url, class: "small-img") %>
-        <span><%= recipe.title %></span>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<section id="search-results" class="row">
+  <ul>
+    <% @recipes.each do |recipe| %>
+      <li>
+        <%= link_to recipe_path(uri: recipe.uri) do %>
+          <%= image_tag(recipe.image_url, class: "small-img") %>
+          <span><%= recipe.title %></span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 
-<% unless @page == 1 %>
-  <%= link_to "Previous", recipes_path(q: @search_term, page: @page - 1) %>
-<% end %>
+  <section id="page-links">
+    <% unless @page == 1 %>
+      <%= link_to "<< Previous", recipes_path(q: @search_term, page: @page - 1) %>
+      <span>&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+    <% end %>
 
-<%= link_to "Next", recipes_path(q: @search_term, page: @page + 1) %>
+    <%= link_to "New Search", root_path %>
+    <span>&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+
+    <%= link_to "Next >>", recipes_path(q: @search_term, page: @page + 1) %>
+  </section>
+</section>

@@ -29,10 +29,17 @@ section#search {
   margin-top: 4rem;
 }
 
+section#search-results {
+  background-color: white;
+  max-width: 800px;
+  padding: 20px;
+}
+
 h1, h2 {
   text-align: center;
   font-weight: bold;
   color: white;
+  margin: 0px;
 }
 
 h2 {
@@ -41,12 +48,17 @@ h2 {
 }
 
 img.small-img {
-  width: 60px;
-  margin-right: 5px;
+  width: 150px;
+  margin-right: 10px;
+}
+
+ul {
+  margin: 0px;
 }
 
 li {
   list-style-type: none;
+  padding: 10px;
 }
 
 input#q {
@@ -59,6 +71,11 @@ input[type="submit"] {
   text-align: center;
   height: 39px;
   width: 20%;
+}
+
+section#page-links {
+  margin-top: 20px;
+  text-align: center;
 }
 
 /* FOOTER */
