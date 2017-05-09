@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "HunchMunch" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <header>
+    <nav>
+      <h1> Hunch <%= link_to image_tag('monkey.png'), root_path %> Munch </h1>
+    </nav>
+    </header>
+
+    <section class='flash'>
+      <% flash.each do |name, message| %>
+          <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
+
+  <main>
+    <%= yield %>
+  </main>
+
+<footer>
+  Powered by <%= image_tag ("https://corehealth.global/images/default-source/meetwilo-screenshots/edamam-logo.png?sfvrsn=10"), :class => "footercredit" %>
+</footer>
+  </body>
+</html>

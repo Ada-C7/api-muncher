@@ -1,0 +1,53 @@
+<h2 class="recipetitle"><%= @recipe[0]['label']%></h2>
+
+<%= link_to "Back to Search", :back, :class => 'backsearch' %>
+
+<div class='showtop'>
+
+  <div>
+    <h4 class='ogsite'>Original Recipe:  <%= link_to "#{@recipe[0]['source']}", @recipe[0]['url'] %></h4>
+      <%= image_tag @recipe[0]['image'], onerror: 'this.error=null;this.src="https://uos.edu.pk/assets/backend/images/staff/imagenotfound.svg"', :alt => "Picture related to recipe", :class => 'showimage' %>
+  </div>
+
+  <section class='ingredientlist'>
+    <h3 class='ingredientlist'>Ingredients:</h3>
+
+      <ul >
+          <% @recipe[0]['ingredientLines'].each do |line| %>
+              <li> <%= line %> </li>
+          <%end%>
+      </ul>
+
+      <h3> Dietary Labels: </h3>
+      <ul>
+          <% @recipe[0]['healthLabels'].each do |label| %>
+              <li> <%= label %> </li>
+          <%end%>
+
+          <% @recipe[0]['dietLabels'].each do |label| %>
+              <li> <%= label %> </li>
+          <%end%>
+      </ul>
+
+  </section>
+
+</div>
+
+
+<section class="nutritionfacts row">
+<h3 class='small-12 columns'>Nutrition Facts:</h3>
+<table>
+  <tr>
+    <th> Nutrient </th>
+    <th> Amount </th>
+  </tr>
+
+    <% @recipe[0]['totalNutrients'].each do |nutrient| %>
+    <tr>
+     <td><%= nutrient[1]["label"] %></td>
+     <td><%= "#{nutrient[1]["quantity"].floor} #{nutrient[1]["unit"]}" %></td>
+   </tr>
+     <%end%>
+</table>
+
+</section>
