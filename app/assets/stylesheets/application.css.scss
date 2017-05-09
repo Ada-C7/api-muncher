@@ -1,89 +1,15 @@
 /*
-* This is a manifest file that'll be compiled into application.css, which will include all the files
-* listed below.
-*
-* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
-* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
-*
-* You're free to add application-wide styles to this file and they'll appear at the bottom of the
-* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
-* files in this directory. Styles in this file should be added after the last require_* statement.
-* It is generally better to create a new file per style scope.
-*
-*= require_tree .
-*= require_self
-*= require foundation_and_overrides
-
-*/
-
-
-
-
-body {
-  height: 100%;
-}
-
-header {
-  .head {
-    h1 {
-      font-family: Raleway;
-      font-size: 10.0em;
-      margin-left: -5%;
-    }
-    text-align:center;
-    a {
-      color:#b7573c;
-      &:hover {
-        color:lighten(#b7573c, 10%);
-      }
-    }
-  }
-
-
-  .nav-bar {
-    margin-top: 2%;
-    display:inline;
-  }
-}
-
-.centering {
-  text-align:center;
-}
-
-h1.centering {
-  font-size: 80;
-  font-family: 'Raleway';
-  color:#b7573c;
-
-  a {
-    color:#b4c4a4;
-    &:hover {
-      color:lighten(#b4c4a4, 10%);
-    }
-  }
-
-}
-.button {
-  border-radius: 4px;
-
-}
-
-ul {
-  width: 200px;
-  height: 200px;
-  list-style-type: none;
-
-}
-
-nav {
-  text-align: right;
-}
-
-input {
-  width: 15%;
-}
-
-.input-group-rounded .input-group-field {
-  border-radius: 5000px 0 0 5000px;
-  padding-left: 1rem;
-}
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */

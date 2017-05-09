@@ -5,14 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
-  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+<section class="video">
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=122758334474055";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-video" data-href="https://www.facebook.com/LADbible/videos/3190589704321531/" data-width="125" data-show-text="false" data-autoplay="true"><blockquote cite="https://www.facebook.com/LADbible/videos/3190589704321531/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/LADbible/videos/3190589704321531/">Crab Eats Strawberry</a><p>Just a tiny crab eating a strawberry 🦀🍓</p>Posted by <a href="https://www.facebook.com/LADbible/">LADbible</a> on Thursday, April 27, 2017</blockquote></div>
+</section>
+
+<header class="header row">
+<section class= "columns large-12 small-12 head">
+  <h1><%= link_to "DISH BISH", root_path %></h1>
+  <small>For hungry.</small>
+</section>
+</header>
+
 <body>
 
-  <%= yield %>
 
+  <%= yield %>
 </body>
+
+
 </html>

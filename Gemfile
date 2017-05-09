@@ -65,6 +65,7 @@ end
  gem 'will_paginate'
  gem 'emoji'
 
+
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'

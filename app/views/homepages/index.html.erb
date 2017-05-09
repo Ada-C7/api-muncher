@@ -1,29 +1,30 @@
 <main class="row">
 
-  <h1 class="centering"> DISH BISH</h1>
-
-  <section class="centering">
-    <%= form_tag homepages_index_path, method: "get" do %>
-    <%= submit_tag "What sounds good?", class: 'button' %>
-    <%= text_field_tag(:search_term, nil, :placeholder => "What sounds good?", :required => true ) %>
-
-  </section>
-  <% end %>
-  <div class="row small-up-2 medium-up-3 large-up-5">
-
+  <header class="header row">
+    <!-- recipe search -->
+    <!-- <object width="50" height="50" align="right"></object> -->
+    <section class="search">
+      <%= form_tag homepages_index_path, method: "get" do %>
+      <%= submit_tag "Search", class: 'button' %>
+      <%= text_field_tag(:search_term, nil, :placeholder => "What sounds good?", :required => true ) %>
+    </section>
+    <% end %>
+    <!-- search results -->
+    <div class="row small-up-2 medium-up-3 large-up-5">
       <% if @search_recipes != nil %>
       <p><%= will_paginate @search_recipes, class: "row" %></p>
       <% @search_recipes.each do |recipe| %>
       <section class="columns">
-          <%= link_to recipe.label, recipe_path(:recipe => recipe.uri) %></br>
-          <%= link_to image_tag(recipe.image), recipe_path(:recipe => recipe.uri) %></br>
+        <%= link_to recipe.label, recipe_path(:recipe => recipe.uri) %></br>
+        <%= link_to image_tag(recipe.image), recipe_path(:recipe => recipe.uri) %></br>
       </section>
       <% end %>
+      <% end %>
     </div>
-  <% else %>
-  <p>
-    <%= "What the hell kind of food is that? Try again." %>
-  </p>
-  <% end %>
 
+
+
+
+
+  </header>
 </main>
