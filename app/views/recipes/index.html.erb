@@ -1,0 +1,32 @@
+<section class="large-12 columns">
+
+  <% if @list_of_recipes.nil? %>
+    <article class="large-5 columns small-3 columns">
+      <p>Our search finds recipies from all over the web.</p>
+      <p>Search by any topic and filter by common dietary needs</p>
+    </article>
+
+    <article class="large-7 small-10 columns">
+      <%= render partial: "searchForm" %>
+    </article>
+
+</section>
+
+  <% else %>
+
+<section class="large-12 columns">
+  <h1>Search Results</h1>
+    <nav>
+      <%= render partial: "searchNav" %>
+    </nav>
+
+    <article class"large-8 small-10 columns">
+      <%= render partial: "searchResults" %>
+    </article>
+</section>
+
+<nav>
+  <%= render partial: "searchNav" %>
+</nav>
+
+  <% end %>

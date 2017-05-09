@@ -1,0 +1,147 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Lato');
+
+
+/*header styling*/
+
+header.header_banner {
+  background-color: lightgrey;
+  background-image: url("https://bestfoodrestaurants.files.wordpress.com/2016/05/italian-food-banner.jpg?w=810");
+  background-repeat: no-repeat;
+  background-size: auto;
+  max-width: 100%;
+ }
+
+.header_nav {
+  border: none;
+  font-size: 1.5em;
+  margin-top: 11%;
+  text-align: right;
+}
+
+h1.head-title {
+  border: none;
+  color: Midnightblue;
+  /*font-family: 'Inconsolata';*/
+  font-size: 5em;
+  margin-top: 2.5%;
+  margin-left: 40%;
+  margin-bottom: 3%;
+  text-align: right;
+}
+
+.flash {
+  text-align: center;
+  font-size: 1.75em;
+  color: blue;
+}
+
+/*main body styling*/
+
+article {
+  font-family: 'Lato';
+  font-size: 1.2em;
+  margin-top: 2%;
+}
+
+article.recipe_results {
+  margin: 0;
+  text-align: center;
+}
+
+ul,
+li,
+p {
+  font-family: 'Lato';
+  font-size: 1em;
+  margin: 0.5%;
+  text-align: left;
+}
+
+h1.large-12 {
+  padding: 0;
+  border-bottom: none;
+  margin-top: 1%;
+  margin-bottom: 0%;
+  font-size: 2.5em;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Inconsolata';
+  text-align: left;
+}
+
+h3 {
+  border-bottom: solid;
+}
+
+div.large-3.columns {
+  padding-left: 0;
+  padding-right: 1%;
+}
+
+.recipe_result a {
+   font-size: 0.9em;
+   margin-top: 1%;
+   margin-bottom: 0;
+   padding: 0;
+ }
+
+form {
+  text-align: center;
+  width: 100%;
+}
+
+.search_label label {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.large-4 {
+  text-align: center;
+}
+
+.columns:last-child:not(:first-child) {
+  float: left
+}
+
+nav {
+  text-align: center;
+}
+
+.search_buttons {
+  margin: 1%;
+  text-align: center;
+}
+
+.button {
+  border-radius: 1.25em;
+  margin-bottom: 0;
+  margin-top: 0.25em;
+}
+
+/*footer styling*/
+.edamam {
+  text-align: right;
+  font-style: italic;
+  bottom: 0;
+ }
