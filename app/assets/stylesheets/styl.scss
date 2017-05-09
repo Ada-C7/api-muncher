@@ -13,8 +13,27 @@ body {
 
 }
 
-.search  {
-  text-align: right;
+.columns {
+  padding-left: 7px;
+  padding-right: 7px;
+  margin-left: 7px;
+  margin-right: 7px;
+
+}
+
+.search {
+  float: left;
+  clear: both;
+  padding-top: 5px;
+}
+
+.header-row {
+  float:left;
+}
+
+blockquote {
+  clear: both;
+  display: inline;
 }
 
 header {
@@ -45,16 +64,13 @@ header {
 .button {
   border-radius: 4px;
 
+
 }
 
 ul {
   width: 200px;
   height: 200px;
   list-style-type: none;
-
-}
-text-field-tag {
-    width: 200px;
 }
 
 .input-group-rounded .input-group-field {
