@@ -16,7 +16,6 @@ class SearchesController < ApplicationController
     session[:from] = 0
     session[:to] = 12
     session[:health] = nil
-    # raise
   end
 
   def recipes
@@ -32,11 +31,8 @@ class SearchesController < ApplicationController
     if !@results.empty?
       session[:search_count] = @results.last # get the count for the session
       @results = @results[0..-2]
-      if session[:recent_searches].last != @results.last
-        session[:recent_searches] << @results.last #shovel the search into the list
-      end
+      session[:recent_searches] << @results.last #shovel the search into the list
       @results = @results[0..-2]
-      # raise
     end
 
   end
@@ -95,8 +91,13 @@ class SearchesController < ApplicationController
 
   def limit_recent_searches
     session[:recent_searches] ||= []
+    # limiting list to 10 most recent searches
     if session[:recent_searches].length > 10
       session[:recent_searches] = session[:recent_searches][-10..-1]
+    end
+    # limiting so no duplicates from pagination
+    if session[:recent_searches][-1] == session[:recent_searches][-2]
+      session[:recent_searches] = session[:recent_searches][0..-2]
     end
   end
 
