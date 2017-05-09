@@ -3,11 +3,11 @@
   <header class="header row">
     <!-- recipe search -->
     <!-- <object width="50" height="50" align="right"></object> -->
-    <section class="search">
+    <div class="search">
       <%= form_tag homepages_index_path, method: "get" do %>
       <%= submit_tag "Search", class: 'button' %>
-      <%= text_field_tag(:search_term, nil, :placeholder => "What sounds good?", :required => true ) %>
-    </section>
+      <%= text_field_tag(:search_term, nil, class: 'input-small', :placeholder => "Enter your favorite ingredient and Strawberry Crab will give you some ideas.", :required => true ) %>
+    </div>
     <% end %>
     <!-- search results -->
     <div class="row small-up-2 medium-up-3 large-up-5">
@@ -21,10 +21,5 @@
       <% end %>
       <% end %>
     </div>
-
-
-
-
-
   </header>
 </main>
