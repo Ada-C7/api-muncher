@@ -17,6 +17,8 @@ class EdamamRecipes
   end
 
   def self.get_recipes(search_request, from, to)
+
+    # tried to make query_params work, but it was buggy
     # query_params = {
     #   "app_id" => ENV["EDAMAM_APP_ID"],
     #   "app_key" => ENV["EDAMAM_APP_KEY"],
@@ -27,11 +29,6 @@ class EdamamRecipes
 
     recipes = HTTParty.get("https://api.edamam.com/search?q=#{search_request}&app_id=#{ENV["EDAMAM_APP_ID"]}&app_key=#{ENV["EDAMAM_APP_KEY"]}&from=#{from}&to=#{to}")
     recipe_array = []
-    # if recipes["hits"] == "nil"
-    #   flash[:status] = :failure
-    #   flash[:result_text] = "Sorry, no results were found for your search. \n Would you like to search for something else?"
-    #   redirect_to root_path
-    # else
      recipes["hits"].each do |recipe|
        recipe_array << self.new({ uri: recipe["recipe"]["uri"], label: recipe["recipe"]["label"], image: recipe["recipe"]["image"] })
      end

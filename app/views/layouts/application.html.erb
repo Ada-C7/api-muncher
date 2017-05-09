@@ -12,10 +12,12 @@
   </head>
 
   <body>
-    <header>
-      <h1><%= image_tag("Pie_Clip_Art.jpg", alt: "pie on tablecloth") %>Welcome to Muncher!</h1>
+    <header class="row">
+      <div class="small-8, large-4 columns" id="main_photo"><%= image_tag("Pie_Clip_Art.jpg", alt: "pie on tablecloth") %></div>
 
-      <h2>What do you feel like making tonight?</h2>
+      <div class="small-8, large-4 columns" class="center">
+        <h2>Welcome to Muncher!</h2>
+      <h3>What do you feel like making tonight?</h3>
 
 
         <%= form_tag recipes_path, method: :get do %>
@@ -27,7 +29,7 @@
 
           <%= submit_tag "Get Recipes!" %>
         <% end %>
-
+      </div>
     </header>
 
     <% if flash[:result_text] or flash[:messages] %>

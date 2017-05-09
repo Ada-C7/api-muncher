@@ -16,6 +16,7 @@ attr_reader :recipe_array, :recipe
 
   def show
     @recipe = EdamamRecipes.find_recipe(params[:uri])
+    render_404 unless @recipe != []
   end
 
 

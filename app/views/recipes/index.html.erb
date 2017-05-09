@@ -1,3 +1,4 @@
+<div class="buttons">
 <% from = (params[:from].to_i + 10).to_s %>
 <% to = (params[:to].to_i + 10).to_s %>
 <% if @recipe_array.length >= 9 %>
@@ -10,9 +11,11 @@
 <%= link_to "Previous Recipes", recipes_path("from" => from, "to" => to, "search_request" => params[:search_request]), method: :get, class: "button" %>
 <% end %>
 
-<%= link_to "back to previous page", :back, class: "button" %>
+<%= link_to "Back to Previous Page", :back, class: "button round" %>
+</div>
 
-<h3>You have good taste! Here are some recipe ideas:</h3>
+<h3 id="positive">You have good taste! Here are some recipe ideas:</h3>
+
 
 <main>
   <div class="row">
