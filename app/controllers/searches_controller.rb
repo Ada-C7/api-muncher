@@ -112,7 +112,5 @@ class SearchesController < ApplicationController
     end
   end
 
-  # def recent_searches
-  # end
 
 end
