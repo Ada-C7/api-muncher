@@ -1,0 +1,116 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+*/
+
+
+
+  /*font-family: Georgia,serif;*/
+
+  .main-h{
+    height: 150px;
+    background-color: white;
+    color: salmon;
+
+  }
+  .main-h h1 {
+    margin-top: 35px;
+    margin-right: 250px;
+  }
+
+  a {
+    color: blue;
+  }
+
+  a:hover {
+    color: salmon;
+  }
+
+  .image {
+    height: 400px;
+    width: 600px;
+  }
+
+
+  li {
+    list-style: none;
+    font-weight: bold;
+  }
+
+  h3 {
+    text-shadow: -1px 0 white, 0  1px white, 1px 0 white, 0  -1px white;
+  }
+
+  .footer{
+    position: relative;
+    top: 300px;
+    height: 100px;
+    background-color: white;
+    text-align: center;
+    margin-top: 100px;
+
+  }
+
+  body {
+   text-align: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-image: url("fruit2.jpg");
+   background-pacity:.4;
+  }
+
+  .allergy {
+    float:right;
+    margin: 0 0 10px 10px;
+  }
+
+ .pagination a {
+   display: inline-block;
+   color: white;
+ }
+
+ .page {
+   text-align: center;
+ }
+
+.search-form {
+  display: block;
+  text-align: center;
+}
+
+.form {
+  width: 200px;
+}
+
+ .diet-table {
+   font-size: .9em;
+   width: 37em;
+ }
+
+.input-group{
+  margin-top: 50px;
+}
+
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+}
+
+.input-group-button .button-secondary{
+  border-radius: 0 5000px 5000px 0;
+  padding-right: 1rem;
+  background: salmon;
+  font-family:'Courgette', cursive;
+}
