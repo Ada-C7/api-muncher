@@ -1,6 +1,8 @@
-<h1>Recipe Search</h1>
+<section id="search" class="row">
+  <h1>Recipe Search</h1>
 
-<%= form_tag("/recipes", method: "get") do %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
+  <%= form_tag("/recipes", method: "get") do %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</section>
