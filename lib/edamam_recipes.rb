@@ -33,7 +33,6 @@ class EdamamRecipes
        recipe_array << self.new({ uri: recipe["recipe"]["uri"], label: recipe["recipe"]["label"], image: recipe["recipe"]["image"] })
      end
     return recipe_array
-    # end
   end
 
   def self.find_recipe(uri)

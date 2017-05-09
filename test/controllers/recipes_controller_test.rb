@@ -31,7 +31,6 @@ describe RecipesController do
 
     it "renders 404 not_found for an invalid recipe" do
       VCR.use_cassette("responses") do
-        # ng_uri = @recipe_array.last.uri +
         get recipe_path("it'safakjhkghjhddssddffke")
         must_respond_with :not_found
     end
