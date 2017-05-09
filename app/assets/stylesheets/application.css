@@ -19,18 +19,15 @@
  */
 
  @import url('https://fonts.googleapis.com/css?family=Inknut+Antiqua');
- /*@import url('https://fonts.googleapis.com/css?family=Ravi+Prakash')*/
- /*@import url('https://fonts.googleapis.com/css?family=BioRhyme')*/
-
 
 * {
  font-family: 'Inknut Antiqua', serif;
- /*background-color: gray;*/
 }
 
 header {
   text-align: left;
   padding-right: 20%;
+  font-family: 'Inknut Antiqua', serif;
 }
 
 #main_photo {
@@ -38,32 +35,54 @@ header {
   margin-left: 30%;
 }
 
+h2, h3, h4 {
+  font-family: 'Inknut Antiqua', serif;
+}
+
  h2 {
    margin-top: 10%;
+   margin-right: 20%;
+ }
+
+ h4 {
+   margin-top: 5%;
    margin-right: 20%;
  }
 
  .buttons {
    text-align: center;
    margin-top: 5%;
-   border-radius: 2%;
+ }
+
+ .button {
+   background-color: #962559;
+   border-radius: 50%;
  }
 
  #positive {
    text-align: center;
-    margin-top: 2%;
+   margin-top: 2%;
  }
 
- main {
-   margin: 5%;
+ main, body {
+   margin-top: 5%;
+   text-align: center;
  }
 
- .helper {
-     border: 2px solid lightgray;
-     display: inline-block;
+#show {
+   margin-left: 15%;
+ }
+
+.label {
+  background-color: gray;
+}
+
+ ul {
+   list-style-type: none;
  }
 
  footer {
    text-align: center;
    margin-top: 10%;
+   font-size: 1.5em;
  }

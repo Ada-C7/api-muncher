@@ -1,41 +1,47 @@
 
+<div class="buttons">
+<%= link_to "Back to Previous Page", :back, class: "button round" %>
+</div>
 
-
-  <%= @recipe[0]["label"] %>
+<main id="show">
+  <h4><%= @recipe[0]["label"] %><h4>
   <%= link_to image_tag(@recipe[0]["image"]), @recipe[0]["uri"] %>
-  <%= link_to "Link to Recipe", @recipe[0]["url"], target: :_blank %>
+  <p><%= link_to "Link to Recipe", @recipe[0]["url"], target: :_blank %><p>
+    <div>
+    <p> Dietary Labels:
+      <% @recipe[0]["dietLabels"].each_with_index do |item, i| %>
+        <% if i == @recipe[0]["dietLabels"].count - 1 %>
+          <%= "#{item}" %>
+        <% else %>
+          <%= "#{item}, " %>
+        <% end %>
+      <% end %>
+      </p>
+    <p> Health Labels:
+      <% @recipe[0]["healthLabels"].each_with_index do |item, i| %>
+      <% if i == @recipe[0]["healthLabels"].count - 1 %>
+        <%= "#{item}" %>
+      <% else %>
+        <%= "#{item}, " %>
+      <% end %>
+    <% end %></p>
+  </div>
   <div>
-    <h6><%= "Ingredients:" %><h6>
+    <p> Ingredients: </p>
       <% @recipe[0]["ingredientLines"].each do |item| %>
         <p><%= item %></div></p>
     <% end %>
   </div>
-  <p>Dietary Information:</p>
-  <p> Calories: <%= @recipe[0]["calories"] %></p>
 
-<ul>
-  <p> Total Nutrients: <% @recipe[0]["totalNutrients"].each do |key, value| %>
-    <li>
-    <%= "#{value["label"]}: #{value["quantity"]} #{value["unit"]}s" %>
-  </li>
-  <% end %>
-</ul>
-</p>
-<p> Dietary Labels:
-  <% @recipe[0]["dietLabels"].each_with_index do |item, i| %>
-    <% if i == @recipe[0]["dietLabels"].count - 1 %>
-      <%= "#{item}" %>
-    <% else %>
-      <%= "#{item}, " %>
-    <% end %>
-  <% end %>
-  </p>
-<p> Health Labels:
-  <% @recipe[0]["healthLabels"].each_with_index do |item, i| %>
-  <% if i == @recipe[0]["healthLabels"].count - 1 %>
-    <%= "#{item}" %>
-  <% else %>
-    <%= "#{item}, " %>
-  <% end %>
-<% end %>
-</p>
+  <div>
+    <p>Dietary Information:</p>
+    <p> Calories: <%= @recipe[0]["calories"] %></p>
+    <ul>
+      <p> Total Nutrients: <% @recipe[0]["totalNutrients"].each do |key, value| %>
+        <li>
+          <%= "#{value["label"]}: #{value["quantity"]} #{value["unit"]}s" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</main>
