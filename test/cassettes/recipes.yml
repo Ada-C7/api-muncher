@@ -563,4 +563,62 @@ http_interactions:
         }
     http_version: 
   recorded_at: Sun, 07 May 2017 05:34:38 GMT
+- request:
+    method: get
+    uri: https://api.edamam.com/search?app_id=<EDAMAM_ID>&app_key=<EDAMAM_KEY>&q=c92c402e57d06df096adbffc393010c5XXXXX
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - ngx_openresty
+      Date:
+      - Tue, 09 May 2017 04:33:07 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 UTC
+      X-Served-By:
+      - ip-10-143-134-250/10.143.134.250
+      Set-Cookie:
+      - JSESSIONID=FD2F30F66B0E3F512A83E44F8C5626B9; Path=/
+      - JSESSIONID=FD2F30F66B0E3F512A83E44F8C5626B9; Path=/; Secure; HttpOnly
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "q" : "c92c402e57d06df096adbffc393010c5XXXXX",
+          "from" : 0,
+          "to" : 10,
+          "params" : {
+            "sane" : [ ],
+            "q" : [ "c92c402e57d06df096adbffc393010c5XXXXX" ],
+            "app_id" : [ "<EDAMAM_ID>" ],
+            "app_key" : [ "<EDAMAM_KEY>" ]
+          },
+          "more" : false,
+          "count" : 0,
+          "hits" : [ ]
+        }
+    http_version: 
+  recorded_at: Tue, 09 May 2017 04:33:09 GMT
 recorded_with: VCR 3.0.3

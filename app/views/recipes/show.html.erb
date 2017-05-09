@@ -1,9 +1,16 @@
 <body class="show">
+
+  <% if flash[:message] %>
+  <h2><%=flash[:message]%></h2>
+
+  <%else %>
+
+
   <h2><%= @recipe.name %></h2>
 
   <section>
-  <h4><%= link_to "Link to original recipe", @recipe.original_url, target: :_blank %></h4>
-  <%= image_tag @recipe.image, alt:"picture of #{@recipe.name}"%>
+    <h4><%= link_to "Link to original recipe", @recipe.original_url, target: :_blank %></h4>
+    <%= image_tag @recipe.image, alt:"picture of #{@recipe.name}"%>
   </section>
 
   <section>
@@ -29,5 +36,8 @@
       <% end %>
     </ul>
   </section>
+
+  <% end %>
+
   <%= button_to "Return to search page", welcome_path, method: :get %>
 </body>
