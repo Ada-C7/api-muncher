@@ -30,74 +30,59 @@
     margin-right: 250px;
   }
 
-  a{
+  a {
     color: blue;
   }
+
   a:hover {
     color: salmon;
   }
 
-
-  .image{
+  .image {
     height: 400px;
     width: 600px;
   }
 
-  #list{
-    text-align: center;
-  }
 
   li {
     list-style: none;
-    /*color: #f4c4f3;*/
     font-weight: bold;
   }
+
   h3 {
-    /*color: #0ed2f7;*/
     text-shadow: -1px 0 white, 0  1px white, 1px 0 white, 0  -1px white;
   }
 
   .footer{
-    position:relative;
-    top:300px;
+    position: relative;
+    top: 300px;
     height: 100px;
     background-color: white;
     text-align: center;
-    /*padding-top: 50px;*/
     margin-top: 100px;
+
   }
 
   body {
    text-align: center;
-   /*background-image: url("image1.jpg");
-   background-size: cover;
-   background-image: url("fruits.jpeg");*/
    background-size: cover;
    background-repeat: no-repeat;
    background-image: url("fruit2.jpg");
    background-pacity:.4;
-
-   height: 300px;
   }
 
-  .allergy
-  {
+  .allergy {
     float:right;
     margin: 0 0 10px 10px;
-
   }
 
-  .input-group-round{
-
-  }
  .pagination a {
    display: inline-block;
    color: white;
  }
+
  .page {
    text-align: center;
-   /*margin-top: 300px;
-   padding-right: 20px;*/
  }
 
 .search-form {
@@ -116,7 +101,6 @@
 
 .input-group{
   margin-top: 50px;
-
 }
 
 .input-group-rounded .input-group-field {
