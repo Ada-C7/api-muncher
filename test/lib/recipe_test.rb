@@ -19,7 +19,14 @@ describe Recipe do
   end
 
   it "Can create a recipe instance" do
+    recipe = Recipe.new("name", "uri", "image")
+    recipe.class.must_equal Recipe
+  end
 
+  it "Can create a recipe with optional parameters" do
+    recipe = Recipe.new("name", "uri", "image", url: "testing for test")
+    recipe.class.must_equal Recipe
+    recipe.url.must_equal "testing for test"
   end
 
 

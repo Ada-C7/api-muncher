@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="RecipesController::index" skipped="0" failures="0" errors="0" tests="1" assertions="1" time="0.44950970201171003">
-  <testcase name="test_0001_gets root path" classname="RecipesController::index" assertions="1" time="0.44950970201171003">
-  </testcase>
-</testsuite>
