@@ -1,0 +1,7 @@
+<section class="small-7 medium-4 small-centered columns">
+<%= form_tag search_recipe_path, method: "get" do %>
+    <%= label_tag(:search_term, "Enter an ingredient:") %>
+    <%= text_field_tag(:search_term) %>
+    <%= submit_tag("Search", class: "button")  %>
+<% end %>
+</section>

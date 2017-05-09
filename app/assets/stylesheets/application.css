@@ -1,0 +1,135 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+@import url('https://fonts.googleapis.com/css?family=Oswald|Quattrocento+Sans|Sue+Ellen+Francisco');
+
+main {
+  font-family: 'Quattrocentro Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+main a {
+  color: #C6F1E7;
+}
+
+main a:hover {
+  color: #A9C52F;
+}
+
+header h1 {
+  font-family: 'Sue Ellen Francisco', cursive;
+  font-size: 5em;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+header h1 a {
+  color: #A9C52F;
+}
+
+header h1 a:hover {
+  color: #C6F1E7;
+}
+
+h3 {
+  font-family: 'Quattrocentro Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: .7em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+section a {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  color: black;
+  text-align: center;
+  letter-spacing: normal;
+}
+
+section {
+  padding: 10px;
+}
+
+.page-nav {
+  text-align: center;
+  letter-spacing: normal;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+article {
+  font-family: 'Quattrocentro Sans', sans-serif;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.recipe {
+  margin: auto;
+  padding: 20px;
+}
+
+.recipe ul {
+  margin-left: 30px;
+}
+
+.recipe h4 {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+
+.recipe img {
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+.recipe a {
+  font-family: "Quattrocentro Sans", sans-serif;
+  text-transform: none;
+  color: #C6F1E7;
+}
+
+.button {
+  background-color: #A9C52F;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: #C6F1E7;
+}
+
+main {
+  min-height: 500px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+}
+
+/*.recipe section {
+  background: rgba(255, 255, 255, .8);
+}*/
+/*
+main {
+  background-color: #e2e5bc;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='1' viewBox='0 0 40 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v1H0z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}*/

@@ -1,0 +1,128 @@
+<article class="recipe">
+  <div>
+
+  <section class="small-8 medium-4 small-centered columns">
+    <h3><%= @recipe.label %></h3>
+  </section>
+  <section class="small-8 medium-4 small-centered columns">
+    <img src="<%= @recipe.image %>" alt="<%= @recipe.label %>" >
+  </section>
+
+  <section class="small-8 medium-4 small-centered columns">
+    <h4>Ingredients</h4>
+
+      <ul>
+        <% @recipe.ingredients.each do |ingredient| %>
+        <li>
+          <%= ingredient["text"] %>
+        </li>
+        <% end %>
+
+
+      </ul>
+
+  </section>
+  <section class="small-8 medium-4 small-centered columns">
+
+    <% if @recipe.diet_labels != [] %>
+
+      <h4>Diet Labels</h4>
+      <ul>
+
+        <% @recipe.diet_labels.each do |label| %>
+        <li>
+          <%= label %>
+        </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+  </section>
+  <section class="small-8 medium-4 small-centered columns">
+    <h4>Nutrition Information</h4>
+    <table>
+      <tr>
+        <td>
+          Calories
+        </td>
+        <td>
+          <%= @recipe.calories.round(2) %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= @recipe.total_nutrients["ENERC_KCAL"]["label"] %>
+        </td>
+        <td>
+          <%= @recipe.total_nutrients["ENERC_KCAL"]["quantity"].round(2) %>
+        </td>
+        <td>
+          <%= @recipe.total_nutrients["ENERC_KCAL"]["unit"] %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= @recipe.total_nutrients["FAT"]["label"] %>
+        </td>
+        <td>
+          <%= @recipe.total_nutrients["FAT"]["quantity"].round(2) %>
+        </td>
+        <td>
+          <%= @recipe.total_nutrients["FAT"]["unit"] %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= @recipe.total_nutrients["SUGAR"]["label"] %>
+        </td>
+        <td>
+          <%= @recipe.total_nutrients["SUGAR"]["quantity"].round(2) %>
+        </td>
+        <td>
+          <%= @recipe.total_nutrients["SUGAR"]["unit"] %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= @recipe.total_nutrients["PROCNT"]["label"] %>
+        </td>
+        <td>
+          <%= @recipe.total_nutrients["PROCNT"]["quantity"].round(2) %>
+        </td>
+        <td>
+          <%= @recipe.total_nutrients["PROCNT"]["unit"] %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= @recipe.total_nutrients["FIBTG"]["label"] %>
+        </td>
+        <td>
+          <%= @recipe.total_nutrients["FIBTG"]["quantity"].round(2) %>
+        </td>
+        <td>
+          <%= @recipe.total_nutrients["FIBTG"]["unit"] %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= @recipe.total_nutrients["CA"]["label"] %>
+        </td>
+        <td>
+          <%= @recipe.total_nutrients["CA"]["quantity"].round(2) %>
+        </td>
+        <td>
+          <%= @recipe.total_nutrients["CA"]["unit"] %>
+        </td>
+      </tr>
+    </table>
+  </section>
+  <section class="small-8 medium-4 small-centered columns">
+    <p>
+      See the original recipe from <%= link_to "#{@recipe.source}", @recipe.url, target: "_blank" %>
+    </p>
+
+  </section>
+</div>
+
+</article>
