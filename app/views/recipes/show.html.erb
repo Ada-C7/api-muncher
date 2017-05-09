@@ -1,0 +1,34 @@
+<section id="recipe_show">
+    <h1><%= link_to @recipe.name, @recipe.link%></h1>
+    <div class="row show">
+        <div class="small-12 medium-8 columns">
+            <%= image_tag @recipe.image %>
+        </div>
+        <div class="small-12 medium-4 columns", id="ingredients">
+            <h3>Ingredients</h3>
+            <% @recipe.ingredients.each do |ingredient| %>
+            <ul>
+                <li>
+                    <%= ingredient %>
+                </li>
+            </ul>
+            <% end %>
+        </div>
+    </div>
+
+    <section id="health">
+        <h3>Dietary Info</h3>
+
+        <div class="row">
+            <% @recipe.health_labels.each do |label| %>
+            <div class="small-6 medium-4 large-3 columns">
+                <ul>
+                    <li>
+                        <%= label %>
+                    </li>
+                </div>
+            </ul>
+            <% end %>
+        </div>
+    </section>
+</section>

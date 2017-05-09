@@ -1,0 +1,13 @@
+#12 Pretty Pastels
+#FEDCD2 peach - solid background
+#DF744A warm - little icons in background image
+#BFD8D2 powder - header and footer
+#DCB239 lemon - border colors, underlines
+
+
+#9 Warm Tomes
+ #D7CEC7 grain- solid background
+ #C09F80 tan- little icons in background image
+#565656 grey- header and footer
+ #76323F oxblood- border colors, underlines
+ #DEDDDD light grey - insets
