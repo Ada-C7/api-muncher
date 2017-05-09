@@ -38,6 +38,7 @@
   display: block;
   margin: auto;
   border-radius: 15px;
+  max-width: 28%;
 }
 .search{
   width: 60%;
