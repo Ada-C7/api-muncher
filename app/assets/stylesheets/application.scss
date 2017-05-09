@@ -42,6 +42,14 @@
   color: black;
 }
 
+h3 {
+  font-family: 'Walter Turncoat';
+  background-color: #ffd97a;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
 p.intro {
   background-color: #ffd97a;
   text-align: center;
@@ -55,12 +63,37 @@ p#last-p {
   padding-bottom: 20px;
 }
 
+div.show {
+  background-color: #ffd97a;
+}
+
+p.recipe-name {
+  background-color: #ffd97a;
+  text-align: center;
+  padding-bottom: 16px;
+  margin-bottom: 0px;
+}
+
+div.list {
+  margin: 0;
+  background-color: #ffd97a;
+}
+
+p.recipe-link {
+  background-color: #ffd97a;
+  text-align: center;
+}
+
 li#left-nav {
   text-align: left;
 }
 
 li#right-nav {
   text-align: right;
+}
+
+ul#list {
+  margin: 0;
 }
 
 body {
