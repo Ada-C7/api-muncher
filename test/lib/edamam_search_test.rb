@@ -24,6 +24,7 @@ describe EdamamSearch do
   end
 
   describe 'search_results' do
+
     it 'gets results from Edamam' do
       VCR.use_cassette("search_results") do
         search_input = EdamamSearch.new(@search_params)
@@ -45,7 +46,6 @@ describe EdamamSearch do
       VCR.use_cassette("search_results") do
         search_input = EdamamSearch.new(@recipe_id)
         response = search_input.search_results
-        # p response
         response.must_include "label"
       end
 

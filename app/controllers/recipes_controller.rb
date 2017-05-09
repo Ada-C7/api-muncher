@@ -22,6 +22,7 @@ class RecipesController < ApplicationController
     recipe_results = get_api_search(search_params)
     @recipe = Recipe.individual_recipe(recipe_results)
   end
+
 private
 
   def get_api_search(search_params)
