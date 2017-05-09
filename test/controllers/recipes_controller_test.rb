@@ -13,14 +13,14 @@ describe RecipesController do
     must_respond_with :success
   end
 
-  it "should get index" do
-    get list_recipes_path
+  it "should get index " do
+    get list_recipes_path("pie")
     must_respond_with :success
   end
 
   it "should get show" do
-    recipes = Recipe_Api_Wrapper.listRecipes("pie")
-    get list_recipes_path({ :label => recipes[0].label, :uri => recipes[0].uri })
+    recipes = Recipe_Api_Wrapper.list("pie")
+    get show_path({ :label => recipes[0].label, :uri => recipes[0].uri })
     must_respond_with :success
   end
 

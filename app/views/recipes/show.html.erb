@@ -1,8 +1,12 @@
 <%# raise %>
+<section class="row">
+
 <% @recipe.each do |info| %>
-  <section>
+  <article class="column small-12 medium-5 large-5">
     <%= image_tag(info.image, :alt => "recipe photo #{info.label}") %>
-  </section>
+  </article>
+
+  <article class="column small-12 medium-7 large-7">
   <h3><%= info.label %></h3>
 
   <% if info.url != nil %>
@@ -20,7 +24,7 @@
   <% end %>
   </ul>
 
-  <section id="dietary-info">
+  <article id="dietary-info">
     <h4>Dietary Info</h4>
     <h5>Diet Labels:</h5>
     <% if info.dietLabels != [] %>
@@ -36,7 +40,9 @@
       <%= item %></br>
     <% end %>
 
-  </br><h5>Calories - <%= info.calories %></h5>
+    </br><h5>Calories - <%= info.calories %></h5>
 
-  </section>
+  </article>
+  </article>
 <% end %>
+</section>
