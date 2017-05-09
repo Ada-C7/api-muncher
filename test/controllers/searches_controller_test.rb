@@ -34,7 +34,7 @@ describe SearchesController do
   end
   # this isn't working
   describe "#recipe" do
-    it "should get a single recipe successfully" do skip
+    it "should get a single recipe successfully" do 
       real_uri = "http://www.edamam.com/ontologies/edamam.owl%23recipe_b63034f899ef1b5c7c939ec7e1ca6b1b"
       recipe = EdamamApiWrapper.getRecipe(uri: real_uri)
       recipe.must_be_instance_of RecipeResult

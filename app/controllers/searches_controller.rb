@@ -16,6 +16,7 @@ class SearchesController < ApplicationController
     session[:from] = 0
     session[:to] = 12
     session[:health] = nil
+    # raise
   end
 
   def recipes
@@ -35,13 +36,13 @@ class SearchesController < ApplicationController
         session[:recent_searches] << @results.last #shovel the search into the list
       end
       @results = @results[0..-2]
+      # raise
     end
 
   end
 
   def recipe
     @recipe = EdamamApiWrapper.getRecipe(params[:uri])
-    # raise
     @nutrients = %w(ENERC_KCAL FAT SUGAR PROCNT VITB12)
     session[:recipe_name] = @recipe.name
     session[:recipe_url] = @recipe.recipe_url
@@ -63,7 +64,6 @@ class SearchesController < ApplicationController
 
   end
 
-  # do I need this either?
   def destroy
     Search.find_by_id(params[:id]).destroy
     redirect_to account_path
@@ -71,33 +71,21 @@ class SearchesController < ApplicationController
 
   private
 
-  # def set_from_and_to
-  #   session[:from] ||= 0
-  #   session[:to] = session[:from] + 9
-  # end
-
   def check_next_and_prev
     if params[:prev] == "true"
       if session[:from] - 12 >= 0
         session[:from] -= 12
         session[:to] -= 12
-
       end
-      # params.delete(:prev)
       redirect_to recipes_path
-      # raise
     end
 
     if params[:next] == "true"
-      # raise
       if session[:to] + 12 <= session[:search_count]
         session[:to] += 12
         session[:from] += 12
-
       end
       redirect_to recipes_path
-
-      # params.delete(:next)
     end
   end
 

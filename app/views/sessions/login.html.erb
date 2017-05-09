@@ -2,10 +2,10 @@
 
   <h1>Log in to Recipe Recs</h1>
   <%= form_tag login_path do %>
-    <%= label_tag :provider %>
+    <%= label_tag :provider, "Username" %>
     <%= text_field_tag :provider %>
 
-    <%= label_tag :uid %>
+    <%= label_tag :uid, "Password" %>
     <%= text_field_tag :uid %>
 
     <%= submit_tag "Log in" %>
