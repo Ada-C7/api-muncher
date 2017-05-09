@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EdamamApiWrapper::Testing self.show_recipe" skipped="0" failures="0" errors="0" tests="2" assertions="9" time="1.2776252170151565">
-  <testcase name="test_0001_Can find a recipe with a valid uri" classname="EdamamApiWrapper::Testing self.show_recipe" assertions="8" time="0.028828695008996874">
+<testsuite name="EdamamApiWrapper::Testing self.show_recipe" skipped="0" failures="0" errors="0" tests="2" assertions="9" time="0.0663547349977307">
+  <testcase name="test_0001_Can find a recipe with a valid uri" classname="EdamamApiWrapper::Testing self.show_recipe" assertions="8" time="0.037702754023484886">
   </testcase>
-  <testcase name="test_0002_Will return nil when given an invalid Edamam recipe uri" classname="EdamamApiWrapper::Testing self.show_recipe" assertions="1" time="1.2487965220061596">
+  <testcase name="test_0002_Will return nil when given an invalid Edamam recipe uri" classname="EdamamApiWrapper::Testing self.show_recipe" assertions="1" time="0.028651980974245816">
   </testcase>
 </testsuite>

@@ -9,6 +9,10 @@ describe Recipe do
     proc {
       Recipe.new "Name"
     }.must_raise ArgumentError
+
+    proc {
+      Recipe.new("Name", "uri")
+    }.must_raise ArgumentError
   end
 
   it "Must initialize name, uri and image properly" do
@@ -29,5 +33,10 @@ describe Recipe do
     recipe.url.must_equal "testing for test"
   end
 
-
+  it "Can create a recipe with optional parameters" do
+    recipe = Recipe.new("name", "uri", "image", url: "testing for test", r_yield: 6)
+    recipe.class.must_equal Recipe
+    recipe.url.must_equal "testing for test"
+    recipe.r_yield.must_equal 6
+  end 
 end

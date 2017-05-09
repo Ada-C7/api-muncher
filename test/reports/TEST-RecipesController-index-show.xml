@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RecipesController::index::show" skipped="1" failures="0" errors="0" tests="1" assertions="0" time="0.0018952600075863302">
+  <testcase name="test_0001_can show a recipe" classname="RecipesController::index::show" assertions="0" time="0.0018952600075863302">
+    <skipped type="test_0001_can show a recipe"/>
+  </testcase>
+</testsuite>
