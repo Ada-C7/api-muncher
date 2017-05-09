@@ -20,31 +20,53 @@
 
 * {
   font-family: 'Walter Turncoat';
-  // background-repeat: no-repeat;
   padding: 0;
-
 }
+
 * ul {
   list-style-type: none;
   margin-left: 20%;
   margin-right: 20%;
-  background-color: #e6a0ff;//rgb(137, 193, 133);
 }
 
 * li {
-  background-color: #e6a0ff;//rgb(137, 193, 133);
-  // font-color: black;
+  background-color: #dfd6e8;//rgb(137, 193, 133);
+  text-align: center;
+}
+
+* li:link {
+  color: black;
+}
+
+* li:visited {
+  color: black;
+}
+
+p.intro {
+  background-color: #ffd97a;
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 1.5em;
+}
+
+p#last-p {
+  background-color: #ffd97a;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+li#left-nav {
+  text-align: left;
 }
 
 li#right-nav {
-  border: 40px;
-
+  text-align: right;
 }
 
 body {
   background: url("../instant_noodle_block.png") repeat center center;
   background-size: 40%;
-  background-color: #e6a0ff;
+  background-color: #a17ccf;
   margin: 0;
   padding: 0;
 }
@@ -55,23 +77,16 @@ h1.header {
   font-weight: bold;
   margin-top: 120px;
   margin-bottom: 0px;
-  background-color: #e6a0ff;//rgb(137, 193, 133);
+  background-color: #ffd97a;
 }
 
-div.search{
-  background-color: #e6a0ff;
+
+div.search {
+  background-color: #a17ccf;
 }
 
-p.intro {
-  background-color: #e6a0ff;//rgb(137, 193, 133);
-  text-align: center;
-  margin-bottom: 0;
-  font-size: 1.5em;
-}
-
-p#last-p {
-  padding-top: 20px;
-  padding-bottom: 20px;
+p.search-button {
+  background-color: #a17ccf;
 }
 
 span.hidden { display:none; }
