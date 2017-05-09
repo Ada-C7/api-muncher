@@ -17,7 +17,21 @@ class Edamam
       "key" => ENV["edamam_key"],
     }
     response = HTTParty.get(BASE_URL, query: query_params).parsed_response
-    return response["hits"]
+    # return response["hits"] this is an array of hashes
+    # maybe will_paginate doesn't like that
+    # maybe make an array of objects
+    # so I need a separate class?? => result.rb
+
+    results = []
+    if response["hits"]
+      response["hits"].each do |info|
+        recipe_label = info["recipe"]["label"]
+        image = info["recipe"]["image"]
+        uri = info["recipe"]["uri"]
+        results << Result.new(recipe_label, image, uri)
+      end
+    end
+    return results
   end
 
   def fix_uri
