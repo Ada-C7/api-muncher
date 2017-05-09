@@ -8,45 +8,49 @@
   <h1 id="index-title"><%= "Here are some delectable #{params[:search]} recipes..." %></h1>
 
 
+  <section class="row">
+    <% @recipes.each do |recipe| %>
+    <article class="small-12 medium-4 large-3 columns">
+      <div class="recipe-link">
+        <h4 class="recipe-name"><%= link_to recipe.name, recipe_path(recipe.id), method: :get %>
+        </h4>
 
-  <% @recipes.each_with_index do |recipe, index| %>
+        <p><%= link_to (image_tag recipe.image, alt:"picture of #{recipe.name}", class:"index-picture"), recipe_path(recipe.id), method: :get %> </p>
+        </div>
+      </article>
 
+      <% end %>
+    </section>
 
-  <li class="index_recipe"> <%= link_to recipe.name, recipe_path(recipe.id), method: :get %></li>
-  <li class="index_recipe">  <%= link_to (image_tag recipe.image, alt:"picture of #{recipe.name}", class:"index-picture"), recipe_path(recipe.id), method: :get %></li
+    <section class="pager">
 
-  <% end %>
+      <% if params[:from].to_i != 0 %>
+      <% current_start = params[:from].to_i  %>
+      <% previous_start = current_start - 10  %>
+      <% previous_end = current_start %>
+      <%= button_to "Previous", recipes_path, method: :get, :params =>{:search => params[:search], :from => previous_start, :to => previous_end }, class:"nav_link"%>
+      <% end %>
 
+      <p class="view_count">
+        <%= "~ you are viewing ##{params[:from]} to #{params[:to]} of #{@total_count} #{params[:search]} recipes~"%>
+      </p>
 
-  <section class="pager">
+      <% if params[:to].to_i <= (@total_count-20) %>
+      <% current_end = params[:to].to_i  %>
+      <% next_start = current_end  %>
+      <% next_end = next_start + 10 %>
+      <%= button_to "Next", recipes_path, method: :get, :params => {:search => params[:search], :from => next_start, :to => next_end }, class:"nav_link"%>
 
-    <% if params[:from].to_i != 0 %>
-    <% current_start = params[:from].to_i  %>
-    <% previous_start = current_start - 10  %>
-    <% previous_end = current_start %>
-    <%= button_to "Previous", recipes_path, method: :get, :params =>{:search => params[:search], :from => previous_start, :to => previous_end }, class:"nav_link"%>
+      <% else %>
+      <% current_end = params[:to].to_i  %>
+      <% next_start = current_end  %>
+      <% next_end = @total_count %>
+      <%= button_to "Next", recipes_path, method: :get, :params => {:search => params[:search], :from => next_start, :to => next_end }, class:"nav_link"%>
+      <% end %>
+    </section>
+
     <% end %>
 
-    <p class="view_count">
-      <%= "~ you are viewing ##{params[:from]} to #{params[:to]} of #{@total_count} #{params[:search]} recipes~"%>
-    </p>
-
-    <% if params[:to].to_i <= (@total_count-20) %>
-    <% current_end = params[:to].to_i  %>
-    <% next_start = current_end  %>
-    <% next_end = next_start + 10 %>
-    <%= button_to "Next", recipes_path, method: :get, :params => {:search => params[:search], :from => next_start, :to => next_end }, class:"nav_link"%>
-
-    <% else %>
-    <% current_end = params[:to].to_i  %>
-    <% next_start = current_end  %>
-    <% next_end = @total_count %>
-    <%= button_to "Next", recipes_path, method: :get, :params => {:search => params[:search], :from => next_start, :to => next_end }, class:"nav_link"%>
-    <% end %>
-  </section>
-
-  <% end %>
-
-  <%= button_to "Return to search page", welcome_path, method: :get %>
+    <%= button_to "Return to search page", welcome_path, method: :get %>
 
   </body>

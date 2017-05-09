@@ -18,6 +18,28 @@
 */
 
 
+.recipe-link {
+  border: 0.5px solid lightgray;
+  border-radius: 15px;
+  width: 300px;
+  text-align: center;
+  display: inline-block;
+}
+
+ .recipe-link p {
+   margin: 0px;
+ }
+
+
+ .index-picture {
+   width: 200px;
+   height: 200px;
+   border-radius: 15px;
+ }
+
+
+
+
 .main-title1, .main-title2, .main-title3, .show{
   color: darkgreen;
 }
@@ -74,24 +96,6 @@ body.list{
   color: darkgreen;
 }
 
-#index-title{
-  width: 70%;
-  margin-left: 5%;
-}
-
-
-li.index_recipe {
-  margin: 0.5rem 0;
-}
-
-.index_recipe{
-  list-style-type: none;
-}
-
-.index-picture {
-  width: 200px;
-  height: 200px;
-}
 
 footer{
   border-top: 1.5px solid green;width:100%;
