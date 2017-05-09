@@ -54,7 +54,7 @@ describe EdamamSearch do
     it 'raises an error if something goes wrong ' do
       VCR.use_cassette("search_results") do
         search_input = EdamamSearch.new(@fake_recipe_id)
-        proc { search_input.search_results }.must_raise EdamamSearch::EdamamException
+        search_input.search_results.must_be_nil
       end
     end
   end

@@ -8,7 +8,7 @@ describe RecipesController do
                   from: "0"
                 }
       @no_results = {
-                      search_text: "cookies",
+                      search_text: "fdjlfalkdjfklajdal",
                       from: "0"
                     }
     end
@@ -23,8 +23,9 @@ describe RecipesController do
     it 'returns the index page/search results with no results' do
       VCR.use_cassette("search_results") do
         get recipes_path, params: @no_results
-        must_respond_with :success
       end
+      flash[:failure].wont_be_nil
+      must_redirect_to recipes_path
     end
   end
 
@@ -41,11 +42,12 @@ describe RecipesController do
       must_respond_with :success
     end
 
-    it 'returns not found if given bad id' do
+    it 'redirect to homepage and flashes error message if given bad id' do
       VCR.use_cassette("search_results") do
          get recipe_path(@bad_id)
       end
-      must_respond_with :success
+      flash[:failure].wont_be_nil
+      must_redirect_to recipes_path
     end
   end
 end
