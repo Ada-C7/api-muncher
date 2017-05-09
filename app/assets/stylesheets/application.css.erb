@@ -52,9 +52,10 @@ footer {
   margin-top: 2%;
   position: absolute;
   bottom: 10px;
+  left: 10px;
   height: 2em;
-  width: 400px;
-  max-width: 100%;
+  width: 300px;
+  border: solid 1px #A5CD39;
 }
 
 footer p {
@@ -62,58 +63,23 @@ footer p {
   line-height: 1.8em;
 }
 
-.recipe-list {
-  /*background-color: rgba(255, 255, 255, 0.7);*/
-  padding: 2%;
-}
-
-.recipe-list ul {
-  margin: 0;
-}
-
 img, a img {
   border-radius: 10%;
   border: solid #91758E 3px;
 }
 
-.recipe-list li {
-  list-style-type: none;
-  text-align: center;
-}
-
-.recipe-list h4 {
-  width: 90%;
-  margin: 2% auto;
-  font-size: 1.2em;
-  background-color: #fff;
-  border-radius: 10%;
-}
-
-.recipe-image {
-  margin-bottom: 2%;
-  text-align: center;
-}
-
-.recipe-details {
-  background-color: #fff;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.index-buttons {
-  text-align: right;
-  margin: 1em 0 0 0;
-}
-
-.button {
-  border-radius: 5%;
+input[type='text'] {
   border: solid 2px #91758E;
-  color: #91758E;
-  font-weight: bold;
+  border-radius: 5px;
+  height: 3em;
 }
 
-.button:hover {
-  color: #91758E;
+input[type='text']:focus {
+  border: solid 2px #91758E;
+}
+
+th, td {
+  border: solid 1px #91758E;
 }
 
 form {
@@ -131,12 +97,53 @@ form {
   outline: none;
 }
 
-input[type='text'] {
-  border: solid 2px #91758E;
-  border-radius: 5px;
-  height: 3em;
+.recipe-list {
+  padding: 2%;
 }
 
-input[type='text']:focus {
+.recipe-list ul {
+  margin: 0;
+}
+
+.recipe-list li {
+  list-style-type: none;
+  text-align: center;
+}
+
+.recipe-list h4 {
+  width: 90%;
+  margin: 2% auto;
+  font-size: 1.2em;
+  background-color: #fff;
+  border-radius: 5px;
+  border: solid 1px #A5CD39;
+  padding: 1%;
+}
+
+.button {
+  border-radius: 5%;
   border: solid 2px #91758E;
+  color: #91758E;
+  font-weight: bold;
+}
+
+.button:hover {
+  color: #91758E;
+}
+
+.index-buttons {
+  text-align: right;
+  margin: 1em 0 0 0;
+}
+
+.recipe-image {
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.recipe-details {
+  background-color: #fff;
+  border: solid 1px #A5CD39;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
