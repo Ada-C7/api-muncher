@@ -40,7 +40,6 @@ gem 'httparty'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'better_errors'
 
   # Mocking for API wrapper tests
   gem 'minitest-vcr'
@@ -62,11 +61,15 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development do
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'pry-rails'
 end
 
 gem 'awesome_print'
 gem 'foundation-rails'
+gem 'will_paginate', '~> 3.1', '>= 3.1.5'
+gem 'will_paginate-foundation', '~> 6.2'
+
 
 group :test do
   gem 'minitest-rails'
