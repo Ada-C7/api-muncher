@@ -19,6 +19,8 @@ class EdamamApiWrapper
     url = "#{BASE_URL}&r=#{uri}"
     results = HTTParty.get(url)
 
+    # The API returns "<" when it cannot find a recipe given a URI
+    return nil if results.blank? || results.first == "<"
     Recipe.create_from_edamam(results.first)
   end
 

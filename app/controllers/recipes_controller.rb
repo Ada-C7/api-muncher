@@ -12,5 +12,9 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = EdamamApiWrapper.find_by_uri(params[:uri])
+
+    if @recipe.nil?
+      render_404
+    end
   end
 end

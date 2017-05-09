@@ -34,6 +34,15 @@ describe EdamamApiWrapper do
         found_recipe.title.must_equal "Herbes de Provence Rotisserie Chickens"
       end
     end
+
+    it "returns nil if the recipe is not found" do
+      VCR.use_cassette("recipes") do
+        recipe_uri = "http://www.edamam.com/ontologies/edamam.owl%23recipe_fake-uri"
+        found_recipe = EdamamApiWrapper.find_by_uri(recipe_uri)
+
+        found_recipe.must_be_nil
+      end
+    end
   end
 
   describe "self.page_to_pages" do
