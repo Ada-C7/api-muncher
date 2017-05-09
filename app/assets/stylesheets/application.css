@@ -15,23 +15,70 @@
  *= require foundation_and_overrides
 
  */
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Lato');
 
-p.edamam{
+.edamam {
+  text-align: right;
   font-style: italic;
-  position: fixed;
   bottom: 0;
  }
 
+header.header_banner {
+
+
+  background-color: lightgrey;
+  background-image: url("http://morethanfood.co.za/wp-content/uploads/2015/04/Craig-Cormack-Recipe-Header.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  /*background-position: center;*/
+  height: 250px;
+  max-width: 100%;
+  /*background-size: contain;*/
+  vertical-align: bottom;
+   /*border: solid;*/
+   /*vertical-align: bottom;*/
+   /*text-align: center;*/
+ }
+
+.header_nav {
+
+  /*display: inline-block;*/
+  font-size: 1.5em;
+  margin-top: 14%;
+  text-align: right;
+  /*vertical-align: text-bottom;*/
+}
+
+h1.head-title {
+  margin-top: 10%;
+  margin-left: 45%;
+  border: none;
+  /*bottom: 0;*/
+  /*vertical-align: text-bottom;*/
+  /*text-align: center;*/
+  font-family: 'Inconsolata';
+  font-size: 5em;
+  /*margin-bottom: 0%;*/
+  /*text-align: left;*/
+  /*background-color: grey;*/
+}
+
 article {
+  font-family: 'Lato';
+  font-size: 1.2em;
   margin-top: 2%;
 }
+
+/*article p {
+  text-align: left;
+}*/
+
 h1 {
   border-bottom: solid;
 }
 
 .recipe_result {
-   /*margin-bottom: 2%;*/
-   /*padding: 1%;*/
+
    text-align: center;
  }
 
@@ -42,35 +89,9 @@ h1 {
    padding: 0;
  }
 
- .recipe_result a {
-   width: 100%;
- }
-
-.header_banner {
-  /*vertical-align: bottom;*/
-  background-color: pink;
-}
-
-p.header_nav {
-  text-align: left;
-  border: solid;
-}
-
-h1.head-title {
-  border: solid;
-  margin-bottom: 0%;
-  text-align: left;
-}
-
 form {
   text-align: center;
   width: 100%;
-}
-
-header {
-  border: solid;
-  /*vertical-align: bottom;*/
-  /*text-align: center;*/
 }
 
 /*this is the submit button for searh*/

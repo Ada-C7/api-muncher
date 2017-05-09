@@ -46,6 +46,5 @@ describe RecipesController do
         p get recipe_path(@bad_id)
       end
     end
-
   end
 end

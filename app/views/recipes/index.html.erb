@@ -1,5 +1,3 @@
-
-
 <section class="large-12 columns">
 
   <% if @list_of_recipes.nil? %>
@@ -11,7 +9,7 @@
     <article class="large-8 small-10 columns">
       <%= render partial: "searchForm" %>
     </article>
-    
+
 </section>
 
   <% else %>
@@ -19,16 +17,16 @@
 <section class="large-12 columns">
   <h1>Search Results</h1>
     <nav>
-      <%= render partial: "seachNav" %>
+      <%= render partial: "searchNav" %>
     </nav>
 
     <article class"large-8 small-10 columns">
       <%= render partial: "searchResults" %>
     </article>
+</section>
 
-    <nav>
-      <%= render partial: "seachNav" %>
-    </nav>
+  <nav>
+    <%= render partial: "searchNav" %>
+  </nav>
 
   <% end %>
-</section>

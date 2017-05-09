@@ -44,23 +44,19 @@ describe Recipe do
 
     # try to put this in your test_helper.rb file - calling same method in edamam_search_test.rb
     before do
-        # ahhh you can't call test helper methods from these add lib test files
-        # @response = good_api_search
         search_params = { search_text: "cookies", from: 0, to: 10 }
-
         VCR.use_cassette("search_results") do
           search_input = EdamamSearch.new(search_params)
           @response = search_input.search_results
         end
     end
 
-    #make search_results just return raw API data and call formating methods later..
     it 'takes in api_data and returns array of recipe instances' do
       output = Recipe.list_of_recipes(@response)
       output.each { |recipe| recipe.must_be_instance_of Recipe }
     end
 
-    it 'raises an arugment error if not given array of hashe(s)' do
+    it 'raises an arugment error if not passed a hash' do
       proc { Recipe.list_of_recipes }.must_raise ArgumentError
     end
 
