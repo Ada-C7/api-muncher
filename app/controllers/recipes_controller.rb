@@ -10,9 +10,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    # @recipe =
-
-    # @recipe = Recipe.getRecipe(params[:recipe])
+    @recipe = RecipesApiWrapper.search(params[:label])[0]
   end
 
   def homepage

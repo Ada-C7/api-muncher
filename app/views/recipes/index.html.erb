@@ -3,7 +3,7 @@
 <ul>
   <% @recipes.each do |recipe| %>
     <li>
-      <%= link_to recipe.label %>
+      <%= link_to recipe.label, recipe_path(recipe[:label]) %>
     </li>
     <li>
       <%= image_tag(recipe[:image]) %>
