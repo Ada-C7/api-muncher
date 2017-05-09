@@ -1,0 +1,85 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require foundation_and_overrides
+
+*/
+
+body {
+  margin: 4em;
+  background-color: black;
+  color: white;
+}
+
+table {
+  color: black;
+  font-size: .7em;
+}
+
+.logo {
+  height: 7em;
+  float: left;
+  margin-right: 2em;
+  margin-left: 1em;
+}
+
+header {
+  background-color: #3f6708;
+  height: 7em;
+  color: white;
+  text-shadow:  black 0 1px;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+header a {
+  text-shadow:  black 0 2px;
+  color: white;
+}
+
+header a:hover {
+  color: white;
+  text-shadow:  black 0 -2px;
+}
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+}
+
+.input-group-rounded .input-group-button .button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 0.8rem;
+}
+.name a {
+color: white;
+font-size: 1.1em;
+}
+
+.nutrients {
+  width: .1em;
+}
+
+h3 {
+  color: white;
+}
+.name {
+  min-height: 5em;
+}
+
+.dietary_needs label {
+  color: white;
+}
+
+.checkbox {
+  display: inline-block;
+}

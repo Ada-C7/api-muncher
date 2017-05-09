@@ -1,0 +1,50 @@
+<div class="small-12 columns medium-6 columns end large-8 columns end">
+<h3><%= @recipe.label %></h3>
+<%= image_tag @recipe.image %>
+
+<h4>Ingredients</h4>
+
+<ul>
+  <% @recipe.ingredientlines.each do |line| %>
+  <li>
+    <%= line %>
+  </li>
+  <% end %>
+</ul>
+</div>
+
+
+<h4>Nutritional Info</h4>
+
+<table class="nutrients">
+  <thead>
+   <tr>
+    <th>
+      Nutrient
+    </th>
+    <th>
+      Quantity
+    </th>
+    <th>
+      Unit
+    </th>
+  </tr>
+  </thead>
+  <% @recipe.totalnutrients.each do |nutrient| %>
+  <tr>
+    <td>
+      <%=  nutrient[1]["label"] %>
+    <% %>
+    </td>
+    <td>
+      <%=  nutrient[1]["quantity"].round(0) %>
+    </td>
+    <td>
+      <%=  nutrient[1]["unit"] %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+</p>
+<%= link_to @recipe.url, @recipe.url, target: "_blank" %>
