@@ -1,0 +1,88 @@
+ @import url('foundation');
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+
+ @import url('https://fonts.googleapis.com/css?family=Inknut+Antiqua');
+
+* {
+ font-family: 'Inknut Antiqua', serif;
+}
+
+header {
+  text-align: left;
+  padding-right: 20%;
+  font-family: 'Inknut Antiqua', serif;
+}
+
+#main_photo {
+  margin-top: 5%;
+  margin-left: 30%;
+}
+
+h2, h3, h4 {
+  font-family: 'Inknut Antiqua', serif;
+}
+
+ h2 {
+   margin-top: 10%;
+   margin-right: 20%;
+ }
+
+ h4 {
+   margin-top: 5%;
+   margin-right: 20%;
+ }
+
+ .buttons {
+   text-align: center;
+   margin-top: 5%;
+ }
+
+ .button {
+   background-color: #962559;
+   border-radius: 50%;
+ }
+
+ #positive {
+   text-align: center;
+   margin-top: 2%;
+ }
+
+ main, body {
+   margin-top: 5%;
+   text-align: center;
+ }
+
+#show {
+   margin-left: 15%;
+ }
+
+.label {
+  background-color: gray;
+}
+
+ ul {
+   list-style-type: none;
+ }
+
+ footer {
+   text-align: center;
+   margin-top: 10%;
+   font-size: 1.5em;
+ }

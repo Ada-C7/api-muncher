@@ -1,0 +1,30 @@
+<div class="buttons">
+  <% from = (params[:from].to_i + 10).to_s %>
+  <% to = (params[:to].to_i + 10).to_s %>
+  <% if @recipe_array.length >= 9 %>
+    <%= link_to "Next Recipes", recipes_path("from" => from, "to" => to, "search_request" => params[:search_request]), method: :get, class: "button" %>
+    <% end %>
+
+    <% if from.to_i > 10 %>
+      <% from = (params[:from].to_i - 10).to_s %>
+      <% to = (params[:to].to_i - 10).to_s %>
+      <%= link_to "Previous Recipes", recipes_path("from" => from, "to" => to, "search_request" => params[:search_request]), method: :get, class: "button" %>
+      <% end %>
+
+  <%= link_to "Back to Previous Page", :back, class: "button round" %>
+</div>
+
+<h3 id="positive">You have good taste! Here are some recipe ideas:</h3>
+
+<main>
+
+  <div class="row">
+    <% @recipe_array.each do |recipe| %>
+          <div class="small-8 medium-6 large-4 columns" class="helper">
+            <h5 class="label"><%= recipe.label %></h5>
+            <p><%= link_to image_tag(recipe.image), recipe_path(recipe.uri.partition("#").last) %></p>
+          </div>
+      <% end %>
+  </div>
+
+</main>
