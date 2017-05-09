@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+wolf:
+  provider: Google
+  uid: 1231232
+  name: wolf
+  oauth_token: MyString
+  oauth_expires_at: 2017-05-05 11:31:48
+
+lion:
+  provider: Google
+  uid: MyString
+  name: lion
+  oauth_token: MyString
+  oauth_expires_at: 2017-05-05 11:31:48

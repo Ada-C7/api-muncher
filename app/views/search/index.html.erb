@@ -1,0 +1,12 @@
+<section class="row">
+<h3>Stuck on what to make Anna for dinner?</h3>
+<p>these recipes are all gluten freeeeee so you can make your best friend Anna a delicious, delicious dinner.</p>
+</section>
+<section class="row">
+  <div class="small-6 columns small-centered search_form">
+<%= form_tag(recipes_path_url(from: "0", to: "11"), method: "post") do%>
+<%= text_field_tag :search_term, params[:search_term], placeholder: "Search by Food" %>
+<%= submit_tag "Search", class: :button %>
+<% end %>
+<div>
+</section>

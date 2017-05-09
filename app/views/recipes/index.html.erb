@@ -1,0 +1,19 @@
+<h2>Things You Can Make With <%= (params[:search_term]).capitalize.pluralize %> </h2>
+<section>
+  <% if @recipes.length > 0 %>
+  <ul>
+    <% @recipes.each do |recipe| %>
+    <li>
+      <div class="small-6 large-6 columns recipes">
+      <%= link_to recipe.name, recipe_path_url(uri: recipe.uri) %>
+      <img src=" <%= asset_path(recipe.image) %> ",  alt="<%= recipe.name %>" />
+      </div>
+    </li>
+    <% end %>
+  </ul>
+  <%= link_to "View Next 10", recipes_path_url(search_term: params[:search_term], from: (@from += 10).to_s, to: (@to += 10).to_s), method: :post, class: "button next_ten"%>
+  <% else %>
+  <p> Sorry, there appears to be nothing here. Find something else to make your best friend Anna for dinner. </p>
+  <%= link_to "Search Again", root_path %>
+  <% end %>
+</section>
