@@ -1,16 +1,26 @@
 <%= @recipe[0]["label"] %><br>
-<%= image_tag("#{@recipe[0]["image"]}", :alt => "recipe image")  %><br>
+<%= image_tag("#{@recipe[0]["image"]}", :alt => "recipe image") %>
 <%= link_to @recipe[0]["source"], @recipe[0]["url"], :target => "blank" %><br>
-Ingredients:
-<ul>
+<table class="table-one">
+  <tr>
+    <th>Ingredients:</th>
+  </tr>
   <% @recipe[0]["ingredientLines"].each do |ingredient| %><br>
-  <li><%= ingredient %></li>
+  <tr>
+    <td><%= ingredient %></td>
+  </tr>
   <% end %>
-</ul>
+</table>
 
-Dietary Information:
-<ul>
+<table class="table-two">
+  <tr>
+    <th>Dietary Information:</th>
+  </tr>
+
   <% @recipe[0]["healthLabels"].each do |label| %>
-  <li> <%= label %> </li>
-  <% end %>
-</ul>
+  <tr>
+    <td><%= label %></td>
+  </tr>
+    <% end %>
+
+  </table>

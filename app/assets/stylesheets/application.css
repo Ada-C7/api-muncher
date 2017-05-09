@@ -21,12 +21,51 @@
   margin: 0 auto;
 }
 
-.search-box, .send-button {
+.search-box {
   display: block;
   margin: 0 auto;
   width: 45%;
 }
 
+.button-css{
+  /*position: absolute;*/
+
+  top: 50%;
+}
+
+.send-button-next {
+  margin-bottom: 100px;
+}
+
+.wrapper {
+  text-align: center;
+}
+
 .food-image {
-  padding-top: 90px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.food-label{
+  width: 100%;
+  color: black;
+}
+
+.food-label:hover {
+  color: red;
+}
+
+.table-one {
+    float:left;
+    width:45%;
+}
+
+.table-two   {
+    width:45%;
+    float:right;
+    padding-bottom: : 90px;
+}
+
+.show-image {
+  margin: 0 auto;
 }

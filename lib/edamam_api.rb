@@ -28,7 +28,7 @@ class EdamamApi
       "app_key" => ENV["API_KEY_SENSITIVE"],
       "q" => query,
       "from" => from,
-      "to" => (from.to_i + 10)
+      "to" => (from.to_i + 9)
     }
 
     url = "#{BASE_URL}?"
