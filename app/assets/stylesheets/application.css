@@ -17,36 +17,37 @@
  */
 @import url('https://fonts.googleapis.com/css?family=Inconsolata|Lato');
 
-.edamam {
-  text-align: right;
-  font-style: italic;
-  bottom: 0;
- }
+
+/*header styling*/
 
 header.header_banner {
   background-color: lightgrey;
-  background-image: url("http://morethanfood.co.za/wp-content/uploads/2015/04/Craig-Cormack-Recipe-Header.jpg");
+  background-image: url("https://bestfoodrestaurants.files.wordpress.com/2016/05/italian-food-banner.jpg?w=810");
   background-repeat: no-repeat;
   background-size: auto;
   max-width: 100%;
  }
 
 .header_nav {
+  border: none;
   font-size: 1.5em;
-  margin-top: 14%;
+  margin-top: 11%;
   text-align: right;
 }
 
 h1.head-title {
   border: none;
   color: Midnightblue;
-  font-family: 'Inconsolata';
+  /*font-family: 'Inconsolata';*/
   font-size: 5em;
-  margin-top: 10%;
-  margin-left: 45%;
-  margin-bottom: 0%;
+  margin-top: 2.5%;
+  margin-left: 40%;
+  margin-bottom: 3%;
   text-align: right;
 }
+
+
+/*main body styling*/
 
 article {
   font-family: 'Lato';
@@ -56,27 +57,43 @@ article {
 
 article.recipe_results {
   margin: 0;
-  /*border: solid;*/
+  text-align: center;
 }
 
-article ul {
-  font-size: 0.9em;
-}
-
+ul,
+li,
 p {
+  font-family: 'Lato';
+  font-size: 1em;
   margin: 0.5%;
+  text-align: left;
 }
 
-h1, h3 {
+h1.large-12 {
+  padding: 0;
+  border-bottom: none;
+  margin-top: 1%;
+  margin-bottom: 0%;
+  font-size: 2.5em;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Inconsolata';
   text-align: left;
+}
+
+h3 {
   border-bottom: solid;
 }
 
-.recipe_result {
-   text-align: center;
- }
+div.large-3.columns {
+  padding-left: 0;
+  padding-right: 1%;
+}
 
- .recipe_result a {
+.recipe_result a {
    font-size: 0.9em;
    margin-top: 1%;
    margin-bottom: 0;
@@ -106,10 +123,6 @@ nav {
   text-align: center;
 }
 
-li {
-  font-size: 1.25em;
-}
-
 .search_buttons {
   margin: 1%;
   text-align: center;
@@ -120,3 +133,10 @@ li {
   margin-bottom: 0;
   margin-top: 0.25em;
 }
+
+/*footer styling*/
+.edamam {
+  text-align: right;
+  font-style: italic;
+  bottom: 0;
+ }
