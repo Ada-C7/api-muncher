@@ -54,7 +54,7 @@ footer {
   bottom: 10px;
   height: 2em;
   width: 400px;
-  margin: auto;
+  max-width: 100%;
 }
 
 footer p {
@@ -89,9 +89,15 @@ img, a img {
   border-radius: 10%;
 }
 
+.recipe-image {
+  margin-bottom: 2%;
+  text-align: center;
+}
+
 .recipe-details {
   background-color: #fff;
-  border-radius: 3%;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .index-buttons {
@@ -121,8 +127,16 @@ form {
   margin: auto;
 }
 
+.search-button:focus {
+  outline: none;
+}
+
 input[type='text'] {
   border: solid 2px #91758E;
   border-radius: 5px;
   height: 3em;
+}
+
+input[type='text']:focus {
+  border: solid 2px #91758E;
 }
