@@ -1,0 +1,182 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+pallet
+
+blue Hex 1:  #0072BB ▼
+reddish Hex 2:  #FF4C3B rgba(255, 76, 59, 0.5);
+yellowish Hex 3:  #FFD034
+ */
+
+/*General Styling*/
+body {
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  /*text-align: center;*/
+  background-image: url("https://static.pexels.com/photos/5317/food-salad-restaurant-person.jpg");
+  background-size: 100%;
+  background-repeat: repeat-y;
+}
+
+h1, h2, h3, h4, h5, a {
+  font-family: 'Love Ya Like A Sister', cursive;
+}
+
+a {
+  color: white;
+}
+
+a:hover, a::selection {
+  color: #FF4C3B;
+}
+
+.button {
+  display: block;
+  margin: auto;
+}
+
+li {
+  list-style: none;
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+/*Header*/
+header h1 {
+  font-size: 1.3em;
+  background-color: #0072BB;
+}
+
+/*Footer*/
+footer {
+  color: white;
+  background-color: #0072BB;
+  width: 100%;
+}
+
+/*Root page*/
+.root {
+  background-color: rgba(255, 76, 59, 0.75);
+  color: white;
+  font-weight: bold;
+  margin: 50px 0 75px 0;
+  padding: 20px 5%;
+}
+
+.title {
+  text-align: center;
+}
+
+.intro p {
+  font-size: .75em;
+  text-align: center;
+}
+
+label {
+  font-size: 1.25em;
+  text-align: center;
+  color: white;
+}
+
+/*index*/
+.index {
+  overflow: scroll;
+  height: 100vh;
+  background-color: rgba(255, 208, 52, .75);
+}
+
+.recipes h2 {
+  text-align: center;
+}
+
+.square {
+  margin: 10px 0;
+}
+
+.left {
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.right {
+  text-align: right;
+  padding-bottom: 20px;
+}
+
+.left a, .right a {
+  background-color: #0072BB;
+  padding: 2px;
+}
+
+.square {
+   position: relative;
+   width: 100%;
+}
+
+.image-text {
+   position: relative;
+   top: -200px;
+   left: 5%;
+   width: 90%;
+   padding: 0 10%;
+   background-color: rgba(0, 114, 187, .75);
+}
+
+.image img {
+  width: 90%;
+}
+
+/*Show Page*/
+
+table {
+  width: 100%;
+}
+
+.show {
+  overflow: scroll;
+  height: 100vh;
+  background-color: rgba(255, 208, 52, .80);
+}
+
+.show li {
+  text-align: left;
+  border-bottom: white solid 2px;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredients {
+  /*background-color: rgba(255, 76, 59, 1.0);*/
+}
+
+.recipe-image {
+  padding-left: 7.5%;
+  padding-top: 30px;
+}
+
+.nutritional-info {
+  margin: 20px 15px;
+  /*padding: 0 15px;*/
+}
+
+.nutritional-info h4 {
+  text-align: center;
+  margin-top: 20px;
+}

@@ -1,0 +1,2 @@
+module HomepagesControllerHelper
+end

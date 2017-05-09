@@ -1,0 +1,38 @@
+<div class="row">
+
+  <article class="index small-10 small-centered columns">
+    <div class="recipes">
+      <h2>Recipes</h2>
+      <% if @recipes.empty? %>
+        <p>
+          No recipes to display!
+        </p>
+      <% else %>
+
+      <div class="left small-6 columns">
+        <% if @page >= 1 %>
+          <%= link_to "Previous 10 Results", search_recipes_path(page: @page - 1, search_terms: @search_terms) %>
+        <% end %>
+      </div>
+
+      <div class="right small-6 columns">
+        <%= link_to "Next 10 Results", search_recipes_path(page: @page + 1, search_terms: @search_terms) %>
+      </div>
+
+        <ul>
+          <% @recipes.each do |recipe| %>
+            <div class="square">
+              <li class="small-12 medium-6 columns image">
+                <%= link_to recipe_path(uri: recipe.uri) do %>
+                  <%= image_tag recipe.image %>
+                  <h4 class="image-text"> <%= recipe.name %> </h4>
+                <% end %>
+              </li>
+            </div>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </article>
+
+</div>

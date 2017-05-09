@@ -1,0 +1,38 @@
+<div class="row">
+
+<article class="root small-12 columns">
+
+  <section class="intro small-10 small-centered columns">
+
+    <h2 class="title">Welcome to Trickey Eats:</h2>
+    <h3 class="title">Where it Shouldn't be Trickey to Find Something to Eat!</h3>
+    <p>
+      (This is a pun on Lynn Trickey’s last name.  She knows it’s spelled differently than the word tricky.  <br />She learned that in the first grade during a very traumatic spelling lesson.  <br />Thanks for bringing it up.)
+    </p>
+
+  </section>
+
+  <section class="search small-10 small-centered columns">
+
+   <%= form_tag search_recipes_path, method: :get do %>
+
+      <div class="small-12 columns">
+        <%= label_tag(:search_terms, "What are you Hungry for?") %>
+      </div>
+
+      <div class="small-12 columns">
+        <%= text_field_tag(:search_terms) %>
+      </div>
+
+      <%= hidden_field_tag :page, 0 %>
+
+      <div class="small-12 columns">
+        <%= submit_tag "Find Recipe", class: "button" %>
+      </div>
+
+   <% end %>
+  </section>
+
+</article>
+
+</div>
