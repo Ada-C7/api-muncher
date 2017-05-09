@@ -2,7 +2,7 @@
 
 <section id="search-results" class="row">
   <% if @recipes.empty? %>
-    <p>Oh no! No recipes found containing "<%= @search_term %>".</p>
+    <p>No recipes found containing "<%= @search_term %>".</p>
   <% else %>
     <ul>
       <% @recipes.each do |recipe| %>
