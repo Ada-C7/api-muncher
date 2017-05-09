@@ -1,21 +1,25 @@
 <%= form_tag(root_path, :method => "get") do %>
-<%= text_field_tag :search_item, params[:search_item], placeholder: "Search Recipes" %>
-<%= submit_tag "Search", :name => nil %>
+  <div class="row collapse">
+    <div class="small-10 columns">
+      <%= text_field_tag :search_item, params[:search_item], placeholder: "Search Recipes" %>
+    </div>
+  <div class="button small small-2 columns"> <%= submit_tag "Search", :name => nil %></div>
+  </div>
 <% end %>
 
+
 <% if @page_results %>
-  <div class="row small-up-1 medium-up-2 large-up-5">
+  <section class="row small-up-1 medium-up-2 large-up-5">
     <% @page_results.each do |result| %>
     <div class="column">
       <%= image_tag result.image %>
-      <%= link_to result.recipe_label, show_path(uri: result.uri) %>
+      <h5><%= link_to result.recipe_label, show_path(uri: result.uri) %></h5>
     </div>
     <% end %>
   </div>
   <div class="row">
-    <div class="twelce columns text-center">
+    <div class="text-center">
       <%= will_paginate @page_results, renderer: FoundationPagination::Rails %>
     </div>
-  </div>
-
+  </section>
 <% end %>

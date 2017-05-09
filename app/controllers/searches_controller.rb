@@ -4,7 +4,6 @@ require "result"
 
 class SearchesController < ApplicationController
   def index
-    # @all_search_results = Edamam.all_search(params[:search_item])
     if params[:search_item]
       @page_results = Edamam.all_search(params[:search_item]).paginate(:page => params[:page], :per_page => 10)
     end
