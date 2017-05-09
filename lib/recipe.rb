@@ -11,6 +11,7 @@ class Recipe
   attr_reader :id, :name, :image, :source_url, :ingredients, :servings, :calories, :labels
 
   def initialize(data)
+    puts data["uri"]
     @id = data["uri"].match(/#recipe\_(.*)/)[1]
     @name = data["label"]
     @image = data["image"]

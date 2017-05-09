@@ -31,6 +31,11 @@ class RecipesController < ApplicationController
     rescue RecipeError => error
       flash[:error_message] = "Application Error: #{error}."
     end
+
+    head :not_found if @recipe.nil?
+    #   flash[:error_message] = "Recipe not found. Please try a differernt recipe."
+    #   redirect_to recipes_path("recipe" => { "q" =>  params["q"]}), status: :not_found
+    # end
   end
 
   private
