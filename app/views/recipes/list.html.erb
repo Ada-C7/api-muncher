@@ -1,0 +1,31 @@
+
+<section>
+<% counter = 0%>
+<div class="row">
+<% if @recipes["hits"].nil?%>
+<div class="font_big"><%=  "No Recipe Found"  %></div>
+<% else %>
+  <% @recipes["hits"].each do |r| %>
+  <% @uri = r["recipe"]["uri"].sub("http://www.edamam.com/ontologies/edamam.owl#", "") %>
+  <div class="columns large-3 medium-6 small-12">
+    <div class="recipe">
+    <%= link_to image_tag(r["recipe"]["image"], size: "200"), recipe_path(@uri) %>
+    <div><%= link_to r["recipe"]["label"], recipe_path(@uri),  class: "black_text"%></div>
+    </div>
+  </div>
+  <% counter +=1 %>
+  <% end %>
+<% end %>
+</div>
+
+<div><%= "No More Recipes" if counter < 12 %></div>
+<% from = (params[:from].to_i + 12).to_s %>
+<% to = (params[:to].to_i + 12).to_s %>
+<% if counter == 12 %>
+<div>
+<%= link_to "More recipes", list_path("from" => from, "to" => to, "health" => @health, "search_term" => @search_word), method: :get, class: "button"  %>
+</div>
+
+<% end %>
+
+</section>

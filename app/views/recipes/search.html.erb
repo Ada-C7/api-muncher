@@ -1,0 +1,44 @@
+<section class="top_space">
+<%= form_tag list_path, method: :get do %>
+  <%= label_tag :search_recipe %>
+  <%= text_field_tag :search_term, params[:search_term] %>
+  <%= hidden_field_tag :from, 0 %>
+  <%= hidden_field_tag :to, 12 %>
+  <!-- shows 7 previously searched terms. -->
+  <% if session[:search_terms] != [] %>
+    <% if 7 > session[:search_terms].length %>
+      <% num = session[:search_terms].length %>
+    <% else %>
+      <% num = 7 %>
+    <% end %>
+
+  Previously searched: <% search_terms = session[:search_terms][-num..-1]%>
+    <% search_terms.each do |search| %>
+    <%= link_to " #{search}. ", search_path(search_term: "#{search}") %>
+    <% end %>
+  <% end %>
+  <p>
+    <ul>
+      <li class="checkbox_inline"><%= label_tag "Vegetarian"%></li>
+      <li class="checkbox_inline"><%= check_box_tag "health[]", "vegetarian"%></li>
+      <li class="left_space checkbox_inline "><%= label_tag "Vegan"%></li>
+      <li class="checkbox_inline"><%= check_box_tag "health[]", "vegan"%></li>
+      <li class="left_space checkbox_inline"><%= label_tag "Peanut-free"%></li>
+      <li class="checkbox_inline"><%= check_box_tag "health[]", "peanut-free"%></li>
+      <li class="left_space checkbox_inline"><%= label_tag "Soy-free"%></li>
+      <li class="checkbox_inline"><%= check_box_tag "health[]", "soy-free"%></li>
+      <li class="left_space checkbox_inline"><%= label_tag "Dairy-free"%></li>
+      <li class="checkbox_inline"><%= check_box_tag "health[]", "dairy-free"%></li>
+      <li class="left_space checkbox_inline"><%= label_tag "Gluten-free"%></li>
+      <li class="checkbox_inline"><%= check_box_tag "health[]", "gluten-free"%></li>
+      <li class="left_space checkbox_inline"><%= label_tag "Pork-free"%></li>
+      <li class="checkbox_inline"><%= check_box_tag "health[]", "pork-free"%></li>
+      <li class="left_space checkbox_inline"><%= label_tag "Shellfish-free"%></li>
+      <li class="checkbox_inline"><%= check_box_tag "health[]", "shellfish-free"%></li>
+    </ul>
+</p>
+
+<div><%= submit_tag "Find some recipes!", class: "button" %></div>
+
+<% end %>
+</section>

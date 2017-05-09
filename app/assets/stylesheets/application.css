@@ -1,0 +1,107 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+.header{
+   height: 8em;
+   width: 100%;
+   margin: auto;
+}
+
+.center {
+   margin-top: 2%;
+   text-align: center;
+}
+
+.center_no_margin {
+   text-align: center;
+
+}
+
+
+.top_space {
+   margin-top: 3%;
+}
+
+.bottom_space {
+   margin-bottom: 3%;
+}
+.left_padding {
+   padding-left: 10%;
+}
+.black_text {
+   color: black;
+}
+
+.red_text {
+   color: red;
+}
+
+.blue_text {
+   color: darkblue;
+}
+
+.gray_background {
+   background-color: lightgray;
+}
+
+.darkgray_background {
+   background-color: gray;
+}
+
+.recipe {
+   width: 300px;
+   height: 300px;
+   text-align: center;
+}
+
+.nut_table {
+   width: 40%;
+   margin: auto;
+}
+
+.side_by_side {
+   display: inline-block;
+   width: 45%;
+   margin: auto;
+   text-align: center;
+   margin-bottom: 5%;
+}
+
+.font_big {
+   font-size: 1.2em;
+}
+
+.checkbox_inline {
+   display: inline-block;;
+}
+
+.left_space {
+   margin-left: 1em;
+}
+
+.footer_logo {
+   width: 9%;
+   margin: 1%;
+}
+
+.white_font {
+   color: white;
+}
+
+.light_gray_font {
+   color: lightgray;
+}

@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="top_space columns large-6 medium-6 small-12">
+    <section class="gray_background">
+      <div class="side_by_side top_space"><%= image_tag(@recipe["image"], size: "200")%></div>
+      <div class="side_by_side top_space">
+        <div class="blue_text font_big top_space"><%= @recipe["label"] %></div>
+        <br>
+        <%= link_to "Click here for the Recipe", @recipe["shareAs"], class: "red_text"%>
+      </div>
+    </section>
+    <ul>
+    <h5>ingredients</h5>
+    <% @recipe["ingredientLines"].each do |ing| %>
+    <li><%= ing %></li>
+    <% end %>
+  </div>
+  <br>
+  <div class="top_space columns large-6 medium-6 small-12">
+    <div class="nut_table">
+      <h4 >Dietary Information</h4>
+        Calories: <%= number_with_delimiter(@recipe["calories"].round(0)) %>
+    </div>
+    <br>
+    <table class="nut_table">
+      <thead>
+        <tr>
+          <th>Label</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% @nutrients.each do |nutrient| %>
+          <tr>
+            <td><%= nutrient["label"] %></td>
+            <td><%= number_with_delimiter(nutrient["quantity"].round(0)) %></td>
+            <td><%= nutrient["unit"] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
