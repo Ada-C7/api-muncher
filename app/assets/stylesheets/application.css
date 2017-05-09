@@ -24,6 +24,7 @@ li {
   text-align: center;
 }
 
-.thumbnail:hover {
-  color: pink;
+img {
+  height: 400px;
+  width: 400px;
 }
