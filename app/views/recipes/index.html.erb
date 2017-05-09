@@ -1,0 +1,27 @@
+
+
+<div class="row" >
+
+    <%= form_tag recipes_results_path, method: "get", class: "search" do %>
+      <%= label_tag(:query, "Search For:") %>
+      <%= text_field_tag(:query, nil, class: "large-3 large-centered columns") %>
+
+      <%= submit_tag("Send", class: "button")  %>
+
+    <% end %>
+
+</div>
+
+<!--
+<div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-10 columns">
+          <input type="text" placeholder="Hex Value">
+        </div>
+        <div class="small-2 columns">
+          <a href="#" class="button postfix">Go</a>
+        </div>
+      </div>
+    </div>
+  </div> -->

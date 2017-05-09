@@ -1,0 +1,30 @@
+<h3>Search results for <%= params[:query]%>: </h3>
+
+
+
+
+
+<ul class="row large-up-4 medium-up-3 small-up-1 recipe" data-equalizer-watch>
+
+
+<%  @recipes.each do |recipe| %>
+    <li class="column" data-equalizer>
+      <%= image_tag(recipe.image, :alt => recipe.label) %>
+        <% recipe.diet_labels. each do |label| %>
+          <p class="label"><%= label %></p>
+        <% end %>
+        <% recipe.health_labels. each do |label| %>
+          <p class="label"><%= label %></p>
+        <% end %>
+
+      <h4><%= link_to recipe.label, show_recipe_path(recipe.id) %></h4>
+    </li>
+<% end %>
+</ul>
+
+
+
+
+<section class="row">
+  <%= will_paginate @recipes, class: "row" %>
+</section>

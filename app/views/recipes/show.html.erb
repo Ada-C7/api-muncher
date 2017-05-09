@@ -1,0 +1,21 @@
+<h3><%= @recipe.label %></h3>
+
+<h4>Ingredients</h4>
+<ul>
+<% @recipe.ingredients.each do |ingredient| %>
+  <li><%= ingredient %></li>
+<% end %>
+</ul>
+
+<h4>Meets this ingredient restrictions:</h4>
+  <% @recipe.health_labels.each do |label| %></h4>
+    <p class="label"><%= label%></p>
+  <% end %>
+
+
+<h4>Good for these diets: </h4>
+  <% @recipe.diet_labels.each do |label| %>
+    <p class="label"><%= label%></p>
+  <% end %>
+
+<h4>Get the <%= link_to "full recipe", @recipe.url, target: "_blank" %></h4>

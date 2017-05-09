@@ -1,0 +1,6 @@
+<h4>Recent Searches: </h4>
+<%if session[:searches] %>
+  <% session[:searches].uniq.each do |search| %>
+    <p> <%= search %></p>
+  <% end %>
+<% end %>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Recipe Investigator" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <header class="row" >
+    <div class="large-2 medium-4 small-12 columns">
+      <%= image_tag("munch.jpg") %>
+    </div>
+
+    <div class="large-6 medium-6 small-12 columns">
+      <h2>Muppet Munch, R.I. </h2>
+      <h4>Finds your recipes, no questions asked.</h4>
+      <p>Okay, he asks a couple questions.</p>
+    </div>
+
+    <nav class="large-4 medium-12 small-12 columns">
+      <%= link_to "Home", root_path, class: "button"%>
+      <%= link_to "Recent Searches", searches_path, class: "button" %>
+    </nav>
+  </header>
+
+  <body class="row">
+    <section class="flash row">
+        <% flash.each do |name, message| %>
+          <div class="<%= name %>"><%= message %></div>
+        <% end %>
+    </section>
+
+    <%= yield %>
+
+  </body>
+
+  <footer class="row footer">
+    <p>This site is powered by <%= image_tag("edamam.png", size: "40x40") %></p>
+  </footer>
+</html>
