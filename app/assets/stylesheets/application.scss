@@ -22,7 +22,6 @@
   font-family: 'Walter Turncoat';
   padding: 0;
 }
-
 * ul {
   list-style-type: none;
   margin-left: 20%;
@@ -45,7 +44,7 @@
 //Beyond Ramen Title
 
 div.header {
-  margin-top: 120px;
+  margin-top: 30px;
   margin-bottom: 0px;
   padding-left: 0px;
   padding-right: 0px;
@@ -57,6 +56,10 @@ h1.banner {
   text-align: center;
   font-weight: bold;
   margin-bottom: 0px;
+  background-color: #ffd97a;
+}
+
+.row {
   background-color: #ffd97a;
 }
 
@@ -76,9 +79,7 @@ p#last-p {
   padding-bottom: 15px;
 }
 
-//Navigation Bar
-
-div.nav-bar {
+.img-text {
   background-color: #ffd97a;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -88,11 +89,11 @@ ul.list {
   margin: 0px;
 }
 
-li#left-nav {
+#left-nav {
   text-align: left;
 }
 
-li#right-nav {
+#right-nav {
   text-align: right;
 }
 
