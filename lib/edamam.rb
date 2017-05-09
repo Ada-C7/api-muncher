@@ -16,7 +16,7 @@ class Edamam
       "id" => ENV["edamam_id"],
       "key" => ENV["edamam_key"],
       "from" => 0,
-      "to" => 1000
+      "to" => 200
     }
     response = HTTParty.get(BASE_URL, query: query_params).parsed_response
     # return response["hits"] this is an array of hashes

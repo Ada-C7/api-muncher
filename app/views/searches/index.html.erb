@@ -12,5 +12,10 @@
     </div>
     <% end %>
   </div>
-  <%= will_paginate @page_results, page_links: false %>
+  <div class="row">
+    <div class="twelce columns text-center">
+      <%= will_paginate @page_results, renderer: FoundationPagination::Rails %>
+    </div>
+  </div>
+
 <% end %>
