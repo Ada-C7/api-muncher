@@ -1,21 +1,27 @@
-<h1 id="recipe-show-name"><%= @recipe[0]["label"] %></h1>
-<%= image_tag @recipe[0]["image"] %><br>
-<h2>Diet Labels: </h2>
-<ul>
-  <% @recipe[0]["dietLabels"].each do |label| %>
-    <li><%= label %></li>
-  <% end %>
-</ul>
-<h2>Health Labels: </h2>
-<ul>
-  <% @recipe[0]["healthLabels"].each do |label| %>
-    <li><%= label %></li>
-  <% end %>
-</ul>
-<h2>Ingredients: </h2>
-<ul>
-  <% @recipe[0]["ingredientLines"].each do |label| %>
-    <li><%= label %></li>
-  <% end %>
-</ul>
-<%= link_to "View recipe", @recipe[0]["url"], target: :_blank %><br>
+<section class="recipe-show">
+  <h1 id="recipe-show-name"><%= @recipe[0]["label"] %></h1>
+
+  <%= image_tag @recipe[0]["image"] %><br>
+  <%= link_to "View recipe", @recipe[0]["url"], target: :_blank %><br>
+
+  <h2 class="ingredientslabel">Ingredients: </h2>
+  <ul>
+    <% @recipe[0]["ingredientLines"].each do |label| %>
+    <li class="ingredients"><%= label %></li>
+    <% end %>
+  </ul>
+
+  <h2 class="dietlabel">Diet Labels: </h2>
+  <ul>
+    <% @recipe[0]["dietLabels"].each do |label| %>
+    <li class="dietlabel"><%= label %>*</li>
+    <% end %>
+  </ul>
+
+  <h2 class="healthlabel">Health Labels: </h2>
+  <ul>
+    <% @recipe[0]["healthLabels"].each do |label| %>
+    <li class="healthlabel"><%= label %>*</li>
+    <% end %>
+  </ul>
+</section>
