@@ -21,7 +21,8 @@ class Recipe
   end
 
   def self.search(name)
-    raise ArgumentError if name == nil || name == " " || name == ""
+    #Commented it to test controller
+    # raise ArgumentError if name == nil || name == " " || name == ""
     query_params = {
       "app_id" => ENV["APP_ID"],
       "app_key" => ENV["APP_KEY"],
@@ -54,14 +55,14 @@ class Recipe
       "app_key" => ENV["APP_KEY"],
       "r" => uri
     }
-    response = HTTParty.get(BASE_URL, query: query_params)
+    response = HTTParty.get(BASE_URL, query: query_params) #.parsed_response
 
     if response != nil
      response.map do |recipe|
       recipe_data = {
         label: recipe["label"],
         image:recipe["image"],
-        uri: recipe["uri"],
+        # uri: recipe["uri"],
         url: recipe["url"],
         calories: recipe["calories"],
         dietLabels: recipe["dietLabels"],
