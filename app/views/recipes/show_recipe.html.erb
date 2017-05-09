@@ -1,25 +1,39 @@
-<p>
-  <%= @recipe[:label] %>
-</p>
-<h3>Ingredients</h3>
-<ul>
-  <% @recipe[:ingredients].each do |ingredient| %>
-  <li>
-    <%= ingredient %>
-  </li>
-  <% end %>
-</ul>
-<% unless @recipe[:diet].empty? %>
-<h3>Dietary Information</h3>
-<ul>
-  <% @recipe[:diet].each do |type| %>
-  <li>
-    <%= type %>
-  </li>
-  <% end %>
-</ul>
-<% end %>
+<div class='small-9 large-centered columns, class='show>
+  <p class='recipe-name'>
+    <%= @recipe[:label] %>
+  </p>
 
-<p>
-  <%= link_to @recipe[:url], "#{@recipe[:url]}" %>
-</p>
+
+  <h3 class='ingredients'>
+    Ingredients
+  </h3>
+</div>
+<!-- <div class='small-9 large-centered columns', class='list'> -->
+  <ul id='list'>
+    <% @recipe[:ingredients].each do |ingredient| %>
+    <div class='small-9 large-centered columns'>
+      <li>
+        <%= ingredient %>
+      </li>
+    </div>
+    <% end %>
+  </ul>
+<!-- </div> -->
+
+<div class='small-9 large-centered columns'>
+  <% unless @recipe[:diet].empty? %>
+  <h3>Dietary Information</h3>
+  <ul>
+    <% @recipe[:diet].each do |type| %>
+    <li>
+      <%= type %>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
+<div class='small-9 large-centered columns'>
+  <p class='recipe-link'>
+    <%= link_to @recipe[:url], "#{@recipe[:url]}" %>
+  </p>
+</div>

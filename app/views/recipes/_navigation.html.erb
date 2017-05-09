@@ -1,16 +1,17 @@
 <div class='row'>
-
-  <ul>
-    <% if params[:page] == '1' %>
-    <li><p></p>
-    </li> <!-- These logic is here to keep the spacing in the page correct. -->
-    <% else %>
-    <li class='small-6 columns' id='left-nav'>
-      <%= link_to "Previous Recipes", recipes_path(:utf8 => params[:utf8], :search => params[:search], :page => (params[:page].to_i - 1), :commit => params[:commit]) %>
-    </li>
-    <% end %>
-    <li class='small-6 columns', id='right-nav'>
-      <%= link_to "More Recipes", recipes_path(:utf8 => params[:utf8], :search => params[:search], :page => (params[:page].to_i + 1), :commit => params[:commit]) %>
-    </li>
-  </ul>
+  <div class='small-9 large-centered columns, nav-bar'>
+    <ul class='inline-list, list'>
+      <% if params[:page] == '1' %>
+      <li><p></p>
+      </li> <!-- These logic is here to keep the spacing in the page correct. -->
+      <% else %>
+      <li  id='left-nav'>
+        <%= link_to "Previous Recipes", recipes_path(:utf8 => params[:utf8], :search => params[:search], :page => (params[:page].to_i - 1), :commit => params[:commit]) %>
+      </li>
+      <% end %>
+      <li  id='right-nav'>
+        <%= link_to "More Recipes", recipes_path(:utf8 => params[:utf8], :search => params[:search], :page => (params[:page].to_i + 1), :commit => params[:commit]) %>
+      </li>
+    </ul>
+  </div>
 </div>
