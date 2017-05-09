@@ -1,13 +1,11 @@
 require "edamam"
 require "result"
-require 'will_paginate/array'
+
 
 class SearchesController < ApplicationController
   def index
-
     @all_search_results = Edamam.all_search(params[:search_item])
     if params[:search_item]
-
       @page_results = @all_search_results.paginate(:page => params[:page], :per_page => 10)
       # w/o if get this error The @searches variable appears to be empty.
       # Did you forget to pass the collection object for will_paginate?
