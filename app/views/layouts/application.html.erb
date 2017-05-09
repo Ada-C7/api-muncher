@@ -9,7 +9,7 @@
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-
+<body>
   <!-- Load Facebook SDK for JavaScript -->
   <div id="fb-root"></div>
   <script>(function(d, s, id) {
@@ -22,25 +22,19 @@
   <div class="fb-video" data-href="https://www.facebook.com/LADbible/videos/3190589704321531/" data-width="125" data-show-text="false" data-autoplay="true"><blockquote cite="https://www.facebook.com/LADbible/videos/3190589704321531/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/LADbible/videos/3190589704321531/">Crab Eats Strawberry</a><p>Just a tiny crab eating a strawberry 🦀🍓</p></blockquote></div>
 
   <div class="search small-12 columns end medium-9 columns end large-6 columns end">
-   <%= form_tag homepages_index_path, method: "get" do %>
-   <%= submit_tag "Search", class: 'button' %>
-   <%= text_field_tag(:search_term, nil, class: 'input-small', :placeholder => "Enter an ingredient and Strawberry Crab will give you some ideas.", :required => true ) %>
-   <% end %>
+    <%= form_tag homepages_index_path, method: "get" do %>
+    <%= submit_tag "Search", class: 'button' %>
+    <%= text_field_tag(:search_term, nil, class: 'input-small', :placeholder => "Enter an ingredient and Strawberry Crab will give you some ideas.", :required => true ) %>
+    <% end %>
   </div>
-
+  
   <header class="header row">
-
   </header>
-
-
-
-
-
-<body>
-
 
   <%= yield %>
 </body>
-
+<footer>
+  <h6>Powered by Edamam.com</h6>
+</footer>
 
 </html>

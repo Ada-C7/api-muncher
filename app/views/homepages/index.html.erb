@@ -6,13 +6,11 @@
       <small>What a hungry do.</small>
     </section>
   </header>
-  <!-- recipe search -->
-  <!-- <object width="50" height="50" align="right"></object> -->
 
   <!-- search results -->
-  <div class="row small-up-2 medium-up-3 large-up-5">
+  <div class="row small-up-3 medium-up-4 large-up-5">
     <% if @search_recipes != nil %>
-    <p><%= will_paginate @search_recipes, class: "row" %></p>
+    <p> <%= will_paginate @search_recipes, class: "page" %></p>
     <% @search_recipes.each do |recipe| %>
     <section class="columns">
       <%= link_to recipe.label, recipe_path(:recipe => recipe.uri) %></br>
