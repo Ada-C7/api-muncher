@@ -1,0 +1,131 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Yanone+Kaffeesatz');
+
+/*general rules */
+* {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  color: #27909F;
+}
+
+ul {
+  list-style: none;
+}
+
+button, input, select, textarea {
+  font-family : inherit;
+  font-size   : 100%;
+}
+
+/*header*/
+h1#home a {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 3em;
+  margin: auto;
+  text-align: center;
+}
+
+h1#home {
+  text-align: center;
+}
+
+form {
+  padding: 2em 15em;
+}
+
+input[type=search] {
+  border: 1px solid #27909F;
+  border-radius: 2em;
+  padding: 1.5em 2em;
+  float: left;
+
+  -webkit-appearance: none;
+}
+
+input[type=submit] {
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 2em;
+  padding: 1em 4em;
+  background-color: #27909F;
+  float: right;
+
+  -webkit-appearance: none;
+}
+
+input[type="submit"]:hover, input[type="submit"]:active {
+  background-color: #71C2CD;
+}
+
+header {
+  margin: 2em 0 5em 0;
+}
+
+/*content*/
+p {
+  text-align: center;
+}
+
+article {
+  margin-bottom: 3em;
+}
+
+.pages a {
+  display: inline;
+}
+
+nav.pagination {
+  margin: auto;
+  padding: 0 5em;
+  text-align: center;
+}
+
+.show {
+  text-align: center;
+}
+
+img {
+  margin-bottom: 2em;
+}
+
+#left-list {
+  float: left;
+  padding: 1em 2em;
+}
+
+#right-list {
+  float: left;
+  padding: 1em 2em;
+}
+
+#left-list, #right-list {
+  text-align: justify;
+}
+
+/*footer*/
+
+footer {
+  float: right;
+  margin-top: 10em;
+}
+
+footer * {
+  display: inline-block;
+}
