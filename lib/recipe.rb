@@ -2,6 +2,8 @@ class Recipe
 
   attr_reader :label, :image, :uri
 
+  BASE_URL = "https://api.edamam.com/search?"
+
   def initialize(label, image, uri)
     @label = label
     @image = image
@@ -12,7 +14,7 @@ class Recipe
     to_recipe = page_params.to_i * 10
     from_recipe = to_recipe - 10
 
-    url = "https://api.edamam.com/search?app_key=#{ENV['APP_KEY']}&app_id=#{ENV['APP_ID']}&q=#{search_term}&from=#{from_recipe}&to=#{to_recipe}"
+    url = "#{BASE_URL}app_key=#{ENV['APP_KEY']}&app_id=#{ENV['APP_ID']}&q=#{search_term}&from=#{from_recipe}&to=#{to_recipe}"
 
     response = HTTParty.get(url).parsed_response
 
@@ -33,7 +35,7 @@ class Recipe
   end
 
   def self.show_recipe(uri)
-    url = "https://api.edamam.com/search?app_key=#{ENV['APP_KEY']}&app_id=#{ENV['APP_ID']}&r=http://www.edamam.com/ontologies/edamam.owl%23#{uri[1..-1]}"
+    url = "#{BASE_URL}?app_key=#{ENV['APP_KEY']}&app_id=#{ENV['APP_ID']}&r=http://www.edamam.com/ontologies/edamam.owl%23#{uri[1..-1]}"
 
     response = HTTParty.get(url).parsed_response
 
