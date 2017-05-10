@@ -1,0 +1,99 @@
+
+body {
+ text-align: center;
+ background-image: asset_url("carrots.jpg");
+ background-size: cover;
+}
+
+html * {
+  font-family: 'Sue Ellen Francisco', cursive;
+}
+
+#title {
+  padding-top: 40px;
+  font-size: 90px;
+  text-shadow: 2px 2px #4d4f51;
+}
+
+div.row {
+  padding-top: 20px;
+}
+
+#button{
+  font-size: 25px;
+}
+
+
+h2 {
+  padding-top: 40px;
+  font-size: 50px;
+  text-shadow: 2px 2px #4d4f51;
+}
+
+div.transbox {
+  margin: 30px;
+  border-radius: 25px;
+  background-color: #ffffff;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  color: #4A3450;
+}
+
+div.transbox:hover {
+  opacity: 0.9;
+  filter: alpha(opaacity=90);
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: #4A3450;
+}
+
+a:hover {
+  color: #949D5F;
+}
+
+
+div.ingredients {
+  font-size: 30px;
+}
+
+h3.recipe-title {
+  font-size: 30px;
+}
+
+div.recipe-transbox {
+  margin: 30px;
+  border-radius: 25px;
+  background-color: #ffffff;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  color: #4A3450;
+  display: inline-block;
+  line-height: 1.42857143;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.recipe-transbox:hover {
+  opacity: 0.9;
+  filter: alpha(opaacity=90);
+}
+
+div.nutrition {
+  font-size: 20px;
+}
+
+div.source {
+  font-size: 30px;
+}
+
+footer {
+  font-size: 25px;
+  position:inherit;
+  bottom:32px;
+  width:100%;
+  height:50px;
+}
