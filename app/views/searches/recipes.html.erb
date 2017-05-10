@@ -1,6 +1,6 @@
 <section class="search-results row">
 
-  <h2>results for "<%= session[:search_terms] %><% if session[:health] %> (<%= session[:health] %>)<% end %>"</h2>
+  <h2><% if session[:health] %><%= session[:health] %> <% end %>recipes<% if session[:search_terms] != "" %> matching "<%= session[:search_terms] %>"<% end %></h2>
 
   <% if @results.empty? %>
   <p class="nothing-found">
