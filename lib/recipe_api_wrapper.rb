@@ -20,12 +20,12 @@ class RecipeApiWrapper
   end
 
   def self.search( keywords, from,  health=nil, count=false)
-  health_options = ""
-   if health != nil
-     health.each do |h|
-       health_options << "&health=#{h}"
-     end
-   end
+    health_options = ""
+    if health != nil
+      health.each do |h|
+        health_options << "&health=#{h}"
+      end
+    end
     url = "#{BASE_URL}q=#{keywords}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}&from=#{from}&to=#{from.to_i+12}#{health_options}"
     response = HTTParty.get(url)
     if count == true
@@ -49,8 +49,12 @@ class RecipeApiWrapper
   def self.find_recipe(uri)
     url = "#{BASE_URL}r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{uri}&app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_KEY"]}"
     response = HTTParty.get(url).parsed_response
-    recipe = RecipeApiWrapper.new(response[0])
-    return recipe
+    if response != nil && response[0] != nil
+      recipe = RecipeApiWrapper.new(response[0])
+      return recipe
+    else
+      raise RecipeException.new("Could not find recipe")
+    end
   end
 
 end

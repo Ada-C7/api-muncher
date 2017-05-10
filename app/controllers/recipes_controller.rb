@@ -41,7 +41,11 @@ class RecipesController < ApplicationController
 
     def show_recipe
       @recipe = RecipeApiWrapper.find_recipe(params[:uri])
-      @favorite_recipe = Recipe.new
+      if @recipe == nil
+        flash[:result_text] = "Could not find recipe"
+      else
+        @favorite_recipe = Recipe.new
+      end
     end
 
     def create
