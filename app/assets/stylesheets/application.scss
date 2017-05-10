@@ -1,176 +1,36 @@
-/*
-* This is a manifest file that'll be compiled into application.css, which will include all the files
-* listed below.
-*
-* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
-* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
-*
-* You're free to add application-wide styles to this file and they'll appear at the bottom of the
-* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
-* files in this directory. Styles in this file should be added after the last require_* statement.
-* It is generally better to create a new file per style scope.
-*
-*= require_tree .
-*= require_self
-*= require foundation_and_overrides
-
-*/
-// @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
-@import url('https://fonts.googleapis.com/css?family=Walter+Turncoat');
-
-* {
-  font-family: 'Walter Turncoat';
-  padding: 0;
-}
-* ul {
-  list-style-type: none;
-  margin-left: 20%;
-  margin-right: 20%;
-}
-
-* li {
-  background-color: #ffd97a;//rgb(137, 193, 133);
-  text-align: center;
-}
-
-* li:link {
-  color: black;
-}
-
-* li:visited {
-  color: black;
-}
-
-//Beyond Ramen Title
-
-div.header {
-  margin-top: 30px;
-  margin-bottom: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  background-color: #ffd97a;
-}
-
-h1.banner {
-  font-family: 'Walter Turncoat';
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 0px;
-  background-color: #ffd97a;
-}
-
-.row {
-  background-color: #ffd97a;
-}
-
-
-//Intro Text
-
-p.intro {
-  background-color: #ffd97a;
-  text-align: center;
-  margin-bottom: 0;
-  font-size: 1.5em;
-}
-
-p#last-p {
-  background-color: #ffd97a;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-.img-text {
-  background-color: #ffd97a;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-ul.list {
-  margin: 0px;
-}
-
-#left-nav {
-  text-align: left;
-}
-
-#right-nav {
-  text-align: right;
-}
-
-//Search page
-
-div.recipe-list {
-  background-color: #ffd97a;
-}
-
-h3 {
-  font-family: 'Walter Turncoat';
-  background-color: #ffd97a;
-  margin: 0;
-  padding: 10px;
-  text-align: center;
-}
-
-
-
-div.show {
-  background-color: #ffd97a;
-}
-
-p.recipe-name {
-  background-color: #ffd97a;
-  text-align: center;
-  padding-bottom: 16px;
-  margin-bottom: 0px;
-}
-
-div.list {
-  margin: 0;
-  background-color: #ffd97a;
-}
-
-p.recipe-link {
-  background-color: #ffd97a;
-  text-align: center;
-}
-
-li#left-nav {
-  text-align: left;
-}
-
-li#right-nav {
-  text-align: right;
-}
-
-
-div.ing-list{
-padding: 0;
-}
-
-body {
-  background: url("../instant_noodle_block.png") repeat center center;
-  background-size: 40%;
-  background-color: #a17ccf;
-  margin: 0;
-  padding: 0;
-}
-
-div.search-box {
-  background-color: #ffd97a;
-  text-align: center;
-  padding-bottom: 10px;
-}
-
-div.search-button {
-  background-color: #ffd97a;
-  // padding: 0px;
-  text-align: center;
-  padding-top: 5px;
-  padding-bottom: 40px;
-}
-
-div.text {
-
-}
+// /*
+// * This is a manifest file that'll be compiled into application.css, which will include all the files
+// * listed below.
+// *
+// * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+// * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+// *
+// * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+// * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+// * files in this directory. Styles in this file should be added after the last require_* statement.
+// * It is generally better to create a new file per style scope.
+// *
+// *= require_tree .
+// *= require_self
+// *= require foundation_and_overrides
 
 span.hidden { display:none; }
+
+@import url('https://fonts.googleapis.com/css?family=Bitter');
+@import url('https://fonts.googleapis.com/css?family=Shrikhand');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Shrikhand');
+
+
+
+
+* { font-family: 'Bitter', serif;
+  font-family: 'Roboto Condensed', sans-serif;
+ }
+
+h1{ font-family: 'Bitter', serif;
+  font-family: 'Shrikhand', cursive;
+ }
+
+.intro { text-align: center }
+
+.last-p { text-align: center }

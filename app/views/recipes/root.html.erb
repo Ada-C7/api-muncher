@@ -1,16 +1,16 @@
 <div class='row'>
-  <p class='small-9 large-centered columns, intro'>
+  <p class='small-12 large-centered columns, intro'>
     Avoid asking yourself the question everyone secretly wants
     to know.
   </p>
 </div>
 <div class='row'>
-  <p class='small-9 large-centered columns, intro'>
+  <p class='small-12 large-centered columns, intro'>
     "How many days can I eat this without dying?"
   </p>
 </div>
 <div class='row'>
-  <p class='small-9 large-centered columns, intro' id='last-p'>
+  <p class='small-12 large-centered columns, intro' id='last-p'>
     Find recipes, inspiration, and eat something that doesn't come
     out of a crinkly, brightly colored bag.
   </p>
@@ -27,18 +27,15 @@
 
   <%= form_tag recipes_path do %>
   <div class='row'>
-    <div class='small-9 large-centered columns, search-box' >
+    <div class='small-12 large-centered columns, search-box' >
       <%= text_field_tag :search, params[:search], :method => 'post' %>
       <%= hidden_field_tag :page, 1 %>
     </div>
   </div>
-  <div class='row'>
-    <div class='small-9 large-centered columns, search' >
-      <div class='search-button'>
-        <%= submit_tag 'Search' %>
-      </div>
+  <!-- <div class='row'> -->
+    <div class='small-6 columns'>
+      <%= submit_tag 'Search' %>
     </div>
   </div>
-  <% end %>
 </div>
-</div>
+<% end %>
