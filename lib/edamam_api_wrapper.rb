@@ -32,12 +32,14 @@ class EdamamApiWrapper
 
 
   def self.show_recipe(recipe_uri)
-
     # https://api.edamam.com/search?app_id=98890148&app_key=f45d95396610b94a0125add2218b269f&r=http://www.edamam.com/ontologies/edamam.owl%23recipe_637913ec61d9da69eb451818c3293df2
+
+    #recipe_uri = "http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_7bf4a371c6884d809682a72808da7dc2"
+
     url = BASE_URL + "search?" + "app_id=#{APP_ID}&app_key=#{APP_KEY}" + "&r=#{recipe_uri}"
 
     response = HTTParty.get(url)
-      # raise
+    
     if response[0]
       uri = response[0]["uri"]
       name = response[0]["label"]
