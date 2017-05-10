@@ -98,7 +98,7 @@ section.main {
   /*padding: 80 0;*/
   height: 600px
 }
-/*-------------- :: SEARCH :: ------------------*/
+/*-------------- :: SEARCH BAR:: --------------*/
 
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
@@ -166,3 +166,60 @@ ul.recipes li {
 
 
 /*-------------- :: SHOW :: ------------------*/
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.first {
+  background-color: #FFF;
+  padding: 20px;
+  flex: 1;
+}
+
+.second {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe ul {
+  list-style: none;
+  height: inherit;
+}
+
+.second-a {
+  /*background-color: #c0dbe2;*/
+  flex: 1;
+  display: flex;
+}
+
+.second-b {
+  /*background-color: #cdf1c3;*/
+  flex: 1;
+}
+
+
+.recipe li {
+  border-radius: 5000px;
+  font-size: 0.8rem;
+  flex: 1;
+}
+
+
+.second-a
+{
+   /*display: inline-block;
+   position: relative;
+   text-align: center;*/
+   vertical-align: bottom;
+   bottom: 0
+}
+
+.button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 0.8rem;
+  background-color: #070201;
+}
