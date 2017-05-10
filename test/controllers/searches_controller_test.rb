@@ -11,24 +11,39 @@ describe SearchesController do
 
   describe "#index" do
 
-    # it "must get index" do
-    #   get root_path
-    #   must_respond_with :success
-    # end
+    it "index route works" do
+      get root_path
+      must_respond_with :success
+    end
 
   end
 
   describe "#recipes" do
 
-    # it "must get recipes page" do
-    #   get recipes_path
-    #   must_respond_with :success
+    it "must get recipes page" do
+      get recipes_path(search_terms: "chicken", from: 0, to: 12, health: "vegetarian")
+      must_respond_with :success
+    end
+
+    it "if health param is none it should not pass a health param" do
+      get recipes_path(search_terms: "chicken", from: 0, to: 12, health: "none")
+      must_respond_with :success
+    end
+
+    it "if no health param must succeed" do
+      get recipes_path(search_terms: "chicken", from: 0, to: 12)
+      must_respond_with :success
+    end
+
+    it "if no results should succeed" do
+      get recipes_path(search_terms: "sdlkfjsdlkfj", from: 0, to: 12, health: "high-protein")
+      must_respond_with :success
+    end
+
+    # it "should update the count" do
     # end
-    #
-    # it "must get a search" do
-    #   get recipes_path(search_terms: "chicken", from: 0, to: 12, health: "vegetarian")
-    #   must_respond_with :success
-    #
+
+    # it "should update the search_terms" do
     # end
 
   end
@@ -36,43 +51,38 @@ describe SearchesController do
 
 
     it "should get the recipe page" do
-      # uri = "http://www.edamam.com/ontologies/edamam.owl%23recipe_b63034f899ef1b5c7c939ec7e1ca6b1b"
-
-      # sample = "http://www.edamam.com/ontologies/edamam.owl%23recipe_71a58ed2f6f75de2a226c53ef77fd5c3"
-      # get recipe_path(uri)
-      get recipe_path("http://www.edamam.com/ontologies/edamam.owl%23recipe_71a58ed2f6f75de2a226c53ef77fd5c3")
+      get recipe_path(uri: "http://www.edamam.com/ontologies/edamam.owl%23recipe_71a58ed2f6f75de2a226c53ef77fd5c3")
 
       must_respond_with :success
     end
 
-    # it "should show a nice error message if it can't get it" do skip
-    #
-    # end
+    it "should show a nice error message if it can't get it" do
+      fake_uri = "http://www.edamam.com/ontologies/edamam.owl%23recipe_fake-uri"
+        get recipe_path(uri: fake_uri)
+
+        must_respond_with :missing
+
+    end
   end
 
   describe "#create" do
 
-    # it "can create a search" do skip
-    #   proc { post save_search_path, params: { search:
-    #             { search_terms: "pink lady",
-    #               health: "vegetarian",
-    #               user_id: 1
-    #             }
-    #           }
-    #         }.must_change 'Search.count', 1
-    # end
-    #
-    #
-    # it "successfully saves a search" do skip
-    #   post save_search_path()
-    # end
+    it "can create a search" do
+      proc {post login_path, params: { user: users(:aurora)}
+      post save_search_path, params: { search: { search_terms: "pink lady", health: "vegetarian", user: users(:aurora)}}
+      must_respond_with :success}
+    end
 
   end
 
   describe "#destroy" do
 
-    # it "successfully destroys a saved search" do skip
-    # end
+    it "successfully destroys a saved search" do
+      proc {post login_path, params: { user: users(:aurora)}
+      must_respond_with :success
+      delete delete_search_path, params: {search: searches(:search1).id}
+      must_respond_with :success}
+    end
   end
 
   # how the heck do I test this??

@@ -4,8 +4,11 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+search1:
+  search_terms: "pink apple"
+  user: users(:aurora)
+
+search2:
+    search_terms: "pink apple"
+    user: users(:aurora)
+    health: "vegetarian"

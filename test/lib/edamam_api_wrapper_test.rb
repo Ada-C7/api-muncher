@@ -73,8 +73,6 @@ describe EdamamApiWrapper do
       real_uri = "http://www.edamam.com/ontologies/edamam.owl%23recipe_b63034f899ef1b5c7c939ec7e1ca6b1b"
       recipe = EdamamApiWrapper.getRecipe(real_uri)
       recipe.must_be_instance_of RecipeResult
-      # get recipe_path(recipe.uri)
-      # must_respond_with :success
     end
 
     it "should return nil if error" do
@@ -82,13 +80,6 @@ describe EdamamApiWrapper do
       recipe.must_equal nil
     end
 
-    #
-    # it "raise ArgError if getting a recipe fails" do
-    #   proc {
-    #     recipe_uri = "fake"
-    #     recipe = EdamamApiWrapper.getRecipe(recipe_uri)
-    #   }.must_raise ArgumentError
-    # end
 
   end
 

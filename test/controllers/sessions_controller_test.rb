@@ -14,12 +14,12 @@ describe SessionsController do
 
     it "logs in an existing user" do
       post login_path, params: { user: { provider: "aurora", uid: "1234"}}
-      must_redirect_to :root
+      must_respond_with :success
     end
 
-    it "redirects to root after logging user in" do
-
-    end
+    # it "redirects to root after logging user in" do
+    #
+    # end
 
   end
 

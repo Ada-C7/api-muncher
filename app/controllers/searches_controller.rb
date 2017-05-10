@@ -40,9 +40,15 @@ class SearchesController < ApplicationController
   def recipe
     # raise
     @recipe = EdamamApiWrapper.getRecipe(params[:uri])
-    @nutrients = %w(ENERC_KCAL FAT SUGAR PROCNT VITB12)
-    session[:recipe_name] = @recipe.name
-    session[:recipe_url] = @recipe.recipe_url
+    if @recipe.nil?
+      render_404
+    else
+      @nutrients = %w(ENERC_KCAL FAT SUGAR PROCNT VITB12)
+      session[:recipe_name] = @recipe.name
+      session[:recipe_url] = @recipe.recipe_url
+    end
+      
+
   end
 
   # do I need this at all?
