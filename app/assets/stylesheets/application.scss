@@ -32,9 +32,6 @@ h1{
  }
 
  .header {
-   -webkit-filter: blur(1px);
-   -moz-filter: blur(1px);
-   -ms-filter: blur(1px);
    filter: blur(1px);
  }
 
@@ -42,12 +39,45 @@ h1{
 
 .last-p { text-align: center }
 
+.nav {
+  background: #fff6f1;
+}
+
+#left-nav {
+  text-align: left;
+  background: #fff6f1;
+  font-weight: bold;
+}
+
+#left-nav a {
+  color: black;
+  font-weight: bold;
+}
+
+#left-nav a:visited {
+  color: black;
+
+}
+
+#right-nav {
+  text-align: right;
+  background: #fff6f1;
+  font-weight: bold;
+}
+
+
+#right-nav a {
+  color: black;
+}
+
+#right-nav a:visited {
+  color: black;
+  font-weight: bold;
+}
+
 .page-bg {
   background: url('https://s-media-cache-ak0.pinimg.com/originals/3c/0e/15/3c0e15f2c64c57e7963bc59fdc596b04.png');
   background-size: 100%;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -ms-filter: blur(5px);
   filter: blur(5px);
   position: fixed;
   width: 100%;
@@ -55,4 +85,15 @@ h1{
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+.search-body {
+  background: #fff6f1;
+}
+
+.img-text {
+  padding-top: 5px;
+  align: center;
+  text-align: center;
+  background: #fff6f1;
 }

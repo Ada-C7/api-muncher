@@ -1,9 +1,9 @@
 <%= render partial: "navigation" %>
-<div class='row'>
+<div class='row search-body'>
       <% @recipes_list.each do |recipe| %>
           <div class='small-12 medium-6 large-4 column img-text'>
             <%= image_tag recipe.image  %>
-            <div>
+            <div class='recipe-link'>
             <%= link_to recipe.label, show_recipe_path(recipe.uri[43..-1]) %>
           </div>
           </div>
