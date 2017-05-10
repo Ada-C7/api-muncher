@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Yellowtail');
+</style>
+  <head>
+    <div class="row">
+      <div class="small-3 small-centered columns">
+        <h1 id="title"><%= link_to "Lookin2Cookin", root_path%></h1>
+      </div>
+    </div>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <%= yield %>
+
+  </body>
+
+  <!-- <footer class="footer">
+    <div>
+      Powered by Edamam
+    </div>
+    <div>
+      Googly Eyes: Pen <a href="https://codepen.io/loktar00/pen/FmkAd">Loktar</a>
+    </div>
+  </footer> -->
+</html>

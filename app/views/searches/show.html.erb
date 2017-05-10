@@ -1,0 +1,55 @@
+  <h2><%= @recipe.label %></h2>
+<body class="white center">
+
+<%= image_tag(@recipe.image, :alt => @recipe.label) %>
+Recipe on: <%= link_to @recipe.source, @recipe.url %>
+
+
+
+<h4>Ingredients</h4>
+  <% @recipe.ingredients.each do |label| %>
+    <li>
+      <%= label["quantity"]%> <%= label["measure"] %>(s) <%= label["food"] %>
+    </li>
+  <% end %>
+
+
+
+<h4>Diet Labels</h4>
+  <% @recipe.dietlabels.each do |label| %>
+    <p class="label"> <%= label %> </p>
+  <% end %>
+
+  <h4>Health Labels</h4>
+  <% @recipe.healthlabels.each do |label| %>
+    <p class="label"> <%= label %></p>
+  <% end %>
+</body>
+
+
+<h4>Total Nutrition</h4>
+<table class="table center">
+  <caption>
+    Total Nutrition
+  </caption>
+  <% @recipe.totalNutrients.each do |label| %>
+  <tr>
+    <th>
+      <%= label[1]["label"] %>
+    </th>
+    <td>
+      <%= label[1]["quantity"].round(0) %> <%= label[1]["unit"] %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+
+<footer class="white center">
+  <div>
+    Powered by Edamam
+  </div>
+  <div>
+    Googly Eyes: Pen <a href="https://codepen.io/loktar00/pen/FmkAd">Loktar</a>
+  </div>
+</footer>
