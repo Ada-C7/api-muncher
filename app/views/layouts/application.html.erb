@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="ramen.png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -12,20 +11,25 @@
   <%= csrf_meta_tags %>
 </head>
 <div class='row'>
-  <div class='small-12 columns, header'>
-    <% if flash[:messages] %>
-    <p>
-      <%= flash[:messages] %>
-    </p>
-    <% end %>
-  </div>
-</div>
-<body>
-  <div class='row'>
+  <div class="style1" align='center' height='35'>
+
     <div class='small-12 columns, header'>
-    <h1 class='banner'>Beyond Ramen</h1>
+      <% if flash[:messages] %>
+      <p>
+        <%= flash[:messages] %>
+      </p>
+      <% end %>
+    </div>
+  </div>
+  <body>
+    <div class='row'>
+      <div class='small-12 columns, header'>
+        <h1 class='banner'>Beyond Ramen</h1>
+        <div class="page-bg">
+        </div>
+      </div>
+      <%= yield %>
+    </body>
+    </html>
   </div>
 </div>
-  <%= yield %>
-</body>
-</html>
