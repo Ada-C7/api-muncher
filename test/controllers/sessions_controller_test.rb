@@ -30,7 +30,9 @@ describe SessionsController do
     end
 
     it "won't log in without provider" do
-
+      get login_path
+      post login_path(uid: users(:aurora).uid)
+      session[:current_user].must_equal nil
     end
 
     end
