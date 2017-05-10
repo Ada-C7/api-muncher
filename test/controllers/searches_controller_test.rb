@@ -32,13 +32,16 @@ describe SearchesController do
     # end
 
   end
-  # this isn't working
   describe "#recipe" do
 
 
     it "should get the recipe page" do
-      uri = "http://www.edamam.com/ontologies/edamam.owl%23recipe_b63034f899ef1b5c7c939ec7e1ca6b1b"
-      get recipe_path(uri)
+      # uri = "http://www.edamam.com/ontologies/edamam.owl%23recipe_b63034f899ef1b5c7c939ec7e1ca6b1b"
+
+      # sample = "http://www.edamam.com/ontologies/edamam.owl%23recipe_71a58ed2f6f75de2a226c53ef77fd5c3"
+      # get recipe_path(uri)
+      get recipe_path("http://www.edamam.com/ontologies/edamam.owl%23recipe_71a58ed2f6f75de2a226c53ef77fd5c3")
+
       must_respond_with :success
     end
 

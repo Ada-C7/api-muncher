@@ -38,6 +38,7 @@ class SearchesController < ApplicationController
   end
 
   def recipe
+    # raise
     @recipe = EdamamApiWrapper.getRecipe(params[:uri])
     @nutrients = %w(ENERC_KCAL FAT SUGAR PROCNT VITB12)
     session[:recipe_name] = @recipe.name

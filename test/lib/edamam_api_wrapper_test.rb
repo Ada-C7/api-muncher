@@ -53,6 +53,11 @@ describe EdamamApiWrapper do
       response.first.must_be_instance_of RecipeResult
     end
 
+    it "returns empty array if crappy params passed in resulting in error" do
+      response = EdamamApiWrapper.querySearch("sdlkjslkdjf", -1, 12)
+      response.must_equal []
+    end
+
   end
 
   describe "testing self.getRecipe(recipe_uri)" do
@@ -71,12 +76,12 @@ describe EdamamApiWrapper do
       # get recipe_path(recipe.uri)
       # must_respond_with :success
     end
-    # WHAT SHOULD THIS TEST REALLY BE?
-    # it "can get a single recipe" do
-    #   proc {
-    #     EdamamApiWrapper.getRecipe("http://www.edamam.com/ontologies/edamam.owl#recipe_f1c853a77986214680bbdd424883499a")
-    #   }.nil?.must_equal false
-    # end
+
+    it "should return nil if error" do
+      recipe = EdamamApiWrapper.getRecipe("http://www.edamam.com/ontologies/edamam.owl%23recipe_b63034f899efake")
+      recipe.must_equal nil
+    end
+
     #
     # it "raise ArgError if getting a recipe fails" do
     #   proc {
