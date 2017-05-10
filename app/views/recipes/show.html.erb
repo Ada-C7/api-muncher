@@ -1,0 +1,61 @@
+<% if !@recipe[0].nil? %>
+
+<%@recipe = @recipe[0]%>
+
+<!-- Top banner -->
+<section class = "row large-up-12">
+  <div class="column">
+    <h4 class="my_box">
+      <%= @recipe["label"] %>
+    </h4>
+  </div>
+</section>
+
+<!-- Recipe info card -->
+<section class = "row my_box">
+
+    <div class = "large-3 columns recipe">
+      <div class = "image_show">
+        <%=image_tag(@recipe["image"], alt: "recipe image not available", class: "recipe_image_show")%>
+      </div>
+      <div class = "source">
+        <p>
+          Source: <%= link_to @recipe["source"], @recipe["url"], target: :_blank%>
+        </p>
+        <p>
+          <%= link_to "Edamam's page", @recipe["shareAs"], target: :_blank%>
+        </p>
+      </div>
+    </div>
+
+    <div class = "large-4 columns recipe">
+      <h4> Ingredients </h4>
+      <div class = "ingredients">
+        <% @recipe["ingredients"].each do |text|%>
+        <p>
+          <%=text["text"] %>
+        </p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class = "large-5 columns recipe">
+      <h4> Nutrition Facts </h4>
+      <h6>Total weight: <%= @recipe["totalWeight"].round(1)%> g</h6>
+
+      <section class="row ">
+        <table>
+          <% @recipe["totalNutrients"].each do |info| %>
+          <%# @works.each do |work| %>
+          <tr>
+            <td><%= info[1]["label"]%></td>
+            <td><%= info[1]["quantity"].round(1)%> <%=info[1]["unit"]%></td>
+          </tr>
+          <% end %>
+        </table>
+      </section>
+
+    </div>
+</section>
+
+<% end %>
