@@ -1,0 +1,53 @@
+ENV["RAILS_ENV"] = "test"
+require File.expand_path("../../config/environment", __FILE__)
+require "rails/test_help"
+require "minitest/rails"
+require "minitest/reporters"  # for Colorized output
+require "simplecov"
+
+SimpleCov.start do
+  add_filter "/test/"
+end
+
+
+#  For colorful output!
+Minitest::Reporters.use!(
+  Minitest::Reporters::SpecReporter.new,
+  ENV,
+  Minitest.backtrace_filter
+)
+
+
+# To add Capybara feature tests add `gem "minitest-rails-capybara"`
+# to the test group in the Gemfile and uncomment the following:
+# require "minitest/rails/capybara"
+
+# Uncomment for awesome colorful output
+# require "minitest/pride"
+
+class ActiveSupport::TestCase
+  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  fixtures :all
+
+  # Add more helper methods to be used by all tests here...
+
+  VCR.configure do |config|
+  # Set Folder where store cassets
+config.cassette_library_dir = 'test/cassettes'
+# Tell VCR to use Webmock
+config.hook_into :webmock
+config.default_cassette_options = {
+  :record => :new_episodes,    # record new data when we don't have it yet
+  :match_requests_on => [:method, :uri, :body] # The http method, URI and body of a request all need to match
+}
+# Don't leave our APP_ID and APP_KEY lying around in a cassette file.
+config.filter_sensitive_data("<SECRETS>")do
+  ENV['APP_ID']
+end
+
+config.filter_sensitive_data("<APP_KEY>") do
+  ENV['APP_KEY']
+end
+
+end
+end
