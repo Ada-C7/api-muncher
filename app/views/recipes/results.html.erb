@@ -2,25 +2,23 @@
 <%= render partial: "search_bar" %>
 
 <section class="results">
-  <div class="row small-up-2 medium-up-3 large-up-2">
-    <ul>
-    <% @recipes.each do |recipe| %>
-    <div class="column column-block box">
-      <div class="inner" itemscope itemtype="http://schema.org/Recipe">
-        <div class="object">
+  <div class="row">
+
+      <% @recipes.each do |recipe| %>
+
+        <div class=".box">
           <%= link_to recipe_path(name: recipe.name, uri: recipe.uri), itemprop: 'url' do %>
-          <span class="image">
-            <span class="holder">
-              <%= image_tag recipe.image, alt: recipe.name %>
-            </span>
-          </span>
-          <span class="title" itemprop="name"><%= recipe.name %></span>
+          <%= image_tag recipe.image, alt: recipe.name %>
+          <h4><%= recipe.name %></h4>
           <% end %>
         </div>
-      </div>
-    </div>
-    <% end %>
-    </ul>
-  </div>
-  <%= will_paginate @recipes, class: 'row' %>
+      <% end %>
 </section>
+
+<div class="row">
+  <div class="small-2 column"></div>
+  <div class="small-8 column">
+    <%= will_paginate @recipes, class: 'row pagination' %>
+  </div>
+  <div class="small-2 column"></div>
+</div>

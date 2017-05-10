@@ -18,12 +18,20 @@
 
 
 /*-------------- :: HELPERS :: ------------------*/
-/*section {
-  border: 1px solid
+ /*div {
+  border: 1px solid;
+  border-color: grey;
 }*/
 
 
 /*-------------- :: GENERAL :: ------------------*/
+@import url('https://fonts.googleapis.com/css?family=Ravi+Prakash');
+
+* {
+font-family: 'Ravi Prakash', Helvetica, Roboto, Arial, cursive;
+color: #27909F;
+
+ }
 
 .main {
   padding: 80px 0;
@@ -32,6 +40,16 @@
   /*height: 100%*/
 }
 
+body {
+  font-weight: normal;
+  line-height: 1.5;
+  color: #0a0a0a;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+  }
 
 /*-------------- :: NAV :: ------------------*/
 
@@ -49,6 +67,12 @@
   color: white;
   line-height: 80px;
 }
+
+.pagination {
+   margin: auto;
+   padding: 0 5em;
+   text-align: center;}
+
 /*-------------- :: FOOTER :: ------------------*/
 
 footer {
@@ -65,11 +89,6 @@ footer img {
   /*width: 20%;*/
 }
 /*-------------- :: HOME :: ------------------*/
-/*.homepage {
-    background-image: url("homepage-background.jpg");
-    background-size:cover;
-    height: 100%
-}*/
 
 .homepage, form {
   padding-top: 4em
@@ -80,16 +99,7 @@ section.main {
   height: 600px
 }
 /*-------------- :: SEARCH :: ------------------*/
-/*label {
-  font-size: 30px;
-  font-weight: bold;
-  color: white;
-}
-.input-group-button {
-  padding-bottom: 0;
-  width: 0;
-  height: 0
-}*/
+
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
   padding-left: 1rem;
@@ -104,32 +114,55 @@ section.main {
 .homepage, form {
   padding-bottom: 4em;
 }
+
+
 /*-------------- :: RESULTS :: ------------------*/
-.results ul {
-  position: relative;
-  margin: 0px auto;
+.results .row {
+    padding: 10px 0;
+    margin: 0 10%;
+    background: transparent;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
 }
-.column-block {
-  margin: auto;
-  border: 3px solid #070201;
-  padding: 10px;
-  margin: 10px;
+
+.results h4 {
+  font-size: .5rem;
+  text-align: center;
+  margin-bottom: 0;
+  padding: .25rem;
+  font-size: inherit;
+}
+
+.results img {
+  padding: .25rem;
+}
+
+
+ul.recipes li {
   display: inline-block;
   vertical-align: top;
-  width: 50%; }
 }
 
-.column-block a {
-  display: block;
-  text-align: center;
-}
 
 .box {
-  width: 120px
+  /*width: 30%;*/
+  box-sizing: border-box;
+  border: 1px solid #E6E6E6;
+  background: linear-gradient(to bottom, #ffffff 60%,#f7f7f7 100%);
+  vertical-align: top;
+  padding: .5em;
+  margin-bottom: 20px;
+  font-size: 100%;
+  /*width: 250px*/
+  flex-basis: 30%;
 }
 
-.inner {
-  position: relative;
+@media (min-width: 900px) {
+  .results .row {
+    display: flex;
+    justify-content: space-between;
+  }
 }
+
 
 /*-------------- :: SHOW :: ------------------*/
