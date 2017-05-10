@@ -1,0 +1,6 @@
+<h1>Homepages#index</h1>
+<%= form_tag recipes_path, method: "get" do %>
+<%= label_tag(:search, "What are you hungry for?") %>
+<%= text_field_tag(:search) %>
+<%= submit_tag('Search!') %>
+<% end %>
