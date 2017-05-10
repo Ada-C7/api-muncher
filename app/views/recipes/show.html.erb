@@ -1,6 +1,6 @@
 <%= @recipe[0]["label"] %><br>
-<%= image_tag("#{@recipe[0]["image"]}", :alt => "recipe image") %>
-<%= link_to @recipe[0]["source"], @recipe[0]["url"], :target => "blank" %><br>
+<%= image_tag("#{@recipe[0]["image"]}", :alt => "recipe image", class: "show-image") %>
+<%= link_to @recipe[0]["source"], @recipe[0]["url"], :target => "blank", class: "apple" %><br>
 <table class="table-one">
   <tr>
     <th>Ingredients:</th>

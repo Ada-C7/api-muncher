@@ -67,5 +67,12 @@
 }
 
 .show-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.apple {
+  color: black;
+
   margin: 0 auto;
 }
