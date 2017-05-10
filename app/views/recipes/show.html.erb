@@ -1,0 +1,30 @@
+<% @recipe.each do |info| %>
+
+  <h2>For <%= link_to info.label, info.url %>, you will need:</h2>
+
+  <div>
+    <ul>
+      <% info.ingredients.each do |i| %>
+        <ul>
+          <li><%= i['text'] %></li>
+        </ul>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <%= link_to image_tag(info.image), info.url %>
+  </div>
+  <div>
+    <h4>Diet information:</h4>
+    <h6>This recipe has: <%= info.calories.round(2) %> calories, aslo it is:
+    <% info.dietLabels.each do |i| %>
+      <%= i %>.
+    <% end %>
+    <% info.healthLabels.each do |i| %>
+      <%= i %>.
+    <% end %></h6>
+  </div>
+<% end %>
+<div>
+  <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAASkAAAAJDgyMGVlMWJmLWUzYzYtNDBhMS05NmUyLWRmZWQ4NWZlMTE3ZQ.png" alt="edamam_image">
+</div>

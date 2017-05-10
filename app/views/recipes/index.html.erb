@@ -1,0 +1,14 @@
+<h1>These are some options for you:</h1>
+
+<section class="row">
+  <% @list_of_recipes.each do |recipe| %>
+  <div class="large-4 columns">
+    <ul>
+      <li class="reci">
+        <h4><%= link_to recipe.label, recipe_path(uri: recipe.uri) %></h4>
+        <p class="reci_image"><%= link_to image_tag(recipe.image), recipe_path(uri: recipe.uri) %></p>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+</section>
