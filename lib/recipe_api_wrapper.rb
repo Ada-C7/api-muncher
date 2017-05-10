@@ -53,7 +53,7 @@ class RecipeApiWrapper
       recipe = RecipeApiWrapper.new(response[0])
       return recipe
     else
-      raise RecipeException.new("Could not find recipe")
+      return nil
     end
   end
 
