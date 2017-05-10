@@ -1,0 +1,27 @@
+
+<h1><img class="logo-image" src="http://68.media.tumblr.com/ef34e3404fe276b5d2a4c33d637db6e7/tumblr_opmcz55NW61uh4dkdo1_500.png"></h1>
+
+
+<div class="wrapper">
+  <%= form_tag recipes_path, method: :get do %>
+  <%= text_field_tag :query, "", class: "search-box" %>
+  <%= hidden_field_tag :from, "0" %>
+  <div class="button-css">
+    <%= submit_tag "Send It!", class: "send-button-send" %>
+    <% end %>
+    <%= form_tag recipes_path, method: :get do %>
+    <%= hidden_field_tag :query, params[:query] %>
+    <%= hidden_field_tag :from, (@from.to_i + 9) %>
+    <%= submit_tag "Next Page", class: "send-button-next" %>
+  </div>
+  <% end %>
+</div>
+
+<div class="row">
+  <% @recipes.each do |recipe| %>
+  <div class="small-4 columns">
+    <%= link_to "#{recipe.label}", recipe_path(recipe.uri.partition("#").last), class: "food-label" %>
+    <%= image_tag("#{recipe.image}", :alt => "recipe image", class: "food-image") %>
+  </div>
+  <% end %>
+</div>
