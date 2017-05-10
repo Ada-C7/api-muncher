@@ -1,0 +1,43 @@
+<header>
+  <div class="row small-up-1 medium-up-2">
+    <div class="column column-block">
+      <h1>Recipe finder</h1>
+    </div>
+
+    <div class="column column-block clearfix">
+      <%= form_tag root_path, method: "get" do %>
+        <%= label_tag(:search_term, "Search term") %>
+          <div class="float-left" id="searchbox">
+          <%= text_field_tag(:search_term) %>
+          </div>
+          <div class="float-left">
+            <%= submit_tag("Search", class: "button hollow bluegreen search") %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</header>
+
+  <% if @recipes %>
+    <div class="row small-up-1 medium-up-2 large-up-3">
+      <% @recipes.each do |recipe| %>
+        <div class="column column-block">
+          <img src="<%= recipe.image %>" alt="image illustrating recipe">
+          <br/>
+          <%= link_to recipe.name, show_recipe_path(recipe.id, {search_term: params[:search_term]}) %>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <%= will_paginate @recipes, page_links: false %>
+    </div>
+  <% end %>
+
+<footer>
+  <ul>
+    <li class="attribution">Powered by
+    <img id="logo" src="https://photos-4.dropbox.com/t/2/AAB5KIYtHNdOJIozYbYwu8oVMRAya0iB1kIbrbyjHv46oQ/12/33723157/jpeg/32x32/3/1494025200/0/2/Edamam_logo_full_RGB.jpg/EIC7yRkYibgBIAIoAg/3T1Q0J6XjOhUtI1sOljNLzpH-iDn7p4Ft40jz6FjKVE?dl=0&size=2048x1536&size_mode=3">
+    </li>
+  </ul>
+</footer>

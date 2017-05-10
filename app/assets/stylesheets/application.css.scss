@@ -1,0 +1,89 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+
+/*=====================
+typography
+=======================*/
+li {
+  list-style-type: none;
+}
+h1, h2, h3, h4 {
+  font-family: 'Amatic SC', cursive;
+}
+h2 {
+  color: #2c8993;
+}
+* {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+a {
+  color: #1e6e6d;
+  font-size: 1.1em;
+}
+a:hover {
+  // color: #aab468;
+  color: #989c7a;
+}
+/*=====================
+header
+=======================*/
+header {
+  background-image: image_url("cloth.png");
+  border-width: 6px 0;
+  border-style: solid;
+  border-color: #2c8993;
+  margin-bottom: 10px;
+}
+#searchbox {
+  width: 70%;
+}
+
+.search {
+  border-radius: 10px;
+  margin-left: 5px;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+/*=====================
+footer
+=======================*/
+#logo {
+  height: 50px;
+}
+
+footer {
+  padding-top: 5px;
+  border-top: 3px solid #2c8993;
+}
+/*=====================
+show page
+=======================*/
+#source {
+  background-color: #b2d4d7;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+.container {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.ingredients, .labels {
+  margin-top: 10px;
+  margin-left: 10px;
+}
