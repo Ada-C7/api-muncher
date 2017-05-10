@@ -6,7 +6,7 @@ describe UsersController do
   describe "#account" do
 
     it "should get the account page" do
-      proc {post login_path, params: { user: users(:aurora)}
+      proc {post login_path(users(:aurora))
       must_respond_with :success
       get account_path
       must_respond_with :success}
