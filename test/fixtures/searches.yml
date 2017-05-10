@@ -6,9 +6,9 @@
 #
 search1:
   search_terms: "pink apple"
-  user: users(:aurora)
+  user: aurora
 
 search2:
     search_terms: "pink apple"
-    user: users(:aurora)
+    user: aurora
     health: "vegetarian"

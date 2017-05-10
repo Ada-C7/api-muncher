@@ -28,7 +28,7 @@ class SearchesController < ApplicationController
     else
       @results = EdamamApiWrapper.querySearch(session[:search_terms], session[:from], session[:to])
     end
-    if !@results.empty?
+    if @results.length > 2
       session[:search_count] = @results.last # get the count for the session
       @results = @results[0..-2]
       session[:recent_searches] << @results.last #shovel the search into the list
@@ -47,7 +47,7 @@ class SearchesController < ApplicationController
       session[:recipe_name] = @recipe.name
       session[:recipe_url] = @recipe.recipe_url
     end
-      
+
 
   end
 

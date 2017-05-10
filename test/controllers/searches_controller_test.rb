@@ -21,47 +21,44 @@ describe SearchesController do
   describe "#recipes" do
 
     it "must get recipes page" do
+      get root_path
       get recipes_path(search_terms: "chicken", from: 0, to: 12, health: "vegetarian")
       must_respond_with :success
     end
 
     it "if health param is none it should not pass a health param" do
+      get root_path
       get recipes_path(search_terms: "chicken", from: 0, to: 12, health: "none")
       must_respond_with :success
     end
 
     it "if no health param must succeed" do
+      get root_path
       get recipes_path(search_terms: "chicken", from: 0, to: 12)
       must_respond_with :success
     end
 
     it "if no results should succeed" do
+      get root_path
       get recipes_path(search_terms: "sdlkfjsdlkfj", from: 0, to: 12, health: "high-protein")
       must_respond_with :success
     end
 
-    # it "should update the count" do
-    # end
-
-    # it "should update the search_terms" do
-    # end
-
   end
+
   describe "#recipe" do
 
-
     it "should get the recipe page" do
+      get root_path
       get recipe_path(uri: "http://www.edamam.com/ontologies/edamam.owl%23recipe_71a58ed2f6f75de2a226c53ef77fd5c3")
-
       must_respond_with :success
     end
 
     it "should show a nice error message if it can't get it" do
+      get root_path
       fake_uri = "http://www.edamam.com/ontologies/edamam.owl%23recipe_fake-uri"
-        get recipe_path(uri: fake_uri)
-
-        must_respond_with :missing
-
+      get recipe_path(uri: fake_uri)
+      must_respond_with :missing
     end
   end
 
@@ -87,25 +84,37 @@ describe SearchesController do
 
   # how the heck do I test this??
   describe "next" do
-    # it "next will get 10 different recipes" do skip
-    #
-    # end
-    #
-    # it "next will not go further if there aren't more recipes" do skip
-    #
-    # end
+    it "next will get 12 different recipes" do
+      proc {
+        get root_path
+        get recipes_path(search_terms: "chicken", from: 0, to: 12, health: "none", next: "true")
+        must_respond_with :success
+        get root_path
+        must_respond_with :success
+        get recipes_path(search_terms: "chicken", from: 13, to: 25, health: "none", next: "true")
+        must_respond_with :success}
+      end
+      #
+      # it "next will not go further if there aren't more recipes" do skip
+      #
+      # end
 
+
+    end
+
+    describe "prev" do
+      it "prev will get 10 different recipes" do
+        proc {
+          get root_path
+          get recipes_path(search_terms: "chicken", from: 13, to: 25, health: "none", prev: "true")
+          must_respond_with :success
+          get root_path
+          must_respond_with :success}
+      end
+      #
+      # it "prev will not go back if no prev recipes" do
+      #
+      # end
+    end
 
   end
-
-  describe "prev" do
-    # it "prev will get 10 different recipes" do
-    #
-    # end
-    #
-    # it "prev will not go back if no prev recipes" do
-    #
-    # end
-  end
-
-end

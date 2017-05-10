@@ -4,9 +4,13 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(provider: params[:provider], uid: params[:uid])
-    if !user
-      user = User.create(provider: params[:provider], uid: params[:uid])
-      if user.id != nil
+    if user
+      session[:user_id] = user.id
+      flash[:success] = "Logged in as #{user.username}"
+      redirect_to :root
+    else
+      user = User.new(provider: params[:provider], uid: params[:uid])
+      if user.save
         session[:user_id] = user.id
         flash[:success] = "Successfully logged in"
         redirect_to :root
@@ -14,10 +18,6 @@ class SessionsController < ApplicationController
         flash.now[:failure] = "Sorry, unable to log in"
         render :login
       end
-    else
-      session[:user_id] = user.id
-      flash[:success] = "Logged in as #{user.username}"
-      redirect_to :root
     end
 
   end

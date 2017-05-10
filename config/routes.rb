@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   get '/recipes', to: 'searches#recipes', as: 'recipes'
   get '/recipe', to: 'searches#recipe', as: 'recipe'
-  get '/recipes', to: 'searches#recipes', as: 'next'
-  get '/', to: 'searches#recipes', as: 'prev'
+  # get '/recipes', to: 'searches#recipes', as: 'next'
+  # get '/', to: 'searches#recipes', as: 'prev'
 
   post '/recipes/save_search', to: 'searches#create', as: 'save_search'
   delete '/searches/:id', to: 'searches#destroy', as: 'delete_search'
