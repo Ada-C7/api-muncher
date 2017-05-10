@@ -7,7 +7,7 @@
       <% @recipes.each do |recipe| %>
 
         <div class=".box">
-          <%= link_to recipe_path(name: recipe.name, uri: recipe.uri), itemprop: 'url' do %>
+          <%= link_to recipe_path(name: recipe.name, uri: recipe.uri) do %>
           <%= image_tag recipe.image, alt: recipe.name %>
           <h4><%= recipe.name %></h4>
           <% end %>

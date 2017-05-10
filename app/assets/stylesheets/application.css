@@ -66,6 +66,7 @@ body {
 .site-logo {
   color: white;
   line-height: 80px;
+  font-size: 50px;
 }
 
 .pagination {
@@ -77,11 +78,19 @@ body {
 
 footer {
   background-color: #070201;
-  padding: 80px 0;
+  padding: 2.5% 0;
+}
+
+footer a, h4 {
+  color: #dbd9de;
+}
+
+a:hover {
+    color: #91c441;
 }
 
 footer a {
-  display: block;
+display: block;
 }
 
 footer img {
@@ -135,6 +144,10 @@ section.main {
 
 .results img {
   padding: .25rem;
+}
+
+.results a:hover {
+    color: #91c441;
 }
 
 
