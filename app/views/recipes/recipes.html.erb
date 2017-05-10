@@ -1,0 +1,38 @@
+<body class="results">
+
+<main class="row">
+
+<h1 class="recipes-header"><%= @ingredient.capitalize %> Recipes</h1>
+<section class="page row">
+<% if @page != 1 %>
+<%= link_to "previous", get_recipes_path(:search => @ingredient, :page => @page - 1) %>
+<% end %>
+<%= link_to "New Search", root_path %>
+<% if @recipes.length != 0 %>
+<%= link_to "next", get_recipes_path(:search => @ingredient, :page => @page + 1) %>
+<% end %>
+</section>
+
+<% if @recipes.length != 0 %>
+<% @recipes.each do |recipe| %>
+<section class="top columns large-4 small-12 product" >
+<ul class="recipe">
+  <li>
+    <h3><%= link_to recipe.label, get_recipe_path(:label => recipe.label, :uri => recipe.uri), class: "recipe-title" %></h3>
+  </li>
+  <li>
+    <%= image_tag(recipe.image) %>
+  </li>
+</ul>
+</section>
+
+<% end %>
+<% else %>
+<p>
+  There are no recipes to display
+</p>
+<% end %>
+
+
+</main>
+</body>

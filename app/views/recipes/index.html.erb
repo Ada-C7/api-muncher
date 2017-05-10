@@ -1,0 +1,15 @@
+<body class="index">
+<main class="row">
+
+<section class="search-bar" >
+<h1>Welcome to Recipe Finder</h1>
+<%= form_tag get_recipes_path, method: "get" do %>
+<%= hidden_field_tag(:page, 1) %>
+<%= text_field_tag(:search) %>
+<%= submit_tag "Search", class: "button" %>
+
+<% end %>
+</section>
+
+</main>
+</body>

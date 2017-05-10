@@ -1,0 +1,52 @@
+<body class = "show-page">
+<main class="row">
+
+<h1 class="recipe-header"><%=@recipe.label%></h1>
+
+
+<p>
+  Recipe originally found at <%= link_to @recipe.source[0], @recipe.source[1], target: :_blank %>
+</p>
+
+<section class="columns large-6 small-12">
+  <h3>Ingredients</h3>
+<table>
+  <thead>
+  </thead>
+<% @recipe.ingredients.each do |ingredient| %>
+<tr>
+<td>
+  <%= ingredient %>
+</td>
+</tr>
+<% end %>
+</table>
+</section>
+
+<section class="columns large-6 small-12">
+  <h3>Nutritional Information</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Label</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+<% @recipe.nutrition.each do |k, v| %>
+  <tr>
+  <td>
+  <%= v["label"] %>
+  </td>
+  <td>
+    <%= v["quantity"].round %>
+  </td>
+</tr>
+<% end %>
+</table>
+</section>
+
+
+
+</main>
+
+</main>
