@@ -1,0 +1,14 @@
+
+
+<section class="main">
+  <section class="flash">
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
+    <% end %>
+  </section>
+  <div class="wrap row">
+    <div class="small-12 medium 7 column">
+      <%= render partial: "search_bar" %>
+    </div>
+  </div>
+</section>

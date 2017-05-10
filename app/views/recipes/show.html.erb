@@ -1,0 +1,63 @@
+
+<%= render partial: "search_bar" %>
+
+<section class="recipe">
+
+  <h1><%= @recipe.name  %></h1>
+
+  <div class="container">
+    <div class="first">
+      <%= image_tag @recipe.image%>
+    </div>
+    <div class="second">
+      <div class="second-a">
+      <ul>
+          <% @recipe.options[:diet].each do |label| %>
+
+          <li class="label primary">
+            <%= label %>
+          </li>
+          <% end %>
+
+
+          <% for label in  @recipe.options[:health] %>
+          <li class="label secondary ">
+            <%= label %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="second-b">
+        <p>
+          <%= @recipe.options[:servings] %> Servings
+        </p>
+        <p>
+          <%= calories_per_serving %> Calories
+        </p>
+      </div>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Ingredients</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for ingredient in @recipe.options[:ingredients] %>
+      <tr>
+        <td><%= ingredient %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+
+<button class="button radius">
+  <%= link_to "Original Recipe", @recipe.options[:url] %>
+</button>
+
+<section class="badges">
+  <p class="badge primary">D</p>
+  <p class="badge secondary">A</p>
+</section>

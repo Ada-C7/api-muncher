@@ -1,0 +1,238 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+
+
+/*-------------- :: HELPERS :: ------------------*/
+ /*div {
+  border: 1px solid;
+  border-color: grey;
+}*/
+
+
+/*-------------- :: GENERAL :: ------------------*/
+@import url('https://fonts.googleapis.com/css?family=Ravi+Prakash');
+
+* {
+font-family: 'Ravi Prakash', Helvetica, Roboto, Arial, cursive;
+color: #27909F;
+
+ }
+
+.main {
+  padding: 80px 0;
+  background-image: url("https://cdn.pixabay.com/photo/2016/12/26/17/28/background-1932466_1280.jpg");
+  background-size: auto;
+  /*height: 100%*/
+}
+
+body {
+  font-weight: normal;
+  line-height: 1.5;
+  color: #0a0a0a;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+
+/*-------------- :: NAV :: ------------------*/
+
+.top-bar, li {
+  /*background-color: #070201;*/
+  color: #56656F;
+}
+
+.nav-desktop {
+  background-color: #070201;
+  padding: 0;
+}
+
+.site-logo {
+  color: white;
+  line-height: 80px;
+  font-size: 50px;
+}
+
+.pagination {
+   margin: auto;
+   padding: 0 5em;
+   text-align: center;}
+
+/*-------------- :: FOOTER :: ------------------*/
+
+footer {
+  background-color: #070201;
+  padding: 2.5% 0;
+}
+
+footer a, h4 {
+  color: #dbd9de;
+}
+
+a:hover {
+    color: #91c441;
+}
+
+footer a {
+display: block;
+}
+
+footer img {
+  height: 4em;
+  /*width: 20%;*/
+}
+/*-------------- :: HOME :: ------------------*/
+
+.homepage, form {
+  padding-top: 4em
+}
+
+section.main {
+  /*padding: 80 0;*/
+  height: 600px
+}
+/*-------------- :: SEARCH BAR:: --------------*/
+
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+}
+
+.input-group-rounded .input-group-button .button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 0.8rem;
+  background-color: #070201;
+}
+
+.homepage, form {
+  padding-bottom: 4em;
+}
+
+
+/*-------------- :: RESULTS :: ------------------*/
+.results .row {
+    padding: 10px 0;
+    margin: 0 10%;
+    background: transparent;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+}
+
+.results h4 {
+  font-size: .5rem;
+  text-align: center;
+  margin-bottom: 0;
+  padding: .25rem;
+  font-size: inherit;
+}
+
+.results img {
+  padding: .25rem;
+}
+
+.results a:hover {
+    color: #91c441;
+}
+
+
+ul.recipes li {
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+.box {
+  /*width: 30%;*/
+  box-sizing: border-box;
+  border: 1px solid #E6E6E6;
+  background: linear-gradient(to bottom, #ffffff 60%,#f7f7f7 100%);
+  vertical-align: top;
+  padding: .5em;
+  margin-bottom: 20px;
+  font-size: 100%;
+  /*width: 250px*/
+  flex-basis: 30%;
+}
+
+@media (min-width: 900px) {
+  .results .row {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+
+/*-------------- :: SHOW :: ------------------*/
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.first {
+  background-color: #FFF;
+  padding: 20px;
+  flex: 1;
+}
+
+.second {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe ul {
+  list-style: none;
+  height: inherit;
+}
+
+.second-a {
+  /*background-color: #c0dbe2;*/
+  flex: 1;
+  display: flex;
+}
+
+.second-b {
+  /*background-color: #cdf1c3;*/
+  flex: 1;
+}
+
+
+.recipe li {
+  border-radius: 5000px;
+  font-size: 0.8rem;
+  flex: 1;
+}
+
+
+.second-a
+{
+   /*display: inline-block;
+   position: relative;
+   text-align: center;*/
+   vertical-align: bottom;
+   bottom: 0
+}
+
+.button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 0.8rem;
+  background-color: #070201;
+}

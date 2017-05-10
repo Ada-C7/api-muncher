@@ -1,0 +1,24 @@
+
+<%= render partial: "search_bar" %>
+
+<section class="results">
+  <div class="row">
+
+      <% @recipes.each do |recipe| %>
+
+        <div class=".box">
+          <%= link_to recipe_path(name: recipe.name, uri: recipe.uri) do %>
+          <%= image_tag recipe.image, alt: recipe.name %>
+          <h4><%= recipe.name %></h4>
+          <% end %>
+        </div>
+      <% end %>
+</section>
+
+<div class="row">
+  <div class="small-2 column"></div>
+  <div class="small-8 column">
+    <%= will_paginate @recipes, class: 'row pagination' %>
+  </div>
+  <div class="small-2 column"></div>
+</div>
