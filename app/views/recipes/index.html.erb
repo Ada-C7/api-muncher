@@ -1,0 +1,24 @@
+<body>
+  <header>
+    <li><%= link_to "Home", search_path %></li>
+  </header>
+  <h2>I found your <%=@search_term%> recipes</h2>
+  <section class="row small-up-2 medium-up-3 large-up-4">
+    <% @list.each do |recipe| %>
+    <article class="column column-block">
+      <%= link_to(image_tag(recipe[:image], alt: "Photo of #{recipe[:label]}"), show_path(:uri => recipe[:uri])) %>
+      <h6><%= recipe[:label] %></h6>
+    </article>
+
+    <% end %>
+  </section>
+  <article class="next-and-before">
+    <% a = params[:from].to_i + 10%>
+    <% b = params[:from].to_i - 10%>
+
+    <h3><%= link_to "NEXT >>", {controller: "recipes", action: "index", :from => a, :q => params[:q]} %></h3>
+    <% if b >= 0 %>
+    <h3><%= link_to "<< BEFORE", {controller: "recipes", action: "index", :from => b, :q => params[:q]} %></h3>
+    <% end %>
+  </article>
+</body>
