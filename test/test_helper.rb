@@ -1,13 +1,12 @@
-require 'simplecov'
-SimpleCov.start
-
 ENV["RAILS_ENV"] = "test"
 require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
 require "minitest/rails"
 require "minitest/reporters"  # for Colorized output
-require 'vcr'
-require 'webmock/minitest'
+
+require 'simplecov'
+SimpleCov.start
+
 
 
 #  For colorful output!
@@ -16,6 +15,9 @@ Minitest::Reporters.use!(
   ENV,
   Minitest.backtrace_filter
 )
+
+require 'vcr'
+require 'webmock/minitest'
 
 VCR.configure do |config|
   config.cassette_library_dir = 'test/cassettes' # folder where casettes will be located
@@ -29,14 +31,11 @@ VCR.configure do |config|
   config.filter_sensitive_data("EDAMAM_ID") do
     ENV['EDAMAM_ID']
   end
-    config.filter_sensitive_data("EDAMAM_KEY") do
+  config.filter_sensitive_data("EDAMAM_KEY") do
     ENV['EDAMAM_KEY']
   end
 end
 
-Minitest::Reporters.use!
-[Minitest::Reporters::SpecReporter.new, Minitest::Reporters::JUnitReporter.new, ENV,
- Minitest.backtrace_filter]
 
 # To add Capybara feature tests add `gem "minitest-rails-capybara"`
 # to the test group in the Gemfile and uncomment the following:

@@ -3,9 +3,9 @@ require 'httparty'
 
 class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search?"
-  EDAMAM_ID = ENV["EDAMAM_ID"]
-  EDAMAM_KEY = ENV["EDAMAM_KEY"]
-
+  EDAMAM_ID = ENV['EDAMAM_ID']
+  EDAMAM_KEY = ENV['EDAMAM_KEY']
+  # BASE_URL = ENV["BASE_URL"]
 
   def self.querySearch(search_terms, from, to, health = nil)
 
