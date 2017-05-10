@@ -15,6 +15,9 @@
  *= require foundation_and_overrides
 
  */
+/*.main {
+  padding: 80px 0px;
+}*/
 
 li {
   list-style: none;
@@ -25,6 +28,23 @@ li {
 }
 
 img {
-  height: 400px;
-  width: 400px;
+  height: 120%;
+  width: 120%;
+}
+
+.wrap {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+footer {
+  bottom: 100px;
+  text-align: center;
+}
+
+footer img {
+  height: 40%;
+  width: 40%;
+  background-color: #222;
 }

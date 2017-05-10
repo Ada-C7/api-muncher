@@ -1,12 +1,15 @@
 <section class="search-field">
+  <div class="wrap">
   <%= form_tag(root_path, method: :get) do %>
     <%= label_tag(:q, "Recipe name?") %>
     <%= text_field_tag(:q) %>
     <%= submit_tag("Search") %>
   <% end %>
+</div>
 </section>
 
 <section>
+  <div class="wrap">
   <% if @recipes %>
   <div class="row">
     <% @recipes_pages.each do |recipe| %>
@@ -22,6 +25,7 @@
 
 
     </ul>
+  </div>
   </div>
 </div>
 

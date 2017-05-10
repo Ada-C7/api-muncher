@@ -1,5 +1,5 @@
 <section class="show">
-
+<div class="wrap">
   <h1><%= @recipe.name %></h1>
   <%# raise %>
   <div class="row">
@@ -28,11 +28,13 @@
       <% end %>
       <p>Serving Size: <%= @recipe.r_yield %></p>
       <p>Calories: <%= @recipe.calories %></p>
+    </div>
 
     </article>
 
       <%# raise %>
 <div class="small-12 medium-12 large-12 columns">
+  <div class="wrap">
       <table>
         <caption>Nutrition Information</caption>
         <% @recipe.nutrients.each do |nutrient| %>
@@ -41,6 +43,7 @@
           <td><%= nutrient[1]["quantity"].to_i %><%= nutrient[1]["unit"]%></tr></td>
           <% end %>
         </table>
+      </div>
       </div>
       </div>
       </section>
