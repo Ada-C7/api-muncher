@@ -1,0 +1,21 @@
+<h2>Recipe show page</h2>
+<h3><%= @recipe.label %></h3>
+
+<img src="<%= @recipe.image %>" alt="<%= @recipe.label %>">
+
+<p>
+  Ingredients:
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li>
+          <%= ingredient["text"] %>
+      </li>
+      <% end %>
+
+
+  </ul>
+</p>
+
+<p>
+  Source: <%= @recipe.source %>
+</p>
