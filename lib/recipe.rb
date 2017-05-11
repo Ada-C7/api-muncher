@@ -1,5 +1,5 @@
 class Recipe
-     attr_reader :uri, :id, :name, :photo, :ingredients, :dietary_intel, :source, :directions_url
+     attr_reader :uri, :id, :name, :photo, :ingredients, :dietary_intel, :source, :directions
 
       def initialize(options = {} )
            @uri = options[:uri]
@@ -9,6 +9,6 @@ class Recipe
            @ingredients = options[:ingredients]
            @dietary_intel = options[:dietary_intel]
            @site = options[:source]
-           @directions = options[:directions_url]
+           @directions = options[:directions]
       end
 end

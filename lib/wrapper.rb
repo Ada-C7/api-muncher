@@ -46,7 +46,7 @@ class Wrapper
                     ingredients: response[0]["ingredientLines"],
                     dietary_intel: response[0]["healthLabels"],
                     site: response[0]["source"],
-                    directions_url:response[0]["url"])
+                    directions:response[0]["url"])
           end
           return recipe
      end

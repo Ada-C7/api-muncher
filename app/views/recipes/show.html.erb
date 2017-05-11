@@ -1,2 +1,12 @@
-<%= @recipe.name %>
-<%= @recipe.uri %>
+<p><%= @recipe.name %></p>
+<p><%= link_to 'Original Recipe', @recipe.directions, target: :_blank %></p>
+<ul> <strong> Ingredients </strong>
+     <% @recipe.ingredients.each do | ingredient | %>
+          <li><%= ingredient %></li>
+     <% end %>
+</ul>
+<ul> <strong> Dietary Intel </strong>
+     <% @recipe.dietary_intel.each do | dietary_tidbit | %>
+          <li><%= dietary_tidbit %></li>
+     <% end %>
+</ul>
