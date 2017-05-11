@@ -1,0 +1,21 @@
+.gf_title {
+  color: white;
+  padding-top: 20%;
+}
+
+.button {
+  background-color: #72AA97;
+  margin: 3px;
+}
+
+.search_bar {
+  /*padding-left: %;*/
+  display: inline-block;
+  margin-top: 0.321em;
+  width: 40%;
+}
+
+.search_button {
+  display: inline-block;
+  align-items: center
+}

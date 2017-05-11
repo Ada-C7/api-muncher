@@ -1,0 +1,46 @@
+.recipe_name {
+  color: white;
+  margin-left: 1%;
+}
+
+.recipe_details {
+  background-color: white;
+  margin-left: 1%;
+  margin-right: 40%;
+}
+
+li {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  padding-left: 1%;
+}
+
+.button {
+  margin-left: 1%;
+  margin-right: 0%;
+  /*font-family: 'Shrikhand', cursive;*/
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  display: inline-block;
+  background-color: #FADA7F;
+  /*background-color: #8B201A*/
+  /*background-color: #C62B20*/
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+  padding: 1%;
+}
+
+.image {
+  display: block;
+  padding-left: 1%;
+  padding-top: 1%;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  color: #72AA97;
+  padding: 1%;
+}

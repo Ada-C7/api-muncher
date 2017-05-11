@@ -1,0 +1,17 @@
+<h1 class="recipe_name">Recipe Card</h1>
+
+<div class="recipe_details">
+<h2><%= @recipe.label %></h2>
+<div class="image"><%= image_tag(@recipe.image) %></div></br>
+
+<div><% @recipe.health_labels.each do |health_label| %>
+    <div class="button"><%= health_label %></div>
+  <%end%></div></br>
+
+<div><% @recipe.ingredient_lines.each do |ingredient_string| %>
+    <li><%= ingredient_string %></li>
+  <% end %></div></br>
+
+    <p>Find the Original Recipe here: <%= link_to "#{@recipe.url}", @recipe.url, target: :_blank  %></p>
+
+  </div>
