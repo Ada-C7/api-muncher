@@ -1,41 +1,43 @@
 <section class="show">
-<div class="wrap">
-  <h1><%= @recipe.name %></h1>
-  <%# raise %>
-  <div class="row">
-    <div class="small-6 medium-6 large-6 columns">
-      <%= image_tag @recipe.image %>
-    </div>
-
-
-    <article class="small-6 medium-6 large-6 columns">
-      <h2>Ingredients</h2>
-      <% @recipe.ingredients.each do |ingredient| %>
-      <%= ingredient %>
-      <% end %>
-    </article>
-
-
-  <article class="small-6 medium-6 large-6 columns">
-    <h3><%= link_to 'See Recipe', @recipe.url, target: :_blank, class:'cite'%></h3>
-      <%# @recipe.uri %>
-      <h3>Dietary Information</h3>
-      <% @recipe.diet_labels.each do |label| %>
-      <%= label %>
-      <% end %>
-      <% @recipe.health_labels.each do |label| %>
-      <%= label %>
-      <% end %>
-      <p>Serving Size: <%= @recipe.r_yield %></p>
-      <p>Calories: <%= @recipe.calories %></p>
-    </div>
-
-    </article>
-
-      <%# raise %>
-<div class="small-12 medium-12 large-12 columns">
   <div class="wrap">
-      <table>
+    <h1 class="font"><%= @recipe.name %></h1>
+    <%# raise %>
+    <div class="row">
+      <div class="small-6 medium-6 large-6 columns">
+        <%= image_tag @recipe.image %>
+      </div>
+
+
+
+      <article class="small-6 medium-6 large-6 columns ingredients">
+        <h2 class="font">Ingredients</h2>
+        <ul>
+        <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient %></li>
+        <% end %>
+      </ul>
+      </article>
+
+
+      <article class="small-6 medium-6 large-6 columns ingredients">
+        <%# @recipe.uri %>
+        <h3 class="font">Dietary Information</h3>
+        <% @recipe.diet_labels.each do |label| %>
+        <%= label %>
+        <% end %>
+        <% @recipe.health_labels.each do |label| %>
+        <%= label %>
+        <% end %>
+        <p>Serving Size: <%= @recipe.r_yield %></p>
+        <p>Calories: <%= @recipe.calories %></p>
+        <h3 class="font"><%= link_to 'See Recipe', @recipe.url, target: :_blank, class:'cite'%></h3>
+      </div>
+
+    </article>
+
+    <%# raise %>
+    <div class="small-12 medium-12 large-12 columns">
+      <table id="table">
         <caption>Nutrition Information</caption>
         <% @recipe.nutrients.each do |nutrient| %>
         <tr><th>
@@ -44,6 +46,5 @@
           <% end %>
         </table>
       </div>
-      </div>
-      </div>
-      </section>
+    </div>
+  </section>

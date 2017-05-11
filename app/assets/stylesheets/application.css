@@ -22,12 +22,27 @@ padding: 80px 0px;
 
 
 h1#title {
-  z-index: 100;
+  /*z-index: 100;*/
   font-family: 'Indie Flower', cursive;
   color: #E24E42;
   text-align: center;
   padding: 15px;
   font-size: 4em;
+}
+
+.font {
+  font-family: 'Indie Flower', cursive;
+  color: #E24E42;
+  padding: 15px;
+  font-size: 2em;
+}
+
+.ingredients {
+  padding: 10px;
+}
+
+a.cite {
+  margin-top: 20px;
 }
 
 body {
@@ -46,6 +61,7 @@ li {
 img {
   height: 120%;
   width: 120%;
+  border-radius: 20px;
 }
 
 .wrap {
@@ -91,4 +107,25 @@ footer img {
 
 .pagination a.active {
   border-radius: 5px;
+}
+
+input#q {
+  padding: 20px;
+  border: 2px #008F95;
+  border-radius: 4px;
+}
+
+form {
+  width: 95%;
+  margin-left: 15px;
+  margin-bottom: 25px;
+}
+
+.thumbnail {
+  border-radius: 20px;
+}
+
+table {
+  margin: 40px;
+  padding: 10px;
 }
