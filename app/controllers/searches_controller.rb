@@ -6,7 +6,7 @@ require_dependency '../../lib/recent_search'
 
 
 class SearchesController < ApplicationController
-  before_action :check_next_and_prev, only: [:recipes]
+  # before_action :check_next_and_prev, only: [:recipes]
   before_action :limit_recent_searches
 
   def index
@@ -19,6 +19,9 @@ class SearchesController < ApplicationController
   end
 
   def recipes
+    if params[:next] || params[:prev]
+      check_next_and_prev
+    end
     session[:search_terms] ||= params[:search_terms]
     if ["vegetarian", "balanced", "peanut-free", "high-protein"].include?(params[:health])
       session[:health] = params[:health]
@@ -73,7 +76,7 @@ class SearchesController < ApplicationController
   end
 
   private
-
+# this should only get called if params has prev or next
   def check_next_and_prev
     if params[:prev] == "true"
       if session[:from] - 12 >= 0

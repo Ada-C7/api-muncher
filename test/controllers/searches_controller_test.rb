@@ -62,18 +62,26 @@ describe SearchesController do
     end
   end
 
+
   describe "#create" do
 
     it "can create a search" do
-      proc {post login_path, params: { user: users(:aurora)}
-      post save_search_path, params: { search: { search_terms: "pink lady", health: "vegetarian", user: users(:aurora)}}
-      must_respond_with :success}
+      post login_path, params: { user: users(:aurora)}
+      must_respond_with :success
+
+      post save_search_path, params: {
+        search: {
+          search_terms: "pink lady",
+          health: "vegetarian",
+          user: users(:aurora)
+        }
+      }
+      must_redirect_to account_path
     end
 
   end
 
   describe "#destroy" do
-
     it "successfully destroys a saved search" do
       proc {post login_path, params: { user: users(:aurora)}
       must_respond_with :success
@@ -82,39 +90,25 @@ describe SearchesController do
     end
   end
 
-  # how the heck do I test this??
-  describe "next" do
+  describe "check next and prev" do
     it "next will get 12 different recipes" do
-      proc {
-        get root_path
-        get recipes_path(search_terms: "chicken", from: 0, to: 12, health: "none", next: "true")
-        must_respond_with :success
-        get root_path
-        must_respond_with :success
-        get recipes_path(search_terms: "chicken", from: 13, to: 25, health: "none", next: "true")
-        must_respond_with :success}
-      end
-      #
-      # it "next will not go further if there aren't more recipes" do skip
-      #
-      # end
-
-
+      get root_path
+      get recipes_path(search_terms: "chicken", from: 0, to: 12, health: "none")
+      must_respond_with :success
+      get recipes_path(search_terms: "chicken", from: 13, to: 25, health: "none", next: "true")
+      must_redirect_to recipes_path
     end
 
-    describe "prev" do
-      it "prev will get 10 different recipes" do
-        proc {
-          get root_path
-          get recipes_path(search_terms: "chicken", from: 13, to: 25, health: "none", prev: "true")
-          must_respond_with :success
-          get root_path
-          must_respond_with :success}
-      end
-      #
-      # it "prev will not go back if no prev recipes" do
-      #
-      # end
+    it "prev will get 10 different recipes" do
+      get root_path
+      get recipes_path(search_terms: "chicken", from: 0, to: 12, health: "none")
+      must_respond_with :success
+      get recipes_path(search_terms: "chicken", from: 13, to: 25, health: "none", next: "true")
+      must_redirect_to recipes_path
+      get recipes_path(search_terms: "chicken", from: 0, to: 12, health: "none", prev: "true")
+      must_redirect_to recipes_path
     end
 
   end
+
+end
