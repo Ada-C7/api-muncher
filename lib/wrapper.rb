@@ -8,7 +8,9 @@ class Wrapper
           url = BASE_URL +
                "q=chocolate%26#{filter}" +
                "&app_id=#{ID}" +
-               "&app_key=#{KEY}"
+               "&app_key=#{KEY}" +
+               "&from=0" +
+               "&to=100"
 
           response = HTTParty.get(url)
 
