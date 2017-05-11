@@ -1,0 +1,50 @@
+<section class="show">
+  <div class="wrap">
+    <h1 class="font"><%= @recipe.name %></h1>
+    <%# raise %>
+    <div class="row">
+      <div class="small-6 medium-6 large-6 columns">
+        <%= image_tag @recipe.image %>
+      </div>
+
+
+
+      <article class="small-6 medium-6 large-6 columns ingredients">
+        <h2 class="font">Ingredients</h2>
+        <ul>
+        <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient %></li>
+        <% end %>
+      </ul>
+      </article>
+
+
+      <article class="small-6 medium-6 large-6 columns ingredients" id="diet">
+        <%# @recipe.uri %>
+        <h3 class="font">Dietary Information</h3>
+        <% @recipe.diet_labels.each do |label| %>
+        <%= label %>
+        <% end %>
+        <% @recipe.health_labels.each do |label| %>
+        <%= label %>
+        <% end %>
+        <p>Serving Size: <%= @recipe.r_yield %></p>
+        <p>Calories: <%= @recipe.calories %></p>
+        <h3 class="font"><%= link_to 'See Recipe', @recipe.url, target: :_blank, class:'cite'%></h3>
+      </div>
+
+    </article>
+
+    <%# raise %>
+    <div class="small-12 medium-12 large-12 columns">
+      <table id="table">
+        <caption>Nutrition Information</caption>
+        <% @recipe.nutrients.each do |nutrient| %>
+        <tr><th>
+          <%= nutrient[1]["label"]%></th>
+          <td><%= nutrient[1]["quantity"].to_i %><%= nutrient[1]["unit"]%></tr></td>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </section>

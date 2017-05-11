@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="EdamamApiWrapper::Testing self.search" skipped="0" failures="0" errors="0" tests="2" assertions="62" time="0.15628022397868335">
+  <testcase name="test_0001_can get a list of recipes" classname="EdamamApiWrapper::Testing self.search" assertions="61" time="0.09688990999711677">
+  </testcase>
+  <testcase name="test_0002_will return an empty array with invalid arguments for edamam" classname="EdamamApiWrapper::Testing self.search" assertions="1" time="0.05939031398156658">
+  </testcase>
+</testsuite>

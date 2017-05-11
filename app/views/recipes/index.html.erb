@@ -1,0 +1,34 @@
+<section class="search-field">
+  <div class="wrap">
+  <%= form_tag(root_path, method: :get) do %>
+    <%= label_tag(:q, "Recipe name?") %>
+    <%= text_field_tag(:q) %>
+    <input type="submit" class="success button" name="commit" value="Search" />
+    <%# submit_tag :class => "success button" %>
+  <% end %>
+</div>
+</section>
+
+<section>
+  <div class="wrap">
+  <% if @recipes %>
+  <div class="row">
+    <% @recipes_pages.each do |recipe| %>
+    <div class="small-6 medium-4 large-4 columns">
+      <%= link_to recipe.name, recipes_show_path(:uri => recipe.uri) %>
+
+      <%= link_to image_tag(recipe.image), recipes_show_path(:uri => recipe.uri), class:'thumbnail' %>
+    </div>
+    <% end %>
+    <div class="row paginate">
+      <%= will_paginate @recipes_pages %>
+       <!-- page_links: false %> -->
+      <% end %>
+
+
+    </ul>
+  </div>
+  </div>
+</div>
+
+</section>
