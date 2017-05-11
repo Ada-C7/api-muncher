@@ -1,5 +1,5 @@
 <% @recipes.each do | recipe | %>
-     <p> <%= link_to recipe.name %><p>
+     <p> <%= link_to recipe.name, recipe_path(recipe.id) %><p>
      <p> <%= recipe.uri %><p>
      <p> <%= image_tag(recipe.photo) %><p>
 <% end %>

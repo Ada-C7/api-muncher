@@ -4,4 +4,7 @@ class RecipesController < ApplicationController
           @recipes = Wrapper.listRecipes
      end
 
+     def show
+          @recipe = Wrapper.getRecipe(params[:id])
+     end
 end
