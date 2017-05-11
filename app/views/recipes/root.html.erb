@@ -1,0 +1,41 @@
+<div class='row'>
+  <p class='small-12 large-centered columns, intro'>
+    Avoid asking yourself the question everyone secretly wants
+    to know.
+  </p>
+</div>
+<div class='row'>
+  <p class='small-12 large-centered columns, intro'>
+    "How many days can I eat this without dying?"
+  </p>
+</div>
+<div class='row'>
+  <p class='small-12 large-centered columns, intro' id='last-p'>
+    Find recipes, inspiration, and eat something that doesn't come
+    out of a crinkly, brightly colored bag.
+  </p>
+</div>
+<span class='hidden'>
+  Hey, you! Yes, you, the one poking around my site. Are you sneaking around
+  because you're interested in hiring me? Perhaps it's time to check out
+  the div below.
+  <div>
+    <%= link_to "My Github", "https://github.com/moonpastry" %>
+  </div>
+</span>
+<div class='form'>
+
+  <%= form_tag recipes_path do %>
+  <div class='row'>
+    <div class='small-12 large-centered columns, search-box' >
+      <%= text_field_tag :search, params[:search], :method => 'post' %>
+      <%= hidden_field_tag :page, 1 %>
+    </div>
+  </div>
+  <!-- <div class='row'> -->
+    <div class='small-6 columns'>
+      <%= submit_tag 'Search' %>
+    </div>
+  </div>
+</div>
+<% end %>

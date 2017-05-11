@@ -1,0 +1,16 @@
+<div class='row nav'>
+  <div class='small-12 large-centered columns nav-bar'>
+      <% if params[:page] == '1' %>
+      <div><p></p>
+      </div> <!-- These logic is here to keep the spacing in the page correct. -->
+      <% else %>
+      <div class='small-4 column' id='left-nav'>
+        <%= link_to "Previous Recipes", recipes_path(:utf8 => params[:utf8], :search => params[:search], :page => (params[:page].to_i - 1), :commit => params[:commit]) %>
+      </div>
+      <% end %>
+      <div class='small-4 column' id='right-nav'>
+        <%= link_to "More Recipes", recipes_path(:utf8 => params[:utf8], :search => params[:search], :page => (params[:page].to_i + 1), :commit => params[:commit]) %>
+      </div>
+    </ul>
+  </div>
+</div>
