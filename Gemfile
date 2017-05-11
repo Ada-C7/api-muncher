@@ -46,6 +46,8 @@ gem 'minitest-vcr'
 
 gem 'webmock'
 
+  gem 'pry-rails'
+
 end
 
 group :development do
@@ -62,7 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development do
   gem 'better_errors'
-  gem 'pry-rails'
+
 end
 
 group :test do

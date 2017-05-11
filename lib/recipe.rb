@@ -1,13 +1,16 @@
 class Recipe
 
-  attr_reader :label, :image, :uri
+  attr_reader :label, :image, :uri, :url, :ingredients, :diet
 
   BASE_URL = "https://api.edamam.com/search?"
 
-  def initialize(label, image, uri)
+  def initialize(label, image, uri, url, ingredients, diet)
     @label = label
     @image = image
     @uri = uri
+    @url = url
+    @ingredients = ingredients
+    @diet = diet
   end
 
   def self.search(search_term, page_params)
@@ -24,33 +27,34 @@ class Recipe
       return []
     else
       10.times do |count|
-        label = response['hits'][count]['recipe']['label']
-        image = response['hits'][count]['recipe']['image']
-        uri = response['hits'][count]['recipe']['uri']
-
-        recipes_list << Recipe.new(label, image, uri)
+        recipe = Recipe.from_hash(response['hits'][count]['recipe'].symbolize_keys)
+        recipes_list << recipe
       end
     end
     return recipes_list
   end
 
   def self.show_recipe(uri)
-    url = "#{BASE_URL}?app_key=#{ENV['APP_KEY']}&app_id=#{ENV['APP_ID']}&r=http://www.edamam.com/ontologies/edamam.owl%23#{uri[1..-1]}"
+    url = "#{BASE_URL}app_key=#{ENV['APP_KEY']}&app_id=#{ENV['APP_ID']}&r=http://www.edamam.com/ontologies/edamam.owl%23#{uri[1..-1]}"
 
     response = HTTParty.get(url).parsed_response
 
-    recipe_components = {}
-
     if response.empty?
-      return response
+      return nil
     end
 
-    recipe_components[:label] = response[0]['label']
-    recipe_components[:url] = response[0]['url']
-    recipe_components[:ingredients] = response[0]['ingredientLines']
-    recipe_components[:diet] = response[0]['dietLabels']
-
-    return recipe_components
-
+    Recipe.from_hash(response[0].symbolize_keys)
   end
+
+  def self.from_hash(hash)
+    Recipe.new(
+    hash[:label],
+    hash[:image],
+    hash[:uri],
+    hash[:url],
+    hash[:ingredientLines],
+    hash[:dietLabels]
+    )
+  end
+
 end

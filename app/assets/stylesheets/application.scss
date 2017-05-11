@@ -28,7 +28,6 @@ span.hidden { display:none; }
 
 h1{
   font-family: 'Shrikhand', cursive;
-  // z-index: 1;
  }
 
  .header {
@@ -96,4 +95,12 @@ h1{
   align: center;
   text-align: center;
   background: #fff6f1;
+}
+
+.recipe-link a {
+  color:black;
+}
+
+.recipe-link a:visited {
+  color:black;
 }

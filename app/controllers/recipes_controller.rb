@@ -14,10 +14,9 @@ class RecipesController < ApplicationController
   end
 
   def show_recipe
-    # uri = params[:uri]
     @recipe = Recipe.show_recipe(params[:recipe])
 
-    if @recipe.empty?
+    if @recipe.nil?
       redirect_to recipes_path(params[:search])
       flash[:messages] = 'Something went wrong. Ramen for you.'
     else

@@ -10,18 +10,18 @@
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<div class='row'>
-  <div class="style1" align='center' height='35'>
+<body>
+  <div class='row'>
+    <div class="style1" align='center' height='35'>
 
-    <div class='small-12 columns, header'>
-      <% if flash[:messages] %>
-      <p>
-        <%= flash[:messages] %>
-      </p>
-      <% end %>
+      <div class='small-12 columns, header'>
+        <% if flash[:messages] %>
+        <p>
+          <%= flash[:messages] %>
+        </p>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <body>
     <div class='row'>
       <div class='small-12 columns, header'>
         <h1 class='banner'>Beyond Ramen</h1>
