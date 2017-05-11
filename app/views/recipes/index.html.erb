@@ -1,3 +1,9 @@
+<%= form_tag(recipes_path, method: :get) do %>
+     <%= label_tag(:filter) %>
+     <%= text_field_tag :filter %>
+     <%= submit_tag 'Filter' %>
+<% end %>
+
 <% @recipes.each do | recipe | %>
      <p> <%= link_to recipe.name, recipe_path(recipe.id) %><p>
      <p> <%= recipe.uri %><p>

@@ -4,9 +4,9 @@ class Wrapper
      ID = ENV["EDAMAM_ID"]
      KEY = ENV["EDAMAM_KEY"]
 
-     def self.listRecipes
+     def self.listRecipes(filter)
           url = BASE_URL +
-               "q=chocolate" +
+               "q=chocolate%26#{filter}" +
                "&app_id=#{ID}" +
                "&app_key=#{KEY}"
 

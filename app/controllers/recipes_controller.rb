@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
 
      def index
-          @recipes = Wrapper.listRecipes
+          @recipes = Wrapper.listRecipes(params[:filter])
      end
 
      def show
