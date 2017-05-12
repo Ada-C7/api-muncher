@@ -67,4 +67,9 @@ group :test do
   gem 'minitest-reporters'
 end
 
+group :development, :test do
+  gem 'minitest-vcr'
+  gem 'webmock'
+end
+
 gem 'awesome_print'
