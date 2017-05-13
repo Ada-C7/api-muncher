@@ -41,6 +41,8 @@ class RecipeApiWrapper
           list_of_recipes_object << recipe_object
         end
         return list_of_recipes_object
+      else
+        raise RecipeException.new "Cannot find recipes"
       end
     end
 
