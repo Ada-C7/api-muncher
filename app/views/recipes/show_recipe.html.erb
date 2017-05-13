@@ -1,0 +1,36 @@
+<main>
+  <section class = "row">
+    <section class = "small-12 medium-12 large-6 columns">
+      <h4>  <%=@recipe.label%></h4>
+       <%=image_tag @recipe.image, alt:"picture of #{@recipe.label}"%>
+    </section>
+    <section class = "small-12 medium-12 large-6 columns">
+
+    <%if @login_user != nil%>
+        <%if @login_user.alreary_in_favorite?(@recipe)%>
+          <h5>This recipe is already in favorite</h5>
+        <%else%>
+        <%= form_for @favorite_recipe do |f| %>
+            <%= hidden_field_tag("user_id", @login_user.id)%>
+            <%= hidden_field_tag("recipe_uri", @recipe.uri)%>
+            <%= hidden_field_tag("name", @recipe.label)%>
+            <%= f.submit value: " Add to favorite" ,  class: "button hollow topbar-responsive-button "%>
+        <% end %>
+      <% end %>
+    <%end%>
+    <h4>Calories: <%=@recipe.calories.round(0)%></h4>
+      <h4>Ingridients:</h4>
+         <%@recipe.ingredients.each do |ingridient|%>
+            <p><%=ingridient["text"]%></p>
+         <%end%>
+    <h4>Diet labels:</h4>
+      <%@recipe.diet_labels.each do |l|%>
+        <%=l%>
+      <%end%>
+    <h4>Health labels:</h4>
+      <%@recipe.health_labels.each do |l|%>
+        <%=l%>
+      <%end%>
+    </section>
+  </section>
+</main>

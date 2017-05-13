@@ -1,0 +1,67 @@
+<main>
+  <section class = "row">
+    <section class = "small-12 medium-12 large-6 columns">
+      <h3>&#9825;A list of favorite recepies &#9825;</h3>
+      <table>
+      <%@user.recipes.each do |recipe|%>
+        <tr>
+            <td><%=link_to recipe.name , show_recipe_path(recipe.recipe_uri)%></td>
+            <td><%=button_to "Remove" , recipe_path(recipe.id), method: :delete, class: "button hollow topbar-responsive-button "%></td>
+        </tr>
+      <%end%>
+    </table>
+    </section>
+    <section class = "small-12 medium-12 large-6 columns">
+      <h3>Your recent searches:</h3>
+      <table>
+        <tr>
+          <th> Search keyword </th>
+          <th> Search options</th>
+          <th> Date </th>
+          <th> Search again? </th>
+        </tr>
+        <%@user.searches.reverse_each do |search|%>
+        <tr>
+          <td><%=search.keyword%> </td>
+          <td>
+            <%if search.vegan%>
+              <span>vegan </span>
+            <%end%>
+            <% if search.treenutfree%>
+              <span>tree-nut-free </span>
+            <%end%>
+            <% if search.vegetarian%>
+              <span>vegetarian </span>
+            <%end%>
+            <% if search.peanutfree%>
+              <span>peanut-free </span>
+            <%end%>
+          </td>
+          <td> <%=search.created_at.month%>/<%=search.created_at.day%>/<%=search.created_at.year%>  </td>
+          <td>
+            <%= form_tag(view_recipes_path, :method => "get", id: "search-form") do %>
+              <%= hidden_field_tag :search, search.keyword %>
+              <%= hidden_field_tag :from, params[:from], value: 0%>
+              <%if search.vegan %>
+                <%=hidden_field_tag "health[]", "vegan"%>
+              <%end%>
+              <%if search.treenutfree%>
+                <%=hidden_field_tag  "health[]", "tree-nut-free"%>
+              <%end%>
+              <%if search.vegetarian %>
+                <%=hidden_field_tag  "health[]", "vegetarian"%>
+              <%end%>
+              <%if search.peanutfree %>
+                <%=hidden_field_tag  "health[]", "peanut-free"%>
+              <%end%>
+              <%= submit_tag "Search again", :name => nil , class: "button hollow topbar-responsive-button "%>
+          <% end %>
+          </td>
+        </tr>
+        <%end%>
+
+      </table>
+
+    </section>
+  </section>
+</main>

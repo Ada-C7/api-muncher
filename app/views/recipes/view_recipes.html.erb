@@ -1,0 +1,34 @@
+<main>
+  <ul class="pagination  text-center" role="navigation" aria-label="Pagination">
+    <div>
+      <%if params[:from].to_i != 0%>
+        <li class="pagination-previous">
+          <%= link_to "Previous", {controller: 'recipes', action: 'view_recipes', :from => @from_previous, :search => params[:search], :health => params[:health] }%>
+        </li>
+      <%end%>
+      <%if params[:from].to_i < @recipes_number - @per_page%>
+        <li class="pagination-next">
+          <%= link_to "Next", {controller: 'recipes', action: 'view_recipes', :from => @from_next, :search => params[:search],:health => params[:health] }%>
+        </li>
+      <%end%>
+    </div>
+
+    <%(0...@number_of_pages).each do |i|%>
+      <%from = where_to_start(i)%>
+      <%if params[:from] == from.to_s%>
+        <li><%= link_to i+1, {controller: 'recipes', action: 'view_recipes', :from => from, :search => params[:search], :health => params[:health] } , class: "current-page"%>  </li>
+      <%else%>
+        <li><%= link_to i+1, {controller: 'recipes', action: 'view_recipes', :from => from, :search => params[:search], :health => params[:health] } %></li>
+      <%end%>
+    <%end%>
+  </ul>
+
+  <div class="row">
+    <%@recipes.each do |recipe|%>
+      <div class = "column text-center small-6 medium-4 large-4 recipe-container <%= "end" if recipe == @recipes.last %>" >
+        <p><%=link_to recipe.label, show_recipe_path(recipe.uri)%></p>
+        <p><%=link_to (image_tag recipe.image, alt:"picture of #{recipe.label}"), show_recipe_path(recipe.uri)%>
+      </div>
+    <%end%>
+  </div>
+</main>

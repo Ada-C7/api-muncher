@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+  <body>
+    <header>
+          <section >
+            <%= link_to "Home", root_path,  class:"button hollow topbar-responsive-button medium home-button"%>
+            <%if @login_user%>
+             <%= button_to "Log out", logout_path,  class:"button hollow topbar-responsive-button medium login-logout-button" %>
+            Currently logged in as <%=link_to @login_user.name, user_path(@login_user.id)%>
+            <%else%>
+              <%= button_to "Log in", "/auth/google_oauth2", class:"button medium   hollow topbar-responsive-button login-logout-button "%>
+                Login to save your favorite recipes and save your searches
+            <%end%>
+          </section>
+          <div id = "flash">
+            <% flash.each do |name, message| %>
+            <div class="<%= name %> callout secondary primary small" data-closable><%= message %>
+              <button class="close-button small" aria-label="Dismiss alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+            <% end %>
+          </div>
+    </header>
+      <%= yield %>
+  </body>
+  <footer>
+    <h3 class="text-center"> @2017 Natalia Kuleniuk Powered by <a href="https://edamam.com">edamam.com</a></h3>
+  </footer>
+
+</html>
