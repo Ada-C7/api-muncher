@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>No Moo</title>
+
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Patrick Hand', serif;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="top-bar yellow">
+        <div class="top-bar-left">
+          <h2><a href="/">NO MOO</a></h2>
+          <p>dairy-free recipes just for you</p>
+        </div>
+
+        <div class="top-bar-right">
+          <ul class="menu">
+          <%= form_tag(recipes_path, method: :get) do %>
+            <li class="no-margin"><%= text_field_tag :q %></li>
+            <li><%= submit_tag "Search", :name => nil, class: "button" %></li>
+          <% end %>
+          </ul>
+        </div>
+      </nav>
+
+      <section class='flash'>
+        <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+        <% end %>
+      </section>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer class="footer-bar text-center">
+      <p>API project by Tamiko Terada (2017) for Ada Developers Academy</p>
+      <p>powered by</p>
+      <div class="small-1 small-centered columns">
+        <a href="https://developer.edamam.com/"><%= image_tag "logo.png" %></a>
+      </div>
+      </br>
+    </footer>
+  </body>
+</html>

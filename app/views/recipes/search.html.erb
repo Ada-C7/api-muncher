@@ -1,0 +1,15 @@
+<h2>Your Recipes</h2>
+
+<!-- <%= paginate @pg_recipes %> -->
+
+<% if @recipes.empty? %>
+  <%= flash[:message] = "No recipes found with your search." %>
+<% else %>
+  <%= flash[:message] = "Recipes found!" %>
+  <p><%= "#{@recipes.count} recipes found for your search '#{params[:q]}'." %></p>
+
+  <% @recipes.each_with_index do |recipe, i| %>
+    <img src="<%= recipe.image %>">
+    <h4><%= link_to recipe.label, recipe_path(i) %></h4>
+  <% end %>
+<% end %>

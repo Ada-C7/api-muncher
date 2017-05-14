@@ -1,0 +1,42 @@
+
+
+<% if @recipe.nil? %>
+  <%= flash[:message] = "Your recipe could not be found." %>
+<% end %>
+
+<section class="recipe-info text-center">
+  <section class="recipe-media">
+    <h2 class="white"><%= @recipe.label %></h2>
+
+    <div class="recipe-photo"><img src="<%= @recipe.image %>"></div>
+
+    <div class="label">
+    <% @recipe.dietary.each do |label| %>
+      <%= "#{label}" %> &nbsp;
+    <% end %>
+    </div>
+  </section>
+
+  <section class="ingredients">
+    <div class="ingredients-box row">
+      <div class="columns center large-4">.</div>
+      <div class="columns center white large-4">
+        <h4>Ingredients</h4>
+        <p>(Recipe for <%= @recipe.yield.to_i %>)</p>
+        <ul>
+          <% @recipe.ingredients.each do |ingredient| %>
+          <li><%= ingredient %></li>
+          <% end %>
+        </ul>
+
+        <p><%= @recipe.calories %> kcal</p>
+      </div>
+      <div class="columns center large-4">.</div>
+    </div>
+  </section>
+
+  <aside>
+    <%= link_to "Full Recipe", @recipe.url, class: "button" %>
+    <p>by <%= @recipe.source %></p>
+  </aside>
+</section>

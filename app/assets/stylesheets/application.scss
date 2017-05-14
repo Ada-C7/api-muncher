@@ -1,0 +1,85 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+//= require foundation_and_overrides
+
+ *= require foundation_and_overrides
+
+ */
+
+.hero-cow {
+  color: white;
+}
+ .search-bar div {
+   display: inline-block;
+ }
+
+.footer-bar {
+  margin: 0;
+  background: none;
+}
+
+.menu li {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+header {
+  background-color: yellow;
+}
+
+main {
+  background-image: url(grassy_background.jpg);
+  opacity: 50%;
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+.small-cow {
+  max-height: 280px;
+  max-width: 280px;
+}
+
+.next-card {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.recipe-cards {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.white {
+  background-color: white;
+}
+
+.ingredients-box {
+  display: block;
+  align-items: center;
+}
+
+.ingredients li {
+  list-style: none;
+}
+
+.recipe-photo {
+  margin-top: 1rem;
+}

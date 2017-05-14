@@ -1,0 +1,38 @@
+
+<section class="recipe-cards row small-up-1 medium-up-3 large-up-4" data-equalizer data-equalize-by-row="true">
+  <article class="large-4 columns">
+    <div class="card text-center" data-equalizer-watch>
+      <div class"card-header">
+        <h3>Your Recipes</h3>
+        <h5><%= "Showing 10 results at a time from your search \"#{params[:q]}\"." %></h5>
+      </div>
+      <div class="card-section small-cow">
+        <%= image_tag "cow.png" %>
+      </div>
+    </div>
+  </article>
+
+  <% @recipes.each_with_index do |recipe, i| %>
+  <article class="large-4 columns">
+    <div class="card text-center" data-equalizer-watch>
+      <div class="card-section">
+        <img src="<%= recipe.image %>">
+      </div>
+      <div class="card-divider">
+        <h5><%= link_to recipe.label, recipe_path(i) %></h5>
+      </div>
+    </div>
+  </article>
+  <% end %>
+
+  <article class="large-4 columns">
+    <div class="card text-center yellow" data-equalizer-watch>
+      <div class="card-section small-cow">
+        <%= image_tag "cow.png" %>
+      </div>
+      <div class"card-divider">
+        <h3><%= link_to "next", recipes_path( q: params[:q], page: params[:page].to_i + 1, class: "button" ) %></h3>
+      </div>
+    </div>
+  </article>
+</section>
