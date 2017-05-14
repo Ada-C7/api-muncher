@@ -8,13 +8,19 @@ class RecipesApiWrapper
   class RecipesApiWrapperException < StandardError
   end
 
-  attr_accessor :name, :uri, :label, :image
+  attr_accessor :name, :uri, :label, :image, :url, :calories, :dietlabels, :healthlabels, :ingredients
 
   def initialize(params)
     @uri = params[:uri]
     @label = params[:label]
     @raw_data = params
     @image = params[:image]
+
+    @url = params[:url]
+    @calories = params[:calories]
+    @dietlabels = params[:dietlabels]
+    @healthlabels = params[:healthlabels]
+    @ingredients = params[:ingredients]
   end
 
   def [](key)
