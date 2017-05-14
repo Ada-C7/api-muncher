@@ -19,13 +19,15 @@ class RecipesApiWrapper
     @url = params[:url]
     @calories = params[:calories]
     @dietlabels = params[:dietlabels]
-    @healthlabels = params[:healthlabels]
+    @healthlabels = params[:healthLabels]
     @ingredients = params[:ingredients]
   end
 
-  def [](key)
-    return @raw_data[key]
-  end
+# Instead of explicitly copying object values into an instance one by one in iniitialize, I could accept an object and make key value pairs for every json key value pair
+# Is that what this below method was aiming to do?
+  # def [](key)
+  #   return @raw_data[key]
+  # end
 
   def self.search(query)
     query_params = {
@@ -46,8 +48,8 @@ class RecipesApiWrapper
           image: hit["recipe"]["image"],
           url: hit["recipe"]["url"],
           calories: hit["recipe"]["calories"],
-          dietlabels: hit["recipe"]["dietlabels"],
-          healthlabels: hit["recipe"]["healthlabels"],
+          dietLabels: hit["recipe"]["dietLabels"],
+          healthLabels: hit["recipe"]["healthLabels"],
           ingredients: hit["recipe"]["ingredients"]
         }
         self.new(recipe_data)
