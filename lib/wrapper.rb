@@ -18,7 +18,7 @@ class Wrapper
           if response["hits"]
                response["hits"].each do |hit|
                     recipes << Recipe.new(
-                    uri: hit["recipe"]["uri"],
+                    uri = hit["recipe"]["uri"],
                     id: hit["recipe"]["uri"][-33..-1],
                     name: hit["recipe"]["label"],
                     photo: hit["recipe"]["image"])
@@ -39,7 +39,7 @@ class Wrapper
 
           if response
                     recipe = Recipe.new(
-                    uri: response[0]["uri"],
+                    uri = response[0]["uri"],
                     id: id,
                     name: response[0]["label"],
                     photo: response[0]["image"],
