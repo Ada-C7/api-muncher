@@ -37,17 +37,18 @@ class Wrapper
 
           response = HTTParty.get(url)
 
-          if response
-                    recipe = Recipe.new(
-                    uri = response[0]["uri"],
-                    id: id,
-                    name: response[0]["label"],
-                    photo: response[0]["image"],
-                    ingredients: response[0]["ingredientLines"],
-                    dietary_intel: response[0]["healthLabels"],
-                    site: response[0]["source"],
-                    directions:response[0]["url"])
+          if response.parsed_response.empty?
+               recipe = nil
+          else
+               recipe = Recipe.new(
+               uri = response[0]["uri"],
+               id: id,
+               name: response[0]["label"],
+               photo: response[0]["image"],
+               ingredients: response[0]["ingredientLines"],
+               dietary_intel: response[0]["healthLabels"],
+               site: response[0]["source"],
+               directions:response[0]["url"])
           end
-          return recipe
      end
 end
