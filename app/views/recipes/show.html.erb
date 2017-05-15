@@ -1,0 +1,14 @@
+<p><%= @recipe.name %></p>
+<p><%= image_tag(@recipe.photo) %></p>
+<p><%= link_to 'Original Recipe', @recipe.directions, target: :_blank %></p>
+<ul> <strong> Ingredients </strong>
+     <% @recipe.ingredients.each do | ingredient | %>
+          <li><%= ingredient %></li>
+     <% end %>
+</ul>
+<ul> <strong> Dietary Intel </strong>
+     <% @recipe.dietary_intel.each do | dietary_tidbit | %>
+          <li><%= dietary_tidbit %></li>
+     <% end %>
+</ul>
+<p> Powered by <%= link_to image_tag('edamam_logo.png'),'http://developer.edamam.com', target: :_blank %></p>
