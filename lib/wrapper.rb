@@ -1,4 +1,5 @@
 class Wrapper
+
      BASE_URL = "https://api.edamam.com/search?"
      RECIPE_URL = "http://www.edamam.com/ontologies/edamam.owl%23recipe"
      ID = ENV["EDAMAM_ID"]

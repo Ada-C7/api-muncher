@@ -9,6 +9,8 @@ require 'webmock/minitest'
 require 'simplecov'
 SimpleCov.start
 
+MinitestVcr::Spec.configure!
+
 Minitest::Reporters.use!(
           Minitest::Reporters::SpecReporter.new,
           ENV,
