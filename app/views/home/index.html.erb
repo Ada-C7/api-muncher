@@ -1,0 +1,12 @@
+<h1> Welcome! Enter a search term to begin </h1>
+
+
+
+<section>
+  <%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :query, params[:query], placeholder: "Search Recipes" %>
+      <%= submit_tag "Search", :name => nil %>
+  <% end %>
+
+
+</section>
