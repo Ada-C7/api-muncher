@@ -1,0 +1,14 @@
+<h1>Recipes#show</h1>
+<p><%= @recipe.label %></p>
+<%= image_tag(@recipe.image) %>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient['text'] %></li>
+    <% end %>
+  </ul>
+  <ul>
+  <% @recipe.healthlabels.each do |healthlabel| %>
+    <li><%= healthlabel %></li>
+    <% end %>
+  </ul>
+<p>View original recipe at <%= link_to @recipe.source, @recipe.url %></p>
