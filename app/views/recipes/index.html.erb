@@ -1,14 +1,22 @@
 <h1>Recipes#index</h1>
-
+<!-- Add foundation column class -->
 <ul>
   <% @recipes.each do |recipe| %>
-    <li>
-      <%= link_to recipe.label, recipe_path(recipe.label) %>
-    </li>
-    <li>
-      <%= image_tag(recipe.image) %>
-    </li>
+    <div class="large-6 columns">
+      <div class="recipe-grid">
+        <li>
+          <%= link_to recipe.label, recipe_path(recipe.label) %>
+        </li>
+        <li>
+          <%= image_tag(recipe.image) %>
+        </li>
+      </div>
+    </div>
   <% end %>
 </ul>
 
-<%= will_paginate @recipes %>
+<div class="row">
+  <div class="large-12 columns">
+    <%= will_paginate @recipes %>
+  </div>
+</div>

@@ -15,3 +15,12 @@
  *= require foundation_and_overrides
 
  */
+
+.pagination a {
+  display: inline-block;
+}
+
+.recipe-grid {
+  display: block;
+  margin: 0 auto;
+}
