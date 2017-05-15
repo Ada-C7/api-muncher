@@ -1,10 +1,11 @@
 require 'HTTParty'
 require 'recipes'
 require 'dotenv-rails'
+require 'will_paginate/array'
 
 class RecipesController < ApplicationController
   def index
-    @recipes = RecipesApiWrapper.search(params[:query_term])
+    @recipes = RecipesApiWrapper.search(params[:query_term]).paginate(:page => params[:page], :per_page => 10)
     # in brackets: form field that will be accepting the query term
     # this index page is displaying the results, so another view page will have to be made for the form the user enters the search into, doesn't need its own controller
   end

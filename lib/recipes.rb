@@ -34,7 +34,9 @@ class RecipesApiWrapper
     query_params = {
       "q" => query,
       "app_id" => ENV["EDAMAM_ID"],
-      "app_key" => ENV["EDAMAM_TOKEN"]
+      "app_key" => ENV["EDAMAM_TOKEN"],
+      "from" => 0,
+      "to" => 1000
     }
 
 
