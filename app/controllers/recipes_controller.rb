@@ -1,5 +1,8 @@
 class RecipesController < ApplicationController
 
+require_dependency '../../lib/wrapper'
+require_dependency '../../lib/recipe'
+
      def index
           @recipes = Wrapper.listRecipes(params[:filter])
           @recipes = Kaminari.paginate_array(@recipes).page(params[:page]).per(10)

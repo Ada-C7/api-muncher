@@ -62,9 +62,9 @@ group :development do
 end
 
 group :test do
+  gem 'dotenv-rails'
   gem 'minitest-rails'
   gem 'minitest-reporters'
-  gem 'dotenv-rails'
   gem 'simplecov'
 end
 
