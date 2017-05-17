@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth-google-oauth2'
 gem 'foundation-rails'
 gem 'httparty'
+gem 'will_paginate'
 
 
 group :development, :test do
