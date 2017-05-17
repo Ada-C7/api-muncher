@@ -1,0 +1,24 @@
+<h1 class="row"><%= @recipe.name %></h1>
+<section class="row">
+  <%= image_tag(@recipe.image, alt: "Recipe Image", class: "large-6 medium-6 columns") %>
+  <div class="large-6 medium-6 columns">
+    <p>
+      <% @recipe.labels.each do |label| %>
+        <%= label%><%= ", " if label != @recipe.labels.last %>
+      <% end %>
+    </p>
+    <p>
+      Yields <%= (@recipe.servings).to_i %> servings,
+      <%= (@recipe.calories / @recipe.servings).to_i %> calories/serving
+    </p>
+    <h4>Ingredients</h4>
+      <ul>
+        <% @recipe.ingredients.each do |ingredient| %>
+          <li><%= ingredient %></li>
+        <% end %>
+      </ul>
+    </h4>
+    <p><%= link_to "See full recipe", @recipe.source_url, target: "_blank" %></p>
+    <%= link_to "<< All Results", recipes_path("recipe" => {"q" => @search_term}) %>
+  </div>
+</section>

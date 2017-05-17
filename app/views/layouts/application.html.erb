@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Recipe Finder" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <header>
+      <div class="row">
+      <div class="large-3 medium-4 small-6 columns">
+        <%= image_tag("silverware5.png", alt: "Utensils") %>
+      </div>
+      <div class="large-9 medium-8 small-6 columns">
+        <h1><%= link_to "Recipe Finder", root_path %></h1>
+        <p class="edamom">Powered by <%= link_to "Edamom", "https://www.edamam.com/" %></p>
+      </div>
+    </header>
+
+  <section class="row flash">
+    <h3><%= flash[:error_message] %></h3>
+  </section>
+
+
+    <main>
+      <%= yield %>
+    </main>
+
+  </body>
+</html>
