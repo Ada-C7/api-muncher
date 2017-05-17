@@ -30,10 +30,6 @@
 </div>
 
 <div class="pagination">
-  <% if params[:page].to_i > 1 %>
-    <%= link_to "Previous", result_list_path(:page => (params[:page].to_i - 1).to_s, :q => params[:q]), method: :get, class:"button" %>
-  <% end %>
-  <% if @info["to"] < @info["count"] %>
-    <%= link_to "Next", result_list_path(:page => (params[:page].to_i + 1).to_s, :q => params[:q]), method: :get, class:"button" %>
-  <% end %>
+  <%= previous_recipe(params) %>
+  <%= paginate_recipe(params, @info) %>
 </div>
