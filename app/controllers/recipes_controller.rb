@@ -3,10 +3,8 @@ require_dependency '../../lib/recipe.rb'
 
 class RecipesController < ApplicationController
   def index
-    @search_results = {
-      q: params[:q],
-      recipes: EdamamApiWrapper::all({q: params[ingredients = :q]})
-    }
+    @search_results = EdamamApiWrapper::all({q: params[ingredients = :q], from: 0, to: 100})
+    @results_page = @search_results.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show

@@ -37,7 +37,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth-google-oauth2'
 gem 'foundation-rails'
 gem 'httparty'
+<<<<<<< HEAD
 gem 'foundation-rails'
+=======
+gem 'will_paginate'
+>>>>>>> paging
 
 
 group :development, :test do
