@@ -1,0 +1,155 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require foundation_and_overrides
+
+*/
+@import url('foundation.css');
+@import url('https://fonts.googleapis.com/css?family=Megrim|Permanent+Marker|Rock+Salt|Yellowtail');
+
+header a, header a:visited {
+  color: black;
+}
+
+header a:hover {
+  font-style: italic;
+}
+
+
+h1, h2, h3, h4, p, .search, .main, .links, .pagination {
+  text-align: center;
+}
+
+.link {
+  padding: 5px;
+  font-family: Helvetica;
+  font-weight: bold;
+  margin: 0 auto 10px;
+  display: inline;
+}
+
+thead {
+  background-color: black;
+  color: white;
+}
+h1 {
+  font-family: 'Megrim', cursive;
+  font-size: 4.0em;
+  font-weight: bold;
+  max-width: 500px;
+  margin: auto;
+}
+
+header {
+  margin-top: 5%;
+}
+
+h3 {
+  font-family: 'Yellowtail', cursive;
+  font-size: 2.0em;
+}
+
+h4 {
+  font-size: 2.0em;
+  font-weight: bold;
+}
+
+p {
+  font-size: .7em;
+}
+
+.search {
+  margin: 120px auto;
+  max-width: 500px;
+}
+
+.search h2 {
+  color: white;
+  font-family: Permanent Marker;
+  font-weight: bold;
+  font-size: 4.0em;
+}
+
+.search-band {
+  background-image: url("http://www.oahufresh.com/wp-content/uploads/2016/08/asparagus.jpg");
+  padding: 1% 0;
+  max-width: 800px;
+  margin: auto;
+}
+
+.show {
+  margin-top: 5%;
+}
+
+.show-top {
+  text-align: center;
+  font-size: 0.6em;
+  font-family: Helvetica;
+  background-color: black;
+  color: white;
+  padding: 5px 0 15px 0;
+  margin: 0 auto 10px;
+}
+
+.result-recipe {
+  max-width: 400px;
+  padding: 5px;
+  border: 1px dashed black;
+  margin: 10px auto;
+}
+
+.title {
+  font-size: 0.8em;
+  color: black;
+}
+
+.main {
+  margin: 0 15%;
+}
+
+.attribution {
+  width: 150px;
+}
+
+.footer * {
+  display: inline-block;;
+  margin: 10px auto;
+  padding: 0;
+}
+
+footer {
+  text-align: center;
+}
+
+.button, .pagination a  {
+  min-width: 250px;
+  background-color: black;
+  color: white;
+}
+
+.pagination a {
+  padding: 10px;
+  margin: auto;
+  display: inline-block;
+}
+
+.button:hover{
+  background-color: #404040;
+  color: white;
+}
+
+.button:focus {
+  background-color: black;
+  color: white;
+}
