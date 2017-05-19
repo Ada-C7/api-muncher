@@ -1,0 +1,7 @@
+<div class = "small-4 large-3 columns center">
+  <%= form_tag(recipes_path, method: "get") do %>
+  <%= label_tag(:q, "I'd like to eat:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Submit") %>
+  <% end %>
+</div>
