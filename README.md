@@ -1,3 +1,5 @@
+link to heroku app here: https://ala-recipe-rex.herokuapp.com/
+
 # Recipe API Consumer
 
 ## Purpose
