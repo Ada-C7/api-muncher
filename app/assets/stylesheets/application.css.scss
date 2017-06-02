@@ -1,0 +1,225 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require foundation_and_overrides
+
+*/
+
+// fonts
+// special elite for main header
+// regular headers use bad script
+// molengo for recipe text
+// homemade apple for recipes page titles
+// clicker script for links
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Clicker+Script|Homemade+Apple|Molengo|Special+Elite');
+
+* {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  // background-color: blue;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: #A0823A;
+}
+
+// header
+
+form label {
+  font-size: 1em;
+}
+
+.search-btn {
+  background-color: #A0823A;
+  font-family: "Molengo";
+  font-size: 1em;
+}
+
+.trex {
+  height: 200px;
+}
+
+.top-nav, ul .nav {
+  display: block;
+
+  // text-align: center;
+}
+
+.search-form {
+  padding-left: 50px;
+  padding-top: 20px;
+}
+
+.nav li {
+  display: inline-block;
+  padding: 0 40px;
+}
+
+.top-nav li {
+  padding-right: 30px;
+  display: inline-block;
+}
+
+// index
+.recent-search-line {
+  text-align: center;
+}
+
+.recent-search-line a {
+  font-family: "Molengo";
+  font-size: 1em;
+}
+
+h2, h3 {
+  font-family: "Bad Script";
+  text-align: center;
+}
+
+.index-header {
+  padding-top: 20px;
+}
+
+.nav {
+  text-align: center;
+}
+
+p, form {
+  font-family: "Molengo";
+}
+
+a {
+  font-family: "Clicker Script";
+  font-size: 2em;
+}
+
+header h1 a {
+  font-family: "Special Elite";
+}
+
+.search-form {
+  height: 100%;
+}
+
+.homepage {
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+
+}
+.homepage::after {
+  content: "";
+  background: url(back1.jpg) no-repeat center center fixed;
+  background-size: cover;
+  opacity: .5;
+  display: block;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+// recipes
+
+.recipe-title {
+  font-family: "Homemade Apple";
+  font-size: 1em;
+}
+
+.recipe-title-div {
+  padding-top: 5px;
+}
+
+.indiv-recipe {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.search-results, .account-page {
+  min-height: 350px;
+}
+
+.nothing-found {
+  text-align: center;
+  padding-top: 70px;
+}
+
+.index-header-left {
+  text-align: left;
+}
+
+// account
+
+.account-searches, .account-recipes {
+  padding-bottom: 15px;
+}
+
+.saved-searches a, .saved-recipes a, .recipe-link a {
+  font-family: "Molengo";
+  font-size: 1em;
+}
+
+.saved-searches, .saved-recipes {
+  text-align: center;
+}
+
+.recipes-links, .searches-links{
+  text-align: left;
+  padding-left: 100px;
+}
+
+.delete {
+  padding-left: 15px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+li:hover a.hidden {
+  visibility: visible;
+}
+
+// recipe
+
+td, .ingredients-list {
+  font-family: "Molengo";
+}
+// footer
+
+footer .credits {
+  display: block;
+}
+
+footer a {
+  font-family: "Molengo";
+  font-size: 1em;
+}
+
+.credits p {
+  display: inline-block;
+  text-align: center;
+  font-size: .5em;
+}
+
+footer {
+  padding-top: 20px;
+}

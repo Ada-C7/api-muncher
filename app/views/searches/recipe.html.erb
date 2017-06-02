@@ -1,0 +1,69 @@
+<section class="row">
+  <ul class="nav columns small-12">
+
+    <li class="nav">
+      <%= link_to "Back to results", recipes_path, class: "" %>
+    </li>
+    <% if current_user %>
+    <li class="nav">
+      <%= link_to "This recipe is my fave!", save_recipe_path, method: :post, class: "" %>
+    </li>
+    <% end %>
+  </ul>
+
+</section>
+
+<section class="row">
+  <h2 class="columns small-12"><%= @recipe.name %></h2>
+</section>
+<section class="row">
+
+  <p class="columns small-12 recipe-link">
+    check out the entire recipe at <%= link_to @recipe.recipe_source, "#{@recipe.recipe_url}", target: :_blank %>
+  </p>
+
+</section>
+<section class="columns small-6 medium-6 large-4 show-recipe-image">
+
+  <%= image_tag @recipe.image %>
+
+</section>
+
+
+<section class="columns small-12 medium-6 large-4 nutrition-info">
+
+  <h3>Nutrition Information</h3>
+  <table>
+    <thead>
+      <th>
+        Nutrient
+      </th>
+      <th>
+        Amount
+      </th>
+    </thead>
+    <% @nutrients.each do |nutrient| %>
+    <% if @recipe.nutrients[nutrient] %>
+    <tr>
+      <td>
+        <%= @recipe.nutrients[nutrient]["label"] %>
+      </td>
+      <td>
+        <%= @recipe.nutrients[nutrient]["quantity"].to_f.round(2) %> <%= @recipe.nutrients[nutrient]["unit"] %>
+      </td>
+    </tr>
+    <% end %>
+    <% end %>
+  </table>
+</section>
+
+<section class="columns small-12 medium-12 large-4 ingredients-list">
+  <h3>Ingredients</h3>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+    <li>
+      <%= ingredient %>
+    </li>
+    <% end %>
+  </ul>
+</section>

@@ -1,0 +1,29 @@
+<section class="search-results row">
+
+  <h2><% if session[:health] %><%= session[:health] %> <% end %>recipes<% if session[:search_terms] != "" %> matching "<%= session[:search_terms] %>"<% end %></h2>
+
+  <% if @results.empty? %>
+  <p class="nothing-found">
+    Nothing found. Try choosing 'none' or using fewer search terms.
+  </p>
+  <% else %>
+  <% if current_user %>
+  <%= link_to "save this search", save_search_path, method: :post, class: "columns small-12 nav" %>
+  <% end %>
+  <section class="columns small-12">
+    <%= link_to "prev", recipes_path(prev: true), method: :get, class: "columns small-12 medium-6 nav" %>
+
+    <%= link_to "next", recipes_path(next: true), method: :get, class: "columns small-12 medium-6 nav" %>
+  </section>
+
+  <% @results.each do |result| %>
+  <section class="indiv-recipe columns small-12 large-4">
+    <%= link_to image_tag(result.image), recipe_path(uri: result.uri), method: :get, class: "index-image" %>
+    <div class="recipe-title-div">
+      <%= link_to truncate(result.name), recipe_path(uri: result.uri), method: :get, class: "recipe-title" %>
+    </div>
+  </section>
+  <% end %>
+  <% end %>
+
+</section>

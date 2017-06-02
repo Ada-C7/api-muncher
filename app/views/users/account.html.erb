@@ -1,0 +1,37 @@
+<section class="account-page row">
+  <h1><%= current_user.username %></h1>
+  <section class="columns small-12 medium-6">
+    <h3 class="account-searches">My Saved Searches</h3>
+    <% if @searches.empty? %>
+    <p>
+      No saved searches yet.
+    </p>
+    <% else %>
+    <ul class="saved-searches">
+      <% @searches.each do |search| %>
+      <li class="searches-links">
+        <%= link_to "#{search.search_terms} #{search.get_health}", recipes_path(search_terms: search.search_terms, health: search.health), class: "search-link" %>
+        <%= link_to "delete", delete_search_path(search.id), method: :delete, class: "delete hidden", data: { confirm: 'Really delete this saved search?' } %>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
+  </section>
+  <section class="columns small-12 medium-6">
+    <h3 class="account-recipes">My Favorite Recipes</h3>
+    <% if @recipes.empty? %>
+    <p>
+      No saved recipes yet.
+    </p>
+    <% else %>
+    <ul class="saved-recipes">
+      <% @recipes.each do |recipe| %>
+      <li class="recipes-links">
+        <%= link_to recipe.name, recipe.recipe_url, class: "recipe-link", target: :_blank %>
+        <%= link_to "delete", delete_recipe_path(recipe.id)  , method: :delete, class: "delete hidden", data: { confirm: 'Really delete this saved recipe?' } %>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
+  </section>
+</section>

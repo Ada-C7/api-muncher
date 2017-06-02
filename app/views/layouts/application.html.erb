@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Recipe Rex</title>
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="row">
+  <header class="row">
+    <section class=" columns small-12 medium-9">
+
+      <h1 class="columns small-12"><%= link_to "Recipe Rex", root_path, method: :get %></h1>
+
+
+      <section class="columns small-12">
+        <ul class="top-nav">
+
+        <% if current_user %>
+
+        <li>
+          <%= link_to "Logout", logout_path, method: :delete, class: "" %>
+        </li>
+        <li>
+          <%= link_to "My Account", account_path, method: :get, class: "" %>
+        </li>
+
+        <% else %>
+
+        <li>
+          <%= link_to "Login", login_form_path, method: :get, class: "" %>
+        </li>
+
+        <% end %>
+
+        <li>
+          <%= link_to "New search", root_path, method: :get, class: "" %>
+        </li>
+      </ul>
+
+      </section>
+    </section>
+    <section class="columns small-12 medium-3">
+      <%= image_tag "trex", class: "trex" %>
+    </section>
+
+  </header>
+  
+  <section class="content row">
+    <%= yield %>
+  </section>
+  <footer class="row">
+    <section class="credits">
+      <p class="columns small-12 personal-credit">
+        a project by <%= link_to "Aurora Anderson", "http://github.com/auroralemieux", target: :_blank %>
+      </p>
+      <p class="columns small-12 api-credit">
+        recipe search powered by <%= link_to "Edamam", "https://www.edamam.com", target: :_blank %>
+      </p>
+    </section>
+  </footer>
+
+</body>
+</html>
