@@ -1,4 +1,8 @@
 # Recipe API Consumer
+An assignment completed during my time as a student at Ada Developers Academy.
+Link to version delopyed to Heroku: [Eat Your Veggies](https://addie-api-muncher.herokuapp.com/)
+
+Original instructions below.
 
 ## Purpose
 Create a web application that will display recipes based on a search term. We will utilize an API from Edamam called the [Recipe Search API](https://developer.edamam.com/edamam-recipe-api).
