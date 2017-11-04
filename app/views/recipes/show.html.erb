@@ -1,0 +1,32 @@
+<section id="main-content">
+  <section id="recipe-details">
+    <div id="recipe-title">
+      <h2><%= @recipe.name %></h2>
+      <div class="row">
+        <h5 class="italic float-left"><%= @recipe.recipe_source %></h5>
+        <p class="float-right"><%= @recipe.servings %> Servings</p>
+      </div>
+    </div>
+    <div id="recipe-info" class="row">
+      <section class="small-12 medium-8 columns">
+          <%= image_tag @recipe.image %>
+      </section>
+
+      <section id="recipe-content" class="small-12 medium-4 columns">
+        <h3>Ingredients</h3>
+        <ul>
+          <% @recipe.ingredient_lines.each do | ingredient | %>
+          <li><%= ingredient %></li>
+          <% end %>
+        </ul>
+        <h3>Labels</h3>
+        <ul>
+          <% @recipe.health_labels.each do | healthlabel |  %>
+          <li><%= healthlabel %></li>
+          <% end %>
+        </ul>
+        <p><%= link_to "VIEW RECIPE", @recipe.url, :class => "button" %></p>
+      </section>
+    </div>
+  </section>
+</section>
