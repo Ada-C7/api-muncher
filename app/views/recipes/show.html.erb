@@ -1,0 +1,40 @@
+<section>
+  <h2 class="small-12 columns"><%= @recipe.label %></h2>
+  <section class="medium-3 small-12 columns recipe-image">
+    <%= image_tag @recipe.image, alt: @recipe.label %>
+  </section>
+  <section class="medium-9 small-12 columns recipe-details">
+    <p>
+      <% (@recipe.diet_labels + @recipe.health_labels).each do |food_info| %>
+        &check; <%= food_info %>
+      <% end %>
+    </p>
+    <p>
+      <strong>Calories:</strong> <%= @recipe.calories.round(2) %>
+    </p>
+    <h4>Ingredients:</h4>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient %></li>
+      <% end %>
+    </ul>
+    <%= link_to "See full recipe", @recipe.recipe_link, target: "_blank", class: "button" %>
+  </section>
+  <section class="small-12 columns">
+    <h4>Nutrition Information:</h4>
+    <table>
+      <tr>
+        <th>Label</th>
+        <th width="150">Total</th>
+        <th width="150">% Daily Value</th>
+      </tr>
+      <% @recipe.nutrients.each do |nutrient| %>
+        <tr>
+          <td><%= nutrient["label"] %></td>
+          <td><%= nutrient["total"].round(2) %><%= nutrient["unit"] %></td>
+          <td><%= nutrient["daily"].round(2) %>%</td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
+</section>

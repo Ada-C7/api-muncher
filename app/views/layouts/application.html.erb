@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Eat Your Veggies</title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <header class="row">
+      <h1 class="small-12 columns"><%= link_to "Eat Your Veggies", root_path %></h1>
+    </header>
+    <main class="row">
+      <%= yield %>
+    </main>
+    <footer class="row">
+      <p class="small-12 columns">Recipe data provided by <a href="https://www.edamam.com/" target="_blank">Edamam</a> </p>
+    </footer>
+  </body>
+</html>

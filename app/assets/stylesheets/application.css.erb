@@ -1,0 +1,149 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Inknut+Antiqua');
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-image: url('<%= asset_path("Colored-vegetables-seamless-pattern-vector-01.jpg") %>');
+  /*image from http://freedesignfile.com/217308-colored-vegetables-seamless-pattern-vector-01/*/
+  background-attachment: fixed;
+  display: block;
+  margin-bottom: 2em;
+}
+
+html, body {
+  height: auto;
+}
+
+header h1 {
+  font-size: 3em;
+  text-align: center;
+  text-shadow: -2px 0 #91758E, 0 2px #91758E, 2px 0 #91758E, 0 -2px #91758E;
+}
+
+h2 {
+  text-align: center;
+}
+
+footer {
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 2%;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  height: 2em;
+  width: 300px;
+  border: solid 1px #A5CD39;
+}
+
+footer p {
+  margin: 0;
+  line-height: 1.8em;
+}
+
+img, a img {
+  border-radius: 10%;
+  border: solid #91758E 3px;
+}
+
+input[type='text'] {
+  border: solid 2px #91758E;
+  border-radius: 5px;
+  height: 3em;
+}
+
+input[type='text']:focus {
+  border: solid 2px #91758E;
+}
+
+th, td {
+  border: solid 1px #91758E;
+}
+
+form {
+  text-align: center;
+}
+
+.search-button {
+  width: 400px;
+  max-width: 90%;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.search-button:focus {
+  outline: none;
+}
+
+.recipe-list {
+  padding: 2%;
+}
+
+.recipe-list ul {
+  margin: 0;
+}
+
+.recipe-list li {
+  list-style-type: none;
+  text-align: center;
+}
+
+.recipe-list h4 {
+  width: 90%;
+  margin: 2% auto;
+  font-size: 1.2em;
+  background-color: #fff;
+  border-radius: 5px;
+  border: solid 1px #A5CD39;
+  padding: 1%;
+}
+
+.button {
+  border-radius: 5%;
+  border: solid 2px #91758E;
+  color: #91758E;
+  font-weight: bold;
+}
+
+.button:hover {
+  color: #91758E;
+}
+
+.index-buttons {
+  text-align: right;
+  margin: 1em 0 0 0;
+}
+
+.recipe-image {
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.recipe-details {
+  background-color: #fff;
+  border: solid 1px #A5CD39;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}

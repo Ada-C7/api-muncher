@@ -1,0 +1,36 @@
+<section class="small-12 columns">
+  <%= form_tag(recipes_path, method: :get, id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for Recipes" %>
+    <%= hidden_field_tag :page, 1 %>
+    <%= submit_tag "Search", class: "button search-button" %>
+  <% end %>
+</section>
+
+<section class="small-12 columns recipe-list">
+  <% if params[:search] %>
+    <% page = params[:page] ? params[:page].to_i : 1 %>
+
+    <% if @recipes.empty? %>
+      <h2>No results found.</h2>
+    <% else %>
+      <h2>Recipes containing <%= params[:search] %> (page <%= page %>)</h2>
+      <ul class="small-up-1 medium-up-3 large-up-4">
+        <% @recipes.each do |recipe| %>
+          <li class="column">
+            <%= link_to image_tag(recipe.image, alt: recipe.label, class: "recipe-image"), recipe_path(recipe.id) %>
+            <h4><%= link_to recipe.label, recipe_path(recipe.id), class: "recipe-name" %></h4>
+          </li>
+        <% end %>
+      </ul>
+
+      <p class="small-12 columns index-buttons">
+        <% if page > 1 %>
+          <%= link_to "prev 10", params.permit(:search).merge(page: page - 1), class: "button" %>
+        <% end %>
+        <% if !(@recipes.length < 10) && !@recipes.empty? %>
+          <%= link_to "next 10", params.permit(:search).merge(page: page + 1), class: "button" %>
+        <% end %>
+      </p>
+    <% end %>
+  <% end %>
+</section>
